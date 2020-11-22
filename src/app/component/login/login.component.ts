@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
             this.mapService.loginChange.emit(true);
           },
           error => {
+            this.mapService.loading.next(false)
             console.log(error);
             this.error = error;
             if (error.status === 0) {
@@ -79,6 +80,7 @@ export class LoginComponent implements OnInit {
           this.mapService.loginChange.emit(true);
         },
         error => {
+          this.mapService.loading.next(false)
           console.log(error);
           this.error = error;
           if (error.status === 0) {
