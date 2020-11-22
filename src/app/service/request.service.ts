@@ -55,11 +55,13 @@ export class RequestService {
   requestScan(tileId: number): Promise<Scan> {
     const s = new Scan();
     s.time = new Date();
-    s.ores = [
-      {name: 'Bauxite', amount: 5},
-      {name: 'Hematite', amount: 1300000},
-      {name: 'Quartz', amount: 5300}
-    ];
+    s.planet = 'Thades';
+    s.tileId = tileId;
+    s.ores = {
+      Bauxite: 5,
+      Hematite: 1300000,
+      Quartz: 5300
+    };
     return Promise.resolve(s);
   }
 
