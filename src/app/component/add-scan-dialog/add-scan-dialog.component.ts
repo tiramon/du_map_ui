@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { startWith } from 'rxjs/operators';
 import { Scan } from 'src/app/model/Scan';
 import { MapService } from 'src/app/service/map.service';
 import { RequestService } from 'src/app/service/request.service';
@@ -19,7 +20,11 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   @Output()
   endModal  = new EventEmitter();
 
+  ocrResult: string;
+
+  tab = 1;
   message = '';
+  error  = [];
 
   scan: Scan;
   ores: string[];
@@ -74,19 +79,22 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.message = '';
-    this.newScan();
+    this.clearScan();
   }
 
   ngOnInit() {
-    this.newScan();
+    this.clearScan();
   }
 
-  newScan() {
-    this.scan = new Scan();
+  clearScan() {
+    this.scan.tileId = null;
+    this.scan.time = null;
     if (this.currentPlanetId) {
       this.scan.planet = this.planets.find(p => p.id === this.currentPlanetId).name;
-      this.refreshCurrentOres();
+    } else {
+      this.scan.planet = null;
     }
+    this.refreshCurrentOres();
   }
 
   getOres(planet: string) {
@@ -111,7 +119,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
       // invalid character, prevent input
       event.target.value = value.replace(/[^0-9]/g, '');
       if (event.target.value.length > 6) {
-        event.target.value = event.target.value.substr(0,6);
+        event.target.value = event.target.value.substr(0, 6);
       }
     }
   }
@@ -126,10 +134,137 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
       if (close && response) {
         this.endModal.emit();
       } else {
-        this.newScan();
+        this.clearScan();
         setTimeout(() => this.message = '', 3000);
       }
     });
   }
+  fillForm(close: boolean) {
+    console.log(this.scan);
+    this.clearScan();
+    this.error = [];
+    this.message = '';
 
+    this.parseResponse(this.ocrResult, this.scan);
+    if (this.error.length === 0) {
+      console.log(this.scan);
+      this.tab = 1;
+      this.message = 'Your scan was successfully parsed.';
+    }
+  }
+
+  remove(array: string[], item: string) {
+    const index = array.indexOf(item);
+    if (index !== -1) {
+      array.splice(index, 1);
+    }
+    return array;
+  }
+
+  parseResponse(text: string, scan: Scan): Scan {
+    let splittedInput = text.split(/\r?\n/);
+    splittedInput = splittedInput.filter(k => k);
+    if (splittedInput[0][0] === '*') {
+      this.remove(splittedInput, splittedInput[0]);
+    }
+    console.log('first split', splittedInput);
+    const map = {};
+    splittedInput.map(l => l.split(/\t/)).forEach(ls => map[ls[0]] = ls[1]);
+    console.log(map);
+
+    let keys = Object.keys(map);
+
+    console.log('keys', keys);
+    const systemkey = this.bestMatch('SYSTEM', keys);
+    const territorykey = this.bestMatch('TERRITORY ID', keys);
+    const agekeys = this.bestMatch('AGE', keys);
+
+    const bestSystemMatch = this.bestMatch(map[systemkey], this.planets.map(p => p.name));
+    scan.planet = bestSystemMatch;
+    this.refreshCurrentOres();
+
+    if (+map[territorykey] != map[territorykey]) {
+      this.error.push(`could not parse the value of TERRITORY ID-> ${map[territorykey]} is not numeric`);
+    }
+    scan.tileId = +map[territorykey];
+
+    console.log(bestSystemMatch + ' ' + map[territorykey] + ' ' + map[agekeys]);
+    keys = this.remove(keys, systemkey);
+    keys = this.remove(keys, territorykey);
+    const splittedAge = map[agekeys].split(' ');
+    console.log(splittedAge, agekeys, map[agekeys]);
+    const unit = this.bestMatch(splittedAge[1], ['min', 'hrs', 'd']);
+    let age = +splittedAge[0];
+    scan.time =  new Date(Date.now() - age);
+    if (unit === 'hrs') {
+      age *= 60;
+    } else if (unit === 'd') {
+      age *= 24 * 60;
+    }
+
+    age *= 60 * 1000;
+    keys = this.remove(keys, agekeys); // min hrs d
+    console.log(keys);
+    for (const key of keys) {
+      const out = this.bestMatch(key, this.oreNames.map(o => o.name));
+      const amount = map[key];
+      const splitted = amount.split(' ');
+      const oreUnit = this.bestMatch(splitted[1], ['L', 'kL']);
+      // .replace(".", ",")
+      if (+splitted[0] != splitted[0]) {
+        this.error.push(`could not parse the value of ${key} -> ${splitted[0]} is not numeric`);
+      }
+      let value = +splitted[0].trim();
+
+      console.log('oreunit', oreUnit);
+      if (oreUnit === 'kL') {
+        value *= 1000;
+      }
+      console.log(out + (out !== key ? '(' + key + ')' : '') + ' ' + value);
+
+      scan.ores[out] = value;
+    }
+    return scan;
+  }
+
+  bestMatch( input: string, possibleValues: string[]) {
+    let best = Infinity;
+    let bestString = '';
+    for (const  value of possibleValues) {
+      const v = this.calculate(value, input);
+      if (v < best) {
+        best = v;
+        bestString = value;
+      }
+    }
+    //console.log('match', input, possibleValues, bestString);
+    return bestString;
+  }
+
+  calculate(x: string, y: string) {
+    const dp = [];
+
+    for (let i = 0; i <= x.length; i++) {
+      if (!dp[i]) { dp[i] = []; }
+      for (let j = 0; j <= y.length; j++) {
+        if (i === 0) {
+          dp[i][j] = j;
+        } else if (j === 0) {
+          dp[i][j] = i;
+        } else {
+          dp[i][j] = this.min(dp[i - 1][j - 1] + this.costOfSubstitution(x[i - 1], y[j - 1]), dp[i - 1][j] + 1, dp[i][j - 1] + 1);
+        }
+      }
+    }
+    return dp[x.length][y.length];
+  }
+
+  costOfSubstitution(a, b) {
+    return a === b ? 0 : 1;
+  }
+
+  min( n1, n2, n3) {
+    //console.log(n1,n2,n3,Math.min(n1, n2, n3), Math.min(n1, n2, n3) || Infinity);
+    return Math.min(n1, n2, n3);
+  }
 }

@@ -52,3 +52,18 @@ table{
 .isModal {
       display: none;
 }
+
+.tab {
+    background-color: rgb(13,24,28);
+    border-radius: 10px 10px 0px 0px;
+    border-top: 3px solid rgb(27,40,48);
+    border-left: 3px solid rgb(27,40,48);
+    border-right: 3px solid rgb(27,40,48);
+    color: white;
+    text-align: center;
+    padding: 5px
+}
+
+.tab-active {
+    border-bottom: 3px solid rgb(13,24,28);
+}

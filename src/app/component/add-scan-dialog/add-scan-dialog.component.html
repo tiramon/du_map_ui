@@ -2,75 +2,118 @@
 <div id="modal-content" class="centered dialog" [class.isModal]="!this.modal">
     <div class="leftColumn" style="padding-bottom: 10px;">
         <div class="tileHeader" style="padding: 10px;">Add Scan</div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label leftColumn">Planet</label>
-            </div>
-            <div class="field-body" style="margin-right:10px;">
-                <div class="field">
-                    <div class="control">
-                        <div class="select">
-                            <select style="width:100%" [(ngModel)]="scan.planet" (change)="changePlanet($event)">
-                                <option></option>
-                                <option *ngFor="let planet of planets" [ngValue]="planet.name">
-                                    {{planet.name}}
-                                </option>
-                            </select>
+        <div style="padding-top: 10px; padding-left: 10px;padding-right: 10px; margin-bottom: 10px; padding-bottom: 3px; border-bottom: 3px solid rgb(27,40,48)">
+            <span (click)="tab=1" class="tab" [class.tab-active]="tab == 1" style="overflow: visible">Add scan manually</span>
+            <span (click)="tab=2" class="tab" [class.tab-active]="tab == 2">Paste OCR result</span>
+        </div>
+        <div *ngIf="tab == 1">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">Planet</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select style="width:100%" [(ngModel)]="scan.planet" (change)="changePlanet($event)">
+                                    <option></option>
+                                    <option *ngFor="let planet of planets" [ngValue]="planet.name">
+                                        {{planet.name}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label leftColumn">Territory Id</label>
-            </div>
-            <div class="field-body" style="margin-right:10px;">
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Territory Id" [(ngModel)]="scan.tileId" (input)="inputValidator($event)">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">Territory Id</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Territory Id" [(ngModel)]="scan.tileId" (input)="inputValidator($event)">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label leftColumn">Time</label>
-            </div>
-            <div class="field-body" style="margin-right:10px;">
-                <div class="field">
-                    <div class="control">                        
-                        <input class="input" type="date" [(ngModel)]="scan.time" placeHolder="Time">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">Time</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">                        
+                            <input class="input" type="date" [ngModel] ="scan.time | date:'yyyy-MM-dd'" (ngModelChange)="scan.time = $event" placeHolder="Time">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="field is-horizontal" *ngFor="let ore of this.currentOres">
-            <div class="field-label is-normal">
-                <label class="label leftColumn">{{ore}}</label>
-            </div>
-            <div class="field-body" style="margin-right:10px;">
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="text" [(ngModel)]="scan.ores[ore]">
+            
+            <div class="field is-horizontal" *ngFor="let ore of this.currentOres">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">{{ore}}</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" [(ngModel)]="scan.ores[ore]">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="notification is-success" *ngIf="message">
-            {{message}}
-        </div>
-        <div class="field is-grouped is-grouped-centered" >
-            <div class="control">
-              <button class="button is-link" (click)="saveScan(false)">Save & New</button>
+            <div class="notification is-success" *ngIf="message">
+                {{message}}
             </div>
-            <div class="control">
-                <button class="button is-link" (click)="saveScan(true)">Save & Close</button>
-              </div>
-            <div class="control">
-              <button class="button is-link is-light" (click)="endModal.emit()">Close</button>
+            <div class="field is-grouped is-grouped-centered" >
+                <div class="control">
+                <button class="button is-link" (click)="saveScan(false)">Save & New</button>
+                </div>
+                <div class="control">
+                    <button class="button is-link" (click)="saveScan(true)">Save & Close</button>
+                </div>
+                <div class="control">
+                <button class="button is-link is-light" (click)="endModal.emit()">Close</button>
+                </div>
             </div>
-          </div>
+        </div>
+        <div *ngIf="tab == 2">
+            <div class="content" style="padding: 10px">
+                <a href="https://ocr.space/">OCR space</a> has good results with following settings:
+                <ul>
+                    <li>Language: English</li>
+                    <li>Do receipt scanning and/or table recognition [x]</li>
+                    <li>Auto-enlarge content (recommended for low DPI)</li>
+                    <li>Create Searchable PDF -> Just extract text and show overlay (fastest option)</li>
+                    <li>Select OCR Engine to use: -> Use OCR Engine2 (Often better for number and special character OCR)</li>
+                </ul>
+                The parse script will fix minor recognition problems like the 'chrom ite' in the example below.
+            </div>
+            <div class="field" style="padding: 10px">
+                <textarea style="width:100%;" [(ngModel)]="ocrResult" rows="10" placeholder="SYSTEM	Alioth	
+TERRITORY ID	0815	
+AGE	18 min	
+Bauxite	12.34 kL	
+Quartz	12.24 kL	
+Coal	12.73 kL	
+Hematite	12.72 kL	
+chrom ite	12.56 kL	"></textarea>
+            </div>
+            <div class="notification is-success" *ngIf="message">
+                {{message}}
+            </div>
+            <div class="notification is-danger" *ngIf="error.length()">
+                <div *ngFor="let e of error">{{e}}</div>
+            </div>
+            <div class="field is-grouped is-grouped-centered" >
+                <div class="control">
+                <button class="button is-link" (click)="fillForm()">Parse</button>
+                </div>                
+                <div class="control">
+                <button class="button is-link is-light" (click)="endModal.emit()">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
