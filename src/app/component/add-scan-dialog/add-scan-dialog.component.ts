@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, EventEmitter, Inject, Input, NO_ERRORS_SCHEMA, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { startWith } from 'rxjs/operators';
 import { Scan } from 'src/app/model/Scan';
 import { MapService } from 'src/app/service/map.service';
@@ -89,6 +90,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   clearScan() {
     this.scan.tileId = null;
     this.scan.time = null;
+    this.scan.ores = {};
     if (this.currentPlanetId) {
       this.scan.planet = this.planets.find(p => p.id === this.currentPlanetId).name;
     } else {
@@ -123,23 +125,38 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
       }
     }
   }
+
   saveScan(close: boolean) {
     console.log(this.scan);
-    this.requestService.saveScan(this.scan).then( response => {
-      if (response) {
-        console.log('scan saved');
-        this.message = 'Your scan was successfully saved.';
-        this.mapService.scanAdded.emit(this.scan);
+    this.error = [];
+    this.requestService.saveScan(this.scan).then(
+      response => {
+        if (response) {
+          console.log('scan saved');
+          this.message = 'Your scan was successfully saved.';
+          this.mapService.scanAdded.emit(this.scan);
+        }
+        if (close && response) {
+          this.endModal.emit();
+        } else {
+          this.clearScan();
+          setTimeout(() => this.message = '', 3000);
+        }
+      },
+      error => {
+        this.mapService.loading.next(false);
+        console.log(error);
+        if (error.status === 0) {
+          this.error.push('Backend not reachable');
+        }
+        if (error.status === 400) {
+          this.error.push('Invalid Data send, plz write 123000 instead of 123kL');
+        }
       }
-      if (close && response) {
-        this.endModal.emit();
-      } else {
-        this.clearScan();
-        setTimeout(() => this.message = '', 3000);
-      }
-    });
+    );
   }
-  fillForm(close: boolean) {
+
+  fillForm() {
     console.log(this.scan);
     this.clearScan();
     this.error = [];
@@ -193,6 +210,10 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     keys = this.remove(keys, territorykey);
     const splittedAge = map[agekeys].split(' ');
     console.log(splittedAge, agekeys, map[agekeys]);
+    if (splittedInput.length < 2 || !splittedAge[1]) {
+      this.error.push(`could not parse AGE value "${map[agekeys]}" ... maybe it's something like '3d' instead of '3 d'`)
+      return;
+    }
     const unit = this.bestMatch(splittedAge[1], ['min', 'hrs', 'd']);
     let age = +splittedAge[0];
     scan.time =  new Date(Date.now() - age);
@@ -207,8 +228,17 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     console.log(keys);
     for (const key of keys) {
       const out = this.bestMatch(key, this.oreNames.map(o => o.name));
-      const amount = map[key];
-      const splitted = amount.split(' ');
+      let amount = map[key];
+      let splitted = amount.split(' ');
+      if (splitted.length > 2) {
+        amount = amount.replace(' ', '');
+        splitted = amount.split(' ');
+      } else if (splitted.length < 2) {
+        this.error.push(`could not parse the value of ${key} -> ${amount} it's probably missing a whitespace between value and unit '123L' instead of '123 L'`);
+      }
+      if (splitted[1].length > 2) {
+        this.error.push(`could not parse the value of ${key} -> ${amount} it's probably missing a whitespace between value and unit '1 123L' instead of '1123 L'`)
+      }
       const oreUnit = this.bestMatch(splitted[1], ['L', 'kL']);
       // .replace(".", ",")
       if (+splitted[0] != splitted[0]) {

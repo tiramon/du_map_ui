@@ -66,6 +66,9 @@
             <div class="notification is-success" *ngIf="message">
                 {{message}}
             </div>
+            <div class="notification is-danger" *ngIf="error.length > 0">
+                <div *ngFor="let e of error">{{e}}</div>
+            </div>
             <div class="field is-grouped is-grouped-centered" >
                 <div class="control">
                 <button class="button is-link" (click)="saveScan(false)">Save & New</button>
@@ -103,7 +106,7 @@ chrom ite	12.56 kL	"></textarea>
             <div class="notification is-success" *ngIf="message">
                 {{message}}
             </div>
-            <div class="notification is-danger" *ngIf="error.length()">
+            <div class="notification is-danger" *ngIf="error.length > 0">
                 <div *ngFor="let e of error">{{e}}</div>
             </div>
             <div class="field is-grouped is-grouped-centered" >
