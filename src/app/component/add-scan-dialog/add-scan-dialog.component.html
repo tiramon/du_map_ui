@@ -1,0 +1,76 @@
+<div id="modal" class="map_modal" [class.isModal]="!this.modal"></div>
+<div id="modal-content" class="centered dialog" [class.isModal]="!this.modal">
+    <div class="leftColumn" style="padding-bottom: 10px;">
+        <div class="tileHeader" style="padding: 10px;">Add Scan</div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label leftColumn">Planet</label>
+            </div>
+            <div class="field-body" style="margin-right:10px;">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select style="width:100%" [(ngModel)]="scan.planet" (change)="changePlanet($event)">
+                                <option></option>
+                                <option *ngFor="let planet of planets" [ngValue]="planet.name">
+                                    {{planet.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label leftColumn">Territory Id</label>
+            </div>
+            <div class="field-body" style="margin-right:10px;">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Territory Id" [(ngModel)]="scan.tileId" (input)="inputValidator($event)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label leftColumn">Time</label>
+            </div>
+            <div class="field-body" style="margin-right:10px;">
+                <div class="field">
+                    <div class="control">                        
+                        <input class="input" type="date" [(ngModel)]="scan.time" placeHolder="Time">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="field is-horizontal" *ngFor="let ore of this.currentOres">
+            <div class="field-label is-normal">
+                <label class="label leftColumn">{{ore}}</label>
+            </div>
+            <div class="field-body" style="margin-right:10px;">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" [(ngModel)]="scan.ores[ore]">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notification is-success" *ngIf="message">
+            {{message}}
+        </div>
+        <div class="field is-grouped is-grouped-centered" >
+            <div class="control">
+              <button class="button is-link" (click)="saveScan(false)">Save & New</button>
+            </div>
+            <div class="control">
+                <button class="button is-link" (click)="saveScan(true)">Save & Close</button>
+              </div>
+            <div class="control">
+              <button class="button is-link is-light" (click)="endModal.emit()">Close</button>
+            </div>
+          </div>
+    </div>
+</div>

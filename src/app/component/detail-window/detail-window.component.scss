@@ -1,0 +1,23 @@
+table th, table td{
+    padding: 10px; /* Apply cell padding */
+}
+
+table{    
+    border-spacing: 0px; /* Apply cell spacing */
+    background-color: rgb(13,24,28);
+}
+
+.tileHeader {
+    background-color: rgb(20, 32, 39); 
+    color: white;
+    font-weight: bold;
+}
+
+.leftColumn {
+    background-color: rgb(13,24,28);
+     color: rgb(76,112,124);
+}
+.rightColumn {
+    background-color: rgb(13,24,28);
+    color: rgb(182,222,236);
+}

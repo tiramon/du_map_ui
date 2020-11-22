@@ -1,0 +1,68 @@
+.dialog {
+    position: absolute;
+    width:50%;
+    z-index: 100;
+    background-color: rgb(27,40,48);
+    padding: 5px;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+table th, table td{
+    padding: 10px; /* Apply cell padding */
+}
+
+table{    
+    border-spacing: 0px; /* Apply cell spacing */
+    background-color: rgb(13,24,28);
+}
+
+.tileHeader {
+    background-color: rgb(20, 32, 39); 
+    color: white;
+    font-weight: bold;
+}
+
+.leftColumn {
+    background-color: rgb(13,24,28);
+     color: rgb(76,112,124);
+}
+.rightColumn {
+    background-color: rgb(13,24,28);
+    color: rgb(182,222,236);
+}
+
+.map_modal {    
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.isModal {
+      display: none;
+}
+
+.btn {
+    height: 50px;
+    line-height: 35px;  
+    width: 50px;  
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: rgb(20, 32, 39);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border: 5px solid rgb(27,40,48);
+  }

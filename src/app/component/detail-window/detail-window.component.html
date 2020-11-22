@@ -1,0 +1,35 @@
+<table style="border-spacing: 0; min-width : 200px">
+    <tr>
+        <td colspan="2" class="tileHeader">TILE - {{face?.tileId}}</td>
+    </tr>
+    <tr>
+        <td class="leftColumn">OWNER</td><td class="rightColumn">{{face?.owner}}</td>
+    </tr>
+    <tr>
+        <td class="leftColumn">Latitude</td><td class="rightColumn">{{face?.latitude | number:'1.4-4'}}</td>
+    </tr>
+    <tr>
+        <td class="leftColumn">Longitude</td><td class="rightColumn">{{face?.longitude | number:'1.4-4'}}</td>
+    </tr>
+    <tr>
+        <!--between 8/9 is 0,0-->
+        <td class="rightColumn" (click)="onPosClick()" colspan="2" style="cursor: pointer;" title="click to copy">
+            ::pos&#123;0,{{face?.duEntityId}},{{face?.latitude | number:'1.4-4'}},{{face?.longitude | number:'1.4-4'}},0.0&#125;
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="2" class="tileHeader" style="text-align: center;"> Scan</td>
+    </tr>
+    <tr>
+        <td class="leftColumn">Time</td><td class="rightColumn">{{scan?.time | date}}</td>
+    </tr>
+
+    <ng-container *ngFor="let ore of oreNames">
+    <tr  *ngIf="scan?.ores[ore.name]">
+        <td class="rightColumn">{{ore.name}}</td><td class="rightColumn" style="text-align: right;">{{scan.ores[ore.name]}}</td>
+    </tr>
+    </ng-container>
+</table>
