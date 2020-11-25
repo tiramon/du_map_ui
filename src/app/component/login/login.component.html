@@ -2,48 +2,18 @@
 
 <div id="modal-content" class="centered dialog" [class.isModal]="!this.modal">
     <div class="leftColumn" style="padding-bottom: 10px;">
-        <form (submit)="onSubmit($event)">
         <div class="tileHeader" style="padding: 10px; margin-bottom: 10px;">
             Login
         </div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label leftColumn">E-Mail</label>
-            </div>
-            <div class="field-body" style="margin-right:10px;">
-                <div class="field">
-                    <div class="control">
-                        <input type="test" name="username" class="input" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label leftColumn">Password</label>
-            </div>
-            <div class="field-body" style="margin-right:10px;">
-                <div class="field">
-                    <div class="control">
-                        <input type="password" name="password" class="input"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="notification is-danger is-centered" *ngIf="error">
-            {{error}}
-        </div>
-        
+
         <div class="field is-grouped is-grouped-centered" >
             <div class="control">
-              <button type="submit" name="login" class="button is-link" (click)="this.login='login'">Login</button>
-            </div>
-            <div class="control">
-              <button type="submit" name="register" class="button is-link" (click)="this.login='register'">Register</button>
+                <div class="loginButton" (click)="discord()">
+                    <fa-icon [icon]="faDiscord" size="s" [styles]="{'color': 'white'}"></fa-icon> Login with Discord
+                </div>
             </div>
         </div>
-        </form>
-        <button type="button" (click)="discord()">Discord</button>
+        
     </div>
 </div>
 

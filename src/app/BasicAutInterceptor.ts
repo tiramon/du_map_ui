@@ -14,15 +14,11 @@ export class BasicAuthInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with basic auth credentials if available
 
-        if (request.url.indexOf('www.dumap.de') < 0) {
-            return next.handle(request);
-        }
         const currentUser = this.oauthService.getAccessToken();
         if (currentUser) {
-            console.log('logedin');
             request = request.clone({
                 setHeaders: {
-                    Authorization: `Basic ${this.oauthService.getAccessToken()}`
+                    Authorization: `Bearer ${this.oauthService.getAccessToken()}`
                 }
             });
         }
