@@ -68,7 +68,10 @@ export class MapComponentComponent implements OnInit {
       }
     });
     settingsService.settingsChanged.subscribe(
-      settings => this.settings = settings
+      settings => {
+        this.settings = settings;
+        this.drawMap();
+      }
     );
     // if a scan was added, add it to the tile without reload and repaint the map
     mapService.scanAdded.subscribe( (scan: Scan) => {
@@ -101,17 +104,29 @@ export class MapComponentComponent implements OnInit {
     if (!this.authenticationService.currentUserValue) {
       return;
     }
-    this.requestService.requestMap(celestialId, tileId).then( result => {
-      this.face = result;
-      this.drawMap();
-      // this.markCenter();
-    });
+    this.requestService.requestMap(celestialId, tileId).then(
+      result => {
+        this.face = result;
+        this.drawMap();
+        // this.markCenter();
+      },
+      error => {
+        if (error.status === 404) {
+          this.mapService.loading.next(false);
+          const planetName = this.planetNames.find(p => p.id == celestialId).name;
+          alert(`Tile ${tileId} does not exist on ${planetName}`);
+        }
+      }
+    );
   }
 
   private drawMap() {
     this.clear();
     for (const f of this.face) {
       this.drawFace(f);
+    }
+    for (const f of this.face) {
+      this.drawText(f);
     }
   }
 
@@ -157,8 +172,100 @@ export class MapComponentComponent implements OnInit {
     return loaded;
   }
 
-  drawFace(face, color = `rgba(236, 119, 76, ${1.0})`) {
-    // rotate poly in 3d
+  drawText(face) {
+    const vertex = face.vertices;
+    const center = face.center;
+    // console.log('face vertices', face, vertex , center);
+    let x;
+    let y;
+    let z;
+    if (center[0] < -(this.CANVAS_WIDTH / 2) - this.canvasTolerance || center [0] > this.CANVAS_WIDTH / 2 + this.canvasTolerance) {
+    //  console.log('skip width', face);
+      return;
+    }
+    if (center[1] < -(this.CANVAS_HEIGHT / 2) - this.canvasTolerance || center [1] > this.CANVAS_HEIGHT / 2 + this.canvasTolerance) {
+    //  console.log('skip height', face);
+      return;
+    }
+    this.ctx.beginPath();
+    let minY = Infinity;
+    let maxY = -Infinity;
+    let minX = Infinity;
+    let maxX = -Infinity;
+    [x, y] = vertex[vertex.length - 1];
+    this.ctx.moveTo(x + this.offsetX2D, y + this.offsetY2D);
+    for (const v of vertex) {
+      [x, y, z] = v;
+      minX = x < minX ? x : minX;
+      maxX = x > maxX ? x : maxX;
+      minY = y < minY ? y : minY;
+      maxY = y > maxY ? y : maxY;
+      this.ctx.lineTo(x + this.offsetX2D, y + this.offsetY2D);
+    }
+    const centerToTop = minY - center[1];
+    const yModifier = Math.abs(centerToTop) < 45 ? 0 : 15;
+    console.log(yModifier);
+    if ( face.scan) {
+      [x, y] = center;
+      let yOreOffset = 0;
+      let xOreOffset = 0;
+      if (this.settings.showResourceIcons) {
+        let lastOre;
+        for (const ore of this.oreNames) {
+          if (face.scan.ores[ore.name]) {
+            if (this.settings.showOreIconsT(ore.tier)) {
+              if (lastOre && ore.tier !== lastOre.tier) {
+                yOreOffset += 20;
+                xOreOffset = 0;
+              }
+              console.log('draw image', this.getAllIconsLoaded());
+              this.ctx.drawImage(this.getOreIcon(ore.pictureName ? ore.pictureName : ore.name),
+                0, 0, 82, 82,
+                x + this.offsetX2D - 40 + xOreOffset, y + this.offsetY2D  - yModifier + yOreOffset, 22, 22
+              );
+              xOreOffset += 18;
+              lastOre = ore;
+            }
+          }
+        }
+        yOreOffset += 20;
+      }
+
+      xOreOffset = 0;
+      if (this.settings.showResourceAmount) {
+        const fontSize = 13;
+        this.ctx.font = fontSize + 'px Arial';
+        this.ctx.fillStyle = `rgba(0, 0, 0, ${1.0})`;
+        for (const ore of this.oreNames) {
+          if (face.scan.ores[ore.name]) {
+            if (this.settings.showOreTextsT(ore.tier)) {
+              const oreShort = ore.name.substring(0, 3);
+              const amount = Math.round(face.scan.ores[ore.name] / 1000);
+              const text = `${amount}kL`; // ${oreShort}
+              const metrics = this.ctx.measureText(text);
+              this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;
+              this.ctx.fillText(text + ` ${oreShort}`, x + this.offsetX2D +5-metrics.width + xOreOffset, y + this.offsetY2D  -yModifier + fontSize*1.2 + yOreOffset);
+              yOreOffset += fontSize;
+            }
+          }
+        }
+      }
+    }
+
+    if ('' + face.tileId) {
+      [x, y] = center;
+      console.log(face.tileId, y, minY, minY - y, yModifier);
+
+      const fontSize = 24; // Math.round(26 / 6000 * this.perspectiveScale);
+      this.ctx.font = fontSize + 'px Arial';
+      this.ctx.fillStyle = `rgba(0, 0, 0, ${1.0})`;
+      const text = '' + face.tileId;
+      const metrics = this.ctx.measureText(text);
+      // + fontSize / 2
+      this.ctx.fillText(text, x + this.offsetX2D - metrics.width / 2, y -  (face.scan && this.settings.showResourceAmount ? yModifier : 0) + this.offsetY2D);
+    }
+  }
+  drawFace(face, color = `rgb(64,77,85)`) {
     const vertex = face.vertices;
     const center = face.center;
     // console.log('face vertices', face, vertex , center);
@@ -175,15 +282,24 @@ export class MapComponentComponent implements OnInit {
     }
     this.ctx.beginPath();
 
+    let minY = Infinity;
+    let maxY = -Infinity;
+    let minX = Infinity;
+    let maxX = -Infinity;
     [x, y] = vertex[vertex.length - 1];
     this.ctx.moveTo(x + this.offsetX2D, y + this.offsetY2D);
     for (const v of vertex) {
       [x, y, z] = v;
+      minX = x < minX ? x : minX;
+      maxX = x > maxX ? x : maxX;
+      minY = y < minY ? y : minY;
+      maxY = y > maxY ? y : maxY;
       this.ctx.lineTo(x + this.offsetX2D, y + this.offsetY2D);
     }
+    const centerToTop = minY - y;
 
     if (face.owner) {
-      this.ctx.fillStyle = `rgba(255, 0, 0, 1.0)`;
+      this.ctx.fillStyle = `rgba(160, 0, 0, 1.0)`;
     } else {
       this.ctx.fillStyle = color;
     }
@@ -194,47 +310,13 @@ export class MapComponentComponent implements OnInit {
       this.ctx.fill();
     } else if (face.scan) {
       // console.log(face.tileId, face, Object.keys(face.scan.ores).length);
-      this.ctx.fillStyle = `rgba(211, 211, 211, 0.3)`;
+      this.ctx.fillStyle = `rgba(50, 50, 50, 1.0)`;
       this.ctx.fill();
-      if (this.settings.showResourceIcons) {
-        [x, y] = center;
-        let lastOre;
-        let yOreOffset = 0;
-        let xOreOffset = 0;
-        for (const ore of this.oreNames) {
-          if (face.scan.ores[ore.name]) {
-            if (this.settings.showOresT(ore.tier)) {
-              if (lastOre && ore.tier !== lastOre.tier) {
-                yOreOffset += 20;
-                xOreOffset = 0;
-              }
-              console.log('draw image', this.getAllIconsLoaded());
-              this.ctx.drawImage(this.getOreIcon(ore.pictureName ? ore.pictureName : ore.name),
-                0, 0, 82, 82,
-                x + this.offsetX2D - 40 + xOreOffset, y + this.offsetY2D - 15 - 20 + yOreOffset, 22, 22
-              );
-              xOreOffset += 18;
-              lastOre = ore;
-            }
-          }
-        }
-      }
     }
 
     this.ctx.strokeStyle = 'lightgrey'; // rgba(0,0,0,0.3)';  // light lines, less cartoony, more render-y
     this.ctx.stroke();
     // console.log(face, face.tileId, face.tileId, center[0], center[1]);
-    if ('' + face.tileId) {
-      [x, y] = center;
-      const dx = Math.abs(x - vertex[0][0]);
-      const dy = Math.abs(y - vertex[0][1]);
-      const fontSize = 24; // Math.round(26 / 6000 * this.perspectiveScale);
-      this.ctx.font = fontSize + 'px Arial';
-      this.ctx.fillStyle = `rgba(0, 0, 0, ${1.0})`;
-      const text = '' + face.tileId;
-      const metrics = this.ctx.measureText(text);
-      this.ctx.fillText(text, x + this.offsetX2D - metrics.width / 2, y + this.offsetY2D + fontSize / 2);
-    }
   }
 
   public onCanvasClick(event) {

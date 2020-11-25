@@ -12,6 +12,8 @@ import { LoginComponent } from './component/login/login.component';
 import { BasicAuthInterceptor } from './BasicAutInterceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoadingComponent } from './component/loading/loading.component';
+import { environment } from 'src/environments/environment';
+import { MapSettingsComponent } from './component/map-settings/map-settings.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { LoadingComponent } from './component/loading/loading.component';
     DetailWindowComponent,
     AddScanDialogComponent,
     LoginComponent,
-    LoadingComponent
+    LoadingComponent,
+    MapSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { LoadingComponent } from './component/loading/loading.component';
     FontAwesomeModule
   ],
   providers: [
-    {provide: 'BASEURL', useValue: 'http://www.dumap.de:8150/'},
+    {provide: 'BASEURL', useValue: environment.apiEndpoint},
     {provide: 'PLANETS', useValue: [
       {id: 31, name: 'Alioth'}, {id: 17, name: 'Alioth Moon 1'}, {id: 18, name: 'Alioth Moon 4'},
       {id: 27, name: 'Feli'}, {id: 8, name: 'Feli Moon 1'},
@@ -48,11 +51,11 @@ import { LoadingComponent } from './component/loading/loading.component';
       {id: 21, name: 'Thades'}, {id: 7, name: 'Thades Moon 1'}, {id: 10, name: 'Thades Moon 2'}
     ]},
     {provide: 'ORES', useValue: [
-      {name: 'Bauxite', tier: 1}, {name: 'Coal', tier: 1}, {name: 'Hematite', tier: 1}, {name: 'Quartz', tier: 1},
-      {name: 'Chromite', tier: 2}, {name: 'Limestone', tier: 2}, {name: 'Malachite', tier: 2}, {name: 'Natron', tier: 2},
-      {name: 'Acanthite', tier: 3}, {name: 'Garnierite', tier: 3}, {name: 'Petalite', tier: 3}, {name: 'Pyrite', tier: 3},
-      {name: 'Cobaltite', tier: 4}, {name: 'Cryolite', tier: 4}, {name: 'Gold nuggets', pictureName: 'Gold', tier: 4}, {name: 'Kolbeckite', tier: 4},
-      {name: 'Columbite', tier: 5}, {name: 'Illmenite', tier: 5}, {name: 'Rhodonite', tier: 5}, {name: 'Thoramine', tier: 5}, {name: 'Vanadinite', tier: 5}
+      {name: 'Bauxite', tier: 1, color: 'rgb(214, 255, 255)'}, {name: 'Coal', tier: 1, color: 'rgb(214, 255, 255)'}, {name: 'Hematite', tier: 1, color: 'rgb(0, 186, 255)'}, {name: 'Quartz', tier: 1, color: 'rgb(104, 238, 255)'},
+      {name: 'Chromite', tier: 2, color: 'rgb(0, 164, 244)'}, {name: 'Limestone', tier: 2, color: 'rgb(101, 232, 249)'}, {name: 'Malachite', tier: 2, color: 'rgb(10, 173, 255)'}, {name: 'Natron', tier: 2, color: 'rgb(191, 249, 250)'},
+      {name: 'Acanthite', tier: 3, color: 'rgb(0, 220, 116)'}, {name: 'Garnierite', tier: 3, color: 'rgb(104, 238, 255)'}, {name: 'Petalite', tier: 3, color: 'rgb(150, 246, 255)'}, {name: 'Pyrite', tier: 3, color: 'rgb(0, 186, 255)'},
+      {name: 'Cobaltite', tier: 4, color: 'rgb(0, 201, 255)'}, {name: 'Cryolite', tier: 4, color: 'rgb(64, 224, 255)'}, {name: 'Gold nuggets', pictureName: 'Gold', tier: 4, color: 'rgb(255, 91, 0)'}, {name: 'Kolbeckite', tier: 4, color: 'rgb(150, 246, 255)'},
+      {name: 'Columbite', tier: 5, color: 'rgb(0, 200, 255)'}, {name: 'Illmenite', tier: 5, color: 'rgb(0, 164, 244)'}, {name: 'Rhodonite', tier: 5, color: 'rgb(11, 172, 252)'}, {name: 'Thoramine', tier: 5}, {name: 'Vanadinite', tier: 5, color: 'rgb(0, 220, 116)'}
     ]},
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,0 +1,19 @@
+.dialog {
+    position: absolute;
+    z-index: 20;
+    background-color: rgb(27,40,48);
+    padding: 5px;
+    left: 70px;
+    top: 150px;
+}
+
+.tileHeader {
+    background-color:rgb(13, 24, 28); 
+    color: white;
+    font-weight: bold;
+}
+
+.leftColumn {
+    background-color: rgb(13,24,28);
+     color: rgb(76,112,124);
+}

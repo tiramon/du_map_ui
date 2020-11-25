@@ -4,6 +4,6 @@ export class SelectedTile {
     }
 
     public toString(): string {
-        return `${this.tileId} @ ${this.celestialId}`
+        return `${this.tileId} @ ${this.celestialId}`;
     }
 }

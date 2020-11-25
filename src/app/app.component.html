@@ -1,6 +1,7 @@
+<dumap-map-settings *ngIf="showSettings"></dumap-map-settings>
 <dumap-loading></dumap-loading>
 <dumap-login *ngIf="!isLogedin()" [modal]="!isLogedin()"></dumap-login>
-<dumap-add-scan-dialog *ngIf="this.m" [modal]="this.m" (endModal)="this.m = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
+<dumap-add-scan-dialog *ngIf="this.showAddScan" [modal]="this.showAddScan" (endModal)="this.showAddScan = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
 <div class="columns">
   <div class="column is-2" style="background-color: rgb(27,40,48); padding: 0 ">
     <img src="assets/maps.PNG" style="object-fit: contain;">
@@ -16,8 +17,13 @@
       <input  #tileId style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
       <div class="btn" style=" margin-top: 10px" title="add scan" (click)="showAddScanDialog()">+</div>
 
+      <div class="btn" style=" margin-top: 10px" title="settings" (click)="showSettings = !showSettings">
+        <fa-icon [icon]="faCog" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      </div>
+
       <div class="btn" style=" margin-top: 10px" title="logout" (click)="logout()">L</div>
 
+      
       <div class="btn" style=" margin-top: 10px" title="Discord channel">
         <a href="https://discord.gg/PQeJMUeXb2"><fa-icon [icon]="faDiscord" size="xs" [styles]="{'color': 'white'}"></fa-icon></a>
       </div>

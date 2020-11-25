@@ -1,0 +1,65 @@
+<div class="dialog">
+    <div class="leftColumn" style="padding-bottom: 10px;">
+        <div class="tileHeader" style="padding: 10px;"><fa-icon [icon]="faCog" [styles]="{'color': 'white'}" ></fa-icon> Map Settings</div>
+        <div style=" padding: 10px">
+        <!--
+            <div>
+                <label class="checkbox">
+                    Show ore icons
+                    <input type="checkbox" name="showOre" checked="checked" (change)="showT1Icon.disabled = showT2Icon.disabled = showT3Icon.disabled = showT4Icon.disabled= showT5Icon.disabled = !$event.target.checked; showOreIconChanged(0, $event)">
+                </label><br>
+
+                <label class="checkbox" >
+                    Show T1 ore icons
+                    <input type="checkbox" #showT1Icon checked="checked" (change)="showOreIconChanged(1, $event)">
+                </label><br>
+
+                <label class="checkbox">
+                    Show T2 ore icons
+                    <input type="checkbox" #showT2Icon checked="checked" (change)="showOreIconChanged(2, $event)">
+                </label><br>
+                <label class="checkbox">
+                    Show T3 ore icons
+                    <input type="checkbox" #showT3Icon checked="checked" (change)="showOreIconChanged(3, $event)">
+                </label><br>
+                <label class="checkbox">
+                    Show T4 ore icons
+                    <input type="checkbox" #showT4Icon checked="checked" (change)="showOreIconChanged(4, $event)">
+                </label><br>
+                <label class="checkbox">
+                    Show T5 ore icons
+                    <input type="checkbox" #showT5Icon checked="checked" (change)="showOreIconChanged(5, $event)">
+                </label>
+            </div>
+        -->
+            <div class="leftColumn">
+                <label class="checkbox">
+                    Show ore amount
+                    <input type="checkbox" checked="checked" (change)="showT1Amount.disabled = showT2Amount.disabled = showT3Amount.disabled = showT4Amount.disabled= showT5Amount.disabled = !$event.target.checked; showOreAmountChanged(0, $event)">
+                </label><br>
+
+                <label class="checkbox">
+                    Show T1 ore amount
+                    <input type="checkbox" #showT1Amount (change)="showOreAmountChanged(1, $event)">
+                </label><br>
+                <label class="checkbox">
+                    Show T2 ore amount
+                    <input type="checkbox" #showT2Amount checked="checked" (change)="showOreAmountChanged(2, $event)">
+                </label><br>
+                <label class="checkbox">
+                    Show T3 ore amount
+                    <input type="checkbox" #showT3Amount checked="checked" (change)="showOreAmountChanged(3, $event)">
+                </label><br>
+                <label class="checkbox">
+                    Show T4 ore amount
+                    <input type="checkbox" #showT4Amount checked="checked" (change)="showOreAmountChanged(4, $event)">
+                </label><br>
+                <label class="checkbox">
+                    Show T5 ore amount
+                    <input type="checkbox" #showT5Amount checked="checked" (change)="showOreAmountChanged(5, $event)">
+                </label>
+                
+            </div>
+        </div>
+    </div>
+</div>

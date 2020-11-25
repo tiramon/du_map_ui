@@ -88,6 +88,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   clearScan() {
+    this.scan = new Scan()
     this.scan.tileId = null;
     this.scan.time = null;
     this.scan.ores = {};

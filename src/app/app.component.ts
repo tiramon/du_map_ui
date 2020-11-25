@@ -1,9 +1,10 @@
 import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
 import { AuthenticationService } from './service/authentication.service';
 import { MapService } from './service/map.service';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'dumap-root',
@@ -12,9 +13,11 @@ import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 })
 export class AppComponent implements OnInit {
   faDiscord = faDiscord;
+  faCog = faCog;
   title = 'DuMapUi';
   lastTileValue: string;
-  public m = false;
+  public showAddScan = false;
+  public showSettings = false;
 
   @ViewChild('tileId', { static: true })
   tileIdInput: ElementRef<HTMLInputElement>;
@@ -66,7 +69,7 @@ export class AppComponent implements OnInit {
   }
 
   showAddScanDialog() {
-    this.m = !this.m;
+    this.showAddScan = !this.showAddScan;
   }
 
   logout() {
