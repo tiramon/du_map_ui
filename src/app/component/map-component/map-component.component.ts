@@ -70,6 +70,7 @@ export class MapComponentComponent implements OnInit {
       }
     });
 
+    this.settings = settingsService.getSettings();
     // redraws the map when settings are changed
     settingsService.settingsChanged.subscribe(
       (settings: Settings) => {
@@ -117,6 +118,7 @@ export class MapComponentComponent implements OnInit {
     }
     this.requestService.requestMap(celestialId, tileId).then(
       result => {
+        this.eventService.loading.emit(false);
         this.face = result;
         this.drawMap();
         // this.markCenter();
@@ -223,7 +225,6 @@ export class MapComponentComponent implements OnInit {
     }
     const centerToTop = minY - center[1];
     const yModifier = Math.abs(centerToTop) < 45 ? 0 : 15;
-    console.log(yModifier);
     if ( face.scan) {
       [x, y] = center;
       let yOreOffset = 0;
@@ -273,8 +274,6 @@ export class MapComponentComponent implements OnInit {
 
     if ('' + face.tileId) {
       [x, y] = center;
-      console.log(face.tileId, y, minY, minY - y, yModifier);
-
       const fontSize = 24; // Math.round(26 / 6000 * this.perspectiveScale);
       this.ctx.font = fontSize + 'px Arial';
       this.ctx.fillStyle = `rgba(0, 0, 0, ${1.0})`;
@@ -328,14 +327,12 @@ export class MapComponentComponent implements OnInit {
       this.ctx.fillStyle = `rgba(0, 0, 0, 0.5)`;
       this.ctx.fill();
     } else if (face.scan) {
-      // console.log(face.tileId, face, Object.keys(face.scan.ores).length);
       this.ctx.fillStyle = `rgba(50, 50, 50, 1.0)`;
       this.ctx.fill();
     }
 
     this.ctx.strokeStyle = 'lightgrey'; // rgba(0,0,0,0.3)';  // light lines, less cartoony, more render-y
     this.ctx.stroke();
-    // console.log(face, face.tileId, face.tileId, center[0], center[1]);
   }
 
   public onCanvasClick(event) {

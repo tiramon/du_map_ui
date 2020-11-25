@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
         this.showSettings = false;
       }
     });
-    this.handleOauth2(oauthService);
+    
   }
 
   /**
@@ -53,8 +53,8 @@ export class AppComponent implements OnInit {
     config.tokenEndpoint = 'https://discord.com/api/oauth2/token';
 
     // URL of the SPA to redirect the user to after login
-    // config.redirectUri = window.location.origin + '/';
-    config.redirectUri = 'http://localhost:4201/';
+    config.redirectUri = window.location.origin + '/';
+    //config.redirectUri = 'http://localhost:4201/';
     // The SPA's id. The SPA is registerd with this id at the auth-server
     config.clientId = '780864362234511400';
     config.dummyClientSecret = 'Tk1Ni6x6wm239aN2juHh3o90glPusCqB';
@@ -76,12 +76,16 @@ export class AppComponent implements OnInit {
     oauthService.tryLoginCodeFlow().then(() => {
       if (!oauthService.getIdentityClaims() && oauthService.getAccessToken()) {
         oauthService.loadUserProfile().then( o => {
+          this.eventService.loginChange.emit(true);
         });
+      } else if (oauthService.getIdentityClaims() && oauthService.getAccessToken()){
+        this.eventService.loginChange.emit(true);
       }
     });
   }
 
   public ngOnInit() {
+    this.handleOauth2(this.oauthService);
     // when another tile was selected tell it to the world
     this.modelChanged.subscribe(
       (selectedTile: SelectedTile) => {

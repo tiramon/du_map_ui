@@ -124,7 +124,6 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   saveScan(close: boolean) {
-    console.log(this.scan);
     this.error = [];
     this.requestService.saveScan(this.scan).then(
       response => {
@@ -137,6 +136,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
         } else {
           this.clearScan();
         }
+        this.eventService.loading.emit(false);
       },
       error => {
         if (error.status === 400) {
@@ -150,7 +150,6 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
    * Parse the OCR scan and write the parsed content to the form
    */
   fillForm() {
-    console.log(this.scan);
     this.clearScan();
     this.error = [];
 

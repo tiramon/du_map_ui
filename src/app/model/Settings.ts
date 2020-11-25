@@ -29,7 +29,6 @@ export class Settings {
         return false;
     }
     showOreTextsT(tier: number): boolean {
-        console.log(this, tier);
         if (tier === 1 ) {
             return this.showT1ResourceAmount;
         } else if (tier === 2) {

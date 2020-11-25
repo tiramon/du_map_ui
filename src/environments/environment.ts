@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //apiEndpoint: 'http://www.dumap.de:8151/'
-  apiEndpoint: 'http://localhost:8080/'
+  apiEndpoint: 'http://www.dumap.de:8151/'
+//  apiEndpoint: 'http://localhost:8080/'
 };
 
 /*

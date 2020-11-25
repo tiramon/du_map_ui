@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { Face } from 'src/app/model/Face';
 import { Scan } from 'src/app/model/Scan';
 import { EventService } from 'src/app/service/event.service';
@@ -9,6 +10,7 @@ import { EventService } from 'src/app/service/event.service';
   styleUrls: ['./detail-window.component.scss']
 })
 export class DetailWindowComponent implements OnInit {
+  faCopy = faCopy;
 
   face: Face = null;
   scan: Scan = null;
