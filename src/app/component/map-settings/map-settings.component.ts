@@ -15,8 +15,13 @@ export class MapSettingsComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Sets the settings according to the given tier
+   *
+   * @param tier tier of the checkbox that was changed
+   * @param event event of theck changed checkbox
+   */
   showOreIconChanged(tier: number, event) {
-    console.log(event)
     if (tier === 0) {
       this.settingsService.setSettings ('showResourceIcons', event.target.checked);
     } else if (tier === 1) {
@@ -32,8 +37,13 @@ export class MapSettingsComponent implements OnInit {
     }
   }
 
+  /**
+   * Sets the settings according to the given tier
+   *
+   * @param tier tier of the checkbox that was changed
+   * @param event event of theck changed checkbox
+   */
   showOreAmountChanged(tier: number, event) {
-    console.log(event)
     if (tier === 0) {
       this.settingsService.setSettings ('showResourceAmount', event.target.checked);
     } else if (tier === 1) {

@@ -1,11 +1,11 @@
 import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { Subject } from 'rxjs';
 import { Face } from 'src/app/model/Face';
 import { Scan } from 'src/app/model/Scan';
 import { SelectedTile } from 'src/app/model/SelectedTile';
 import { Settings } from 'src/app/model/Settings';
-import { AuthenticationService } from 'src/app/service/authentication.service';
-import { MapService } from 'src/app/service/map.service';
+import { EventService } from 'src/app/service/event.service';
 import { RequestService } from 'src/app/service/request.service';
 import { SettingsService } from 'src/app/service/settings.service';
 
@@ -49,32 +49,37 @@ export class MapComponentComponent implements OnInit {
 
   constructor(
     private requestService: RequestService,
-    private mapService: MapService,
-    private authenticationService: AuthenticationService,
-    private settingsService: SettingsService,
+    private eventService: EventService,
+    private oauthService: OAuthService,
+    settingsService: SettingsService,
     @Inject('ORES') private oreNames,
     @Inject('PLANETS') private planetNames
   ) {
-    this.mapService.tileSelected.subscribe(selectedTile => {
+    // a tile has been choosen, map must be loaded and drawn
+    this.eventService.tileSelected.subscribe((selectedTile: SelectedTile) => {
       this.selectedTile = selectedTile;
       this.loadMap(selectedTile.celestialId, selectedTile.tileId);
     });
+
     // loads map after user loged in else clears the map
-    mapService.loginChange.subscribe(logedIn => {
+    this.eventService.loginChange.subscribe((logedIn: boolean) => {
       if (logedIn) {
         this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
       } else {
         this.clear();
       }
     });
+
+    // redraws the map when settings are changed
     settingsService.settingsChanged.subscribe(
-      settings => {
+      (settings: Settings) => {
         this.settings = settings;
         this.drawMap();
       }
     );
+
     // if a scan was added, add it to the tile without reload and repaint the map
-    mapService.scanAdded.subscribe( (scan: Scan) => {
+    this.eventService.scanAdded.subscribe( (scan: Scan) => {
       const planet = this.planetNames.find(p => p.name === scan.planet);
       console.log('scan added at ', planet, this.selectedTile.celestialId);
       if (+planet.id === +this.selectedTile.celestialId) {
@@ -82,7 +87,6 @@ export class MapComponentComponent implements OnInit {
         console.log('searching for tile', scan.tileId, scannedTile);
         if (scannedTile) {
           scannedTile.scan = scan;
-          console.log(scannedTile.scan);
           this.drawMap();
         }
       }
@@ -91,7 +95,6 @@ export class MapComponentComponent implements OnInit {
     this.imagesLoadedSubject = new Subject<any>();
     // loads the map initialy when icons are loaded
     this.imagesLoadedSubject.subscribe( () => this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId) );
-    this.settings = settingsService.getSettings();
     this.getOreIcon('Bauxite');
   }
 
@@ -100,8 +103,16 @@ export class MapComponentComponent implements OnInit {
     this.ctx = this.canvas.nativeElement.getContext('2d');
   }
 
-  loadMap(celestialId, tileId) {
-    if (!this.authenticationService.currentUserValue) {
+  /**
+   * If the user is not loged in the maps get cleared
+   * If the user i loged in the backend ist contacted for the tiles of the given planet and tileId and the map is drawn
+   *
+   * @param celestialId internal id of the selected planet
+   * @param tileId id of the selected tile
+   */
+  loadMap(celestialId: number, tileId: number) {
+    if (!this.oauthService.getIdentityClaims()) {
+      this.clear();
       return;
     }
     this.requestService.requestMap(celestialId, tileId).then(
@@ -109,31 +120,35 @@ export class MapComponentComponent implements OnInit {
         this.face = result;
         this.drawMap();
         // this.markCenter();
-      },
-      error => {
-        if (error.status === 404) {
-          this.mapService.loading.next(false);
-          const planetName = this.planetNames.find(p => p.id == celestialId).name;
-          alert(`Tile ${tileId} does not exist on ${planetName}`);
-        }
       }
     );
   }
 
+  /**
+   * First draws all faces and after that all text is drawn, so no face is overlapping and hiding a text or parts of it
+   */
   private drawMap() {
     this.clear();
-    for (const f of this.face) {
-      this.drawFace(f);
-    }
-    for (const f of this.face) {
-      this.drawText(f);
+    if (this.face) {
+      for (const f of this.face) {
+        this.drawFace(f);
+      }
+      for (const f of this.face) {
+        this.drawText(f);
+      }
     }
   }
 
+  /**
+   * Clears the map canvas
+   */
   clear() {
     this.ctx.clearRect(0, 0, this.CANVAS_WIDTH, this.CANVAS_HEIGHT);
   }
 
+  /**
+   * Draws 2 lines marking the center 0/0 of the canvas, mainly used for debuging
+   */
   markCenter() {
     this.ctx.beginPath();
     this.ctx.moveTo(0, this.CANVAS_HEIGHT / 2);
@@ -144,7 +159,11 @@ export class MapComponentComponent implements OnInit {
     this.ctx.stroke();
   }
 
-  getOreIcon(oreName: string){
+  /**
+   * Method to preload icons for ores, because if this is not done the map will be drawn before the images are loaded
+   * @param oreName name of the ore to load the icon for
+   */
+  getOreIcon(oreName: string) {
     if (!this.oreIcons[oreName]) {
       this.oreIconsLoaded[oreName] = false;
       const img = new Image();
@@ -244,7 +263,7 @@ export class MapComponentComponent implements OnInit {
               const text = `${amount}kL`; // ${oreShort}
               const metrics = this.ctx.measureText(text);
               this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;
-              this.ctx.fillText(text + ` ${oreShort}`, x + this.offsetX2D +5-metrics.width + xOreOffset, y + this.offsetY2D  -yModifier + fontSize*1.2 + yOreOffset);
+              this.ctx.fillText(text + ` ${oreShort}`, x + this.offsetX2D + 5 - metrics.width + xOreOffset, y + this.offsetY2D  - yModifier + fontSize * 1.2 + yOreOffset);
               yOreOffset += fontSize;
             }
           }
@@ -329,7 +348,7 @@ export class MapComponentComponent implements OnInit {
     for (const f of this.face) {
       if (this.isInside(f.vertices, [mouseX, mouseY])) {
         // console.log('clicked in tile ' + f.tileId);
-        this.mapService.faceSelected.emit(f);
+        this.eventService.faceSelected.emit(f);
         break;
       }
     }
@@ -345,7 +364,7 @@ export class MapComponentComponent implements OnInit {
     for (const f of this.face) {
       if (this.isInside(f.vertices, [mouseX, mouseY])) {
         console.log('right clicked in tile ' + f.tileId);
-        // this.mapService.faceSelected.emit(f);
+        // this.eventService.faceSelected.emit(f);
         break;
       }
     }
@@ -358,8 +377,8 @@ export class MapComponentComponent implements OnInit {
     do {
       const next = (i + 1) % vertices.length;
       if (this.doIntersect(vertices[i], vertices[next], point, extreme)) {
-        if(this.orientation(vertices[i], point, vertices[next]) === 0) {
-          return this.onSegment(vertices[i],point,vertices[next]);
+        if (this.orientation(vertices[i], point, vertices[next]) === 0) {
+          return this.onSegment(vertices[i], point, vertices[next]);
         }
         count++;
       }
@@ -376,16 +395,16 @@ export class MapComponentComponent implements OnInit {
     if (o1 !== o2 && o3 !== o4) {
       return true;
     }
-    if (o1 === 0 && this.onSegment(p1,p2,q1)) {
+    if (o1 === 0 && this.onSegment(p1, p2, q1)) {
       return true;
     }
-    if (o2 === 0 && this.onSegment(p1,q2,q1)) {
+    if (o2 === 0 && this.onSegment(p1, q2, q1)) {
       return true;
     }
-    if (o3 === 0 && this.onSegment(p2,p1,q2)) {
+    if (o3 === 0 && this.onSegment(p2, p1, q2)) {
       return true;
     }
-    if (o4 === 0 && this.onSegment(p2,q1,q2)) {
+    if (o4 === 0 && this.onSegment(p2, q1, q2)) {
       return true;
     }
     return false;

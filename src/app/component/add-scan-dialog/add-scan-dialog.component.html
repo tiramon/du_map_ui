@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="field is-horizontal" *ngFor="let ore of this.currentOres">
                 <div class="field-label is-normal">
                     <label class="label leftColumn">{{ore}}</label>
@@ -63,9 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="notification is-success" *ngIf="message">
-                {{message}}
-            </div>
+
             <div class="notification is-danger" *ngIf="error.length > 0">
                 <div *ngFor="let e of error">{{e}}</div>
             </div>
