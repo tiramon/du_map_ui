@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.2.14",
+    "@angular/animations": "^8.2.14",
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
     "@angular/core": "~8.2.14",
@@ -26,7 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "angular-oauth2-oidc": "^8.0.4",
     "bulma": "^0.9.1",
-    "moment": "^2.22.0",
+    "ngx-toastr": "^11.3.3",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

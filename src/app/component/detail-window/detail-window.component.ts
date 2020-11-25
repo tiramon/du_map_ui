@@ -1,9 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Face } from 'src/app/model/Face';
 import { Scan } from 'src/app/model/Scan';
-import { MapService } from 'src/app/service/map.service';
-import { RequestService } from 'src/app/service/request.service';
-
+import { EventService } from 'src/app/service/event.service';
 
 @Component({
   selector: 'dumap-detail-window',
@@ -15,29 +13,39 @@ export class DetailWindowComponent implements OnInit {
   face: Face = null;
   scan: Scan = null;
   constructor(
-    private requestService: RequestService,
-    private mapService: MapService,
+    private eventService: EventService,
     @Inject('ORES') public oreNames
   ) { }
 
   ngOnInit() {
-    this.mapService.faceSelected.subscribe( f => {
+    // changes the shown face and scan that was selected by a click on the map
+    this.eventService.faceSelected.subscribe( f => {
       this.face = f;
-      // if (this.face.scan) {
       this.scan = this.face.scan;
-      // } else {
-      //  this.requestService.requestScan(f.tileId).then(result => this.scan = result);
-      // }
+    });
+
+    // hides the last shown information if the user logs out
+    this.eventService.loginChange.subscribe((logedIn: boolean) => {
+      if (!logedIn) {
+        this.face = null;
+        this.scan = null;
+      }
     });
   }
 
+  /**
+   * Creates the ::poss{} link for that given tile and copies it to the clipboard
+   */
   onPosClick() {
     const posString = `::pos{0,${this.face.duEntityId},${(Math.round(this.face.latitude * 10000) / 10000).toFixed(4)},${(Math.round(this.face.longitude * 10000) / 10000).toFixed(4)},0.0}`;
     this.copyToClipboard(posString);
-
-    console.log(this.face, this.scan);
   }
 
+  /**
+   * Copies the given text to the clipboard
+   *
+   * @param text text to be copied
+   */
   copyToClipboard(text) {
     const dummy = document.createElement('textarea');
     // to avoid breaking orgain page when copying more words

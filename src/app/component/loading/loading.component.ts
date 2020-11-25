@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { MapService } from 'src/app/service/map.service';
+import { EventService } from 'src/app/service/event.service';
 
 @Component({
   selector: 'dumap-loading',
@@ -10,8 +10,9 @@ import { MapService } from 'src/app/service/map.service';
 export class LoadingComponent implements OnInit {
   faSpinner = faSpinner;
   loading = false;
-  constructor(private mapService: MapService) {
-    mapService.loading.subscribe( loading => this.loading = loading);
+  constructor(eventService: EventService) {
+    // reacts to load events, setting the internal variable and by this show or hides the modal loading dialog
+    eventService.loading.subscribe( loading => this.loading = loading);
   }
 
   ngOnInit() {

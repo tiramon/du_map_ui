@@ -1,9 +1,11 @@
-import { Inject, Injectable, ɵɵpureFunction1 } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 import { Scan } from '../model/Scan';
 import { Face } from '../model/Face';
-import { MapService } from './map.service';
+import { EventService } from './event.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,32 +13,43 @@ import { MapService } from './map.service';
 export class RequestService {
 
   constructor(
-    @Inject('BASEURL') protected defaultURL,
-    protected http: HttpClient,
-    protected mapService: MapService
+    @Inject('BASEURL') protected defaultURL: string,
+    @Inject('PLANETS') private planetNames,
+    private http: HttpClient,
+    private eventService: EventService,
+    private toastr: ToastrService
   ) { }
 
+  /**
+   * Request a array of faces of the tile selected and some of the tile around it
+   * @param celestialId internal id of the selected planet
+   * @param tileId  id of the selected tile
+   */
   public requestMap(celestialId: number, tileId: number): Promise<Face[]> {
-    const url = `${this.defaultURL}faces?tileId=${tileId}&celestialId=${celestialId}`;//&perspectiveScale=${perspectiveScale}`;
-    this.mapService.loading.next(true);
+    const url = `${this.defaultURL}faces?tileId=${tileId}&celestialId=${celestialId}`;
+    // &perspectiveScale=${perspectiveScale}`;
+    this.eventService.loading.next(true);
     return this.http.get(url, this.getRequestConfigObject())
       .pipe(
         map(response => response as Face[]),
-        tap(() => this.mapService.loading.next(false))
+        catchError( error => {
+          if (error.status === 404) {
+            this.eventService.loading.next(false);
+            const planetName = this.planetNames.find(p => p.id == celestialId).name;
+            this.toastr.error(`Tile ${tileId} does not exist on ${planetName}`);
+          } else if (error.status === 500) {
+            this.eventService.loading.next(false);
+            this.toastr.error('Serverside error, plz report to discord channel');
+          } else {
+            this.eventService.loading.next(false);
+            this.toastr.error('Unexpcted error, plz report to discord channel');
+          }
+          return of([]);
+        })
       )
       .toPromise();
   }
 
-  public requestTile(celestialId: number, tileId: number): Promise<Face> {
-    const url = `${this.defaultURL}face?tileId=${tileId}&celestialId=${celestialId}`;
-    this.mapService.loading.next(true);
-    return this.http.get(url, this.getRequestConfigObject())
-      .pipe(
-        map(response => response as Face),
-        tap(() => this.mapService.loading.next(false))
-      )
-      .toPromise();
-  }
   private dummyData(): Face[] {
     const f1 = new Face();
     f1.center = [0, 0];
@@ -52,25 +65,28 @@ export class RequestService {
     return {headers: new HttpHeaders().set('Content-Type', 'application/json'), responseType: type ? type : 'json'};
   }
 
-  requestScan(tileId: number): Promise<Scan> {
-    const s = new Scan();
-    s.time = new Date();
-    s.planet = 'Thades';
-    s.tileId = tileId;
-    s.ores = {
-      Bauxite: 5,
-      Hematite: 1300000,
-      Quartz: 5300
-    };
-    return Promise.resolve(s);
-  }
-
+  /**
+   * Send a save request for a scan to the backend
+   * @param scan scan to be saved
+   */
   saveScan(scan: Scan) {
     const url = `${this.defaultURL}scan`;
-    this.mapService.loading.next(true);
+    this.eventService.loading.next(true);
     return this.http.post(url, scan, this.getRequestConfigObject())
       .pipe(
-        tap(() => this.mapService.loading.next(false))
+        catchError(error => {
+            this.eventService.loading.next(false);
+            console.log(error);
+            if (error.status === 0) {
+              this.toastr.error('Backend not reachable');
+            } else if (error.status === 500) {
+              this.toastr.error('Serverside error, plz report to discord channel');
+            } else if (error.status !== 400) {
+              this.toastr.error('Unexpcted error, plz report to discord channel');
+            }
+            throw error;
+          }
+        )
       )
       .toPromise();
   }

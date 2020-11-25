@@ -15,6 +15,8 @@ import { LoadingComponent } from './component/loading/loading.component';
 import { environment } from 'src/environments/environment';
 import { MapSettingsComponent } from './component/map-settings/map-settings.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot(),
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [
     {provide: 'BASEURL', useValue: environment.apiEndpoint},

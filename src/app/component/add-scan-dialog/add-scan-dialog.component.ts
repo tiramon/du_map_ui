@@ -1,10 +1,8 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Inject, Input, NO_ERRORS_SCHEMA, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { startWith } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 import { Scan } from 'src/app/model/Scan';
-import { MapService } from 'src/app/service/map.service';
+import { EventService } from 'src/app/service/event.service';
 import { RequestService } from 'src/app/service/request.service';
-
 
 @Component({
   selector: 'dumap-add-scan-dialog',
@@ -13,7 +11,8 @@ import { RequestService } from 'src/app/service/request.service';
 })
 export class AddScanDialogComponent implements OnInit, OnChanges {
 
-  @Input() modal;
+  @Input()
+  modal: boolean;
 
   @Input()
   currentPlanetId: number;
@@ -24,7 +23,6 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   ocrResult: string;
 
   tab = 1;
-  message = '';
   error  = [];
 
   scan: Scan;
@@ -66,20 +64,18 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   enteredOres = {};
   currentOres = [];
 
-
   constructor(
     private requestService: RequestService,
-    private mapService: MapService,
+    private eventService: EventService,
+    private toastr: ToastrService,
     @Inject('ORES') public oreNames,
     @Inject('PLANETS') public planets
   ) {
     this.ores = oreNames.map(o => o.name);
-    this.message = '';
     this.scan = new Scan();
    }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.message = '';
     this.clearScan();
   }
 
@@ -88,7 +84,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   clearScan() {
-    this.scan = new Scan()
+    this.scan = new Scan();
     this.scan.tileId = null;
     this.scan.time = null;
     this.scan.ores = {};
@@ -133,23 +129,16 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     this.requestService.saveScan(this.scan).then(
       response => {
         if (response) {
-          console.log('scan saved');
-          this.message = 'Your scan was successfully saved.';
-          this.mapService.scanAdded.emit(this.scan);
+          this.toastr.success('Your scan was successfully saved.');
+          this.eventService.scanAdded.emit(this.scan);
         }
         if (close && response) {
           this.endModal.emit();
         } else {
           this.clearScan();
-          setTimeout(() => this.message = '', 3000);
         }
       },
       error => {
-        this.mapService.loading.next(false);
-        console.log(error);
-        if (error.status === 0) {
-          this.error.push('Backend not reachable');
-        }
         if (error.status === 400) {
           this.error.push('Invalid Data send, plz write 123000 instead of 123kL');
         }
@@ -157,20 +146,26 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     );
   }
 
+  /**
+   * Parse the OCR scan and write the parsed content to the form
+   */
   fillForm() {
     console.log(this.scan);
     this.clearScan();
     this.error = [];
-    this.message = '';
 
-    this.parseResponse(this.ocrResult, this.scan);
-    if (this.error.length === 0) {
-      console.log(this.scan);
+    const result = this.parseResponse(this.ocrResult, this.scan);
+    if (result && this.error.length === 0) {
       this.tab = 1;
-      this.message = 'Your scan was successfully parsed.';
+      this.toastr.success('Your scan was successfully parsed.');
     }
   }
 
+  /**
+   * Removes an array element by value
+   * @param array array to be modified
+   * @param item element to be removed
+   */
   remove(array: string[], item: string) {
     const index = array.indexOf(item);
     if (index !== -1) {
@@ -180,6 +175,10 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   parseResponse(text: string, scan: Scan): Scan {
+    if (!text || text.trim().length === 0) {
+      this.toastr.warning('OCR Result is empty');
+      return null;
+    }
     let splittedInput = text.split(/\r?\n/);
     splittedInput = splittedInput.filter(k => k);
     if (splittedInput[0][0] === '*') {
@@ -212,7 +211,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     const splittedAge = map[agekeys].split(' ');
     console.log(splittedAge, agekeys, map[agekeys]);
     if (splittedInput.length < 2 || !splittedAge[1]) {
-      this.error.push(`could not parse AGE value "${map[agekeys]}" ... maybe it's something like '3d' instead of '3 d'`)
+      this.error.push(`could not parse AGE value "${map[agekeys]}" ... maybe it's something like '3d' instead of '3 d'`);
       return;
     }
     const unit = this.bestMatch(splittedAge[1], ['min', 'hrs', 'd']);
@@ -238,10 +237,9 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
         this.error.push(`could not parse the value of ${key} -> ${amount} it's probably missing a whitespace between value and unit '123L' instead of '123 L'`);
       }
       if (splitted[1].length > 2) {
-        this.error.push(`could not parse the value of ${key} -> ${amount} it's probably missing a whitespace between value and unit '1 123L' instead of '1123 L'`)
+        this.error.push(`could not parse the value of ${key} -> ${amount} it's probably missing a whitespace between value and unit '1 123L' instead of '1123 L'`);
       }
       const oreUnit = this.bestMatch(splitted[1], ['L', 'kL']);
-      // .replace(".", ",")
       if (+splitted[0] != splitted[0]) {
         this.error.push(`could not parse the value of ${key} -> ${splitted[0]} is not numeric`);
       }
@@ -268,7 +266,6 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
         bestString = value;
       }
     }
-    //console.log('match', input, possibleValues, bestString);
     return bestString;
   }
 
@@ -295,7 +292,6 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   min( n1, n2, n3) {
-    //console.log(n1,n2,n3,Math.min(n1, n2, n3), Math.min(n1, n2, n3) || Infinity);
     return Math.min(n1, n2, n3);
   }
 }

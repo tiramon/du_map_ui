@@ -1,10 +1,10 @@
 import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
-import { MapService } from './service/map.service';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
+import { EventService } from './service/event.service';
 
 @Component({
   selector: 'dumap-root',
@@ -27,10 +27,17 @@ export class AppComponent implements OnInit {
   private modelChanged: Subject<SelectedTile> = new Subject<SelectedTile>();
 
   constructor(
-    private mapService: MapService,
+    private eventService: EventService,
     private oauthService: OAuthService,
     @Inject('PLANETS') public planets
   ) {
+    // hides the addscan and setting dialog if a user gets loged out
+    this.eventService.loginChange.subscribe((logedIn: boolean) => {
+      if (!logedIn) {
+        this.showAddScan = false;
+        this.showSettings = false;
+      }
+    });
     this.handleOauth2(oauthService);
   }
 
@@ -75,20 +82,29 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit() {
+    // when another tile was selected tell it to the world
     this.modelChanged.subscribe(
       (selectedTile: SelectedTile) => {
-        console.log(selectedTile);
-        this.mapService.tileSelected.emit(selectedTile);
+        this.eventService.tileSelected.emit(selectedTile);
       });
-    this.mapService.tileSelected.subscribe( selectedTile => {
-      // somehow handle a change of planet and tile from another location, but make sure it's not our own event reacting to
+
+    // somehow handle a change of planet and tile from another location, but make sure it's not our own event reacting to
+    this.eventService.tileSelected.subscribe( selectedTile => {
+      //IMPLEMENT ME
     });
   }
 
-  public isLogedin() {
+  /**
+   * Method to check if the user is currently loged in or not
+   */
+  public isLogedin(): boolean {
     return this.oauthService.getAccessTokenExpiration() > Date.now();
   }
 
+  /**
+   * Validator to limit input to only digits, also no plus, minus or decimal seperator
+   * @param event event that triggered this validator
+   */
   public inputValidator(event: any) {
     const value = event.target.value;
     const pattern = /^[0-9]+$/;
@@ -98,25 +114,37 @@ export class AppComponent implements OnInit {
     }
   }
 
+  /**
+   * Handler if another planet is selected, sets the internal variable and resets the selected tileId to 0
+   *
+   * @param event event that triggered this handler
+   */
   changePlanet(event) {
-    // console.log(event);
     this.celestialId = +event.target.options[event.target.selectedIndex].value;
     this.tileIdInput.nativeElement.value = '0';
-    // this.modelChanged.next(new SelectedTile(0, this.celestialId));
   }
 
+  /**
+   * Handler to handle a new selected tile, emits a modelChanged Event
+   * @param event event that triggered this handler
+   */
   onKeydown(event) {
     const value = event.target.value;
     this.modelChanged.next(new SelectedTile(value.length > 0 ? +value : 0, this.celestialId));
   }
 
+  /**
+   * Shows/hides the addScanDialog
+   */
   showAddScanDialog() {
     this.showAddScan = !this.showAddScan;
   }
 
+  /**
+   * Deletes all local authentication data and informs the application that the user is no longer loged in
+   */
   logout() {
     this.oauthService.logOut();
-    //this.authService.logout();
-    this.mapService.loginChange.emit(false);
+    this.eventService.loginChange.emit(false);
   }
 }
