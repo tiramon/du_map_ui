@@ -14,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoadingComponent } from './component/loading/loading.component';
 import { environment } from 'src/environments/environment';
 import { MapSettingsComponent } from './component/map-settings/map-settings.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MapSettingsComponent } from './component/map-settings/map-settings.comp
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    OAuthModule.forRoot()
   ],
   providers: [
     {provide: 'BASEURL', useValue: environment.apiEndpoint},

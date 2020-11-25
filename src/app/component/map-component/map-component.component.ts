@@ -1,10 +1,10 @@
 import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { Subject } from 'rxjs';
 import { Face } from 'src/app/model/Face';
 import { Scan } from 'src/app/model/Scan';
 import { SelectedTile } from 'src/app/model/SelectedTile';
 import { Settings } from 'src/app/model/Settings';
-import { AuthenticationService } from 'src/app/service/authentication.service';
 import { MapService } from 'src/app/service/map.service';
 import { RequestService } from 'src/app/service/request.service';
 import { SettingsService } from 'src/app/service/settings.service';
@@ -50,7 +50,7 @@ export class MapComponentComponent implements OnInit {
   constructor(
     private requestService: RequestService,
     private mapService: MapService,
-    private authenticationService: AuthenticationService,
+    private oauthService: OAuthService,
     private settingsService: SettingsService,
     @Inject('ORES') private oreNames,
     @Inject('PLANETS') private planetNames
@@ -101,7 +101,7 @@ export class MapComponentComponent implements OnInit {
   }
 
   loadMap(celestialId, tileId) {
-    if (!this.authenticationService.currentUserValue) {
+    if (!this.oauthService.getIdentityClaims()) {
       return;
     }
     this.requestService.requestMap(celestialId, tileId).then(

@@ -1,10 +1,10 @@
 import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
-import { AuthenticationService } from './service/authentication.service';
 import { MapService } from './service/map.service';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'dumap-root',
@@ -28,9 +28,55 @@ export class AppComponent implements OnInit {
 
   constructor(
     private mapService: MapService,
-    private authService: AuthenticationService,
+    private oauthService: OAuthService,
     @Inject('PLANETS') public planets
-  ) { }
+  ) {
+    const config = new AuthConfig();
+
+    config.loginUrl = 'https://discord.com/api/oauth2/authorize';
+    config.logoutUrl = 'https://discord.com/api/oauth2/token/revoke';
+    config.tokenEndpoint = 'https://discord.com/api/oauth2/token';
+ 
+    // URL of the SPA to redirect the user to after login
+    // config.redirectUri = window.location.origin + '/';
+    config.redirectUri = 'http://localhost:4201/'
+    // The SPA's id. The SPA is registerd with this id at the auth-server
+    config.clientId = '780864362234511400';
+    // config.dummyClientSecret = 'Tk1Ni6x6wm239aN2juHh3o90glPusCqB';
+
+    config.responseType = 'code';
+
+    // set the scope for the permissions the client should request
+    // The first three are defined by OIDC. The 4th is a usecase-specific one
+    config.scope = 'identify';
+
+    config.showDebugInformation = true;
+    config.strictDiscoveryDocumentValidation = false;
+    config.oidc = false;
+    config.userinfoEndpoint = 'https://discordapp.com/api/users/@me';
+
+    this.oauthService.configure(config);
+    console.log(this.oauthService);
+    oauthService.setStorage(sessionStorage);
+
+    oauthService.tryLoginCodeFlow().then(() => {
+
+      console.log('and now');
+      oauthService.loadUserProfile().then( o => {
+        console.log('profile', o);
+        console.log('profile claim', oauthService.getIdentityClaims());
+      });
+
+      console.log('async idtoken', oauthService.getIdToken());
+      console.log('async token', oauthService.getAccessToken(), oauthService.getAccessTokenExpiration());
+      console.log('async claim', oauthService.getIdentityClaims());
+    });
+    console.log('sync token', oauthService.getAccessToken());
+    console.log('sync claim', oauthService.getIdentityClaims());
+
+   }
+
+
 
   public ngOnInit() {
     this.modelChanged.subscribe(
@@ -44,7 +90,8 @@ export class AppComponent implements OnInit {
   }
 
   public isLogedin() {
-    return this.authService.currentUserValue;
+    return this.oauthService.getAccessTokenExpiration() > Date.now();
+    //return this.authService.currentUserValue;
   }
 
   public inputValidator(event: any) {
@@ -73,7 +120,8 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
+    this.oauthService.logOut();
+    //this.authService.logout();
     this.mapService.loginChange.emit(false);
   }
 }

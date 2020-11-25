@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first, tap } from 'rxjs/operators';
-import { AuthenticationService } from 'src/app/service/authentication.service';
 import { MapService } from 'src/app/service/map.service';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'dumap-login',
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
-      private authenticationService: AuthenticationService,
+      private oauthService: OAuthService,
       private mapService: MapService
   ) {
 
@@ -40,9 +40,10 @@ export class LoginComponent implements OnInit {
       this.error = 'Username or password missing';
       return;
     }
-
+ /*
     if (this.login === 'login') {
       this.mapService.loading.next(true);
+     
       this.authenticationService.login(event.target.username.value, event.target.password.value, null)
         .pipe(
           first(),
@@ -91,5 +92,12 @@ export class LoginComponent implements OnInit {
           }
         });
     }
+    */
+  }
+
+  public discord() {
+    this.oauthService.initCodeFlow();
+
+
   }
 }
