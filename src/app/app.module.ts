@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScanListComponent } from './component/scan-list/scan-list.component';
 import { MapWrapperComponent } from './component/map-wrapper/map-wrapper.component';
 import { SelectedTileResolver } from './resolver/selected-tile-resolver';
+import { HelpComponent } from './component/help/help.component';
+import { SortByPipe } from './pipe/SortByPipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { SelectedTileResolver } from './resolver/selected-tile-resolver';
     LoadingComponent,
     MapSettingsComponent,
     ScanListComponent,
-    MapWrapperComponent
+    MapWrapperComponent,
+    HelpComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

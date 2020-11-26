@@ -14,7 +14,8 @@
     <tr>
         
         <td class="rightColumn" (click)="onPosClick()" colspan="2" style="cursor: pointer;" title="click to copy">
-            ::pos&#123;0,{{face?.duEntityId}},{{face?.latitude | number:'1.4-4'}},{{face?.longitude | number:'1.4-4'}},0.0&#125; <fa-icon [icon]="faCopy" [styles]="{'color': 'white'}"></fa-icon>
+            ::pos&#123;0,{{face?.duEntityId}},{{face?.latitude | number:'1.4-4'}},{{face?.longitude | number:'1.4-4'}},0.0&#125;
+            <fa-icon [icon]="faCopy" [styles]="{'color': 'white'}"></fa-icon>
         </td>
     </tr>
     <tr>
