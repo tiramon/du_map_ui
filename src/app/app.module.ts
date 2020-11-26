@@ -17,6 +17,9 @@ import { MapSettingsComponent } from './component/map-settings/map-settings.comp
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScanListComponent } from './component/scan-list/scan-list.component';
+import { MapWrapperComponent } from './component/map-wrapper/map-wrapper.component';
+import { SelectedTileResolver } from './resolver/selected-tile-resolver';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddScanDialogComponent,
     LoginComponent,
     LoadingComponent,
-    MapSettingsComponent
+    MapSettingsComponent,
+    ScanListComponent,
+    MapWrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [
+    SelectedTileResolver,
     {provide: 'BASEURL', useValue: environment.apiEndpoint},
     {provide: 'PLANETS', useValue: [
       {id: 31, name: 'Alioth'}, {id: 17, name: 'Alioth Moon 1'}, {id: 18, name: 'Alioth Moon 4'},

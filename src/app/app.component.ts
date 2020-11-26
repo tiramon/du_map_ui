@@ -22,7 +22,11 @@ export class AppComponent implements OnInit {
   @ViewChild('tileId', { static: true })
   tileIdInput: ElementRef<HTMLInputElement>;
 
+  @ViewChild('planetId', { static: true })
+  planetIdInput: ElementRef<HTMLSelectElement>;
+
   public celestialId = 31;
+  public tileId = 0;
 
   private modelChanged: Subject<SelectedTile> = new Subject<SelectedTile>();
 
@@ -38,7 +42,6 @@ export class AppComponent implements OnInit {
         this.showSettings = false;
       }
     });
-    
   }
 
   /**
@@ -78,7 +81,7 @@ export class AppComponent implements OnInit {
         oauthService.loadUserProfile().then( o => {
           this.eventService.loginChange.emit(true);
         });
-      } else if (oauthService.getIdentityClaims() && oauthService.getAccessToken()){
+      } else if (oauthService.getIdentityClaims() && oauthService.getAccessToken()) {
         this.eventService.loginChange.emit(true);
       }
     });
@@ -89,13 +92,23 @@ export class AppComponent implements OnInit {
     // when another tile was selected tell it to the world
     this.modelChanged.subscribe(
       (selectedTile: SelectedTile) => {
+        console.log('modelchange emit');
         this.eventService.tileSelected.emit(selectedTile);
       });
 
     // somehow handle a change of planet and tile from another location, but make sure it's not our own event reacting to
+
     this.eventService.tileSelected.subscribe( selectedTile => {
       //IMPLEMENT ME
+      if (selectedTile && selectedTile.tileId !== this.tileId && selectedTile.celestialId !== this.celestialId) {
+        this.celestialId = selectedTile.celestialId;
+        this.tileId = selectedTile.tileId;
+        console.log('received tile change');
+        this.tileIdInput.nativeElement.value = '' + this.tileId;
+        this.planetIdInput.nativeElement.selectedIndex = this.planets.map(p => p.id).indexOf(this.celestialId);
+      }
     });
+
   }
 
   /**
@@ -134,7 +147,8 @@ export class AppComponent implements OnInit {
    */
   onKeydown(event) {
     const value = event.target.value;
-    this.modelChanged.next(new SelectedTile(value.length > 0 ? +value : 0, this.celestialId));
+    this.tileId = value.length > 0 ? +value : 0;
+    this.modelChanged.next(new SelectedTile(this.tileId, this.celestialId));
   }
 
   /**

@@ -1,6 +1,8 @@
 import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { Subject } from 'rxjs';
+
+import { Subject, Subscription } from 'rxjs';
 import { Face } from 'src/app/model/Face';
 import { Scan } from 'src/app/model/Scan';
 import { SelectedTile } from 'src/app/model/SelectedTile';
@@ -8,6 +10,7 @@ import { Settings } from 'src/app/model/Settings';
 import { EventService } from 'src/app/service/event.service';
 import { RequestService } from 'src/app/service/request.service';
 import { SettingsService } from 'src/app/service/settings.service';
+import { isNumber } from 'util';
 
 @Component({
   selector: 'dumap-map-component',
@@ -21,7 +24,7 @@ export class MapComponentComponent implements OnInit {
 
   private ctx: CanvasRenderingContext2D;
 
-  selectedTile = new SelectedTile(0, 31);
+  selectedTile = null;
   perspectiveScale = 6000;
 
   public CANVAS_WIDTH  = 900;
@@ -48,6 +51,7 @@ export class MapComponentComponent implements OnInit {
   }
 
   constructor(
+    private route: ActivatedRoute,
     private requestService: RequestService,
     private eventService: EventService,
     private oauthService: OAuthService,
@@ -55,16 +59,13 @@ export class MapComponentComponent implements OnInit {
     @Inject('ORES') private oreNames,
     @Inject('PLANETS') private planetNames
   ) {
-    // a tile has been choosen, map must be loaded and drawn
-    this.eventService.tileSelected.subscribe((selectedTile: SelectedTile) => {
-      this.selectedTile = selectedTile;
-      this.loadMap(selectedTile.celestialId, selectedTile.tileId);
-    });
-
     // loads map after user loged in else clears the map
     this.eventService.loginChange.subscribe((logedIn: boolean) => {
       if (logedIn) {
-        this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
+        console.log('login', this.selectedTile);
+        if (this.selectedTile) {
+          this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
+        }
       } else {
         this.clear();
       }
@@ -95,13 +96,27 @@ export class MapComponentComponent implements OnInit {
 
     this.imagesLoadedSubject = new Subject<any>();
     // loads the map initialy when icons are loaded
-    this.imagesLoadedSubject.subscribe( () => this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId) );
-    this.getOreIcon('Bauxite');
+    //this.imagesLoadedSubject.subscribe( () => this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId) );
+    //this.getOreIcon('Bauxite');
   }
-
 
   ngOnInit() {
     this.ctx = this.canvas.nativeElement.getContext('2d');
+    // a tile has been choosen, map must be loaded and drawn
+    this.eventService.tileSelected.subscribe((selectedTile: SelectedTile) => {
+      if (!selectedTile) {
+        return;
+      }
+      this.selectedTile = selectedTile;
+      if (this.oauthService.hasValidAccessToken()) {
+        this.loadMap(selectedTile.celestialId, selectedTile.tileId);
+      }
+    });
+
+    const tile = this.route.snapshot.data.selectedTile;
+    if (this.oauthService.hasValidAccessToken && tile) {
+      this.eventService.tileSelected.emit(tile);
+    }
   }
 
   /**

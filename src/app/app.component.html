@@ -9,36 +9,33 @@
     <div style="position: absolute; top: 10px; left: 10px; background-color: transparent;">
       <label class="label" style="color: white">Planet</label>
       <div class="select is-small">
-        <select style="width: 130px" (change)="changePlanet($event);">
+        <select #planetId style="width: 130px" (change)="changePlanet($event);">
           <option *ngFor="let planet of this.planets" [value]="planet.id">{{planet.name}}</option>
         </select>
       </div><br>
       <label class="label" style="color: white">Tile Id</label>
-      <input  #tileId style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
-      <div class="btn" style=" margin-top: 10px" title="add scan" (click)="showAddScanDialog()">+</div>
+      <input #tileId style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
+      <div class="btn" style=" margin-top: 10px" title="Add scan" (click)="showAddScanDialog()">+</div>
 
-      <div class="btn" style=" margin-top: 10px" title="settings" (click)="showSettings = !showSettings">
+      <div class="btn" style=" margin-top: 10px" title="Map settings" (click)="showSettings = !showSettings">
         <fa-icon [icon]="faCog" size="xs" [styles]="{'color': 'white'}"></fa-icon>
       </div>
-
-      <div class="btn" style=" margin-top: 10px" title="logout" (click)="logout()">L</div>
-
-      
-      <div class="btn" style=" margin-top: 10px" title="Discord channel">
-        <a href="https://discord.gg/PQeJMUeXb2"><fa-icon [icon]="faDiscord" size="xs" [styles]="{'color': 'white'}"></fa-icon></a>
+    </div>
+    <div style="position: absolute; bottom: 10px; left: 10px; background-color: transparent;">
+      <div class="btn" style="margin-bottom: 10px" title="Discord channel">
+        <a href="https://discord.gg/PQeJMUeXb2">
+          <fa-icon [icon]="faDiscord" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+        </a>
+      </div>
+      <div class="btn" style="margin-bottom: 10px" title="Logout" (click)="logout()">
+        L
       </div>
     </div>
   </div>
-  <div class="column" style="background-color: rgb(27,40,48); padding: 0;">
-    <dumap-map-component></dumap-map-component>
-  </div>  
-  <div class="is-220px" style="background-color: rgb(27,40,48);">
-    <div style="margin: 20px">
-      <dumap-detail-window></dumap-detail-window>
-    </div>
+  <div class="column">
+    <router-outlet></router-outlet>
   </div>
 </div>
 
 
 
-<router-outlet></router-outlet>
