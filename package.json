@@ -1,6 +1,6 @@
 {
   "name": "du-map-ui",
-  "version": "1.1.2",
+  "version": "2.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201",
@@ -23,8 +23,8 @@
     "@fortawesome/angular-fontawesome": "^0.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "angular-oauth2-oidc": "^8.0.4",
     "bulma": "^0.9.1",
     "ngx-toastr": "^11.3.3",

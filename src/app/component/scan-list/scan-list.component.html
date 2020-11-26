@@ -6,7 +6,9 @@
             <th class="tileHeader">Planet</th>
             <th class="tileHeader">Tile<fa-icon [icon]="faSortNumericUpAlt" style="margin-left: 3px" *ngIf="showSort('TileId', true)"></fa-icon><fa-icon [icon]="faSortNumericDownAlt" style="margin-left: 3px" *ngIf="showSort('TileId', down)"></fa-icon></th>
             <th class="tileHeader">Time</th>
-            <th class="tileHeader" *ngFor="let ore of oreNames" [title]="ore.name">{{ore.name |slice:0:3}}</th>
+            <ng-container *ngFor="let ore of oreNames">
+                <th *ngIf="settings.showOreTextsT(ore.tier)" class="tileHeader" [title]="ore.name">{{ore.name |slice:0:3}}</th>
+            </ng-container>
         </tr>
         </thead>
         <tbody class="columnData">
@@ -15,10 +17,13 @@
                 <td>{{scan.planet}}</td>
                 <td>{{scan.tileId}}</td>
                 <td>{{scan.time | date}}</td>
-                <td *ngFor="let ore of oreNames">
-                    {{scan.ores[ore.name]}}
+                <ng-container *ngFor="let ore of oreNames">
+                <td *ngIf="settings.showOreTextsT(ore.tier)">
+                    {{scan.ores[ore.name] | number:'1.0-0'}}<span *ngIf="scan.ores[ore.name] >0"> kL</span>
                 </td>
+                </ng-container>
             </tr>
         </tbody>
     </table>
+    
 </div>
