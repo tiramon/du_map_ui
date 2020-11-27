@@ -1,25 +1,42 @@
-<div style="padding: 10px; margin-top: 10px;">
-    <table class="table" style="overflow: auto">
+<style>
+    /*
+   server-side-angular-way.component.css
+*/
+.no-data-available {
+  text-align: center;
+}
+
+/*
+   src/styles.css (i.e. your global style)
+*/
+.dataTables_empty {
+  display: none;
+}
+</style>
+<div style="padding: 10px; margin-top: 10px; right: 10px;color: white" class="columnData">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
         <thead>
         <tr>
             <th class="tileHeader"></th>
             <th class="tileHeader">Planet</th>
-            <th class="tileHeader">Tile<fa-icon [icon]="faSortNumericUpAlt" style="margin-left: 3px" *ngIf="showSort('TileId', true)"></fa-icon><fa-icon [icon]="faSortNumericDownAlt" style="margin-left: 3px" *ngIf="showSort('TileId', down)"></fa-icon></th>
+            <th class="tileHeader">Tile</th>
             <th class="tileHeader">Time</th>
             <ng-container *ngFor="let ore of oreNames">
-                <th *ngIf="settings.showOreTextsT(ore.tier)" class="tileHeader" [title]="ore.name">{{ore.name |slice:0:3}}</th>
+                <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
+                <th  class="tileHeader" [title]="ore.name">{{ore.name |slice:0:3}}</th>
             </ng-container>
         </tr>
         </thead>
-        <tbody class="columnData">
-            <tr *ngFor="let scan of scans | sortBy:desc">
-                <td><a [routerLink]="['/map',getPlanetIdByName(scan.planet), scan.tileId]"><fa-icon [icon]="faMap" [styles]="{'color': 'white'}"></fa-icon></a></td>
-                <td>{{scan.planet}}</td>
-                <td>{{scan.tileId}}</td>
-                <td>{{scan.time | date}}</td>
+        <tbody>
+            <tr *ngFor="let scan of scans">
+                <td class="columnData"><a [routerLink]="['/map',getPlanetIdByName(scan.planet), scan.tileId]"><fa-icon [icon]="faMap" [styles]="{'color': 'white'}"></fa-icon></a></td>
+                <td class="columnData">{{scan.planet}}</td>
+                <td class="columnData">{{scan.tileId}}</td>
+                <td class="columnData">{{scan.time | date}}</td>
                 <ng-container *ngFor="let ore of oreNames">
-                <td *ngIf="settings.showOreTextsT(ore.tier)">
-                    {{scan.ores[ore.name] | number:'1.0-0'}}<span *ngIf="scan.ores[ore.name] >0"> kL</span>
+                    <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
+                <td  class="columnData">
+                    {{(scan.ores[ore.name]/1000) | number:'1.0-0'}}<span *ngIf="scan.ores[ore.name] >0"> kL</span>
                 </td>
                 </ng-container>
             </tr>

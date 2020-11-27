@@ -11,3 +11,19 @@ table{
     background-color: rgb(13,24,28);
     color: rgb(182,222,236);
 }
+
+/*
+   server-side-angular-way.component.css
+*/
+.no-data-available {
+    text-align: center;
+}
+.dataTables_info {
+    color: white !important;
+}
+#DataTables_Table_0_info {
+    color: white;
+}
+.dataTables_length {
+    color: white;
+}

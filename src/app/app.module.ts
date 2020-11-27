@@ -22,6 +22,7 @@ import { MapWrapperComponent } from './component/map-wrapper/map-wrapper.compone
 import { SelectedTileResolver } from './resolver/selected-tile-resolver';
 import { HelpComponent } from './component/help/help.component';
 import { SortByPipe } from './pipe/SortByPipe';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SortByPipe } from './pipe/SortByPipe';
     OAuthModule.forRoot(),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    DataTablesModule
   ],
   providers: [
     SelectedTileResolver,
