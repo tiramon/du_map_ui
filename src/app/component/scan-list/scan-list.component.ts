@@ -69,7 +69,7 @@ export class ScanListComponent implements OnInit {
             });
           });
       },
-      columns: [{name: 'action', orderable: false, searchable: false, width: '10px'}, { name: 'planet' }, { name: 'tileId' }, { name: 'time' }]
+      columns: [{name: 'action', orderable: false, searchable: false, width: '10px'}, { name: 'planet' }, { name: 'tileId' }, { name: 'time' }, {name: 'distance'}]
     };
     for (const ore of this.oreNames) {
       options.columns.push({name: `${ore.name}`});
