@@ -207,6 +207,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     console.log(bestSystemMatch + ' ' + map[territorykey] + ' ' + map[agekeys]);
     keys = this.remove(keys, systemkey);
     keys = this.remove(keys, territorykey);
+    /*
     const splittedAge = map[agekeys].split(' ');
     console.log(splittedAge, agekeys, map[agekeys]);
     if (splittedInput.length < 2 || !splittedAge[1]) {
@@ -223,6 +224,8 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     }
 
     age *= 60 * 1000;
+    */
+    scan.time =  new Date();
     keys = this.remove(keys, agekeys); // min hrs d
     console.log(keys);
     for (const key of keys) {
