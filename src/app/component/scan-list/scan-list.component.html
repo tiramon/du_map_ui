@@ -14,6 +14,10 @@
 }
 </style>
 <div style="padding: 10px; margin-top: 10px; right: 10px;color: white" class="columnData">
+    <div class="field is-horizontal">
+        <label class="checkbox" style="color: white">Show only newest scan <input type="checkbox" [checked]="searchOnlyNewest" (change)="changeNewestFilter($event)">
+        </label>
+    </div>
     <table datatable [dtOptions]="dtOptions" class="row-border hover">
         <thead>
         <tr>
@@ -34,7 +38,7 @@
                 <td class="columnData">{{scan.planet}}</td>
                 <td class="columnData">{{scan.tileId}}</td>
                 <td class="columnData">{{scan.time | date}}</td>
-                <td class="columndata">-</td>
+                <td class="columnData">-</td>
                 <ng-container *ngFor="let ore of oreNames">
                     <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
                 <td  class="columnData">

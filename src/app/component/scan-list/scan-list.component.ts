@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { faMap } from '@fortawesome/free-regular-svg-icons';
 import { DataTableDirective } from 'angular-datatables';
 import { DataTablesResponse } from 'src/app/model/DataTablesResponse';
@@ -14,13 +14,15 @@ import { SettingsService } from 'src/app/service/settings.service';
 })
 
 
-export class ScanListComponent implements OnInit {
+export class ScanListComponent implements OnInit, OnDestroy {
   faMap = faMap;
 
   dtOptions: DataTables.Settings = {};
 
   settings: Settings;
   scans: Scan[];
+
+  searchOnlyNewest = true;
   @ViewChild(DataTableDirective, {static: false})
   private datatableElement: DataTableDirective;
 
@@ -48,13 +50,16 @@ export class ScanListComponent implements OnInit {
     const that = this;
     const options = {
       pagingType: 'full_numbers',
-      pageLength: 10,
+      pageLength: 20,
       serverSide: true,
       dom: '<"columnData"l>tip',
       //processing: true,
       stateSave: false,
       scrollX: true,
+      order: [],
       ajax: (dataTablesParameters: any, callback) => {
+        dataTablesParameters.columns[0].search = {value: '' + this.searchOnlyNewest, regex: false};
+        console.log(dataTablesParameters)
         that.http
           .post<DataTablesResponse>(
             `${this.defaultURL}scans`,
@@ -69,13 +74,24 @@ export class ScanListComponent implements OnInit {
             });
           });
       },
-      columns: [{name: 'action', orderable: false, searchable: false, width: '10px'}, { name: 'planet' }, { name: 'tileId' }, { name: 'time' }, {name: 'distance'}]
+      columnDefs: [
+        {
+          orderable: false, searchable: false, targets: 0, width: '10px'
+        }
+      ],
+      columns: [
+        {name: 'action',  orderable: false, searchable: false, width: '10px'},
+        { name: 'planet' },
+        { name: 'tileId' },
+        { name: 'time' },
+        {name: 'distance'}]
     };
     for (const ore of this.oreNames) {
       options.columns.push({name: `${ore.name}`});
     }
     console.log(options);
     this.dtOptions = options;
+
     /*
     this.scans = [];
     this.scans.push({time : new Date(), planet : 'Thades', tileId : 22021, ores: {'Bauxite': 123.5, Coal: 123, Hematite:123, Quartz: 123, Chromite: 123, Limestone: 123, Malachite: 123, Natron: 123, Acanthite: 123, Garnierite: 123, Petalite: 123, Pyrite: 123}});
@@ -83,6 +99,19 @@ export class ScanListComponent implements OnInit {
     this.scans.push({time : new Date(), planet : 'Alioth', tileId : 25678, ores: {'Bauxite': 123}});
     this.scans.push({time : new Date(), planet : 'Alioth', tileId : 26053, ores: {'Bauxite': 123}});
     */
+  }
+
+  ngOnDestroy(): void {
+    // We remove the last function in the global ext search array so we do not add the fn each time the component is drawn
+    // /!\ This is not the ideal solution as other components may add other search function in this array, so be careful when
+    // handling this global variable
+  }
+
+  changeNewestFilter(event) {
+    this.searchOnlyNewest = event.target.checked;
+    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.draw();
+    });
   }
 
 }
