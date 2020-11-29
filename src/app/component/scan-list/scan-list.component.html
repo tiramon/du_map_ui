@@ -48,7 +48,7 @@
                 <ng-container *ngFor="let ore of oreNames">
                     <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
                 <td  class="columnData" style="text-align: right;">
-                    {{(scan.ores[ore.name]/1000) | number:'1.0-0':getUsersLocale()}}<span *ngIf="scan.ores[ore.name] >0">kL</span>
+                    {{(scan.ores[ore.name]/1000) | number:'1.0-0':getUsersLocale('en-US')}}<span *ngIf="scan.ores[ore.name] >0">kL</span>
                 </td>
                 </ng-container>
             </tr>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { Settings } from 'src/app/model/Settings';
 import { SettingsService } from 'src/app/service/settings.service';
 
 @Component({
@@ -10,9 +11,14 @@ import { SettingsService } from 'src/app/service/settings.service';
 export class MapSettingsComponent implements OnInit {
   faCog = faCog;
 
-  constructor(private settingsService: SettingsService) { }
+  settings: Settings;
+
+  constructor(
+    public settingsService: SettingsService
+  ) { }
 
   ngOnInit() {
+    this.settings = this.settingsService.getSettings();
   }
 
   /**
