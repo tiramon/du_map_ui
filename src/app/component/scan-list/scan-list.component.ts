@@ -15,6 +15,7 @@ import { SettingsService } from 'src/app/service/settings.service';
 
 
 export class ScanListComponent implements OnInit, OnDestroy {
+  allowedLocales = ['en-US', 'de'];
   faMap = faMap;
 
   dtOptions: DataTables.Settings = {};
@@ -23,6 +24,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
   scans: Scan[];
 
   searchOnlyNewest = true;
+  selectedPlanet = null;
   @ViewChild(DataTableDirective, {static: false})
   private datatableElement: DataTableDirective;
 
@@ -50,16 +52,18 @@ export class ScanListComponent implements OnInit, OnDestroy {
     const that = this;
     const options = {
       pagingType: 'full_numbers',
-      pageLength: 20,
+      pageLength: 10,
       serverSide: true,
       dom: '<"columnData"l>tip',
       //processing: true,
-      stateSave: false,
+      stateSave: true,
       scrollX: true,
       order: [],
       ajax: (dataTablesParameters: any, callback) => {
         dataTablesParameters.columns[0].search = {value: '' + this.searchOnlyNewest, regex: false};
-        console.log(dataTablesParameters)
+        if (this.selectedPlanet) {
+          dataTablesParameters.columns[1].search = {value: '' + this.selectedPlanet, regex: false};
+        }
         that.http
           .post<DataTablesResponse>(
             `${this.defaultURL}scans`,
@@ -89,7 +93,6 @@ export class ScanListComponent implements OnInit, OnDestroy {
     for (const ore of this.oreNames) {
       options.columns.push({name: `${ore.name}`});
     }
-    console.log(options);
     this.dtOptions = options;
 
     /*
@@ -114,4 +117,25 @@ export class ScanListComponent implements OnInit, OnDestroy {
     });
   }
 
+  changePlanetFilter(event) {
+    
+    this.selectedPlanet = +event.target.options[event.target.selectedIndex].value;
+    console.log(event, this.selectedPlanet);
+    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.draw();
+    });
+  }
+
+  getUsersLocale(defaultValue: string): string {
+    if (typeof window === 'undefined' || typeof window.navigator === 'undefined') {
+      return defaultValue;
+    }
+    const wn = window.navigator as any;
+    let lang = wn.languages ? wn.languages[0] : defaultValue;
+    lang = lang || wn.language || wn.browserLanguage || wn.userLanguage;
+    if (this.allowedLocales.indexOf(lang) < 0) {
+      lang = 'en-US';
+    }
+    return lang;
+  }
 }

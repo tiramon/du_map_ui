@@ -30,7 +30,7 @@
 
     <ng-container *ngFor="let ore of oreNames">
     <tr  *ngIf="scan?.ores[ore.name]">
-        <td class="rightColumn">{{ore.name}}</td><td class="rightColumn" style="text-align: right;">{{scan.ores[ore.name]}}</td>
+        <td class="rightColumn">{{ore.name}}</td><td class="rightColumn" style="text-align: right;">{{scan.ores[ore.name]| number:'1.0-0':getUsersLocale()}} L</td>
     </tr>
     </ng-container>
 </table>

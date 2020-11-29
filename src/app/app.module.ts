@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +25,8 @@ import { SelectedTileResolver } from './resolver/selected-tile-resolver';
 import { HelpComponent } from './component/help/help.component';
 import { SortByPipe } from './pipe/SortByPipe';
 import { DataTablesModule } from 'angular-datatables';
+
+registerLocaleData(localeDe);
 
 @NgModule({
   declarations: [

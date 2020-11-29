@@ -35,28 +35,28 @@
             <div class="leftColumn">
                 <label class="checkbox">
                     Show ore amount
-                    <input type="checkbox" checked="checked" (change)="showT1Amount.disabled = showT2Amount.disabled = showT3Amount.disabled = showT4Amount.disabled= showT5Amount.disabled = !$event.target.checked; showOreAmountChanged(0, $event)">
+                    <input type="checkbox" [checked]="settingsService.getSettings().showResourceAmount" (change)="showT1Amount.disabled = showT2Amount.disabled = showT3Amount.disabled = showT4Amount.disabled= showT5Amount.disabled = !$event.target.checked; showOreAmountChanged(0, $event)">
                 </label><br>
 
                 <label class="checkbox">
                     Show T1 ore amount
-                    <input type="checkbox" #showT1Amount (change)="showOreAmountChanged(1, $event)">
+                    <input type="checkbox" #showT1Amount [checked]="settingsService.getSettings().showOreTextsT(1)" (change)="showOreAmountChanged(1, $event)">
                 </label><br>
                 <label class="checkbox">
                     Show T2 ore amount
-                    <input type="checkbox" #showT2Amount checked="checked" (change)="showOreAmountChanged(2, $event)">
+                    <input type="checkbox" #showT2Amount [checked]="settingsService.getSettings().showOreTextsT(2)" (change)="showOreAmountChanged(2, $event)">
                 </label><br>
                 <label class="checkbox">
                     Show T3 ore amount
-                    <input type="checkbox" #showT3Amount checked="checked" (change)="showOreAmountChanged(3, $event)">
+                    <input type="checkbox" #showT3Amount [checked]="settingsService.getSettings().showOreTextsT(3)" (change)="showOreAmountChanged(3, $event)">
                 </label><br>
                 <label class="checkbox">
                     Show T4 ore amount
-                    <input type="checkbox" #showT4Amount checked="checked" (change)="showOreAmountChanged(4, $event)">
+                    <input type="checkbox" #showT4Amount [checked]="settingsService.getSettings().showOreTextsT(4)" (change)="showOreAmountChanged(4, $event)">
                 </label><br>
                 <label class="checkbox">
                     Show T5 ore amount
-                    <input type="checkbox" #showT5Amount checked="checked" (change)="showOreAmountChanged(5, $event)">
+                    <input type="checkbox" #showT5Amount [checked]="settingsService.getSettings().showOreTextsT(5)" (change)="showOreAmountChanged(5, $event)">
                 </label>
                 
             </div>

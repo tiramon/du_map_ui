@@ -1,8 +1,7 @@
-import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild, LOCALE_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Subject } from 'rxjs';
-import { throwIfEmpty } from 'rxjs/operators';
 import { Face } from 'src/app/model/Face';
 import { Scan } from 'src/app/model/Scan';
 import { SelectedTile } from 'src/app/model/SelectedTile';
@@ -57,7 +56,8 @@ export class MapComponentComponent implements OnInit {
     private oauthService: OAuthService,
     settingsService: SettingsService,
     @Inject('ORES') private oreNames,
-    @Inject('PLANETS') private planetNames
+    @Inject('PLANETS') private planetNames,
+    @Inject(LOCALE_ID) public locale: string
   ) {
     // a tile has been choosen, map must be loaded and drawn
     this.eventService.tileSelected.subscribe((selectedTile: SelectedTile) => {
@@ -273,7 +273,7 @@ export class MapComponentComponent implements OnInit {
           if (face.scan.ores[ore.name]) {
             if (this.settings.showOreTextsT(ore.tier)) {
               const oreShort = ore.name.substring(0, 3);
-              const amount = Math.round(face.scan.ores[ore.name] / 1000);
+              const amount = new Intl.NumberFormat().format(Math.round(face.scan.ores[ore.name] / 1000));
               const text = `${amount}kL`; // ${oreShort}
               const metrics = this.ctx.measureText(text);
               this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;

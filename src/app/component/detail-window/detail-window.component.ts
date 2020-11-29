@@ -10,6 +10,8 @@ import { EventService } from 'src/app/service/event.service';
   styleUrls: ['./detail-window.component.scss']
 })
 export class DetailWindowComponent implements OnInit {
+  allowedLocales = ['en-US', 'de'];
+
   faCopy = faCopy;
 
   face: Face = null;
@@ -59,5 +61,18 @@ export class DetailWindowComponent implements OnInit {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
+  }
+
+  getUsersLocale(defaultValue: string): string {
+    if (typeof window === 'undefined' || typeof window.navigator === 'undefined') {
+      return defaultValue;
+    }
+    const wn = window.navigator as any;
+    let lang = wn.languages ? wn.languages[0] : defaultValue;
+    lang = lang || wn.language || wn.browserLanguage || wn.userLanguage;
+    if (this.allowedLocales.indexOf(lang) < 0) {
+      lang = 'en-US';
+    }
+    return lang;
   }
 }
