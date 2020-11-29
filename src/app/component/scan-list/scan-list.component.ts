@@ -4,7 +4,9 @@ import { faMap } from '@fortawesome/free-regular-svg-icons';
 import { DataTableDirective } from 'angular-datatables';
 import { DataTablesResponse } from 'src/app/model/DataTablesResponse';
 import { Scan } from 'src/app/model/Scan';
+import { SelectedTile } from 'src/app/model/SelectedTile';
 import { Settings } from 'src/app/model/Settings';
+import { EventService } from 'src/app/service/event.service';
 import { SettingsService } from 'src/app/service/settings.service';
 
 @Component({
@@ -27,10 +29,12 @@ export class ScanListComponent implements OnInit, OnDestroy {
   selectedPlanet = null;
   @ViewChild(DataTableDirective, {static: false})
   private datatableElement: DataTableDirective;
+  selectedTile: SelectedTile;
 
   constructor(
     private http: HttpClient,
     settingsService: SettingsService,
+    eventService: EventService,
     @Inject('BASEURL') protected defaultURL: string,
     @Inject('ORES') public oreNames,
     @Inject('PLANETS') public planetNames
@@ -42,6 +46,12 @@ export class ScanListComponent implements OnInit, OnDestroy {
         this.settings = settings;
       }
     );
+
+    this.selectedTile = eventService.getLastSelectedTile() || new SelectedTile(0, 31);
+    eventService.tileSelected.subscribe((selectedTile: SelectedTile) => {
+      this.selectedTile = selectedTile;
+      console.log(selectedTile);
+    });
   }
 
   getPlanetIdByName(name): number {
@@ -63,6 +73,9 @@ export class ScanListComponent implements OnInit, OnDestroy {
         dataTablesParameters.columns[0].search = {value: '' + this.searchOnlyNewest, regex: false};
         if (this.selectedPlanet) {
           dataTablesParameters.columns[1].search = {value: '' + this.selectedPlanet, regex: false};
+        }
+        if (this.selectedTile) {
+          dataTablesParameters.search.value = `${this.selectedTile.celestialId}:${this.selectedTile.tileId}`;
         }
         that.http
           .post<DataTablesResponse>(

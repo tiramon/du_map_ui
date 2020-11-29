@@ -44,7 +44,7 @@
                 <td class="columnData">{{scan.planet}}</td>
                 <td class="columnData" style="text-align: right;">{{scan.tileId}}</td>
                 <td class="columnData">{{scan.time | date:'shortDate'}}</td>
-                <td class="columnData">-</td>
+                <td class="columnData" style="text-align: right;"><span *ngIf="scan.distance >= 0">{{scan.distance/1000 | number:'1.0-1':getUsersLocale('en-US')}}km</span></td>
                 <ng-container *ngFor="let ore of oreNames">
                     <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
                 <td  class="columnData" style="text-align: right;">

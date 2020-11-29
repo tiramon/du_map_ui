@@ -29,5 +29,12 @@ export class EventService {
    */
   public loading = new EventEmitter<boolean>();
 
-  constructor() { }
+  private lastSelectedTile: SelectedTile;
+  constructor() {
+    this.tileSelected.subscribe(selectedTile => this.lastSelectedTile = selectedTile);
+  }
+
+  public getLastSelectedTile() {
+    return this.lastSelectedTile;
+  }
 }
