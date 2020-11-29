@@ -5,4 +5,27 @@ html, body {
     background-color: rgb(27,40,48);
 }
 
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: white !important;
+  }
 @import '~ngx-toastr/toastr';
+
+/*
+   src/styles.css (i.e. your global style)
+*/
+.dataTables_empty {
+    display: none;
+  }
+  
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter,
+  .dataTables_wrapper .dataTables_info,
+  .dataTables_wrapper .dataTables_processing,
+  .dataTables_wrapper .dataTables_paginate {
+    color: white !important;
+  }
+
+  .dataTables_wrapper .dataTables_length select {
+    background-color: white !important;
+  }
+  

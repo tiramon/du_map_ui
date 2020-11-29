@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +22,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScanListComponent } from './component/scan-list/scan-list.component';
 import { MapWrapperComponent } from './component/map-wrapper/map-wrapper.component';
 import { SelectedTileResolver } from './resolver/selected-tile-resolver';
+import { HelpComponent } from './component/help/help.component';
+import { SortByPipe } from './pipe/SortByPipe';
+import { DataTablesModule } from 'angular-datatables';
+
+registerLocaleData(localeDe);
 
 @NgModule({
   declarations: [
@@ -31,7 +38,9 @@ import { SelectedTileResolver } from './resolver/selected-tile-resolver';
     LoadingComponent,
     MapSettingsComponent,
     ScanListComponent,
-    MapWrapperComponent
+    MapWrapperComponent,
+    HelpComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,
@@ -43,6 +52,7 @@ import { SelectedTileResolver } from './resolver/selected-tile-resolver';
     OAuthModule.forRoot(),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    DataTablesModule
   ],
   providers: [
     SelectedTileResolver,

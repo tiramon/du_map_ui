@@ -1,8 +1,7 @@
-import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild, LOCALE_ID } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
-
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Face } from 'src/app/model/Face';
 import { Scan } from 'src/app/model/Scan';
 import { SelectedTile } from 'src/app/model/SelectedTile';
@@ -10,7 +9,6 @@ import { Settings } from 'src/app/model/Settings';
 import { EventService } from 'src/app/service/event.service';
 import { RequestService } from 'src/app/service/request.service';
 import { SettingsService } from 'src/app/service/settings.service';
-import { isNumber } from 'util';
 
 @Component({
   selector: 'dumap-map-component',
@@ -51,18 +49,35 @@ export class MapComponentComponent implements OnInit {
   }
 
   constructor(
-    private route: ActivatedRoute,
+    route: ActivatedRoute,
+    private router: Router,
     private requestService: RequestService,
     private eventService: EventService,
     private oauthService: OAuthService,
     settingsService: SettingsService,
     @Inject('ORES') private oreNames,
-    @Inject('PLANETS') private planetNames
+    @Inject('PLANETS') private planetNames,
+    @Inject(LOCALE_ID) public locale: string
   ) {
+    // a tile has been choosen, map must be loaded and drawn
+    this.eventService.tileSelected.subscribe((selectedTile: SelectedTile) => {
+      if (!selectedTile) {
+        return;
+      }
+      this.selectedTile = selectedTile;
+      if (oauthService.hasValidAccessToken()) {
+        this.loadMap(selectedTile.celestialId, selectedTile.tileId);
+      }
+    });
+
+    // subscription must be done after tileSelected subscription, else we miss the emit
+    route.data.subscribe(data => {
+      this.eventService.tileSelected.emit(data.selectedTile);
+    });
+
     // loads map after user loged in else clears the map
     this.eventService.loginChange.subscribe((logedIn: boolean) => {
       if (logedIn) {
-        console.log('login', this.selectedTile);
         if (this.selectedTile) {
           this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
         }
@@ -95,28 +110,11 @@ export class MapComponentComponent implements OnInit {
     });
 
     this.imagesLoadedSubject = new Subject<any>();
-    // loads the map initialy when icons are loaded
-    //this.imagesLoadedSubject.subscribe( () => this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId) );
-    //this.getOreIcon('Bauxite');
   }
+
 
   ngOnInit() {
     this.ctx = this.canvas.nativeElement.getContext('2d');
-    // a tile has been choosen, map must be loaded and drawn
-    this.eventService.tileSelected.subscribe((selectedTile: SelectedTile) => {
-      if (!selectedTile) {
-        return;
-      }
-      this.selectedTile = selectedTile;
-      if (this.oauthService.hasValidAccessToken()) {
-        this.loadMap(selectedTile.celestialId, selectedTile.tileId);
-      }
-    });
-
-    const tile = this.route.snapshot.data.selectedTile;
-    if (this.oauthService.hasValidAccessToken && tile) {
-      this.eventService.tileSelected.emit(tile);
-    }
   }
 
   /**
@@ -275,11 +273,15 @@ export class MapComponentComponent implements OnInit {
           if (face.scan.ores[ore.name]) {
             if (this.settings.showOreTextsT(ore.tier)) {
               const oreShort = ore.name.substring(0, 3);
-              const amount = Math.round(face.scan.ores[ore.name] / 1000);
+              const amount = new Intl.NumberFormat().format(Math.round(face.scan.ores[ore.name] / 1000));
               const text = `${amount}kL`; // ${oreShort}
               const metrics = this.ctx.measureText(text);
               this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;
-              this.ctx.fillText(text + ` ${oreShort}`, x + this.offsetX2D + 5 - metrics.width + xOreOffset, y + this.offsetY2D  - yModifier + fontSize * 1.2 + yOreOffset);
+              this.ctx.fillText(
+                text + ` ${oreShort}`,
+                x + this.offsetX2D + 5 - metrics.width + xOreOffset,
+                y + this.offsetY2D  - yModifier + fontSize * 1.2 + yOreOffset
+              );
               yOreOffset += fontSize;
             }
           }
@@ -295,7 +297,11 @@ export class MapComponentComponent implements OnInit {
       const text = '' + face.tileId;
       const metrics = this.ctx.measureText(text);
       // + fontSize / 2
-      this.ctx.fillText(text, x + this.offsetX2D - metrics.width / 2, y -  (face.scan && this.settings.showResourceAmount ? yModifier : 0) + this.offsetY2D);
+      this.ctx.fillText(
+        text,
+        x + this.offsetX2D - metrics.width / 2,
+        y -  (face.scan && this.settings.showResourceAmount ? yModifier : 0) + this.offsetY2D
+      );
     }
   }
   drawFace(face, color = `rgb(64,77,85)`) {
@@ -342,7 +348,7 @@ export class MapComponentComponent implements OnInit {
       this.ctx.fillStyle = `rgba(0, 0, 0, 0.5)`;
       this.ctx.fill();
     } else if (face.scan) {
-      this.ctx.fillStyle = `rgba(50, 50, 50, 1.0)`;
+      this.ctx.fillStyle = `rgba(40, 40, 40, 0.5)`;
       this.ctx.fill();
     }
 
@@ -361,6 +367,22 @@ export class MapComponentComponent implements OnInit {
       if (this.isInside(f.vertices, [mouseX, mouseY])) {
         // console.log('clicked in tile ' + f.tileId);
         this.eventService.faceSelected.emit(f);
+        break;
+      }
+    }
+  }
+
+  public onCanvasDoubleClick(event) {
+    if (!this.face) { return; }
+    event.preventDefault();
+    // relative mouse coords
+    const mouseX = event.clientX - this.offsetX2D - this.canvas.nativeElement.getBoundingClientRect().left;
+    const mouseY = event.clientY - this.offsetY2D - this.scrollOffset - this.canvas.nativeElement.getBoundingClientRect().top;
+    // console.log(mouseX, mouseY);
+    for (const f of this.face) {
+      if (this.isInside(f.vertices, [mouseX, mouseY])) {
+        // console.log('clicked in tile ' + f.tileId);
+        this.router.navigate(['map', this.selectedTile.celestialId, f.tileId]);
         break;
       }
     }

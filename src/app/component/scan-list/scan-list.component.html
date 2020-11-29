@@ -1,0 +1,58 @@
+<style>
+    /*
+   server-side-angular-way.component.css
+*/
+.no-data-available {
+  text-align: center;
+}
+
+/*
+   src/styles.css (i.e. your global style)
+*/
+.dataTables_empty {
+  display: none;
+}
+</style>
+<div style="padding: 10px; margin-top: 10px; right: 10px;color: white" class="columnData">
+    <div class="field is-horizontal">
+        <label class="checkbox" style="color: white">Show only newest scan <input type="checkbox" [checked]="searchOnlyNewest" (change)="changeNewestFilter($event)">
+        </label>
+    </div>
+    <div class="select is-horizontal">
+        <select style="width: 130px" (change)="changePlanetFilter($event);">
+            <option></option>
+            <option *ngFor="let planet of planetNames" [value]="planet.id" [selected]="planet.name === selectedPlanet">{{planet.name}}</option>
+        </select>
+      </div><br>
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead>
+        <tr>
+            <th class="tileHeader"></th>
+            <th class="tileHeader">Planet</th>
+            <th class="tileHeader">Tile</th>
+            <th class="tileHeader">Time</th>
+            <th class="tileHeader" title="Distance">Dist</th>
+            <ng-container *ngFor="let ore of oreNames">
+                <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
+                <th  class="tileHeader" [title]="ore.name">{{ore.name |slice:0:3}}</th>
+            </ng-container>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let scan of scans">
+                <td class="columnData"><a [routerLink]="['/map',getPlanetIdByName(scan.planet), scan.tileId]"><fa-icon [icon]="faMap" [styles]="{'color': 'white'}"></fa-icon></a></td>
+                <td class="columnData">{{scan.planet}}</td>
+                <td class="columnData" style="text-align: right;">{{scan.tileId}}</td>
+                <td class="columnData">{{scan.time | date:'shortDate'}}</td>
+                <td class="columnData">-</td>
+                <ng-container *ngFor="let ore of oreNames">
+                    <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
+                <td  class="columnData" style="text-align: right;">
+                    {{(scan.ores[ore.name]/1000) | number:'1.0-0':getUsersLocale()}}<span *ngIf="scan.ores[ore.name] >0">kL</span>
+                </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

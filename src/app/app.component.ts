@@ -3,8 +3,10 @@ import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faListAlt } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { EventService } from './service/event.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'dumap-root',
@@ -14,6 +16,7 @@ import { EventService } from './service/event.service';
 export class AppComponent implements OnInit {
   faDiscord = faDiscord;
   faCog = faCog;
+  faListAlt = faListAlt;
   title = 'DuMapUi';
   lastTileValue: string;
   public showAddScan = false;
@@ -33,6 +36,7 @@ export class AppComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private oauthService: OAuthService,
+    private router: Router,
     @Inject('PLANETS') public planets
   ) {
     // hides the addscan and setting dialog if a user gets loged out
@@ -57,7 +61,6 @@ export class AppComponent implements OnInit {
 
     // URL of the SPA to redirect the user to after login
     config.redirectUri = window.location.origin + '/';
-    //config.redirectUri = 'http://localhost:4201/';
     // The SPA's id. The SPA is registerd with this id at the auth-server
     config.clientId = '780864362234511400';
     config.dummyClientSecret = 'Tk1Ni6x6wm239aN2juHh3o90glPusCqB';
@@ -92,18 +95,15 @@ export class AppComponent implements OnInit {
     // when another tile was selected tell it to the world
     this.modelChanged.subscribe(
       (selectedTile: SelectedTile) => {
-        console.log('modelchange emit');
-        this.eventService.tileSelected.emit(selectedTile);
+        this.router.navigate([`/map/${selectedTile.celestialId}/${selectedTile.tileId}`]);
       });
 
     // somehow handle a change of planet and tile from another location, but make sure it's not our own event reacting to
 
     this.eventService.tileSelected.subscribe( selectedTile => {
-      //IMPLEMENT ME
-      if (selectedTile && selectedTile.tileId !== this.tileId && selectedTile.celestialId !== this.celestialId) {
+      if (selectedTile && (selectedTile.tileId !== this.tileId || selectedTile.celestialId !== this.celestialId)) {
         this.celestialId = selectedTile.celestialId;
         this.tileId = selectedTile.tileId;
-        console.log('received tile change');
         this.tileIdInput.nativeElement.value = '' + this.tileId;
         this.planetIdInput.nativeElement.selectedIndex = this.planets.map(p => p.id).indexOf(this.celestialId);
       }

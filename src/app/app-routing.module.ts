@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HelpComponent } from './component/help/help.component';
 import { MapWrapperComponent } from './component/map-wrapper/map-wrapper.component';
+import { ScanListComponent } from './component/scan-list/scan-list.component';
 import { SelectedTileResolver } from './resolver/selected-tile-resolver';
 
 
@@ -17,6 +19,14 @@ const routes: Routes = [
     path: 'map',
     resolve: {selectedTile: SelectedTileResolver},
     component: MapWrapperComponent
+  },
+  {
+    path: 'scan',
+    component: ScanListComponent
+  },
+  {
+    path: 'help',
+    component: HelpComponent
   }
 ];
 
