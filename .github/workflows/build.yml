@@ -8,17 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.16]
+    
 
     steps:
       - uses: actions/checkout@v1
 
-      - name: Node $
+      - name: Node 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: $
+          node-version: '12.x'
 
       - name: npm install and npm run build
         run: |
