@@ -3,7 +3,7 @@
 <dumap-login *ngIf="!isLogedin()" [modal]="!isLogedin()"></dumap-login>
 <dumap-add-scan-dialog *ngIf="this.showAddScan" [modal]="this.showAddScan" (endModal)="this.showAddScan = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
 <div class="columns">
-  <div class="column is-2" style="background-color: rgb(27,40,48); padding: 0 ">
+  <div class="column is-narrow" style="background-color: rgb(27,40,48); padding: 0 ">
     <img src="assets/maps.PNG" style="object-fit: contain;">
     
     <div style="position: absolute; top: 10px; left: 10px; background-color: transparent;">
@@ -27,11 +27,13 @@
       </div>
     </div>
     <div style="position: absolute; bottom: 10px; left: 10px; background-color: transparent;">
+      <!--
       <div class="btn" style=" margin-top: 10px" title="Help">
         <a [routerLink]="['help']" style="color: white">
           ?
         </a>
       </div>
+    -->
       <div class="btn" style="margin-bottom: 10px" title="Discord channel">
         <a href="https://discord.gg/PQeJMUeXb2">
           <fa-icon [icon]="faDiscord" size="xs" [styles]="{'color': 'white'}"></fa-icon>
@@ -42,7 +44,7 @@
       </div>
     </div>
   </div>
-  <div class="column">
+  <div class="column is-10">
     <router-outlet></router-outlet>
   </div>
 </div>
