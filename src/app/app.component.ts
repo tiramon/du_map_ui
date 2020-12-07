@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   faDiscord = faDiscord;
   faCog = faCog;
   faListAlt = faListAlt;
-  title = 'DuMapUi';
+
   lastTileValue: string;
   public showAddScan = false;
   public showSettings = false;

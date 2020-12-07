@@ -118,9 +118,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
   }
 
   changePlanetFilter(event) {
-    
     this.selectedPlanet = +event.target.options[event.target.selectedIndex].value;
-    console.log(event, this.selectedPlanet);
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
       dtInstance.draw();
     });

@@ -17,7 +17,6 @@
                         <div class="control">
                             <div class="select">
                                 <select name="planet" style="width:100%" [(ngModel)]="scan.planet" (change)="changePlanet($event)" required #planet="ngModel">
-                                    <option></option>
                                     <option *ngFor="let planet of planets" [ngValue]="planet.name">
                                         {{planet.name}}
                                     </option>
@@ -38,13 +37,19 @@
                     <div class="field">
                         <div class="control">
                             <!--(input)="inputValidator($event)"-->
-                            <input name="tileId" class="input" type="text" placeholder="Territory Id" [(ngModel)]="scan.tileId"  required #tileId="ngModel" pattern="\d+">
+                            <input name="tileId" class="input" type="number" placeholder="Territory Id" [(ngModel)]="scan.tileId"  required #tileId="ngModel" customMin="0" [customMax]="maxTiles-1" pattern="\d+">
                         </div>
                         <p *ngIf="tileId.errors?.pattern && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
-                            This tile id is invalid
+                            This tile id is invalid, invalid characters
                         </p>
                         <p *ngIf="tileId.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
                             This field is required
+                        </p>
+                        <p *ngIf="tileId.errors?.customMin && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
+                            This tile id is invalid, minimum tile id is 0
+                        </p>
+                        <p *ngIf="tileId.errors?.customMax && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
+                            This tile id is invalid, {{scan.planet}} only has {{maxTiles}} tiles
                         </p>
                     </div>
                 </div>

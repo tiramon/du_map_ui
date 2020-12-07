@@ -53,6 +53,12 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     this.clearScan();
   }
 
+  get maxTiles(): number {
+    return this.maxTilesForPlanet(this.planets.find(p => p.id === this.currentPlanetId));
+  }
+  maxTilesForPlanet(planet): number {
+    return planet.gp * planet.gp * 3 * 10 + 2;
+  }
   /**
    * Resets the scan object behind the form and refreshes the list of available ore at that planet
    */
