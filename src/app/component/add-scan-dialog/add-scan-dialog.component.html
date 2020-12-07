@@ -7,6 +7,7 @@
             <span (click)="tab=2" class="tab" [class.tab-active]="tab == 2">Paste OCR result</span>
         </div>
         <div *ngIf="tab == 1">
+            <form #scanForm="ngForm">
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
                     <label class="label leftColumn">Planet</label>
@@ -15,7 +16,7 @@
                     <div class="field">
                         <div class="control">
                             <div class="select">
-                                <select style="width:100%" [(ngModel)]="scan.planet" (change)="changePlanet($event)">
+                                <select name="planet" style="width:100%" [(ngModel)]="scan.planet" (change)="changePlanet($event)" required #planet="ngModel">
                                     <option></option>
                                     <option *ngFor="let planet of planets" [ngValue]="planet.name">
                                         {{planet.name}}
@@ -23,6 +24,9 @@
                                 </select>
                             </div>
                         </div>
+                        <p *ngIf="planet.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                            This field is required
+                        </p>
                     </div>
                 </div>
             </div>
@@ -33,8 +37,15 @@
                 <div class="field-body" style="margin-right:10px;">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" placeholder="Territory Id" [(ngModel)]="scan.tileId" (input)="inputValidator($event)">
+                            <!--(input)="inputValidator($event)"-->
+                            <input name="tileId" class="input" type="text" placeholder="Territory Id" [(ngModel)]="scan.tileId"  required #tileId="ngModel" pattern="\d+">
                         </div>
+                        <p *ngIf="tileId.errors?.pattern && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                            This tile id is invalid
+                        </p>
+                        <p *ngIf="tileId.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
+                            This field is required
+                        </p>
                     </div>
                 </div>
             </div>
@@ -45,8 +56,11 @@
                 <div class="field-body" style="margin-right:10px;">
                     <div class="field">
                         <div class="control">                        
-                            <input class="input" type="date" [ngModel] ="scan.time | date:'yyyy-MM-dd'" (ngModelChange)="scan.time = $event" placeHolder="Time">
+                            <input name="time" class="input" type="date" [ngModel] ="scan.time | date:'yyyy-MM-dd'" (ngModelChange)="scan.time = $event" placeHolder="Time" required #time="ngModel">
                         </div>
+                        <p *ngIf="time.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                            This field is required
+                        </p>
                     </div>
                 </div>
             </div>
@@ -58,8 +72,11 @@
                 <div class="field-body" style="margin-right:10px;">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" [(ngModel)]="scan.ores[ore]">
+                            <input [name]="ore" class="input" type="text" placeholder="ore amount in L, empty if no ore of this type is present" [(ngModel)]="scan.ores[ore]" pattern="\d+" #currentOre="ngModel">
                         </div>
+                        <p *ngIf="currentOre.errors?.pattern && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                            This ore amount is invalid
+                        </p>
                     </div>
                 </div>
             </div>
@@ -69,15 +86,16 @@
             </div>
             <div class="field is-grouped is-grouped-centered" >
                 <div class="control">
-                <button class="button is-link" (click)="saveScan(false)">Save & New</button>
+                <button class="button is-link" (click)="saveScan(false, scanForm)">Save & New</button>
                 </div>
                 <div class="control">
-                    <button class="button is-link" (click)="saveScan(true)">Save & Close</button>
+                    <button class="button is-link" (click)="saveScan(true, scanForm)">Save & Close</button>
                 </div>
                 <div class="control">
                 <button class="button is-link is-light" (click)="endModal.emit()">Close</button>
                 </div>
             </div>
+            </form>
         </div>
         <div *ngIf="tab == 2">
             <div class="content" style="padding: 10px">

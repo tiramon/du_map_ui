@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Inject, Input, NO_ERRORS_SCHEMA, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Scan } from 'src/app/model/Scan';
 import { EventService } from 'src/app/service/event.service';
@@ -28,43 +29,12 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   scan: Scan;
   ores: string[];
 
-  oresPerPlanet = {
-    Alioth: [0, 1, 2, 3, 5, 6, 8],
-    'Alioth Moon 1': [0, 1, 2, 3, 16],
-    'Alioth Moon 4': [0, 1, 2, 3, 18],
-    Feli: [0, 1, 2, 3, 6, 10, 14],
-    'Feli Moon 1': [0, 1, 2, 3, 6, 11, 16],
-    Ion: [0, 1, 2, 3, 5, 8, 13, 18],
-    'Ion Moon 1': [0, 1, 2, 3, 7],
-    'Ion Moon 2': [0, 1, 2, 3, 6, 11],
-    Jago: [0, 1, 2, 3, 4, 5, 10, 15, 16],
-    Lacobus: [0, 1, 2, 3, 7, 11, 14, 17],
-    'Lacobus Moon 1': [0, 1, 2, 3],
-    'Lacobus Moon 2': [0, 1, 2, 3, 5],
-    'Lacobus Moon 3': [0, 1, 2, 3],
-    Madis: [0, 1, 2, 3, 7, 9],
-    'Madis Moon 1': [0, 1, 2, 3, 10, 15],
-    'Madis Moon 2': [0, 1, 2, 3, 9, 14, 20],
-    'Madis Moon 3': [0, 1, 2, 3, 13, 17],
-    Sanctuary: [0, 1, 2, 3, 4, 5, 6, 7],
-    Sicari: [0, 1, 2, 3, 4, 11, 15],
-    Sinnen: [0, 1, 2, 3, 6, 8, 13],
-    'Sinnen Moon 1': [0, 1, 2, 3, 4, 8, 12, 18],
-    Symeon: [0, 1, 2, 3, 4, 9, 12],
-    Talemai: [0, 1, 2, 3, 5, 7, 10],
-    'Talemai Moon 1': [0, 1, 2, 3, 7, 13, 17],
-    'Talemai Moon 2': [0, 1, 2, 3, 9, 15],
-    'Talemai Moon 3': [0, 1, 2, 3, 5, 14, 20],
-    Teoma: [0, 1, 2, 3, 6, 7, 9, 12 ],
-    Thades: [0, 1, 2, 3, 4, 11],
-    'Thades Moon 1': [0, 1, 2, 3, 4, 8],
-    'Thades Moon 2': [0, 1, 2, 3, 10, 12]
-  };
-
   enteredOres = {};
   currentOres = [];
+  formTouched = false;
 
   constructor(
+    private formBuilder: FormBuilder,
     private requestService: RequestService,
     private eventService: EventService,
     private toastr: ToastrService,
@@ -83,10 +53,13 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     this.clearScan();
   }
 
+  /**
+   * Resets the scan object behind the form and refreshes the list of available ore at that planet
+   */
   clearScan() {
     this.scan = new Scan();
     this.scan.tileId = null;
-    this.scan.time = null;
+    this.scan.time = new Date();
     this.scan.ores = {};
     if (this.currentPlanetId) {
       this.scan.planet = this.planets.find(p => p.id === this.currentPlanetId).name;
@@ -96,10 +69,17 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     this.refreshCurrentOres();
   }
 
-  getOres(planet: string) {
-    return this.oresPerPlanet[planet];
+  /**
+   * Returns the indices for the ores present at the given planet
+   * @param planet planet to filter ores by
+   */
+  getOres(planet: string): number[] {
+    return this.planets.find(p => p.name === planet).ores;
   }
 
+  /**
+   * Resets the currentOres array and fills it with the ores available at currently selected planet
+   */
   refreshCurrentOres() {
     this.currentOres.length = 0;
     for (const o of this.getOres(this.scan.planet)) {
@@ -111,6 +91,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     Object.keys(this.enteredOres).forEach(k => delete this.enteredOres[k]);
     this.refreshCurrentOres();
   }
+  /*
   public inputValidator(event: any) {
     const value = event.target.value;
     const pattern = /^[0-9]{1,6}$/;
@@ -122,8 +103,14 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
       }
     }
   }
+*/
 
-  saveScan(close: boolean) {
+  saveScan(close: boolean, form: NgForm) {
+    if (form.invalid) {
+      this.formTouched = true;
+      this.toastr.error('Your scan input contained erorrs.');
+      return;
+    }
     this.error = [];
     this.requestService.saveScan(this.scan).then(
       response => {
@@ -158,6 +145,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
       this.tab = 1;
       this.toastr.success('Your scan was successfully parsed.');
     }
+    this.formTouched = true;
   }
 
   /**
