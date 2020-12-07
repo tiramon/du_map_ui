@@ -54,8 +54,9 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   get maxTiles(): number {
-    return this.maxTilesForPlanet(this.planets.find(p => p.id === this.currentPlanetId));
+    return this.maxTilesForPlanet(this.planets.find(p => p.name === this.scan.planet));
   }
+
   maxTilesForPlanet(planet): number {
     return planet.gp * planet.gp * 3 * 10 + 2;
   }
