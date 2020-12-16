@@ -31,7 +31,7 @@
             <th class="tileHeader">Planet</th>
             <th class="tileHeader">Tile</th>
             <th class="tileHeader">Time</th>
-            <th class="tileHeader" title="Distance">Dist</th>
+            <th class="tileHeader" title="Distance" style="width: 100px">Dist</th>
             <ng-container *ngFor="let ore of oreNames">
                 <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
                 <th  class="tileHeader" [title]="ore.name">{{ore.name |slice:0:3}}</th>
@@ -44,7 +44,7 @@
                 <td class="columnData">{{scan.planet}}</td>
                 <td class="columnData" style="text-align: right;">{{scan.tileId}}</td>
                 <td class="columnData">{{scan.time | date:'shortDate'}}</td>
-                <td class="columnData" style="text-align: right;"><span *ngIf="scan.distance >= 0">{{scan.distance/1000 | number:'1.0-1':getUsersLocale('en-US')}}km</span></td>
+                <td class="columnData" style="text-align: right;width: 100px"><span *ngIf="scan.distance >= 0">{{scan.distance/1000 | number:'1.1-1':getUsersLocale('en-US')}}km</span></td>
                 <ng-container *ngFor="let ore of oreNames">
                     <!--*ngIf="settings.showOreTextsT(ore.tier)"-->
                 <td  class="columnData" style="text-align: right;">

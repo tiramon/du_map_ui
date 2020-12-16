@@ -93,11 +93,11 @@ export class ScanListComponent implements OnInit, OnDestroy {
       },
       columnDefs: [
         {
-          orderable: false, searchable: false, targets: 0, width: '10px'
+          orderable: false, searchable: false, targets: 0
         }
       ],
       columns: [
-        {name: 'action',  orderable: false, searchable: false, width: '10px'},
+        {name: 'action',  orderable: false, searchable: false},
         { name: 'planet' },
         { name: 'tileId' },
         { name: 'time' },
