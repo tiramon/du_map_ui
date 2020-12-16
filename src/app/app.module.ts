@@ -83,7 +83,7 @@ registerLocaleData(localeDe);
       {id: 23, name: 'Sicari', ores: [0, 1, 2, 3, 4, 11, 15], gp: 37, altitude: 0},
       {id: 24, name: 'Sinnen', ores: [0, 1, 2, 3, 6, 8, 13], gp: 40, altitude: 0},
         {id: 15, name: 'Sinnen Moon 1', ores: [0, 1, 2, 3, 4, 8, 12, 18], gp: 12, altitude: 0},
-      {id: 22, name: 'Symeon', ores: [0, 1, 2, 3, 4, 9, 12], gp: 36, altitude: 0},
+      {id: 22, name: 'Symeon', ores: [0, 1, 2, 3, 4, 9, 12, 20], gp: 36, altitude: 0},
       {id: 25, name: 'Talemai', ores: [0, 1, 2, 3, 5, 7, 10], gp: 42, altitude: 0},
         {id: 12, name: 'Talemai Moon 1', ores: [0, 1, 2, 3, 7, 13, 17], gp: 11, altitude: 0},
         {id: 3, name: 'Talemai Moon 2', ores: [0, 1, 2, 3, 9, 15], gp: 8, altitude: 0},
