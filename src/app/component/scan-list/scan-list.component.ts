@@ -54,8 +54,8 @@ export class ScanListComponent implements OnInit, OnDestroy {
     });
   }
 
-  getPlanetIdByName(name): number {
-    return this.planetNames.find(p => p.name === name).id;
+  getPlanetIdByName(name: string): number {
+    return this.planetNames.find((p: {name: string}) => p.name === name).id;
   }
 
   ngOnInit() {
@@ -110,7 +110,9 @@ export class ScanListComponent implements OnInit, OnDestroy {
 
     /*
     this.scans = [];
-    this.scans.push({time : new Date(), planet : 'Thades', tileId : 22021, ores: {'Bauxite': 123.5, Coal: 123, Hematite:123, Quartz: 123, Chromite: 123, Limestone: 123, Malachite: 123, Natron: 123, Acanthite: 123, Garnierite: 123, Petalite: 123, Pyrite: 123}});
+    this.scans.push({time : new Date(), planet : 'Thades', tileId : 22021, ores:
+    {'Bauxite': 123.5, Coal: 123, Hematite:123, Quartz: 123, Chromite: 123, Limestone: 123, Malachite: 123, Natron: 123,
+    Acanthite: 123, Garnierite: 123, Petalite: 123, Pyrite: 123}});
     this.scans.push({time : new Date(), planet : 'Thades', tileId : 730, ores: {'Bauxite': 123}});
     this.scans.push({time : new Date(), planet : 'Alioth', tileId : 25678, ores: {'Bauxite': 123}});
     this.scans.push({time : new Date(), planet : 'Alioth', tileId : 26053, ores: {'Bauxite': 123}});

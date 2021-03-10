@@ -12,7 +12,7 @@ export class SettingsService {
         this.settings = new Settings();
     }
 
-    public getSettings() {
+    public getSettings(): Settings {
         return this.settings;
     }
 
