@@ -19,9 +19,9 @@
         </label>
     </div>
     <div class="select is-horizontal">
-        <select style="width: 130px" (change)="changePlanetFilter($event);">
+        <select style="width: 130px" (change)="changePlanetFilter($event);" >
             <option></option>
-            <option *ngFor="let planet of planetNames" [value]="planet.id" [selected]="planet.name === selectedPlanet">{{planet.name}}</option>
+            <option *ngFor="let planet of planetNames" [value]="planet.id" [selected]="planet.id == selectedPlanet">{{planet.name}}</option>
         </select>
       </div><br>
     <table datatable [dtOptions]="dtOptions" class="row-border hover">

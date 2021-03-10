@@ -39,6 +39,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
     @Inject('ORES') public oreNames,
     @Inject('PLANETS') public planetNames
   ) {
+    console.log('created new')
     this.settings = settingsService.getSettings();
     // redraws the map when settings are changed
     settingsService.settingsChanged.subscribe(
@@ -108,6 +109,14 @@ export class ScanListComponent implements OnInit, OnDestroy {
     }
     this.dtOptions = options;
 
+    try {
+      this.selectedPlanet = JSON.parse(localStorage.getItem('scanListSelectedPlanet'));
+      console.log('planet', this.selectedPlanet);
+    } catch(e) {
+      console.error(e)
+      //nodata
+    }
+
     /*
     this.scans = [];
     this.scans.push({time : new Date(), planet : 'Thades', tileId : 22021, ores:
@@ -134,6 +143,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
 
   changePlanetFilter(event) {
     this.selectedPlanet = +event.target.options[event.target.selectedIndex].value;
+    localStorage.setItem('scanListSelectedPlanet', JSON.stringify(this.selectedPlanet));
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
       dtInstance.draw();
     });
