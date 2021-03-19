@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HelpComponent } from './component/help/help.component';
 import { MapWrapperComponent } from './component/map-wrapper/map-wrapper.component';
 import { ScanListComponent } from './component/scan-list/scan-list.component';
+import { ShareDialogComponent } from './component/share-dialog/share-dialog.component';
 import { SelectedTileResolver } from './resolver/selected-tile-resolver';
 
 
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'help',
     component: HelpComponent
+  },
+  {
+    path: 'share',
+    component: ShareDialogComponent
   }
 ];
 

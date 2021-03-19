@@ -1,0 +1,80 @@
+<div style="padding: 10px; margin-top: 10px; right: 10px;color: white" >
+    <table  class="row-border hover" width="100%">
+        <tr>
+            <th class="tileHeader">Planet</th>
+            <th class="tileHeader">TileId</th>
+            <th class="tileHeader">Shared with</th>
+            <th class="tileHeader">edit</th>
+            <th class="tileHeader">delete</th>
+        </tr>
+        <tr *ngFor="let share of shares">
+            <td>
+                {{share.planet}}
+                
+            </td>
+            <td *ngIf="share.tileId">
+                {{share.tileId}}
+            </td>
+            <td *ngIf="!share.tileId">
+                All
+            </td>
+            <td></td>
+            <td>
+                <fa-icon [icon]="faPen" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+            </td>
+            <td>
+                <fa-icon [icon]="faTrashAlt" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+            </td>
+        </tr>
+    </table>
+    <!--
+    <form #shareForm="ngForm">
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label leftColumn">Planet</label>
+            </div>
+            <div class="field-body" style="margin-right:10px;">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select name="planet" style="width:100%" [(ngModel)]="share.planet" (change)="changePlanet($event)" required #planet="ngModel">
+                                <option *ngFor="let planet of planets" [ngValue]="planet.name">
+                                    {{planet.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <p *ngIf="planet.errors?.required && (formTouched || shareForm.touched || shareForm.dirty)" class="help is-danger">
+                        This field is required
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label leftColumn">Territory Id</label>
+            </div>
+            <div class="field-body" style="margin-right:10px;">
+                <div class="field">
+                    <div class="control">
+                        <!--(input)="inputValidator($event)"- ->
+                        <input name="tileId" class="input" type="number" placeholder="Territory Id - empty for whole planet" [(ngModel)]="share.tileId"  #tileId="ngModel" customMin="0" [customMax]="maxTiles-1" pattern="\d+">
+                    </div>
+                    <p *ngIf="tileId.errors?.pattern && (formTouched || shareForm.touched || shareForm.dirty)" class="help is-danger">
+                        This tile id is invalid, invalid characters
+                    </p>
+                    <p *ngIf="tileId.errors?.required && (formTouched || shareForm.touched || shareForm.dirty)"class="help is-danger">
+                        This field is required
+                    </p>
+                    <p *ngIf="tileId.errors?.customMin && (formTouched || shareForm.touched || shareForm.dirty)"class="help is-danger">
+                        This tile id is invalid, minimum tile id is 0
+                    </p>
+                    <p *ngIf="tileId.errors?.customMax && (formTouched || shareForm.touched || shareForm.dirty)"class="help is-danger">
+                        This tile id is invalid, {{share.planet}} only has {{maxTiles}} tiles
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+-->
+</div>
