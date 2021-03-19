@@ -18,7 +18,7 @@ export class DetailWindowComponent implements OnInit {
   scan: Scan = null;
   constructor(
     private eventService: EventService,
-    @Inject('ORES') public oreNames
+    @Inject('ORES') public oreNames: []
   ) { }
 
   ngOnInit() {
@@ -50,7 +50,7 @@ export class DetailWindowComponent implements OnInit {
    *
    * @param text text to be copied
    */
-  copyToClipboard(text) {
+  copyToClipboard(text: string) {
     const dummy = document.createElement('textarea');
     // to avoid breaking orgain page when copying more words
     // cant copy when adding below this code

@@ -192,7 +192,7 @@ export class MapComponentComponent implements OnInit {
 
     return this.oreIcons[oreName];
   }
-  setImageLoaded(oreName) {
+  setImageLoaded(oreName: string) {
     this.oreIconsLoaded[oreName] = true;
     if (this.getAllIconsLoaded()) {
       this.imagesLoadedSubject.next(true);
@@ -207,7 +207,7 @@ export class MapComponentComponent implements OnInit {
     return loaded;
   }
 
-  drawText(face) {
+  drawText(face: Face) {
     const vertex = face.vertices;
     const center = face.center;
     // console.log('face vertices', face, vertex , center);
@@ -305,7 +305,7 @@ export class MapComponentComponent implements OnInit {
       );
     }
   }
-  drawFace(face, color = `rgb(64,77,85)`) {
+  drawFace(face: Face, color: string = `rgb(64,77,85)`) {
     const vertex = face.vertices;
     const center = face.center;
     // console.log('face vertices', face, vertex , center);
@@ -373,7 +373,7 @@ export class MapComponentComponent implements OnInit {
     }
   }
 
-  public onCanvasDoubleClick(event) {
+  public onCanvasDoubleClick(event: MouseEvent) {
     if (!this.face) { return; }
     event.preventDefault();
     // relative mouse coords
@@ -389,7 +389,7 @@ export class MapComponentComponent implements OnInit {
     }
   }
 
-  public onCanvasRightClick(event) {
+  public onCanvasRightClick(event: MouseEvent) {
     if (!this.face) { return; }
     event.preventDefault();
     // relative mouse coords
@@ -405,7 +405,7 @@ export class MapComponentComponent implements OnInit {
     }
   }
 
-  isInside(vertices, point) {
+  isInside(vertices: number[][], point: number[]) {
     const extreme = [10000, point[1]];
     let count = 0;
     let i = 0;
@@ -421,6 +421,7 @@ export class MapComponentComponent implements OnInit {
     } while (i !== 0);
     return (count % 2 === 1);
   }
+
   doIntersect(p1, q1, p2, q2) {
     const o1 = this.orientation(p1, q1, p2);
     const o2 = this.orientation(p1, q1, q2);
@@ -445,14 +446,14 @@ export class MapComponentComponent implements OnInit {
     return false;
   }
 
-  orientation(p, q, r) {
+  orientation(p: number[], q: number[], r: number[]) {
     const val = (q[1] - p[1]) * (r[0] - q[0]) - (q[0] - p[0]) * (r[1] - q[1]);
     if (val === 0) {
       return 0;
     }
     return (val > 0) ? 1 : 2;
   }
-  onSegment(p, q, r) {
+  onSegment(p: number[], q: number[], r: number[]) {
     if (q[0] <= Math.max(p[0], r[0]) &&
         q[0] >= Math.min(p[0], r[0]) &&
         q[1] <= Math.max(p[1], r[1]) &&
@@ -472,7 +473,7 @@ export class MapComponentComponent implements OnInit {
  @HostListener('window:resize', ['$event'])
  onResize(event) {
    console.log(event.target.innerWidth);
-   this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 450, 200);
+   this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 530, 200);
    this.canvas.nativeElement.width = this.CANVAS_WIDTH;
 
    this.CANVAS_HEIGHT = Math.max(event.target.innerHeight, 200);

@@ -15,7 +15,9 @@
       </div><br>
       <label class="label" style="color: white">Tile Id</label>
       <input #tileId style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
-      <div class="btn" style=" margin-top: 10px" title="Add scan" (click)="showAddScanDialog()">+</div>
+      <div class="btn" style=" margin-top: 10px" title="Add scan" (click)="showAddScanDialog()">
+        <fa-icon [icon]="faPlus" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      </div>
 
       <div class="btn" style=" margin-top: 10px" title="Map settings" (click)="showSettings = !showSettings">
         <fa-icon [icon]="faCog" size="xs" [styles]="{'color': 'white'}"></fa-icon>
@@ -40,7 +42,7 @@
         </a>
       </div>
       <div class="btn" style="margin-bottom: 10px" title="Logout" (click)="logout()">
-        L
+        <fa-icon [icon]="faDoorOpen" size="xs" [styles]="{'color': 'white'}"></fa-icon>
       </div>
     </div>
   </div>
