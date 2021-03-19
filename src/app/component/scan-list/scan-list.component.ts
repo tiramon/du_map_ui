@@ -39,6 +39,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
     @Inject('ORES') public oreNames,
     @Inject('PLANETS') public planetNames
   ) {
+    console.log('created new')
     this.settings = settingsService.getSettings();
     // redraws the map when settings are changed
     settingsService.settingsChanged.subscribe(
@@ -54,8 +55,8 @@ export class ScanListComponent implements OnInit, OnDestroy {
     });
   }
 
-  getPlanetIdByName(name): number {
-    return this.planetNames.find(p => p.name === name).id;
+  getPlanetIdByName(name: string): number {
+    return this.planetNames.find((p: {name: string}) => p.name === name).id;
   }
 
   ngOnInit() {
@@ -108,9 +109,19 @@ export class ScanListComponent implements OnInit, OnDestroy {
     }
     this.dtOptions = options;
 
+    try {
+      this.selectedPlanet = JSON.parse(localStorage.getItem('scanListSelectedPlanet'));
+      console.log('planet', this.selectedPlanet);
+    } catch(e) {
+      console.error(e)
+      //nodata
+    }
+
     /*
     this.scans = [];
-    this.scans.push({time : new Date(), planet : 'Thades', tileId : 22021, ores: {'Bauxite': 123.5, Coal: 123, Hematite:123, Quartz: 123, Chromite: 123, Limestone: 123, Malachite: 123, Natron: 123, Acanthite: 123, Garnierite: 123, Petalite: 123, Pyrite: 123}});
+    this.scans.push({time : new Date(), planet : 'Thades', tileId : 22021, ores:
+    {'Bauxite': 123.5, Coal: 123, Hematite:123, Quartz: 123, Chromite: 123, Limestone: 123, Malachite: 123, Natron: 123,
+    Acanthite: 123, Garnierite: 123, Petalite: 123, Pyrite: 123}});
     this.scans.push({time : new Date(), planet : 'Thades', tileId : 730, ores: {'Bauxite': 123}});
     this.scans.push({time : new Date(), planet : 'Alioth', tileId : 25678, ores: {'Bauxite': 123}});
     this.scans.push({time : new Date(), planet : 'Alioth', tileId : 26053, ores: {'Bauxite': 123}});
@@ -132,6 +143,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
 
   changePlanetFilter(event) {
     this.selectedPlanet = +event.target.options[event.target.selectedIndex].value;
+    localStorage.setItem('scanListSelectedPlanet', JSON.stringify(this.selectedPlanet));
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
       dtInstance.draw();
     });

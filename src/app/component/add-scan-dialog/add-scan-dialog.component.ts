@@ -34,7 +34,6 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   formTouched = false;
 
   constructor(
-    private formBuilder: FormBuilder,
     private requestService: RequestService,
     private eventService: EventService,
     private toastr: ToastrService,
@@ -54,10 +53,10 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   get maxTiles(): number {
-    return this.maxTilesForPlanet(this.planets.find(p => p.name === this.scan.planet));
+    return this.maxTilesForPlanet(this.planets.find((p: {name: string}) => p.name === this.scan.planet));
   }
 
-  maxTilesForPlanet(planet): number {
+  private maxTilesForPlanet(planet: {gp}): number {
     return planet.gp * planet.gp * 3 * 10 + 2;
   }
   /**
@@ -253,7 +252,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     return scan;
   }
 
-  bestMatch( input: string, possibleValues: string[]) {
+  private bestMatch( input: string, possibleValues: string[]) {
     let best = Infinity;
     let bestString = '';
     for (const  value of possibleValues) {
@@ -266,7 +265,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     return bestString;
   }
 
-  calculate(x: string, y: string) {
+  private calculate(x: string, y: string) {
     const dp = [];
 
     for (let i = 0; i <= x.length; i++) {
@@ -284,11 +283,11 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     return dp[x.length][y.length];
   }
 
-  costOfSubstitution(a, b) {
+  private costOfSubstitution(a: string, b: string) {
     return a === b ? 0 : 1;
   }
 
-  min( n1, n2, n3) {
+  private min( n1: number, n2: number, n3: number) {
     return Math.min(n1, n2, n3);
   }
 }

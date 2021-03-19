@@ -2,9 +2,9 @@
 <dumap-loading></dumap-loading>
 <dumap-login *ngIf="!isLogedin()" [modal]="!isLogedin()"></dumap-login>
 <dumap-add-scan-dialog *ngIf="this.showAddScan" [modal]="this.showAddScan" (endModal)="this.showAddScan = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
-<div class="columns">
-  <div class="column is-narrow" style="background-color: rgb(27,40,48); padding: 0 ">
-    <img src="assets/maps.PNG" style="object-fit: contain;">
+<div class="columns" style="min-height: 100%; height: auto; ">
+  <div class="column is-narrow" style="background-color: rgb(27,40,48); padding: 0; width: 239px; min-height: 100%; height: auto;  background-image: url('assets/maps.PNG'); overflow: hidden">
+    
     
     <div style="position: absolute; top: 10px; left: 10px; background-color: transparent;">
       <label class="label" style="color: white">Planet</label>

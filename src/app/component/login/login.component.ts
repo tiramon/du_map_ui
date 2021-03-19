@@ -10,7 +10,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 export class LoginComponent implements OnInit {
   faDiscord = faDiscord;
 
-  @Input() modal;
+  @Input() modal: boolean;
 
   @Output()
   endModal  = new EventEmitter();
