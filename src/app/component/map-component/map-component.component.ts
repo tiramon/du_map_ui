@@ -30,7 +30,7 @@ export class MapComponentComponent implements OnInit {
   public offsetX2D = this.CANVAS_WIDTH / 2;
   public offsetY2D = this.CANVAS_HEIGHT / 2;
 
-  public canvasTolerance = 50;
+  public canvasTolerance = 200;
   public face: Face[];
 
   scrollOffset = 0;
@@ -336,10 +336,18 @@ export class MapComponentComponent implements OnInit {
       maxY = y > maxY ? y : maxY;
       this.ctx.lineTo(x + this.offsetX2D, y + this.offsetY2D);
     }
+    this.ctx.closePath();
+
     const centerToTop = minY - y;
 
     if (face.owner) {
-      this.ctx.fillStyle = `rgba(160, 0, 0, 1.0)`;
+      if (face.color) {
+        this.ctx.fillStyle = `rgba(${face.color.r},${face.color.g}, ${face.color.b}, 1.0)`;
+      } else if (face.own) {
+        this.ctx.fillStyle = `rgba(0,160, 0, 1.0)`;
+      } else {
+        this.ctx.fillStyle = `rgba(160, 0, 0, 1.0)`;
+      }
     } else {
       this.ctx.fillStyle = color;
     }
