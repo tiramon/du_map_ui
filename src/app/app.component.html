@@ -9,25 +9,35 @@
     <div style="position: absolute; top: 10px; left: 10px; background-color: transparent;">
       <label class="label" style="color: white">Planet</label>
       <div class="select is-small">
-        <select #planetId style="width: 130px" (change)="changePlanet($event);">
+        <select #planetIdInput style="width: 130px" (change)="changePlanet($event);">
           <option *ngFor="let planet of this.planets" [value]="planet.id">{{planet.name}}</option>
         </select>
       </div><br>
       <label class="label" style="color: white">Tile Id</label>
-      <input #tileId style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
+      <input #tileIdInput style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
+      
       <div class="btn" style=" margin-top: 10px" title="Add scan" (click)="showAddScanDialog()">
         <fa-icon [icon]="faPlus" size="xs" [styles]="{'color': 'white'}"></fa-icon>
       </div>
 
-      <div class="btn" style=" margin-top: 10px" title="Map settings" (click)="showSettings = !showSettings">
-        <fa-icon [icon]="faCog" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      <div class="btn" style=" margin-top: 10px" title="Map">
+        <a [routerLink]="['map', celestialId, tileId]" style="color: white">
+          <fa-icon [icon]="faMap" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+        </a>
       </div>
+
       <div class="btn" style=" margin-top: 10px" title="Scan list">
         <a [routerLink]="['scan']" style="color: white">
           <fa-icon [icon]="faListAlt" size="xs" [styles]="{'color': 'white'}"></fa-icon>
         </a>
       </div>
+
+      <div class="btn" style=" margin-top: 10px" title="Map settings" (click)="showSettings = !showSettings">
+        <fa-icon [icon]="faCog" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      </div>
+
     </div>
+    
     <div style="position: absolute; bottom: 10px; left: 10px; background-color: transparent;">
       <!--
       <div class="btn" style=" margin-top: 10px" title="Help">

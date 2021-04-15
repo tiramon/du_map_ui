@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faCog, faDoorOpen, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faListAlt } from '@fortawesome/free-regular-svg-icons';
+import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { EventService } from './service/event.service';
 import { Router } from '@angular/router';
@@ -19,15 +19,16 @@ export class AppComponent implements OnInit {
   faListAlt = faListAlt;
   faDoorOpen = faDoorOpen;
   faPlus = faPlus;
+  faMap = faMap;
 
   lastTileValue: string;
   public showAddScan = false;
   public showSettings = false;
 
-  @ViewChild('tileId', { static: true })
+  @ViewChild('tileIdInput', { static: true })
   tileIdInput: ElementRef<HTMLInputElement>;
 
-  @ViewChild('planetId', { static: true })
+  @ViewChild('planetIdInput', { static: true })
   planetIdInput: ElementRef<HTMLSelectElement>;
 
   public celestialId = 31;
