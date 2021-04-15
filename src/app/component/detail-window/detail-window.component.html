@@ -1,4 +1,4 @@
-<table style="border-spacing: 0; min-width : 200px">
+<table style="border-spacing: 0; min-width : 280px; background-color: rgb(13,24,28,0.8);">
     <tr>
         <td colspan="2" class="tileHeader">TILE - {{face?.tileId}}</td>
     </tr>
@@ -21,12 +21,13 @@
     <tr>
         <td>&nbsp;</td>
     </tr>
-    <tr>
-        <td colspan="2" class="tileHeader" style="text-align: center;"> Scan</td>
-    </tr>
-    <tr>
-        <td class="leftColumn">Time</td><td class="rightColumn">{{scan?.time | date}}</td>
-    </tr>
+    <ng-container *ngIf="scan">
+        <tr>
+            <td colspan="2" class="tileHeader" style="text-align: center;">Scan <fa-icon [icon]="faCopy" [styles]="{'color': 'white'}" (click)="onScanClick()" title="click to copy export to discord"></fa-icon></td>
+        </tr>
+        <tr>
+            <td class="leftColumn">Time</td><td class="rightColumn">{{scan?.time | date:'MMM dd, y HH:mm'}}</td>
+        </tr>
 
         <tr *ngIf="scan">
             <td class="rightColumn">&sum;</td><td class="rightColumn" style="text-align: right;">{{sumOre(scan) | number:'1.0-0':getUsersLocale('en-US')}} L</td>

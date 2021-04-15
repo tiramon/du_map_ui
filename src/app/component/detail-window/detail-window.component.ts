@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { Face } from 'src/app/model/Face';
@@ -18,7 +19,7 @@ export class DetailWindowComponent implements OnInit {
   scan: Scan = null;
   constructor(
     private eventService: EventService,
-    @Inject('ORES') public oreNames: []
+    @Inject('ORES') public oreNames: {name, tier, color}[]
   ) { }
 
   ngOnInit() {
@@ -41,8 +42,11 @@ export class DetailWindowComponent implements OnInit {
    * Creates the ::poss{} link for that given tile and copies it to the clipboard
    */
   onPosClick() {
-    const posString = `::pos{0,${this.face.duEntityId},${(Math.round(this.face.latitude * 10000) / 10000).toFixed(4)},${(Math.round(this.face.longitude * 10000) / 10000).toFixed(4)},0.0}`;
-    this.copyToClipboard(posString);
+    this.copyToClipboard(this.posLink());
+  }
+
+  posLink() {
+    return `::pos{0,${this.face.duEntityId},${(Math.round(this.face.latitude * 10000) / 10000).toFixed(4)},${(Math.round(this.face.longitude * 10000) / 10000).toFixed(4)},0.0}`;
   }
 
   /**
@@ -78,5 +82,14 @@ export class DetailWindowComponent implements OnInit {
 
   sumOre(scan: Scan): number  {
     return Object.keys(scan.ores).map(key => scan.ores[key]).reduce((p, c) => p + c );
+  }
+  onScanClick() {
+    let out = `Planet: ${this.scan.planet}\nTile: ${this.scan.tileId}\n${this.posLink()}\n${new DatePipe(this.getUsersLocale()).transform(this.scan.time, 'MMM dd, y HH:mm')}\n`;
+    for (let ore of this.oreNames) {
+      if (this.scan.ores[ore.name]) {
+        out += `\n${ore.name}:${'            '.slice(ore.name.length)} ${'         '.slice(this.scan.ores[ore.name].toLocaleString().length)}${this.scan.ores[ore.name].toLocaleString()}`;
+      }
+    }
+    this.copyToClipboard('```' + out + '```');
   }
 }
