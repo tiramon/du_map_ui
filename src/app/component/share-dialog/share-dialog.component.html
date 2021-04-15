@@ -12,13 +12,18 @@
                 {{share.planet}}
                 
             </td>
-            <td *ngIf="share.tileId">
+            <td *ngIf="share.tileId != undefined">
                 {{share.tileId}}
             </td>
-            <td *ngIf="!share.tileId">
+            <td *ngIf="share.tileId == undefined">
                 All
             </td>
-            <td></td>
+            <td *ngIf="share.sharedTo != undefined">
+                {{share.sharedTo}}
+            </td>
+            <td *ngIf="share.sharedTo == undefined">
+                All
+            </td>
             <td>
                 <fa-icon [icon]="faPen" size="xs" [styles]="{'color': 'white'}"></fa-icon>
             </td>

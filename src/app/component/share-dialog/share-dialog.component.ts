@@ -19,7 +19,9 @@ export class ShareDialogComponent implements OnInit {
     @Inject('PLANETS') public planets
   ) {
     this.shares = [];
-    this.shares.push(new Share('Alioth', null));
+    this.shares.push(new Share('Alioth', null, null));
+    this.shares.push(new Share('Thades', null, 'blub'));
+    this.shares.push(new Share('Madis', 0, 'blub'));
   }
 
   ngOnInit() {
