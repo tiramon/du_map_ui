@@ -75,4 +75,8 @@ export class DetailWindowComponent implements OnInit {
     }
     return lang;
   }
+
+  sumOre(scan: Scan): number  {
+    return Object.keys(scan.ores).map(key => scan.ores[key]).reduce((p, c) => p + c );
+  }
 }
