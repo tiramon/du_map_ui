@@ -84,7 +84,7 @@ export class DetailWindowComponent implements OnInit {
     return Object.keys(scan.ores).map(key => scan.ores[key]).reduce((p, c) => p + c );
   }
   onScanClick() {
-    let out = `Planet: ${this.scan.planet}\nTile: ${this.scan.tileId}\n${this.posLink()}\n${new DatePipe(this.getUsersLocale()).transform(this.scan.time, 'MMM dd, y HH:mm')}\n`;
+    let out = `Planet: ${this.scan.planet}\nTile: ${this.scan.tileId}\n${this.posLink()}\n${new DatePipe(this.getUsersLocale('en-US')).transform(this.scan.time, 'MMM dd, y HH:mm')}\n`;
     for (let ore of this.oreNames) {
       if (this.scan.ores[ore.name]) {
         out += `\n${ore.name}:${'            '.slice(ore.name.length)} ${'         '.slice(this.scan.ores[ore.name].toLocaleString().length)}${this.scan.ores[ore.name].toLocaleString()}`;
