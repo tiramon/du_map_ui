@@ -26,6 +26,9 @@
             <td colspan="2" class="tileHeader" style="text-align: center;">Scan <fa-icon [icon]="faCopy" [styles]="{'color': 'white'}" (click)="onScanClick()" title="click to copy export to discord"></fa-icon></td>
         </tr>
         <tr>
+            <td class="leftColumn">Scaned by</td><td class="rightColumn">{{scan?.owner}}</td>
+        </tr>
+        <tr>
             <td class="leftColumn">Time</td><td class="rightColumn">{{scan?.time | date:'MMM dd, y HH:mm'}}</td>
         </tr>
 

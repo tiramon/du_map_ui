@@ -3,6 +3,7 @@ export class Scan {
     ores: object = {};
     tileId: number;
     planet: string;
+    owner: string;
 
     constructor() {}
 
