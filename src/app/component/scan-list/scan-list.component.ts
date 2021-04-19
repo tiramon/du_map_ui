@@ -102,6 +102,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
         { name: 'planet' },
         { name: 'tileId' },
         { name: 'time' },
+        { name: 'owner'},
         {name: 'distance'}]
     };
     for (const ore of this.oreNames) {
