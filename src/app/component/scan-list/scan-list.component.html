@@ -24,7 +24,7 @@
             <option *ngFor="let planet of planetNames" [value]="planet.id" [selected]="planet.id == selectedPlanet">{{planet.name}}</option>
         </select>
       </div><br>
-    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover" style="margin-left: 0px">
         <thead>
         <tr>
             <th class="tileHeader"></th>
