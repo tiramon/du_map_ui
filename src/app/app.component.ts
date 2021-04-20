@@ -2,7 +2,7 @@ import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core'
 import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { faCog, faDoorOpen, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faChartPie, faCog, faDoorOpen, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { EventService } from './service/event.service';
@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   faDoorOpen = faDoorOpen;
   faPlus = faPlus;
   faMap = faMap;
+  faChartPie = faChartPie;
 
   lastTileValue: string;
   public showAddScan = false;

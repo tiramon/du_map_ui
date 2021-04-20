@@ -27,6 +27,7 @@ import { SortByPipe } from './pipe/SortByPipe';
 import { DataTablesModule } from 'angular-datatables';
 import { CustomMinDirective } from './directive/customMin.directive';
 import { CustomMaxDirective } from './directive/customMax.directive';
+import { StatsComponent } from './component/stats/stats.component';
 
 registerLocaleData(localeDe);
 
@@ -44,7 +45,8 @@ registerLocaleData(localeDe);
     HelpComponent,
     SortByPipe,
     CustomMinDirective,
-    CustomMaxDirective
+    CustomMaxDirective,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

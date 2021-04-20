@@ -32,10 +32,16 @@
         </a>
       </div>
 
+      <div class="btn" style=" margin-top: 10px" title="Statistics">
+        <a [routerLink]="['stats']" style="color: white">
+          <fa-icon [icon]="faChartPie" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+        </a>
+      </div>
+
       <div class="btn" style=" margin-top: 10px" title="Map settings" (click)="showSettings = !showSettings">
         <fa-icon [icon]="faCog" size="xs" [styles]="{'color': 'white'}"></fa-icon>
       </div>
-
+   
     </div>
     
     <div style="position: absolute; bottom: 10px; left: 10px; background-color: transparent;">
