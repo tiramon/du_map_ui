@@ -81,7 +81,7 @@ export class DetailWindowComponent implements OnInit {
   }
 
   sumOre(scan: Scan): number  {
-    return Object.keys(scan.ores).map(key => scan.ores[key]).reduce((p, c) => p + c );
+    return Scan.sumOre(scan);
   }
   onScanClick() {
     let out = `Planet: ${this.scan.planet}\nTile: ${this.scan.tileId}\nScaned by: ${this.scan.owner}\n${this.posLink()}\n${new DatePipe(this.getUsersLocale('en-US')).transform(this.scan.time, 'MMM dd, y HH:mm')}\n`;
