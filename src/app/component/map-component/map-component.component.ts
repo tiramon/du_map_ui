@@ -305,6 +305,7 @@ export class MapComponentComponent implements OnInit {
       );
     }
   }
+
   drawFace(face: Face, color: string = `rgb(64,77,85)`) {
     const vertex = face.vertices;
     const center = face.center;

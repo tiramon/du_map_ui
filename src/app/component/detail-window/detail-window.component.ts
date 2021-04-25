@@ -19,7 +19,7 @@ export class DetailWindowComponent implements OnInit {
   scan: Scan = null;
   constructor(
     private eventService: EventService,
-    @Inject('ORES') public oreNames: {name, tier, color}[]
+    @Inject('ORES') public oreNames: {name, tier, color, hc}[]
   ) { }
 
   ngOnInit() {
@@ -83,6 +83,11 @@ export class DetailWindowComponent implements OnInit {
   sumOre(scan: Scan): number  {
     return Scan.sumOre(scan);
   }
+
+  sumHc(scan: Scan): number {
+    return Scan.sumHc(scan, this.oreNames);
+  }
+
   onScanClick() {
     let out = `Planet: ${this.scan.planet}\nTile: ${this.scan.tileId}\nScaned by: ${this.scan.owner}\n${this.posLink()}\n${new DatePipe(this.getUsersLocale('en-US')).transform(this.scan.time, 'MMM dd, y HH:mm')}\n`;
     for (let ore of this.oreNames) {
