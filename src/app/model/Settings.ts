@@ -14,6 +14,10 @@ export class Settings {
     showT4ResourceAmount = true;
     showT5ResourceAmount = true;
 
+    public constructor(init?: Partial<Settings>) {
+        Object.assign(this, init);
+    }
+
     showOreIconsT(tier: number): boolean {
         if (tier === 1 ) {
             return this.showT1Ores;
