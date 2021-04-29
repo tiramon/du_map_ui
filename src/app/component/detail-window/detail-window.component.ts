@@ -19,7 +19,7 @@ export class DetailWindowComponent implements OnInit {
   scan: Scan = null;
   constructor(
     private eventService: EventService,
-    @Inject('ORES') public oreNames: {name, tier, color, hc}[]
+    @Inject('ORES') public oreNames: {name, tier, color, hc, quanta}[]
   ) { }
 
   ngOnInit() {
@@ -86,6 +86,10 @@ export class DetailWindowComponent implements OnInit {
 
   sumHc(scan: Scan): number {
     return Scan.sumHc(scan, this.oreNames);
+  }
+
+  sumQuanta(scan: Scan): number {
+    return Scan.sumQuanta(scan, this.oreNames);
   }
 
   onScanClick() {
