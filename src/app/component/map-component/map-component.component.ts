@@ -24,7 +24,7 @@ export class MapComponentComponent implements OnInit {
   private ctx: CanvasRenderingContext2D;
 
   selectedTile = null;
-  perspectiveScale = 6000;
+  perspectiveScale = 1000;
 
   public CANVAS_WIDTH  = 900;
   public CANVAS_HEIGHT = 800;
