@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Subject } from 'rxjs';
 import { Face } from 'src/app/model/Face';
+import { MinedOre } from 'src/app/model/MinedOre';
 import { Scan } from 'src/app/model/Scan';
 import { SelectedTile } from 'src/app/model/SelectedTile';
 import { Settings } from 'src/app/model/Settings';
@@ -108,6 +109,27 @@ export class MapComponentComponent implements OnInit {
         }
       }
     });
+
+    // if mined ore was added, add it to the scan without reload and repaint the map
+    this.eventService.minedOreAdded.subscribe( (minedOre: MinedOre) => {
+      const planet = this.planetNames.find(p => p.name === minedOre.planet);
+      console.log('mined ore added at ', planet, this.selectedTile.celestialId);
+      if (+planet.id === +this.selectedTile.celestialId) {
+        const scannedTile = this.face.find(f => +f.tileId === +minedOre.tileId);
+        console.log('searching for tile', minedOre.tileId, scannedTile);
+        if (scannedTile && scannedTile.scan) {
+          const dateMined  = new Date(minedOre.time);
+          const dateScan = new Date(scannedTile.scan.time);
+          if (scannedTile.scan) console.log(dateScan , dateMined, typeof dateScan, typeof dateMined);
+          if (dateScan < dateMined) {
+            scannedTile.scan.minedOre.push(minedOre);
+            console.log(scannedTile.scan);
+            this.drawMap();
+          }
+        }
+      }
+    });
+
 
     this.imagesLoadedSubject = new Subject<any>();
   }
@@ -267,23 +289,27 @@ export class MapComponentComponent implements OnInit {
 
       xOreOffset = 0;
       if (this.settings.showResourceAmount) {
-        const fontSize = 13;
+        const fontSize = 13 * (this.perspectiveScale / 1000);
         this.ctx.font = fontSize + 'px Arial';
         this.ctx.fillStyle = `rgba(0, 0, 0, ${1.0})`;
         for (const ore of this.oreNames) {
           if (face.scan.ores[ore.name]) {
             if (this.settings.showOreTextsT(ore.tier)) {
               const oreShort = ore.name.substring(0, 3);
-              const amount = new Intl.NumberFormat().format(Math.round(face.scan.ores[ore.name] / 1000));
-              const text = `${amount}kL`; // ${oreShort}
-              const metrics = this.ctx.measureText(text);
-              this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;
-              this.ctx.fillText(
-                text + ` ${oreShort}`,
-                x + this.offsetX2D + 5 - metrics.width + xOreOffset,
-                y + this.offsetY2D  - yModifier + fontSize * 1.2 + yOreOffset
-              );
-              yOreOffset += fontSize;
+              const mined = Scan.sumOreMined(face.scan, ore.name);
+              const oreLeft = Math.max(0,face.scan.ores[ore.name] - mined);
+              if (oreLeft > 0) {
+                const amount = new Intl.NumberFormat().format(Math.round( oreLeft / 1000));
+                const text = `${amount}kL`; // ${oreShort}
+                const metrics = this.ctx.measureText(text);
+                this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;
+                this.ctx.fillText(
+                  text + ` ${oreShort}`,
+                  x + this.offsetX2D + 5 - metrics.width + xOreOffset,
+                  y + this.offsetY2D  - yModifier + fontSize * 1.2 + yOreOffset
+                );
+                yOreOffset += fontSize;
+              }
             }
           }
         }

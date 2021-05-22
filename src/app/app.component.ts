@@ -2,7 +2,7 @@ import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core'
 import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { faCog, faDoorOpen, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faDoorOpen, faHardHat, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { EventService } from './service/event.service';
@@ -20,9 +20,11 @@ export class AppComponent implements OnInit {
   faDoorOpen = faDoorOpen;
   faPlus = faPlus;
   faMap = faMap;
+  faHardHat = faHardHat;
 
   lastTileValue: string;
   public showAddScan = false;
+  public showSubtractMinedOre = false;
   public showSettings = false;
 
   @ViewChild('tileIdInput', { static: true })
@@ -159,6 +161,10 @@ export class AppComponent implements OnInit {
    */
   showAddScanDialog() {
     this.showAddScan = !this.showAddScan;
+  }
+
+  showSubtractMinedOreDialog() {
+    this.showSubtractMinedOre = !this.showSubtractMinedOre;
   }
 
   /**

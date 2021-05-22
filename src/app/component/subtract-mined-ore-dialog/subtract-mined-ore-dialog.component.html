@@ -1,0 +1,104 @@
+<div id="modal" class="map_modal" [class.isModal]="!this.modal"></div>
+<div id="modal-content" class="centered dialog" [class.isModal]="!this.modal">
+    <div class="leftColumn" style="padding-bottom: 10px;">
+        <div class="tileHeader" style="padding: 10px;">Subtract mined ore</div>
+        
+        <div>
+            <form #minedOreForm="ngForm">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">Planet</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select name="planet" style="width:100%" [(ngModel)]="minedOre.planet" (change)="changePlanet($event)" required #planet="ngModel">
+                                    <option *ngFor="let planet of planets" [ngValue]="planet.name">
+                                        {{planet.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <p *ngIf="planet.errors?.required && (formTouched || minedOreForm.touched || minedOreForm.dirty)" class="help is-danger">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">Territory Id</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">
+                            <!--(input)="inputValidator($event)"-->
+                            <input name="tileId" class="input" type="number" placeholder="Territory Id" [(ngModel)]="minedOre.tileId"  required #tileId="ngModel" customMin="0" [customMax]="maxTiles-1" pattern="\d+">
+                        </div>
+                        <p *ngIf="tileId.errors?.pattern && (formTouched || minedOreForm.touched || minedOreForm.dirty)" class="help is-danger">
+                            This tile id is invalid, invalid characters
+                        </p>
+                        <p *ngIf="tileId.errors?.required && (formTouched || minedOreForm.touched || minedOreForm.dirty)"class="help is-danger">
+                            This field is required
+                        </p>
+                        <p *ngIf="tileId.errors?.customMin && (formTouched || minedOreForm.touched || minedOreForm.dirty)"class="help is-danger">
+                            This tile id is invalid, minimum tile id is 0
+                        </p>
+                        <p *ngIf="tileId.errors?.customMax && (formTouched || minedOreForm.touched || minedOreForm.dirty)"class="help is-danger">
+                            This tile id is invalid, {{minedOre.planet}} only has {{maxTiles}} tiles
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">Time</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">                        
+                            <input name="time" class="input" type="date" [ngModel] ="minedOre.time | date:'yyyy-MM-dd'" (ngModelChange)="minedOre.time = $event" placeHolder="Time" required #time="ngModel">
+                        </div>
+                        <p *ngIf="time.errors?.required && (formTouched || minedOreForm.touched || minedOreForm.dirty)" class="help is-danger">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal" *ngFor="let ore of this.currentOres">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">{{ore}}</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">
+                            <input [name]="ore" class="input" type="text" placeholder="ore amount in L, empty if no ore of this type was mined" [(ngModel)]="minedOre.ores[ore]" pattern="\d+" #currentOre="ngModel">
+                        </div>
+                        <p *ngIf="currentOre.errors?.pattern && (formTouched || minedOreForm.touched || minedOreForm.dirty)" class="help is-danger">
+                            This ore amount is invalid
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notification is-danger" *ngIf="error.length > 0">
+                <div *ngFor="let e of error">{{e}}</div>
+            </div>
+            <div class="field is-grouped is-grouped-centered" >
+                <div class="control">
+                <button class="button is-link" (click)="saveMinedOre(false, minedOreForm)">Save & New</button>
+                </div>
+                <div class="control">
+                    <button class="button is-link" (click)="saveMinedOre(true, minedOreForm)">Save & Close</button>
+                </div>
+                <div class="control">
+                <button class="button is-link is-light" (click)="endModal.emit()">Close</button>
+                </div>
+            </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
