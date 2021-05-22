@@ -67,7 +67,8 @@ export class MapComponentComponent implements OnInit {
       }
       this.selectedTile = selectedTile;
       if (oauthService.hasValidAccessToken()) {
-        this.loadMap(selectedTile.celestialId, selectedTile.tileId);
+        this.loadMap(selectedTile.celestialId, selectedTile.tileId)
+          .then( faces =>  this.eventService.faceSelected.emit(faces[0]));
       }
     });
 
@@ -120,7 +121,6 @@ export class MapComponentComponent implements OnInit {
         if (scannedTile && scannedTile.scan) {
           const dateMined  = new Date(minedOre.time);
           const dateScan = new Date(scannedTile.scan.time);
-          if (scannedTile.scan) console.log(dateScan , dateMined, typeof dateScan, typeof dateMined);
           if (dateScan < dateMined) {
             scannedTile.scan.minedOre.push(minedOre);
             console.log(scannedTile.scan);
@@ -147,17 +147,18 @@ export class MapComponentComponent implements OnInit {
    * @param celestialId internal id of the selected planet
    * @param tileId id of the selected tile
    */
-  loadMap(celestialId: number, tileId: number) {
+  loadMap(celestialId: number, tileId: number): Promise<Face[]> {
     if (!this.oauthService.getIdentityClaims()) {
       this.clear();
       return;
     }
-    this.requestService.requestMap(celestialId, tileId).then(
+    return this.requestService.requestMap(celestialId, tileId).then(
       result => {
         this.eventService.loading.emit(false);
         this.face = result;
         this.drawMap();
-        // this.markCenter();
+        return this.face;
+       // this.markCenter();
       }
     );
   }
@@ -393,7 +394,9 @@ export class MapComponentComponent implements OnInit {
   }
 
   public onCanvasClick(event) {
-    if (!this.face) { return; }
+    if (!this.face) {
+      return;
+    }
     event.preventDefault();
     // relative mouse coords
     const mouseX = event.clientX - this.offsetX2D - this.canvas.nativeElement.getBoundingClientRect().left;
@@ -497,17 +500,23 @@ export class MapComponentComponent implements OnInit {
     }
     return false;
   }
-/*
+
   zoom(event, delta) {
     event.preventDefault();
-    this.perspectiveScale = Math.round(this.perspectiveScale *(10 + (event.deltaY > 0 ? 1 : -1)) / 10);
-    this.loadMap(this.celestialId, this.tileId, this.perspectiveScale);
+
+    const oldScale = this.perspectiveScale;
+    this.perspectiveScale = Math.round(this.perspectiveScale * (10 + (event.deltaY > 0 ? -1 : 1)) / 10);
+    if (this.perspectiveScale < 300) { this.perspectiveScale = 300; }
+    if (this.perspectiveScale > 2000) { this.perspectiveScale = 2000; }
+    if (oldScale !== this.perspectiveScale) {
+      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
+    }
   }
-  */
+
 
  @HostListener('window:resize', ['$event'])
  onResize(event) {
-   console.log(event.target.innerWidth);
+   //console.log(event.target.innerWidth);
    //this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 530, 200);
    this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 240, 200);
    this.canvas.nativeElement.width = this.CANVAS_WIDTH;
