@@ -94,21 +94,21 @@ export class DetailWindowComponent implements OnInit {
     return out.trim();
   }
 
-  sumOre(scan: Scan, subtractMined: boolean): number  {
+  sumOre(scan: Scan, subtractMined = false): number  {
     return Scan.sumOre(scan, subtractMined);
   }
   difOre(scan: Scan): number {
     return this.sumOre(scan, false) - this.sumOre(scan, true);
   }
 
-  sumHc(scan: Scan, subtractMined: boolean): number {
+  sumHc(scan: Scan, subtractMined = false): number {
     return Scan.sumHc(scan, this.oreNames, subtractMined);
   }
   difHC(scan: Scan): number {
     return this.sumHc(scan, false) - this.sumHc(scan, true);
   }
 
-  sumQuanta(scan: Scan, subtractMined: boolean): number {
+  sumQuanta(scan: Scan, subtractMined = false): number {
     return Scan.sumQuanta(scan, this.oreNames, subtractMined);
   }
   difQuanta(scan: Scan): number {
