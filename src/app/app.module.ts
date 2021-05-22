@@ -27,6 +27,7 @@ import { SortByPipe } from './pipe/SortByPipe';
 import { DataTablesModule } from 'angular-datatables';
 import { CustomMinDirective } from './directive/customMin.directive';
 import { CustomMaxDirective } from './directive/customMax.directive';
+import { SubtractMinedOreDialogComponent } from './component/subtract-mined-ore-dialog/subtract-mined-ore-dialog.component';
 
 registerLocaleData(localeDe);
 
@@ -44,7 +45,8 @@ registerLocaleData(localeDe);
     HelpComponent,
     SortByPipe,
     CustomMinDirective,
-    CustomMaxDirective
+    CustomMaxDirective,
+    SubtractMinedOreDialogComponent
   ],
   imports: [
     BrowserModule,

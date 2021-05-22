@@ -80,23 +80,61 @@ export class DetailWindowComponent implements OnInit {
     return lang;
   }
 
-  sumOre(scan: Scan): number  {
-    return Scan.sumOre(scan);
+  minedOreDetail(scan: Scan, oreName: string): string {
+    let out = '';
+    if (scan.minedOre) {
+      const date = new DatePipe(this.getUsersLocale('en-US'));
+      for (const minedOre of scan.minedOre) {
+        if (minedOre.ores[oreName]) {
+          // tslint:disable-next-line:max-line-length
+          out += `${'         '.slice(minedOre.ores[oreName].toLocaleString().length)}${minedOre.ores[oreName]} L ${minedOre.owner} ${date.transform(minedOre.time, 'MMM dd, y HH:mm')}\n`;
+        }
+      }
+    }
+    return out.trim();
   }
 
-  sumHc(scan: Scan): number {
-    return Scan.sumHc(scan, this.oreNames);
+  sumOre(scan: Scan, subtractMined: boolean): number  {
+    return Scan.sumOre(scan, subtractMined);
+  }
+  difOre(scan: Scan): number {
+    return this.sumOre(scan, false) - this.sumOre(scan, true);
   }
 
-  sumQuanta(scan: Scan): number {
-    return Scan.sumQuanta(scan, this.oreNames);
+  sumHc(scan: Scan, subtractMined: boolean): number {
+    return Scan.sumHc(scan, this.oreNames, subtractMined);
+  }
+  difHC(scan: Scan): number {
+    return this.sumHc(scan, false) - this.sumHc(scan, true);
+  }
+
+  sumQuanta(scan: Scan, subtractMined: boolean): number {
+    return Scan.sumQuanta(scan, this.oreNames, subtractMined);
+  }
+  difQuanta(scan: Scan): number {
+    return this.sumQuanta(scan, false) - this.sumQuanta(scan, true);
+  }
+
+  sumOreMined(scan: Scan, name: string): number {
+    return Scan.sumOreMined(scan, name);
   }
 
   onScanClick() {
+    // tslint:disable-next-line:max-line-length
     let out = `Planet: ${this.scan.planet}\nTile: ${this.scan.tileId}\nScaned by: ${this.scan.owner}\n${this.posLink()}\n${new DatePipe(this.getUsersLocale('en-US')).transform(this.scan.time, 'MMM dd, y HH:mm')}\n`;
+    const hasMined = this.scan.minedOre && this.scan.minedOre.length > 0;
     for (let ore of this.oreNames) {
       if (this.scan.ores[ore.name]) {
-        out += `\n${ore.name}:${'            '.slice(ore.name.length)} ${'         '.slice(this.scan.ores[ore.name].toLocaleString().length)}${this.scan.ores[ore.name].toLocaleString()}`;
+        const mined = this.sumOreMined(this.scan, ore.name);
+        out += `\n${ore.name}:${'            '.slice(ore.name.length)} `;
+        if (hasMined) {
+          if (mined > 0) {
+            out += `${'         '.slice(mined.toLocaleString().length)}-${mined.toLocaleString()} `;
+          } else  {
+            out += '           ';
+          }
+        }
+        out += `${'         '.slice(this.scan.ores[ore.name].toLocaleString().length)}${this.scan.ores[ore.name].toLocaleString()}`;
       }
     }
     this.copyToClipboard('```' + out + '```');

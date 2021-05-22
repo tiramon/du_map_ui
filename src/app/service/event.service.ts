@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Face } from '../model/Face';
+import { MinedOre } from '../model/MinedOre';
 import { Scan } from '../model/Scan';
 import { SelectedTile } from '../model/SelectedTile';
 
@@ -24,6 +25,8 @@ export class EventService {
    * emits a scan after it has been added
    */
   public scanAdded = new EventEmitter<Scan>();
+
+  public minedOreAdded = new EventEmitter<MinedOre>();
   /**
    * emits if a longer loading process started/ended
    */
