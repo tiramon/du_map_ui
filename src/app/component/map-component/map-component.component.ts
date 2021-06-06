@@ -123,6 +123,9 @@ export class MapComponentComponent implements OnInit {
           const dateMined  = new Date(minedOre.time);
           const dateScan = new Date(scannedTile.scan.time);
           if (dateScan < dateMined) {
+            if (!scannedTile.scan.minedOre) {
+              scannedTile.scan.minedOre = []
+            }
             scannedTile.scan.minedOre.push(minedOre);
             console.log(scannedTile.scan);
             this.drawMap();
