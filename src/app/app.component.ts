@@ -50,6 +50,10 @@ export class AppComponent implements OnInit {
         this.showAddScan = false;
         this.showSettings = false;
       }
+      const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
+      if (lastTile) {
+        this.modelChanged.next(lastTile);
+      }
     });
   }
 

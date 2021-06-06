@@ -66,6 +66,7 @@ export class MapComponentComponent implements OnInit {
         return;
       }
       this.selectedTile = selectedTile;
+      localStorage.setItem('lastSelectedTile', JSON.stringify(selectedTile));
       if (oauthService.hasValidAccessToken()) {
         this.loadMap(selectedTile.celestialId, selectedTile.tileId)
           .then( faces =>  this.eventService.faceSelected.emit(faces[0]));
