@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Scan } from '../model/Scan';
 import { Face } from '../model/Face';
 import { EventService } from './event.service';
+import { MinedOre } from '../model/MinedOre';
 
 @Injectable({
   providedIn: 'root'
@@ -90,4 +91,27 @@ export class RequestService {
       )
       .toPromise();
   }
+
+  saveMinedOre(minedOre: MinedOre) {
+    const url = `${this.defaultURL}minedOre`;
+    this.eventService.loading.next(true);
+    return this.http.post(url, minedOre, this.getRequestConfigObject())
+      .pipe(
+        catchError(error => {
+            this.eventService.loading.next(false);
+            console.log(error);
+            if (error.status === 0) {
+              this.toastr.error('Backend not reachable');
+            } else if (error.status === 500) {
+              this.toastr.error('Serverside error, plz report to discord channel');
+            } else if (error.status !== 400) {
+              this.toastr.error('Unexpcted error, plz report to discord channel');
+            }
+            throw error;
+          }
+        )
+      )
+      .toPromise();
+  }
+
 }

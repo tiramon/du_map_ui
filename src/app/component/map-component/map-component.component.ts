@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Subject } from 'rxjs';
 import { Face } from 'src/app/model/Face';
+import { MinedOre } from 'src/app/model/MinedOre';
 import { Scan } from 'src/app/model/Scan';
 import { SelectedTile } from 'src/app/model/SelectedTile';
 import { Settings } from 'src/app/model/Settings';
@@ -23,7 +24,7 @@ export class MapComponentComponent implements OnInit {
   private ctx: CanvasRenderingContext2D;
 
   selectedTile = null;
-  perspectiveScale = 6000;
+  perspectiveScale = 1000;
 
   public CANVAS_WIDTH  = 900;
   public CANVAS_HEIGHT = 800;
@@ -65,8 +66,10 @@ export class MapComponentComponent implements OnInit {
         return;
       }
       this.selectedTile = selectedTile;
+      localStorage.setItem('lastSelectedTile', JSON.stringify(selectedTile));
       if (oauthService.hasValidAccessToken()) {
-        this.loadMap(selectedTile.celestialId, selectedTile.tileId);
+        this.loadMap(selectedTile.celestialId, selectedTile.tileId)
+          .then( faces =>  this.eventService.faceSelected.emit(faces[0]));
       }
     });
 
@@ -109,6 +112,29 @@ export class MapComponentComponent implements OnInit {
       }
     });
 
+    // if mined ore was added, add it to the scan without reload and repaint the map
+    this.eventService.minedOreAdded.subscribe( (minedOre: MinedOre) => {
+      const planet = this.planetNames.find(p => p.name === minedOre.planet);
+      console.log('mined ore added at ', planet, this.selectedTile.celestialId);
+      if (+planet.id === +this.selectedTile.celestialId) {
+        const scannedTile = this.face.find(f => +f.tileId === +minedOre.tileId);
+        console.log('searching for tile', minedOre.tileId, scannedTile);
+        if (scannedTile && scannedTile.scan) {
+          const dateMined  = new Date(minedOre.time);
+          const dateScan = new Date(scannedTile.scan.time);
+          if (dateScan < dateMined) {
+            if (!scannedTile.scan.minedOre) {
+              scannedTile.scan.minedOre = []
+            }
+            scannedTile.scan.minedOre.push(minedOre);
+            console.log(scannedTile.scan);
+            this.drawMap();
+          }
+        }
+      }
+    });
+
+
     this.imagesLoadedSubject = new Subject<any>();
   }
 
@@ -125,17 +151,18 @@ export class MapComponentComponent implements OnInit {
    * @param celestialId internal id of the selected planet
    * @param tileId id of the selected tile
    */
-  loadMap(celestialId: number, tileId: number) {
+  loadMap(celestialId: number, tileId: number): Promise<Face[]> {
     if (!this.oauthService.getIdentityClaims()) {
       this.clear();
       return;
     }
-    this.requestService.requestMap(celestialId, tileId).then(
+    return this.requestService.requestMap(celestialId, tileId).then(
       result => {
         this.eventService.loading.emit(false);
         this.face = result;
         this.drawMap();
-        // this.markCenter();
+        return this.face;
+       // this.markCenter();
       }
     );
   }
@@ -267,23 +294,27 @@ export class MapComponentComponent implements OnInit {
 
       xOreOffset = 0;
       if (this.settings.showResourceAmount) {
-        const fontSize = 13;
+        const fontSize = 13 * (this.perspectiveScale / 1000);
         this.ctx.font = fontSize + 'px Arial';
         this.ctx.fillStyle = `rgba(0, 0, 0, ${1.0})`;
         for (const ore of this.oreNames) {
           if (face.scan.ores[ore.name]) {
             if (this.settings.showOreTextsT(ore.tier)) {
               const oreShort = ore.name.substring(0, 3);
-              const amount = new Intl.NumberFormat().format(Math.round(face.scan.ores[ore.name] / 1000));
-              const text = `${amount}kL`; // ${oreShort}
-              const metrics = this.ctx.measureText(text);
-              this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;
-              this.ctx.fillText(
-                text + ` ${oreShort}`,
-                x + this.offsetX2D + 5 - metrics.width + xOreOffset,
-                y + this.offsetY2D  - yModifier + fontSize * 1.2 + yOreOffset
-              );
-              yOreOffset += fontSize;
+              const mined = Scan.sumOreMined(face.scan, ore.name);
+              const oreLeft = Math.max(0,face.scan.ores[ore.name] - mined);
+              if (oreLeft > 0) {
+                const amount = new Intl.NumberFormat().format(Math.round( oreLeft / 1000));
+                const text = `${amount}kL`; // ${oreShort}
+                const metrics = this.ctx.measureText(text);
+                this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;
+                this.ctx.fillText(
+                  text + ` ${oreShort}`,
+                  x + this.offsetX2D + 5 - metrics.width + xOreOffset,
+                  y + this.offsetY2D  - yModifier + fontSize * 1.2 + yOreOffset
+                );
+                yOreOffset += fontSize;
+              }
             }
           }
         }
@@ -305,6 +336,7 @@ export class MapComponentComponent implements OnInit {
       );
     }
   }
+
   drawFace(face: Face, color: string = `rgb(64,77,85)`) {
     const vertex = face.vertices;
     const center = face.center;
@@ -366,7 +398,9 @@ export class MapComponentComponent implements OnInit {
   }
 
   public onCanvasClick(event) {
-    if (!this.face) { return; }
+    if (!this.face) {
+      return;
+    }
     event.preventDefault();
     // relative mouse coords
     const mouseX = event.clientX - this.offsetX2D - this.canvas.nativeElement.getBoundingClientRect().left;
@@ -470,17 +504,23 @@ export class MapComponentComponent implements OnInit {
     }
     return false;
   }
-/*
+
   zoom(event, delta) {
     event.preventDefault();
-    this.perspectiveScale = Math.round(this.perspectiveScale *(10 + (event.deltaY > 0 ? 1 : -1)) / 10);
-    this.loadMap(this.celestialId, this.tileId, this.perspectiveScale);
+
+    const oldScale = this.perspectiveScale;
+    this.perspectiveScale = Math.round(this.perspectiveScale * (10 + (event.deltaY > 0 ? -1 : 1)) / 10);
+    if (this.perspectiveScale < 300) { this.perspectiveScale = 300; }
+    if (this.perspectiveScale > 2000) { this.perspectiveScale = 2000; }
+    if (oldScale !== this.perspectiveScale) {
+      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
+    }
   }
-  */
+
 
  @HostListener('window:resize', ['$event'])
  onResize(event) {
-   console.log(event.target.innerWidth);
+   //console.log(event.target.innerWidth);
    //this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 530, 200);
    this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 240, 200);
    this.canvas.nativeElement.width = this.CANVAS_WIDTH;

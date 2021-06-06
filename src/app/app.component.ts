@@ -2,7 +2,7 @@ import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core'
 import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { faChartPie, faCog, faDoorOpen, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faChartPie, faCog, faDoorOpen, faPlus,faHardHat } from '@fortawesome/free-solid-svg-icons';
 import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { EventService } from './service/event.service';
@@ -20,10 +20,12 @@ export class AppComponent implements OnInit {
   faDoorOpen = faDoorOpen;
   faPlus = faPlus;
   faMap = faMap;
+  faHardHat = faHardHat;
   faChartPie = faChartPie;
 
   lastTileValue: string;
   public showAddScan = false;
+  public showSubtractMinedOre = false;
   public showSettings = false;
 
   @ViewChild('tileIdInput', { static: true })
@@ -48,6 +50,10 @@ export class AppComponent implements OnInit {
       if (!logedIn) {
         this.showAddScan = false;
         this.showSettings = false;
+      }
+      const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
+      if (lastTile) {
+        this.modelChanged.next(lastTile);
       }
     });
   }
@@ -160,6 +166,10 @@ export class AppComponent implements OnInit {
    */
   showAddScanDialog() {
     this.showAddScan = !this.showAddScan;
+  }
+
+  showSubtractMinedOreDialog() {
+    this.showSubtractMinedOre = !this.showSubtractMinedOre;
   }
 
   /**

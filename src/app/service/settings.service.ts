@@ -9,15 +9,16 @@ export class SettingsService {
     private settings: Settings;
 
     constructor() {
-        this.settings = new Settings();
+        this.settings = new Settings(JSON.parse(localStorage.getItem('dumap_settings')));
     }
 
     public getSettings(): Settings {
         return this.settings;
     }
 
-    public setSettings(key: string, value: boolean) {
+    public setSettings(key: string, value: boolean | number) {
         this.settings[key] = value;
         this.settingsChanged.emit(this.settings);
+        localStorage.setItem('dumap_settings', JSON.stringify(this.settings));
     }
 }
