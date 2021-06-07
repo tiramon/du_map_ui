@@ -1,0 +1,74 @@
+<div style="padding: 10px; margin-top: 10px; right: 10px;color: white" class="columnData">
+    <div>
+        Site stats
+        <table>
+            <tr>
+                <td>Registered users</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Scans stored</td>
+                <td>-</td>
+            </tr>
+        </table>
+    </div>
+    <select (change)="onChartChange($event.target.value)">
+        <option id="selectedGraph" #selectedGraph *ngFor="let oKey of optionKey">{{oKey}}</option>
+    </select>
+    
+    <highcharts-chart
+        [Highcharts]="Highcharts"
+        [constructorType]="chartConstructor"
+        [options]="currentOption"
+        [callbackFunction]="chartCallback"
+        [(update)]="updateFlag"
+        [oneToOne]="oneToOneFlag"
+        [runOutsideAngular]="runOutsideAngularFlag"
+        
+        style="width: 100%; height: 400px; display: block;"
+    ></highcharts-chart>
+    
+    <!--
+    <highcharts-chart 
+    [Highcharts]="Highcharts"
+  
+    [constructorType]="chartConstructor"
+    [options]="chartOptions"
+    [callbackFunction]="chartCallback"
+  
+    [(update)]="updateFlag"
+    [oneToOne]="oneToOneFlag"
+    [runOutsideAngular]="runOutsideAngularFlag"
+  
+    style="width: 100%; height: 400px; display: block;"
+  ></highcharts-chart>
+  -->
+    <!--
+    <table>
+        <thead>
+            <tr>
+                <th>Planet</th>
+                <th># Scans</th>
+                <ng-container *ngFor="let ore of oreNames">
+                    <th>{{ore.name}} avg</th>
+                    <th>{{ore.name}} min</th>
+                    <th>{{ore.name}} max</th>
+                    <th>{{ore.name}} percent</th>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let planet of planets">
+                <td>{{planet.name}}</td>
+                <td>{{stats[planet.name]?.scans}}</td>
+                <ng-container *ngFor="let ore of oreNames">
+                    <td><ng-container *ngIf="stats[planet.name]">{{stats[planet.name][ore.name.toLowerCase() + '_avg']}}</ng-container></td>
+                    <td><ng-container *ngIf="stats[planet.name]">{{stats[planet.name][ore.name.toLowerCase() + '_min']}}</ng-container></td>
+                    <td><ng-container *ngIf="stats[planet.name]">{{stats[planet.name][ore.name.toLowerCase() + '_max']}}</ng-container></td>
+                    <td><ng-container *ngIf="stats[planet.name]">{{stats[planet.name][ore.name.toLowerCase() + '_percent']}}</ng-container></td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    -->
+</div>

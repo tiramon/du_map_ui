@@ -29,6 +29,7 @@ import { CustomMinDirective } from './directive/customMin.directive';
 import { CustomMaxDirective } from './directive/customMax.directive';
 import { StatsComponent } from './component/stats/stats.component';
 import { SubtractMinedOreDialogComponent } from './component/subtract-mined-ore-dialog/subtract-mined-ore-dialog.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 registerLocaleData(localeDe);
 
@@ -60,7 +61,8 @@ registerLocaleData(localeDe);
     OAuthModule.forRoot(),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    DataTablesModule
+    DataTablesModule,
+    HighchartsChartModule
   ],
   providers: [
     SelectedTileResolver,
@@ -98,31 +100,31 @@ registerLocaleData(localeDe);
         {id: 10, name: 'Thades Moon 2', ores: [0, 1, 2, 3, 10, 12], gp: 11, altitude: 0}
     ]},
     {provide: 'ORES', useValue: [
-      {name: 'Bauxite',    tier: 1, hc: 10, quanta: 25, color: 'rgb(214, 255, 255)'},
-      {name: 'Coal',       tier: 1, hc: 10, quanta: 25, color: 'rgb(214, 255, 255)'},
-      {name: 'Hematite',   tier: 1, hc: 10, quanta: 25, color: 'rgb(0, 186, 255)'},
-      {name: 'Quartz',     tier: 1, hc: 10, quanta: 25, color: 'rgb(104, 238, 255)'},
+      {name: 'Bauxite',    tier: 1, hc: 10, quanta: 25, color: 'rgb(214, 255, 255)', technical: 'bauxite'},
+      {name: 'Coal',       tier: 1, hc: 10, quanta: 25, color: 'rgb(214, 255, 255)', technical: 'coal'},
+      {name: 'Hematite',   tier: 1, hc: 10, quanta: 25, color: 'rgb(0, 186, 255)', technical: 'hematite'},
+      {name: 'Quartz',     tier: 1, hc: 10, quanta: 25, color: 'rgb(104, 238, 255)', technical: 'quartz'},
 
-      {name: 'Chromite',   tier: 2, hc: 20, quanta: 60, color: 'rgb(0, 164, 244)'},
-      {name: 'Limestone',  tier: 2, hc: 20, quanta: 60, color: 'rgb(101, 232, 249)'},
-      {name: 'Malachite',  tier: 2, hc: 20, quanta: 60, color: 'rgb(10, 173, 255)'},
-      {name: 'Natron',     tier: 2, hc: 20, quanta: 60, color: 'rgb(191, 249, 250)'},
+      {name: 'Chromite',   tier: 2, hc: 20, quanta: 60, color: 'rgb(0, 164, 244)', technical: 'chromite'},
+      {name: 'Limestone',  tier: 2, hc: 20, quanta: 60, color: 'rgb(101, 232, 249)', technical: 'limestone'},
+      {name: 'Malachite',  tier: 2, hc: 20, quanta: 60, color: 'rgb(10, 173, 255)', technical: 'malachite'},
+      {name: 'Natron',     tier: 2, hc: 20, quanta: 60, color: 'rgb(191, 249, 250)', technical: 'natron'},
 
-      {name: 'Acanthite',  tier: 3, hc: 50, quanta: 125, color: 'rgb(0, 220, 116)'},
-      {name: 'Garnierite', tier: 3, hc: 50, quanta: 125, color: 'rgb(104, 238, 255)'},
-      {name: 'Petalite',   tier: 3, hc: 50, quanta: 125, color: 'rgb(150, 246, 255)'},
-      {name: 'Pyrite',     tier: 3, hc: 50, quanta: 125, color: 'rgb(0, 186, 255)'},
+      {name: 'Acanthite',  tier: 3, hc: 50, quanta: 125, color: 'rgb(0, 220, 116)', technical: 'acanthite'},
+      {name: 'Garnierite', tier: 3, hc: 50, quanta: 125, color: 'rgb(104, 238, 255)', technical: 'garnierite'},
+      {name: 'Petalite',   tier: 3, hc: 50, quanta: 125, color: 'rgb(150, 246, 255)', technical: 'petalite'},
+      {name: 'Pyrite',     tier: 3, hc: 50, quanta: 125, color: 'rgb(0, 186, 255)', technical: 'pyrite'},
 
-      {name: 'Cobaltite',  tier: 4, hc: 200, quanta: 590, color: 'rgb(0, 201, 255)'},
-      {name: 'Cryolite',   tier: 4, hc: 200, quanta: 590, color: 'rgb(64, 224, 255)'},
-      {name: 'Gold nuggets', pictureName: 'Gold', tier: 4, hc: 200, quanta: 590, color: 'rgb(255, 91, 0)'},
-      {name: 'Kolbeckite', tier: 4, hc: 200, quanta: 590, color: 'rgb(150, 246, 255)'},
+      {name: 'Cobaltite',  tier: 4, hc: 200, quanta: 590, color: 'rgb(0, 201, 255)', technical: 'cobaltite'},
+      {name: 'Cryolite',   tier: 4, hc: 200, quanta: 590, color: 'rgb(64, 224, 255)', technical: 'cryolite'},
+      {name: 'Gold nuggets', pictureName: 'Gold', tier: 4, hc: 200, quanta: 590, color: 'rgb(255, 91, 0)', technical: 'gold_nuggets'},
+      {name: 'Kolbeckite', tier: 4, hc: 200, quanta: 590, color: 'rgb(150, 246, 255)', technical: 'kolbeckite'},
 
-      {name: 'Columbite',  tier: 5, hc: 250, quanta: 1375, color: 'rgb(0, 200, 255)'},
-      {name: 'Illmenite',  tier: 5, hc: 250, quanta: 1375, color: 'rgb(0, 164, 244)'},
-      {name: 'Rhodonite',  tier: 5, hc: 250, quanta: 1375, color: 'rgb(11, 172, 252)'},
-      {name: 'Thoramine',  tier: 5},
-      {name: 'Vanadinite', tier: 5, hc: 250, quanta: 1375, color: 'rgb(0, 220, 116)'}
+      {name: 'Columbite',  tier: 5, hc: 250, quanta: 1375, color: 'rgb(0, 200, 255)', technical: 'columbite'},
+      {name: 'Illmenite',  tier: 5, hc: 250, quanta: 1375, color: 'rgb(0, 164, 244)', technical: 'illemenite'},
+      {name: 'Rhodonite',  tier: 5, hc: 250, quanta: 1375, color: 'rgb(11, 172, 252)', technical: 'rhodonite'},
+      {name: 'Thoramine',  tier: 5, technical: 'thoramine'},
+      {name: 'Vanadinite', tier: 5, hc: 250, quanta: 1375, color: 'rgb(0, 220, 116)', technical: 'vanadinite'}
     ]},
     {
       provide: HTTP_INTERCEPTORS,

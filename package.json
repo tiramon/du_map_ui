@@ -30,6 +30,8 @@
     "bulma": "^0.9.1",
     "datatables.net": "^1.10.22",
     "datatables.net-dt": "^1.10.22",
+    "highcharts": "^9.1.1",
+    "highcharts-angular": "^2.10.0",
     "jquery": "^3.5.1",
     "ngx-toastr": "^11.3.3",
     "rxjs": "~6.4.0",
