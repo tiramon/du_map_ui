@@ -39,7 +39,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
     @Inject('ORES') public oreNames,
     @Inject('PLANETS') public planetNames
   ) {
-    console.log('created new')
+    console.log('created new');
     this.settings = settingsService.getSettings();
     // redraws the map when settings are changed
     settingsService.settingsChanged.subscribe(
@@ -113,8 +113,8 @@ export class ScanListComponent implements OnInit, OnDestroy {
     try {
       this.selectedPlanet = JSON.parse(localStorage.getItem('scanListSelectedPlanet'));
       console.log('planet', this.selectedPlanet);
-    } catch(e) {
-      console.error(e)
+    } catch (e) {
+      console.error(e);
       //nodata
     }
 

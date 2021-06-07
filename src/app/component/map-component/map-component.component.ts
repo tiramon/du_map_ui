@@ -124,7 +124,7 @@ export class MapComponentComponent implements OnInit {
           const dateScan = new Date(scannedTile.scan.time);
           if (dateScan < dateMined) {
             if (!scannedTile.scan.minedOre) {
-              scannedTile.scan.minedOre = []
+              scannedTile.scan.minedOre = [];
             }
             scannedTile.scan.minedOre.push(minedOre);
             console.log(scannedTile.scan);
@@ -302,7 +302,7 @@ export class MapComponentComponent implements OnInit {
             if (this.settings.showOreTextsT(ore.tier)) {
               const oreShort = ore.name.substring(0, 3);
               const mined = Scan.sumOreMined(face.scan, ore.name);
-              const oreLeft = Math.max(0,face.scan.ores[ore.name] - mined);
+              const oreLeft = Math.max(0, face.scan.ores[ore.name] - mined);
               if (oreLeft > 0) {
                 const amount = new Intl.NumberFormat().format(Math.round( oreLeft / 1000));
                 const text = `${amount}kL`; // ${oreShort}

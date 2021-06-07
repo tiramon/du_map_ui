@@ -3,4 +3,4 @@ export class DataTablesResponse {
     draw: number;
     recordsFiltered: number;
     recordsTotal: number;
-  }
+}
