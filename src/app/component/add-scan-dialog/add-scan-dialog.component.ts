@@ -2,6 +2,7 @@ import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, Simp
 import { NgForm } from '@angular/forms';
 import { faDiscord, faJava } from '@fortawesome/free-brands-svg-icons';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { type } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import { Scan } from 'src/app/model/Scan';
 import { EventService } from 'src/app/service/event.service';
@@ -124,6 +125,11 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     }
     //fix time
     const now = new Date();
+    if (typeof this.scan.time === 'string') {
+      console.log('fix date');
+    this.scan.time = new Date(Date.parse(this.scan.time));
+    }
+    
     this.scan.time.setHours(now.getHours());
     this.scan.time.setMinutes(now.getMinutes());
     this.scan.time.setSeconds(now.getSeconds());

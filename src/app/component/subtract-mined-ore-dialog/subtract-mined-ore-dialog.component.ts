@@ -104,6 +104,11 @@ export class SubtractMinedOreDialogComponent implements OnInit, OnChanges {
     }
     //fix time
     const now = new Date();
+    if (typeof this.minedOre.time === 'string') {
+      console.log('fix date');
+      this.minedOre.time = new Date(Date.parse(this.minedOre.time));
+    }
+
     this.minedOre.time.setHours(now.getHours());
     this.minedOre.time.setMinutes(now.getMinutes());
     this.minedOre.time.setSeconds(now.getSeconds());
