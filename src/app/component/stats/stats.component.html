@@ -27,6 +27,21 @@
         
         style="width: 100%; height: 400px; display: block;"
     ></highcharts-chart>
+
+    Scan progress
+    <highcharts-chart
+        [Highcharts]="Highcharts"
+        [constructorType]="chartConstructor"
+        [callbackFunction]="chartCallback"
+        [(update)]="updateFlag"
+        [oneToOne]="oneToOneFlag"
+        [runOutsideAngular]="runOutsideAngularFlag"
+        [options]="progressOptions"
+
+        style="width: 100%; height: 400px; display: block;"
+        >
+
+    </highcharts-chart>
     
     <!--
     <highcharts-chart 

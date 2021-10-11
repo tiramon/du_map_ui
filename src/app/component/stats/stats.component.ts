@@ -163,7 +163,60 @@ export class StatsComponent implements OnInit {
       pyrite_avg: 10718.2534
     }
   };
+  public that = this;
 
+  public progressData = [];
+  public progressOptions : Highcharts.Options = {
+    title: { text: 'Scan progress'},
+    chart: { type: 'bar'},
+    yAxis: {
+      min: 0,
+      max: 100,
+      title: {
+        text: '% scanned',
+        align: 'high'
+      },
+      labels: { overflow: 'justify' }
+    },
+    xAxis: {
+      type: 'category',
+      min: 0
+    },
+    tooltip: {      
+      formatter:  function() {
+        const data = this.series.chart.series[0].data;
+        const index = this.point.index;
+        const value = data[index].y;
+        const scans = data[index]['scans'];
+        const tiles = data[index]['tiles'];
+
+        const tooltip = Highcharts.numberFormat(value,3,',','.');
+        return tooltip + " % " + scans + "/" + tiles;
+      }
+
+    },
+    plotOptions: {
+      bar: {
+          dataLabels: {
+              enabled: true,
+              format: '{y:.3f}'
+          }
+      }
+    },
+    series: [{
+      data: this.progressData,
+      type: null,
+      dataSorting: {
+        enabled: true,
+        sortKey: 'y'
+      },
+      zoneAxis: 'x',
+      zones: [{
+          value: 1,
+          color: '#ff4d40'
+      }],
+    }]
+  }
   public currentOption : Highcharts.Options = {
     title: {
       text: ''
@@ -251,6 +304,16 @@ export class StatsComponent implements OnInit {
     this.data['T4 sum'] = this.createData([oreNames[12], oreNames[13], oreNames[14], oreNames[15] ], 'T4 avg sum per Planet', ' L');
     this.data['T5 sum'] = this.createData([oreNames[16], oreNames[17], oreNames[18], oreNames[19] ], 'T5 avg sum per Planet', ' L');
     this.optionKey = Object.keys(this.data);
+
+
+    for (const planet of planets) {
+      console.log('planet', planet);
+      if (this.stats[planet.name]) {
+        const scansDone = this.stats[planet.name].scan;
+        const tiles = planet.gp * planet.gp * 3 * 10 + 2;
+        this.progressData.push({name: planet.name, y: 100 / tiles * scansDone, scans: scansDone, tiles: tiles });
+      }
+    }
   }
 
   ngOnInit() {
