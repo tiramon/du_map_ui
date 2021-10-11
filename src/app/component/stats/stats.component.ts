@@ -265,8 +265,10 @@ export class StatsComponent implements OnInit {
     for (const c of currentData[1]) {
       newData.push(c);
     }
-    this.currentOption.series[0].data = newData;
-    this.currentOption.series[0].name = newValue;
+
+    const series = this.currentOption.series[0] as Highcharts.SeriesBarOptions;
+    series.data = newData;
+    series.name = newValue;
     this.currentOption.tooltip.valueSuffix = currentData[2];
     this.updateFlag = true;
   }
