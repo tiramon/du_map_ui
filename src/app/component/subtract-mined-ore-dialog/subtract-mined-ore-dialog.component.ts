@@ -99,9 +99,15 @@ export class SubtractMinedOreDialogComponent implements OnInit, OnChanges {
   saveMinedOre(close: boolean, form: NgForm) {
     if (form.invalid) {
       this.formTouched = true;
-      this.toastr.error('Your mined ore input contained erorrs.');
+      this.toastr.error('Your mined ore input contained errors.');
       return;
     }
+    //fix time
+    const now = new Date();
+    this.minedOre.time.setHours(now.getHours());
+    this.minedOre.time.setMinutes(now.getMinutes());
+    this.minedOre.time.setSeconds(now.getSeconds());
+    this.minedOre.time.setMilliseconds(now.getMilliseconds());
     this.error = [];
     this.requestService.saveMinedOre(this.minedOre).then(
       response => {

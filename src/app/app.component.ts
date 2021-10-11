@@ -2,11 +2,13 @@ import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core'
 import { Subject } from 'rxjs';
 import { SelectedTile } from './model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { faChartPie, faCog, faDoorOpen, faPlus,faHardHat } from '@fortawesome/free-solid-svg-icons';
+import { faChartPie, faCaretLeft, faCaretRight, faCog, faDoorOpen, faHardHat, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { EventService } from './service/event.service';
 import { Router } from '@angular/router';
+import { Settings } from './model/Settings';
+import { SettingsService } from './service/settings.service';
 
 @Component({
   selector: 'dumap-root',
@@ -22,11 +24,15 @@ export class AppComponent implements OnInit {
   faMap = faMap;
   faHardHat = faHardHat;
   faChartPie = faChartPie;
+  faCaretLeft = faCaretLeft;
+  faCaretRight = faCaretRight;
 
   lastTileValue: string;
   public showAddScan = false;
   public showSubtractMinedOre = false;
   public showSettings = false;
+
+  private settings: Settings;
 
   @ViewChild('tileIdInput', { static: true })
   tileIdInput: ElementRef<HTMLInputElement>;
@@ -42,6 +48,7 @@ export class AppComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private oauthService: OAuthService,
+    public settingsService: SettingsService,
     private router: Router,
     @Inject('PLANETS') public planets
   ) {
@@ -178,5 +185,13 @@ export class AppComponent implements OnInit {
   logout() {
     this.oauthService.logOut();
     this.eventService.loginChange.emit(false);
+  }
+
+  minimizeNav() {
+    this.settingsService.setSettings('minimizedNav', true);
+  }
+
+  maximizeNav() {
+    this.settingsService.setSettings('minimizedNav', false);
   }
 }

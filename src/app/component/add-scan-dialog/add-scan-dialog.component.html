@@ -5,6 +5,7 @@
         <div style="padding-top: 10px; padding-left: 10px;padding-right: 10px; margin-bottom: 10px; padding-bottom: 3px; border-bottom: 3px solid rgb(27,40,48)">
             <span (click)="tab=1" class="tab" [class.tab-active]="tab == 1" style="overflow: visible">Add scan manually</span>
             <span (click)="tab=2" class="tab" [class.tab-active]="tab == 2">Paste OCR result</span>
+            <span (click)="tab=3" class="tab" [class.tab-active]="tab == 3">Use automatic upload</span>
         </div>
         <div *ngIf="tab == 1">
             <form #scanForm="ngForm">
@@ -132,6 +133,30 @@ chrom ite	12.56 kL	"></textarea>
                 <div class="control">
                 <button class="button is-link" (click)="fillForm()">Parse</button>
                 </div>                
+                <div class="control">
+                <button class="button is-link is-light" (click)="endModal.emit()">Close</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="tab == 3" style="color: rgb(182,222,236);">
+            <div class="content" style="padding: 10px">
+                The automatic companion app just needs to run in the background while you have DU running. It then automatically looks for the newest logfile and switchs to newer logfiles if they appear. All you have to do is to use your Territory Scanner as usual and the application transmits all scan data to the website as soon as you click the save button of your scanner result.<br>
+                <br>
+                Current version of the automatic companion app can always be found at<br>
+                <a href="https://github.com/tiramon/du-map-companion/releases/latest" target="_blank" style="color: white">
+                    <fa-icon [icon]="faDownload" size="s" [styles]="{'color': 'white'}"></fa-icon> https://github.com/tiramon/du-map-companion/releases/latest
+                </a> <br>
+                <br>
+                Requirements:<br>
+                <ul>
+                    <li>Java 11+ -> can be downloaded <a href="https://www.oracle.com/de/java/technologies/javase-downloads.html" target="_blank" style="color: white">here  <fa-icon [icon]="faJava" size="s" [styles]="{'color': 'white'}"></fa-icon>
+
+                    </a></li>
+                </ul><br>
+                If you have problems have a look at <a href="https://github.com/tiramon/du-map-companion" target="_blank" style="color: white">https://github.com/tiramon/du-map-companion</a> or visit our <a href="https://discord.gg/PQeJMUeXb2" target="_blank" style="color: white">discord channel <fa-icon [icon]="faDiscord" size="s" [styles]="{'color': 'white'}"></fa-icon></a>
+                <img src="/assets/ducompanion.png"/>
+            </div>
+            <div class="field is-grouped is-grouped-centered" >
                 <div class="control">
                 <button class="button is-link is-light" (click)="endModal.emit()">Close</button>
                 </div>

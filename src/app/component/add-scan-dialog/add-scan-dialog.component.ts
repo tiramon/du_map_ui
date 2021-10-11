@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Inject, Input, NO_ERRORS_SCHEMA, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { faDiscord, faJava } from '@fortawesome/free-brands-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { Scan } from 'src/app/model/Scan';
 import { EventService } from 'src/app/service/event.service';
@@ -11,6 +13,9 @@ import { RequestService } from 'src/app/service/request.service';
   styleUrls: ['./add-scan-dialog.component.scss']
 })
 export class AddScanDialogComponent implements OnInit, OnChanges {
+  faDownload = faDownload;
+  faJava = faJava;
+  faDiscord = faDiscord;
 
   @Input()
   modal: boolean;
@@ -114,9 +119,15 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   saveScan(close: boolean, form: NgForm) {
     if (form.invalid) {
       this.formTouched = true;
-      this.toastr.error('Your scan input contained erorrs.');
+      this.toastr.error('Your scan input contained errors.');
       return;
     }
+    //fix time
+    const now = new Date();
+    this.scan.time.setHours(now.getHours());
+    this.scan.time.setMinutes(now.getMinutes());
+    this.scan.time.setSeconds(now.getSeconds());
+    this.scan.time.setMilliseconds(now.getMilliseconds());
     this.error = [];
     this.requestService.saveScan(this.scan).then(
       response => {
