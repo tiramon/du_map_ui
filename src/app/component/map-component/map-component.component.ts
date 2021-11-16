@@ -89,11 +89,16 @@ export class MapComponentComponent implements OnInit {
       }
     });
 
+    
     this.settings = settingsService.getSettings();
+    var minimized = this.settings.minimizedNav;
     // redraws the map when settings are changed
     settingsService.settingsChanged.subscribe(
       (settings: Settings) => {
-        this.settings = settings;
+        if (settings.minimizedNav != minimized) {
+          minimized = settings.minimizedNav;
+          window.dispatchEvent(new Event('resize'));
+        }
         this.drawMap();
       }
     );
@@ -517,18 +522,20 @@ export class MapComponentComponent implements OnInit {
     }
   }
 
-
  @HostListener('window:resize', ['$event'])
  onResize(event) {
    //console.log(event.target.innerWidth);
    //this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 530, 200);
-   this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 240, 200);
+   var navWidth = this.settings.minimizedNav ? 95 : 240;
+   var offset = this.settings.minimizedNav ? 110 : 130;
+
+   this.CANVAS_WIDTH = Math.max(event.target.innerWidth - navWidth, 200);
    this.canvas.nativeElement.width = this.CANVAS_WIDTH;
 
    this.CANVAS_HEIGHT = Math.max(event.target.innerHeight, 200);
    this.canvas.nativeElement.height = this.CANVAS_HEIGHT;
 
-   this.offsetX2D = this.CANVAS_WIDTH / 2 - 130;
+   this.offsetX2D = this.CANVAS_WIDTH / 2 - offset;
    this.offsetY2D = this.CANVAS_HEIGHT / 2;
    this.drawMap();
  }

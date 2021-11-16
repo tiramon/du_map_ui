@@ -3,23 +3,32 @@
 <dumap-login *ngIf="!isLogedin()" [modal]="!isLogedin()"></dumap-login>
 <dumap-add-scan-dialog *ngIf="this.showAddScan" [modal]="this.showAddScan" (endModal)="this.showAddScan = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
 <dumap-subtract-mined-ore-dialog *ngIf="this.showSubtractMinedOre" [modal]="this.showSubtractMinedOre" (endModal)="this.showSubtractMinedOre = false" [currentPlanetId]="celestialId"></dumap-subtract-mined-ore-dialog>
-<div class="columns" style="min-height: 100%; height: auto; ">
-  <div class="column is-narrow" style="background-color: rgb(27,40,48); padding: 0; width: 239px; min-height: 100%; height: auto;  background-image: url('assets/maps.PNG'); overflow: hidden">
-    
-    
+<div class="columns" style="min-height: 100%; height: auto;">
+  <div [ngClass]="{'column': true, 'is-narrow': true, 'Nav': true, 'maximizedNav': !settingsService.getSettings().minimizedNav, 'minimizedNav': settingsService.getSettings().minimizedNav}" >
+    <div *ngIf="!settingsService.getSettings().minimizedNav" class="btn" style="position: absolute; left: 150px; top: 10px;" title="minimize Nav" (click)="minimizeNav()">
+      <fa-icon [icon]="faCaretLeft" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+    </div>
+   
     <div style="position: absolute; top: 10px; left: 10px; background-color: transparent;">
-      <label class="label" style="color: white">Planet</label>
-      <div class="select is-small">
-        <select #planetIdInput style="width: 130px" (change)="changePlanet($event);">
-          <option *ngFor="let planet of this.planets" [value]="planet.id">{{planet.name}}</option>
-        </select>
-      </div><br>
-      <label class="label" style="color: white">Tile Id</label>
-      <input #tileIdInput style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
+      <ng-container *ngIf="!settingsService.getSettings().minimizedNav">
+        <label class="label" style="color: white">Planet</label>
+        <div class="select is-small">
+          <select #planetIdInput style="width: 130px" (change)="changePlanet($event);">
+            <option *ngFor="let planet of this.planets" [value]="planet.id">{{planet.name}}</option>
+          </select>
+        </div><br>
+        <label class="label" style="color: white">Tile Id</label>
+        <input #tileIdInput style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
+      </ng-container>
       
+      <div *ngIf="settingsService.getSettings().minimizedNav" class="btn" style=" margin-top: 10px" title="maximize Nav" (click)="maximizeNav()">
+        <fa-icon [icon]="faCaretRight" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      </div>
+
       <div class="btn" style=" margin-top: 10px" title="Add scan" (click)="showAddScanDialog()">
         <fa-icon [icon]="faPlus" size="xs" [styles]="{'color': 'white'}"></fa-icon>
       </div>
+
       <div class="btn" style=" margin-top: 10px" title="Subtract mined ore" (click)="showSubtractMinedOreDialog()">
         <fa-icon [icon]="faHardHat" size="xs" [styles]="{'color': 'white'}"></fa-icon>
       </div>

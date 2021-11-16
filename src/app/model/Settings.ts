@@ -1,5 +1,6 @@
 
 export class Settings {
+    minimizedNav = false;
     showResourceIcons = false;
     showT1Ores = true;
     showT2Ores = true;
