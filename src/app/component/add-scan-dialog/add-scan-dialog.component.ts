@@ -127,9 +127,9 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     const now = new Date();
     if (typeof this.scan.time === 'string') {
       console.log('fix date');
-    this.scan.time = new Date(Date.parse(this.scan.time));
+      this.scan.time = new Date(Date.parse(this.scan.time));
     }
-    
+
     this.scan.time.setHours(now.getHours());
     this.scan.time.setMinutes(now.getMinutes());
     this.scan.time.setSeconds(now.getSeconds());

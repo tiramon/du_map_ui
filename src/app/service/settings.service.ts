@@ -16,9 +16,13 @@ export class SettingsService {
         return this.settings;
     }
 
-    public setSettings(key: string, value: boolean | number) {
+    public setSettingsValue(key: string, value: boolean | number) {
         this.settings[key] = value;
         this.settingsChanged.emit(this.settings);
         localStorage.setItem('dumap_settings', JSON.stringify(this.settings));
+    }
+
+    public getSettingsValue(key: string): boolean | number {
+        return this.settings[key];
     }
 }

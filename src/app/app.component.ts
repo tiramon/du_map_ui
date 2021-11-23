@@ -91,7 +91,7 @@ export class AppComponent implements OnInit {
     config.oidc = false;
     config.userinfoEndpoint = 'https://discordapp.com/api/users/@me';
 
-    this.oauthService.configure(config);
+    oauthService.configure(config);
     oauthService.setStorage(sessionStorage);
 
     oauthService.setupAutomaticSilentRefresh();
@@ -187,10 +187,10 @@ export class AppComponent implements OnInit {
   }
 
   minimizeNav() {
-    this.settingsService.setSettings('minimizedNav', true);
+    this.settingsService.setSettingsValue('minimizedNav', true);
   }
 
   maximizeNav() {
-    this.settingsService.setSettings('minimizedNav', false);
+    this.settingsService.setSettingsValue('minimizedNav', false);
   }
 }

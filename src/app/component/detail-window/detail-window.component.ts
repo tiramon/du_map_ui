@@ -46,6 +46,7 @@ export class DetailWindowComponent implements OnInit {
   }
 
   posLink() {
+    // tslint:disable-next-line:max-line-length
     return `::pos{0,${this.face.duEntityId},${(Math.round(this.face.latitude * 10000) / 10000).toFixed(4)},${(Math.round(this.face.longitude * 10000) / 10000).toFixed(4)},0.0}`;
   }
 

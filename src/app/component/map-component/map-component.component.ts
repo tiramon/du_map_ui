@@ -55,7 +55,7 @@ export class MapComponentComponent implements OnInit {
     private requestService: RequestService,
     private eventService: EventService,
     private oauthService: OAuthService,
-    settingsService: SettingsService,
+    private settingsService: SettingsService,
     @Inject('ORES') private oreNames,
     @Inject('PLANETS') private planetNames,
     @Inject(LOCALE_ID) public locale: string
@@ -82,20 +82,19 @@ export class MapComponentComponent implements OnInit {
     this.eventService.loginChange.subscribe((logedIn: boolean) => {
       if (logedIn) {
         if (this.selectedTile) {
-          this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
+          this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId, this.perspectiveScale);
         }
       } else {
         this.clear();
       }
     });
 
-    
     this.settings = settingsService.getSettings();
-    var minimized = this.settings.minimizedNav;
+    let minimized = this.settings.minimizedNav;
     // redraws the map when settings are changed
     settingsService.settingsChanged.subscribe(
       (settings: Settings) => {
-        if (settings.minimizedNav != minimized) {
+        if (settings.minimizedNav !== minimized) {
           minimized = settings.minimizedNav;
           window.dispatchEvent(new Event('resize'));
         }
@@ -510,24 +509,29 @@ export class MapComponentComponent implements OnInit {
     return false;
   }
 
-  zoom(event, delta) {
+  zoom(event) {
     event.preventDefault();
 
     const oldScale = this.perspectiveScale;
     this.perspectiveScale = Math.round(this.perspectiveScale * (10 + (event.deltaY > 0 ? -1 : 1)) / 10);
+    this.validateScale();
+    if (oldScale !== this.perspectiveScale) {
+      localStorage.setItem('dumap_perspectiveScale', '' + this.perspectiveScale);
+      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId, this.perspectiveScale);
+    }
+  }
+
+  validateScale() {
     if (this.perspectiveScale < 300) { this.perspectiveScale = 300; }
     if (this.perspectiveScale > 2000) { this.perspectiveScale = 2000; }
-    if (oldScale !== this.perspectiveScale) {
-      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
-    }
   }
 
  @HostListener('window:resize', ['$event'])
  onResize(event) {
-   //console.log(event.target.innerWidth);
-   //this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 530, 200);
-   var navWidth = this.settings.minimizedNav ? 95 : 240;
-   var offset = this.settings.minimizedNav ? 110 : 130;
+   // console.log(event.target.innerWidth);
+   // this.CANVAS_WIDTH = Math.max(event.target.innerWidth - 530, 200);
+   const navWidth = this.settings.minimizedNav ? 95 : 240;
+   const offset = this.settings.minimizedNav ? 110 : 130;
 
    this.CANVAS_WIDTH = Math.max(event.target.innerWidth - navWidth, 200);
    this.canvas.nativeElement.width = this.CANVAS_WIDTH;
