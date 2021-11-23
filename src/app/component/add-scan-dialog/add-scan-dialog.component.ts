@@ -70,7 +70,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   clearScan() {
     this.scan = new Scan();
     this.scan.tileId = null;
-    this.scan.time = new Date();
+    this.scan.time = this.nowUTC();
     this.scan.ores = {};
     if (this.currentPlanetId) {
       this.scan.planet = this.planets.find(p => p.id === this.currentPlanetId).name;
@@ -78,6 +78,12 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
       this.scan.planet = null;
     }
     this.refreshCurrentOres();
+  }
+
+  nowUTC(): Date {
+    let date = new Date();
+    const offset = date.getTimezoneOffset()
+    return new Date(date.getTime() - (offset * 60 * 1000));
   }
 
   /**
