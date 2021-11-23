@@ -17,6 +17,9 @@ export class DetailWindowComponent implements OnInit {
 
   face: Face = null;
   scan: Scan = null;
+
+  demeter = new Date('2021-11-23T09:00:00');
+  postFix = 'L/h'
   constructor(
     private eventService: EventService,
     @Inject('ORES') public oreNames: {name, tier, color, hc, quanta}[]
@@ -27,6 +30,7 @@ export class DetailWindowComponent implements OnInit {
     this.eventService.faceSelected.subscribe( f => {
       this.face = f;
       this.scan = this.face.scan;
+      this.postFix = (this.scan.time < this.demeter) ? 'L' : 'L/h';
     });
 
     // hides the last shown information if the user logs out

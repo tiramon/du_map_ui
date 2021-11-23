@@ -43,7 +43,7 @@
         </tr>
         <ng-container *ngFor="let ore of oreNames">
         <tr  *ngIf="scan?.ores[ore.name]">
-            <td class="rightColumn">{{ore.name}}</td><td class="rightColumn" style="text-align: right; color: red" [title]="minedOreDetail(scan, ore.name)">{{sumOreMined(scan, ore.name) > 0 ? (-sumOreMined(scan, ore.name) | number:'1.0-0':getUsersLocale('en-US')) : ''}}</td><td class="rightColumn" style="text-align: right;">{{scan.ores[ore.name] | number:'1.0-0':getUsersLocale('en-US')}} L</td>
+            <td class="rightColumn">{{ore.name}}</td><td class="rightColumn" style="text-align: right; color: red" [title]="minedOreDetail(scan, ore.name)">{{sumOreMined(scan, ore.name) > 0 ? (-sumOreMined(scan, ore.name) | number:'1.0-0':getUsersLocale('en-US')) : ''}}</td><td class="rightColumn" style="text-align: right;">{{scan.ores[ore.name] | number:'1.0-0':getUsersLocale('en-US')}} {{postFix}}</td>
         </tr>
         </ng-container>
     </ng-container>
