@@ -82,7 +82,7 @@ export class MapComponentComponent implements OnInit {
     this.eventService.loginChange.subscribe((logedIn: boolean) => {
       if (logedIn) {
         if (this.selectedTile) {
-          this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId, this.perspectiveScale);
+          this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
         }
       } else {
         this.clear();
@@ -517,7 +517,7 @@ export class MapComponentComponent implements OnInit {
     this.validateScale();
     if (oldScale !== this.perspectiveScale) {
       localStorage.setItem('dumap_perspectiveScale', '' + this.perspectiveScale);
-      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId, this.perspectiveScale);
+      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
     }
   }
 
