@@ -56,10 +56,15 @@ export class AppComponent implements OnInit {
       if (!logedIn) {
         this.showAddScan = false;
         this.showSettings = false;
+        return;
       }
-      const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
-      if (lastTile) {
-        this.modelChanged.next(lastTile);
+      console.log(router.navigated);
+      if (router.navigated) {
+        const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
+        console.log(lastTile);
+        if (lastTile) {
+          this.modelChanged.next(lastTile);
+        }
       }
     });
   }
@@ -112,7 +117,8 @@ export class AppComponent implements OnInit {
     // when another tile was selected tell it to the world
     this.modelChanged.subscribe(
       (selectedTile: SelectedTile) => {
-        this.router.navigate([`/map/${selectedTile.celestialId}/${selectedTile.tileId}`]);
+        const planetName = this.getPlanetById(selectedTile.celestialId).name;
+        this.router.navigate([`/map/${planetName}/${selectedTile.tileId}`]);
       });
 
     // somehow handle a change of planet and tile from another location, but make sure it's not our own event reacting to
@@ -124,6 +130,14 @@ export class AppComponent implements OnInit {
         this.planetIdInput.nativeElement.selectedIndex = this.planets.map(p => p.id).indexOf(this.celestialId);
       }
     });
+  }
+
+  public getPlanetById(celestialId: number): {id: number, name: string} {
+    return this.planets.find((p: {id: number}) => p.id === celestialId);
+  }
+
+  public getPlanetByName(celestialName: string): {id: number, name: string} {
+    return this.planets.find((p: {name: string}) => p.name === celestialName);
   }
 
   /**

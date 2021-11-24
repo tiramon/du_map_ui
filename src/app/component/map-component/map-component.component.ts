@@ -436,10 +436,13 @@ export class MapComponentComponent implements OnInit {
     for (const f of this.face) {
       if (this.isInside(f.vertices, [mouseX, mouseY])) {
         // console.log('clicked in tile ' + f.tileId);
-        this.router.navigate(['map', this.selectedTile.celestialId, f.tileId]);
+        this.router.navigate(['map', this.getPlanetById(this.selectedTile.celestialId).name, f.tileId]);
         break;
       }
     }
+  }
+  public getPlanetById(celestialId: number): {id: number, name: string} {
+    return this.planetNames.find((p: {id: number}) => p.id === celestialId);
   }
 
   public onCanvasRightClick(event: MouseEvent) {

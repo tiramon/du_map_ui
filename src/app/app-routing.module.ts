@@ -11,7 +11,7 @@ const routes: Routes = [
     path: '', redirectTo: '/map', pathMatch: 'full'
   },
   {
-    path: 'map/:planetId/:tileId',
+    path: 'map/:planet/:tileId',
     resolve: {selectedTile: SelectedTileResolver},
     component: MapWrapperComponent
   },

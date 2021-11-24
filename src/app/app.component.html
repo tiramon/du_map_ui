@@ -39,7 +39,7 @@
       -->
 
       <div class="btn" style=" margin-top: 10px" title="Map">
-        <a [routerLink]="['map', celestialId, tileId]" style="color: white">
+        <a [routerLink]="['map', getPlanetById(celestialId).name, tileId]" style="color: white">
           <fa-icon [icon]="faMap" size="xs" [styles]="{'color': 'white'}"></fa-icon>
         </a>
       </div>
