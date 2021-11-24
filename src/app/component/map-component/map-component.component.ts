@@ -334,8 +334,7 @@ export class MapComponentComponent implements OnInit {
     if ('' + face.tileId) {
       [x, y] = center;
       const fontSize = 24; // Math.round(26 / 6000 * this.perspectiveScale);
-      this.ctx.font = fontSize + 'px Arial';
-      this.ctx.fillStyle = `rgba(0, 0, 0, ${1.0})`;
+      this.ctx.font = fontSize * (this.perspectiveScale / 1000) + 'px Arial';
       const text = '' + face.tileId;
       const metrics = this.ctx.measureText(text);
       // + fontSize / 2
