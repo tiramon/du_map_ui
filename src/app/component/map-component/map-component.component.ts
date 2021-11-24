@@ -60,6 +60,10 @@ export class MapComponentComponent implements OnInit {
     @Inject('PLANETS') private planetNames,
     @Inject(LOCALE_ID) public locale: string
   ) {
+    const scaleFromStorage = localStorage.getItem('dumap_perspectiveScale');
+    if (scaleFromStorage) {
+      this.perspectiveScale = +scaleFromStorage;
+    }
     // a tile has been choosen, map must be loaded and drawn
     this.eventService.tileSelected.subscribe((selectedTile: SelectedTile) => {
       if (!selectedTile) {
@@ -68,7 +72,7 @@ export class MapComponentComponent implements OnInit {
       this.selectedTile = selectedTile;
       localStorage.setItem('lastSelectedTile', JSON.stringify(selectedTile));
       if (oauthService.hasValidAccessToken()) {
-        this.loadMap(selectedTile.celestialId, selectedTile.tileId)
+        this.loadMap(selectedTile.celestialId, selectedTile.tileId, this.perspectiveScale)
           .then( faces =>  this.eventService.faceSelected.emit(faces[0]));
       }
     });
@@ -82,7 +86,7 @@ export class MapComponentComponent implements OnInit {
     this.eventService.loginChange.subscribe((logedIn: boolean) => {
       if (logedIn) {
         if (this.selectedTile) {
-          this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
+          this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId, this.perspectiveScale);
         }
       } else {
         this.clear();
@@ -155,18 +159,18 @@ export class MapComponentComponent implements OnInit {
    * @param celestialId internal id of the selected planet
    * @param tileId id of the selected tile
    */
-  loadMap(celestialId: number, tileId: number): Promise<Face[]> {
+  loadMap(celestialId: number, tileId: number, scale: number): Promise<Face[]> {
     if (!this.oauthService.getIdentityClaims()) {
       this.clear();
       return;
     }
-    return this.requestService.requestMap(celestialId, tileId).then(
+    return this.requestService.requestMap(celestialId, tileId, scale).then(
       result => {
         this.eventService.loading.emit(false);
         this.face = result;
         this.drawMap();
+        // this.markCenter();
         return this.face;
-       // this.markCenter();
       }
     );
   }
@@ -175,6 +179,8 @@ export class MapComponentComponent implements OnInit {
    * First draws all faces and after that all text is drawn, so no face is overlapping and hiding a text or parts of it
    */
   private drawMap() {
+    // console.log(this.settings['maxOre'],this.settings['minOre']);
+    this.validateScale();
     this.clear();
     if (this.face) {
       for (const f of this.face) {
@@ -517,7 +523,7 @@ export class MapComponentComponent implements OnInit {
     this.validateScale();
     if (oldScale !== this.perspectiveScale) {
       localStorage.setItem('dumap_perspectiveScale', '' + this.perspectiveScale);
-      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId);
+      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId, this.perspectiveScale);
     }
   }
 

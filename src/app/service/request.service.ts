@@ -26,9 +26,8 @@ export class RequestService {
    * @param celestialId internal id of the selected planet
    * @param tileId  id of the selected tile
    */
-  public requestMap(celestialId: number, tileId: number): Promise<Face[]> {
-    const url = `${this.defaultURL}faces?tileId=${tileId}&celestialId=${celestialId}`;
-    // &perspectiveScale=${perspectiveScale}`;
+  public requestMap(celestialId: number, tileId: number, scale: number): Promise<Face[]> {
+    const url = `${this.defaultURL}faces?tileId=${tileId}&celestialId=${celestialId}&scale=${scale}`;
     this.eventService.loading.next(true);
     return this.http.get(url, this.getRequestConfigObject())
       .pipe(
