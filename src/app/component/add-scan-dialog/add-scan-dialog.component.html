@@ -4,8 +4,10 @@
         <div class="tileHeader" style="padding: 10px;">Add Scan</div>
         <div style="padding-top: 10px; padding-left: 10px;padding-right: 10px; margin-bottom: 10px; padding-bottom: 3px; border-bottom: 3px solid rgb(27,40,48)">
             <span (click)="tab=1" class="tab" [class.tab-active]="tab == 1" style="overflow: visible">Add scan manually</span>
+            <!--
             <span (click)="tab=2" class="tab" [class.tab-active]="tab == 2">Paste OCR result</span>
             <span (click)="tab=3" class="tab" [class.tab-active]="tab == 3">Use automatic upload</span>
+            -->
         </div>
         <div *ngIf="tab == 1">
             <form #scanForm="ngForm">
