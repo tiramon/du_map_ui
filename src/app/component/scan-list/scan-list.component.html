@@ -41,7 +41,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let scan of scans">
-                <td class="columnData"><a [routerLink]="['/map',getPlanetIdByName(scan.planet), scan.tileId]"><fa-icon [icon]="faMap" [styles]="{'color': 'white'}"></fa-icon></a></td>
+                <td class="columnData"><a [routerLink]="['/map',scan.planet, scan.tileId]"><fa-icon [icon]="faMap" [styles]="{'color': 'white'}"></fa-icon></a></td>
                 <td class="columnData">{{scan.planet}}</td>
                 <td class="columnData" style="text-align: right;">{{scan.tileId}}</td>
                 <td class="columnData">{{scan.time | date:'shortDate'}}</td>
