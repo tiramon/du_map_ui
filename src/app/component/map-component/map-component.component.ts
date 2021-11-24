@@ -314,8 +314,8 @@ export class MapComponentComponent implements OnInit {
               const mined = Scan.sumOreMined(face.scan, ore.name);
               const oreLeft = Math.max(0, face.scan.ores[ore.name] - mined);
               if (oreLeft > 0) {
-                const amount = new Intl.NumberFormat().format(Math.round( oreLeft / 1000));
-                const text = `${amount}kL`; // ${oreShort}
+                const amount = new Intl.NumberFormat().format(Math.round( oreLeft));
+                const text = `${amount}L`; // ${oreShort}
                 const metrics = this.ctx.measureText(text);
                 this.ctx.fillStyle = ore.color || `rgba(0, 0, 0, ${1.0})`;
                 this.ctx.fillText(

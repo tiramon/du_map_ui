@@ -108,6 +108,7 @@ export class AppComponent implements OnInit {
 
   public ngOnInit() {
     this.handleOauth2(this.oauthService);
+
     // when another tile was selected tell it to the world
     this.modelChanged.subscribe(
       (selectedTile: SelectedTile) => {
@@ -115,7 +116,6 @@ export class AppComponent implements OnInit {
       });
 
     // somehow handle a change of planet and tile from another location, but make sure it's not our own event reacting to
-
     this.eventService.tileSelected.subscribe( selectedTile => {
       if (selectedTile && (selectedTile.tileId !== this.tileId || selectedTile.celestialId !== this.celestialId)) {
         this.celestialId = selectedTile.celestialId;
@@ -124,7 +124,6 @@ export class AppComponent implements OnInit {
         this.planetIdInput.nativeElement.selectedIndex = this.planets.map(p => p.id).indexOf(this.celestialId);
       }
     });
-
   }
 
   /**
