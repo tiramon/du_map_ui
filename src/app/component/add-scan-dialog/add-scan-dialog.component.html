@@ -32,6 +32,23 @@
                     </div>
                 </div>
             </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label leftColumn">Time</label>
+                </div>
+                <div class="field-body" style="margin-right:10px;">
+                    <div class="field">
+                        <div class="control">
+                            <input name="time" class="input" type="date" [ngModel] ="scan.time | date:'yyyy-MM-dd'" (ngModelChange)="scan.time = $event" placeHolder="Time" required #time="ngModel">
+                        </div>
+                        <p *ngIf="time.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
                     <label class="label leftColumn">Territory Id</label>
@@ -53,21 +70,6 @@
                         </p>
                         <p *ngIf="tileId.errors?.customMax && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
                             This tile id is invalid, {{scan.planet}} only has {{maxTiles}} tiles
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label leftColumn">Time</label>
-                </div>
-                <div class="field-body" style="margin-right:10px;">
-                    <div class="field">
-                        <div class="control">                        
-                            <input name="time" class="input" type="date" [ngModel] ="scan.time | date:'yyyy-MM-dd'" (ngModelChange)="scan.time = $event" placeHolder="Time" required #time="ngModel">
-                        </div>
-                        <p *ngIf="time.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
-                            This field is required
                         </p>
                     </div>
                 </div>
