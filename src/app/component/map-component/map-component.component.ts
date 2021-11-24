@@ -338,6 +338,8 @@ export class MapComponentComponent implements OnInit {
       const text = '' + face.tileId;
       const metrics = this.ctx.measureText(text);
       // + fontSize / 2
+       // tile id
+      this.ctx.fillStyle = `rgba(0, 0, 0, ${1.0})`;
       this.ctx.fillText(
         text,
         x + this.offsetX2D - metrics.width / 2,
