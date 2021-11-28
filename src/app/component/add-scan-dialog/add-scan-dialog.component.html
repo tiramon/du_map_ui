@@ -75,9 +75,9 @@
                 </div>
             </div>
 
-            <div class="field is-horizontal" *ngFor="let ore of this.currentOres">
+            <div class="field is-horizontal" *ngFor="let ore of this.currentOres | sortBy:'asc':'order'">
                 <div class="field-label is-normal">
-                    <label class="label leftColumn">{{ore}}</label>
+                    <label class="label leftColumn">{{ore.name}}</label>
                 </div>
                 <div class="field-body" style="margin-right:10px;">
                     <div class="field">
