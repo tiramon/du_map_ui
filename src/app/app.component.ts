@@ -72,7 +72,8 @@ export class AppComponent implements OnInit {
           'Changed ore order',
           {
             disableTimeOut: true,
-            positionClass: 'toast-center-center'
+            positionClass: 'toast-center-center',
+            closeButton: true
           }
         );
         localStorage.setItem(this.localStorageKeyWarningRead, 'true');
