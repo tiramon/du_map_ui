@@ -82,7 +82,7 @@
                 <div class="field-body" style="margin-right:10px;">
                     <div class="field">
                         <div class="control">
-                            <input [name]="ore" class="input" type="text" placeholder="ore amount in L, empty if no ore of this type is present" [(ngModel)]="scan.ores[ore]" pattern="\d+" #currentOre="ngModel">
+                            <input [name]="ore.name" class="input" type="text" placeholder="ore amount in L, empty if no ore of this type is present" [(ngModel)]="scan.ores[ore.name]" pattern="\d+" #currentOre="ngModel">
                         </div>
                         <p *ngIf="currentOre.errors?.pattern && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
                             This ore amount is invalid
