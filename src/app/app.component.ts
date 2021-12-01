@@ -64,10 +64,11 @@ export class AppComponent implements OnInit {
       }
 
       const warningread = localStorage.getItem(this.localStorageKeyWarningRead);
+      const warningread2 = localStorage.getItem(this.localStorageKeyWarningRead + '2');
 
       if (!warningread) {
         toastr.warning(
-          'The order of the ores in the add dialog has been altered to better fit the ingame order in the scans.\n' +
+          'The order of the ores in the add dialog has been altered to better fit the ingame order in the scans.\n\n' +
           'If you find ores in the wrong order, please tell me in Discord.',
           'Changed ore order',
           {
@@ -78,6 +79,22 @@ export class AppComponent implements OnInit {
         );
         localStorage.setItem(this.localStorageKeyWarningRead, 'true');
       }
+
+      if (!warningread2) {
+        toastr.warning(
+          'The order of the ores in the add dialog has been altered again.\n' +
+          'This time cobaltite and malachite have moved.\n\n' +
+          'If you find ores in the wrong order, please tell me in Discord.',
+          'Changed ore order (Cobaltite, Malachite)',
+          {
+            disableTimeOut: true,
+            positionClass: 'toast-center-center',
+            closeButton: true
+          }
+        );
+        localStorage.setItem(this.localStorageKeyWarningRead + '2', 'true');
+      }
+
       console.log(router.navigated);
       if (router.navigated) {
         const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
