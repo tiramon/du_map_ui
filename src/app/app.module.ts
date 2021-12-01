@@ -96,25 +96,25 @@ registerLocaleData(localeDe);
         {id: 10, name: 'Thades Moon 2', ores: [0, 2, 3, 6, 17], gp: 11, altitude: 0}
     ]},
     {provide: 'ORES', useValue: [
-      {name: 'Bauxite',    tier: 1, hc: 10, quanta: 90, color: 'rgb(214, 255, 255)', order: 6},
-      {name: 'Coal',       tier: 1, hc: 10, quanta: 90, color: 'rgb(214, 255, 255)', order: 3},
-      {name: 'Hematite',   tier: 1, hc: 10, quanta: 90, color: 'rgb(0, 186, 255)', order: 4},
-      {name: 'Quartz',     tier: 1, hc: 10, quanta: 90, color: 'rgb(104, 238, 255)', order: 5},
+      {name: 'Bauxite',    tier: 1, hc: 10, quanta: 90, color: 'rgb(214, 255, 255)', order: 8},
+      {name: 'Coal',       tier: 1, hc: 10, quanta: 90, color: 'rgb(214, 255, 255)', order: 5},
+      {name: 'Hematite',   tier: 1, hc: 10, quanta: 90, color: 'rgb(0, 186, 255)', order: 6},
+      {name: 'Quartz',     tier: 1, hc: 10, quanta: 90, color: 'rgb(104, 238, 255)', order: 7},
 
-      {name: 'Chromite',   tier: 2, hc: 20, quanta: 390, color: 'rgb(0, 164, 244)', order: 8},
+      {name: 'Chromite',   tier: 2, hc: 20, quanta: 390, color: 'rgb(0, 164, 244)', order: 9},
       {name: 'Limestone',  tier: 2, hc: 20, quanta: 390, color: 'rgb(101, 232, 249)', order: 100},
-      {name: 'Malachite',  tier: 2, hc: 20, quanta: 390, color: 'rgb(10, 173, 255)', order: 101},
+      {name: 'Malachite',  tier: 2, hc: 20, quanta: 390, color: 'rgb(10, 173, 255)', order: 3},
       {name: 'Natron',     tier: 2, hc: 20, quanta: 390, color: 'rgb(191, 249, 250)', order: 102},
 
-      {name: 'Acanthite',  tier: 3, hc: 50, quanta: 900, color: 'rgb(0, 220, 116)', order: 2},
+      {name: 'Acanthite',  tier: 3, hc: 50, quanta: 900, color: 'rgb(0, 220, 116)', order: 4},
       {name: 'Garnierite', tier: 3, hc: 50, quanta: 900, color: 'rgb(104, 238, 255)', order: 104},
-      {name: 'Petalite',   tier: 3, hc: 50, quanta: 900, color: 'rgb(150, 246, 255)', order: 9},
+      {name: 'Petalite',   tier: 3, hc: 50, quanta: 900, color: 'rgb(150, 246, 255)', order: 10},
       {name: 'Pyrite',     tier: 3, hc: 50, quanta: 900, color: 'rgb(0, 186, 255)', order: 105},
 
-      {name: 'Cobaltite',  tier: 4, hc: 200, quanta: 2500, color: 'rgb(0, 201, 255)', order: 106},
+      {name: 'Cobaltite',  tier: 4, hc: 200, quanta: 2500, color: 'rgb(0, 201, 255)', order: 1},
       {name: 'Cryolite',   tier: 4, hc: 200, quanta: 2500, color: 'rgb(64, 224, 255)', order: 107},
       {name: 'Gold nuggets', pictureName: 'Gold', tier: 4, hc: 200, quanta: 2500, color: 'rgb(255, 91, 0)', order: 108},
-      {name: 'Kolbeckite', tier: 4, hc: 200, quanta: 2500, color: 'rgb(150, 246, 255)', order: 1},
+      {name: 'Kolbeckite', tier: 4, hc: 200, quanta: 2500, color: 'rgb(150, 246, 255)', order: 2},
 
       {name: 'Columbite',  tier: 5, hc: 250, quanta: 3000, color: 'rgb(0, 200, 255)', order: 109},
       {name: 'Ilmenite',  tier: 5, hc: 250, quanta: 3000, color: 'rgb(0, 164, 244)', order: 110},
