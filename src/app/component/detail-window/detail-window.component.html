@@ -36,9 +36,6 @@
             <td class="rightColumn">&sum;</td><td class="rightColumn" style="text-align: right; color: red">{{difOre(scan) > 0 ? (-difOre(scan) | number:'1.0-0':getUsersLocale('en-US')) : ''}}</td><td class="rightColumn" style="text-align: right;">{{sumOre(scan) | number:'1.0-0':getUsersLocale('en-US')}} L/h</td>
         </tr>
         <tr *ngIf="scan">
-            <td class="rightColumn">HC</td><td class="rightColumn" style="text-align: right; color: red">{{difHC(scan) > 0 ? (-difHC(scan) | number:'1.0-0':getUsersLocale('en-US')) : ''}}</td><td class="rightColumn" style="text-align: right;">~{{sumHc(scan) | number:'1.0-0':getUsersLocale('en-US')}} HC/h</td>
-        </tr>
-        <tr *ngIf="scan">
             <td class="rightColumn">Quanta</td><td class="rightColumn" style="text-align: right; color: red">{{difQuanta(scan) > 0 ? (-difQuanta(scan) | number:'1.0-0':getUsersLocale('en-US')) : ''}}</td><td class="rightColumn" style="text-align: right;">~{{sumQuanta(scan) | number:'1.0-0':getUsersLocale('en-US')}} &#295;/h<br>~{{sumQuanta(scan)*7*24 | number:'1.0-0':getUsersLocale('en-US')}} &#295;/wk</td>
         </tr>
         <ng-container *ngFor="let ore of oreNames">

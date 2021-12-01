@@ -46,7 +46,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     @Inject('ORES') public oreNames,
     @Inject('PLANETS') public planets
   ) {
-    this.ores = oreNames.map(o => o.name);
+    this.ores = oreNames;
     this.scan = new Scan();
    }
 
@@ -82,7 +82,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   nowUTC(): Date {
-    let date = new Date();
+    const date = new Date();
     const offset = date.getTimezoneOffset()
     return new Date(date.getTime() - (offset * 60 * 1000));
   }

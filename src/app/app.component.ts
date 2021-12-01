@@ -9,6 +9,7 @@ import { EventService } from './service/event.service';
 import { Router } from '@angular/router';
 import { Settings } from './model/Settings';
 import { SettingsService } from './service/settings.service';
+import { ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'dumap-root',
@@ -44,10 +45,13 @@ export class AppComponent implements OnInit {
 
   private modelChanged: Subject<SelectedTile> = new Subject<SelectedTile>();
 
+  private localStorageKeyWarningRead = 'dumap_warning_read';
+
   constructor(
     private eventService: EventService,
     private oauthService: OAuthService,
     public settingsService: SettingsService,
+    private toastr: ToastrService,
     private router: Router,
     @Inject('PLANETS') public planets
   ) {
@@ -57,6 +61,22 @@ export class AppComponent implements OnInit {
         this.showAddScan = false;
         this.showSettings = false;
         return;
+      }
+
+      const warningread = localStorage.getItem(this.localStorageKeyWarningRead);
+
+      if (!warningread) {
+        toastr.warning(
+          'The order of the ores in the add dialog has been altered to better fit the ingame order in the scans.\n' +
+          'If you find ores in the wrong order, please tell me in Discord.',
+          'Changed ore order',
+          {
+            disableTimeOut: true,
+            positionClass: 'toast-center-center',
+            closeButton: true
+          }
+        );
+        localStorage.setItem(this.localStorageKeyWarningRead, 'true');
       }
       console.log(router.navigated);
       if (router.navigated) {
