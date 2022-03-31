@@ -27,7 +27,7 @@ export class ScanListComponent implements OnInit, OnDestroy {
 
   searchOnlyNewest = true;
   selectedPlanet = null;
-  @ViewChild(DataTableDirective, {static: false})
+  @ViewChild(DataTableDirective)
   private datatableElement: DataTableDirective;
   selectedTile: SelectedTile;
 
