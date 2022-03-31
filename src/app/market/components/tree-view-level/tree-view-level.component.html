@@ -1,0 +1,11 @@
+<ul>
+    <li *ngFor="let entry of entries">
+        <div class="clickable" (click)="toggle(entry)">
+            <span *ngIf="entry.children?.length ?? 0 > 0" class="opener"><fa-icon [icon]="entry.open ? faCaretDown : faCaretRight"></fa-icon></span>
+            <span *ngIf="entry.children?.length ?? 0 === 0" class="spacer">&nbsp;&nbsp;</span>
+            <img *ngIf="entry.icon" [src]="entry.icon">
+            <span class="entryName" (click)="entrySelected(entry)">{{entry.name}}</span>
+        </div>
+        <app-tree-view-level [entries]="entry.children" *ngIf="entry.open" style="left: 5px" (selected)="entrySelected($event)" [loadChildren]="loadChildren"></app-tree-view-level>
+    </li>
+</ul>

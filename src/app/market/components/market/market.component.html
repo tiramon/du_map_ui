@@ -1,0 +1,8 @@
+<div class="columns" style="height: 100%">
+    <div class="column is-3">
+        <app-tree-view style="height: 100%" (selected)="onEntrySelected($event)" [entries]="entries" [loadChildren]="loadChildren.bind(this)"></app-tree-view>
+    </div>
+    <div class="column">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul ul {
+    margin-left: 10px;
+}
+
+.clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.spacer {
+    display: inline-block;
+    width: 10px;
+}
+
+.opener {
+    @extend .spacer;
+    text-align: center;
+}
+
+.entryName {
+    margin-left: 6px;
+}
+
+img {
+    height: 20px;
+}
