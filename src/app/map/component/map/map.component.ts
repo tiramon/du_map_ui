@@ -1,22 +1,22 @@
 import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SelectedTile } from './map/model/SelectedTile';
+import { SelectedTile } from '../../model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faCaretLeft, faCaretRight, faCog, faDoorOpen, faHardHat, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
-import { EventService } from './map/service/event.service';
+import { EventService } from '../../service/event.service';
 import { Router } from '@angular/router';
-import { Settings } from './map/model/Settings';
-import { SettingsService } from './map/service/settings.service';
-import { ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
+import { Settings } from '../../model/Settings';
+import { SettingsService } from '../../service/settings.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'dumap-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'dumap-map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss']
 })
-export class AppComponent implements OnInit {
+export class MapComponent implements OnInit {
   faDiscord = faDiscord;
   faCog = faCog;
   faListAlt = faListAlt;
@@ -239,3 +239,4 @@ export class AppComponent implements OnInit {
     this.settingsService.setSettingsValue('minimizedNav', false);
   }
 }
+

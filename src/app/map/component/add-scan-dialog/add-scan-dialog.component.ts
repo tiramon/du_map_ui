@@ -4,9 +4,9 @@ import { faDiscord, faJava } from '@fortawesome/free-brands-svg-icons';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { type } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
-import { Scan } from 'src/app/model/Scan';
-import { EventService } from 'src/app/service/event.service';
-import { RequestService } from 'src/app/service/request.service';
+import { Scan } from 'src/app/map/model/Scan';
+import { EventService } from 'src/app/map/service/event.service';
+import { RequestService } from 'src/app/map/service/request.service';
 
 @Component({
   selector: 'dumap-add-scan-dialog',
@@ -83,7 +83,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
 
   nowUTC(): Date {
     const date = new Date();
-    const offset = date.getTimezoneOffset()
+    const offset = date.getTimezoneOffset();
     return new Date(date.getTime() - (offset * 60 * 1000));
   }
 

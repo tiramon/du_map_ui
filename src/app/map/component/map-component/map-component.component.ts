@@ -2,14 +2,13 @@ import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild, LOCALE
 import { ActivatedRoute, Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Subject } from 'rxjs';
-import { Face } from 'src/app/model/Face';
-import { MinedOre } from 'src/app/model/MinedOre';
-import { Scan } from 'src/app/model/Scan';
-import { SelectedTile } from 'src/app/model/SelectedTile';
-import { Settings } from 'src/app/model/Settings';
-import { EventService } from 'src/app/service/event.service';
-import { RequestService } from 'src/app/service/request.service';
-import { SettingsService } from 'src/app/service/settings.service';
+import { Face } from 'src/app/map/model/Face';
+import { Scan } from 'src/app/map/model/Scan';
+import { SelectedTile } from 'src/app/map/model/SelectedTile';
+import { Settings } from 'src/app/map/model/Settings';
+import { EventService } from 'src/app/map/service/event.service';
+import { RequestService } from 'src/app/map/service/request.service';
+import { SettingsService } from 'src/app/map/service/settings.service';
 
 @Component({
   selector: 'dumap-map-component',
@@ -119,29 +118,6 @@ export class MapComponentComponent implements OnInit {
         }
       }
     });
-
-    // if mined ore was added, add it to the scan without reload and repaint the map
-    this.eventService.minedOreAdded.subscribe( (minedOre: MinedOre) => {
-      const planet = this.planetNames.find(p => p.name === minedOre.planet);
-      console.log('mined ore added at ', planet, this.selectedTile.celestialId);
-      if (+planet.id === +this.selectedTile.celestialId) {
-        const scannedTile = this.face.find(f => +f.tileId === +minedOre.tileId);
-        console.log('searching for tile', minedOre.tileId, scannedTile);
-        if (scannedTile && scannedTile.scan) {
-          const dateMined  = new Date(minedOre.time);
-          const dateScan = new Date(scannedTile.scan.time);
-          if (dateScan < dateMined) {
-            if (!scannedTile.scan.minedOre) {
-              scannedTile.scan.minedOre = [];
-            }
-            scannedTile.scan.minedOre.push(minedOre);
-            console.log(scannedTile.scan);
-            this.drawMap();
-          }
-        }
-      }
-    });
-
 
     this.imagesLoadedSubject = new Subject<any>();
   }
@@ -311,8 +287,7 @@ export class MapComponentComponent implements OnInit {
           if (face.scan.ores[ore.name]) {
             if (this.settings.showOreTextsT(ore.tier)) {
               const oreShort = ore.name.substring(0, 3);
-              const mined = Scan.sumOreMined(face.scan, ore.name);
-              const oreLeft = Math.max(0, face.scan.ores[ore.name] - mined);
+              const oreLeft = face.scan.ores[ore.name];
               if (oreLeft > 0) {
                 const amount = new Intl.NumberFormat().format(Math.round( oreLeft));
                 const text = `${amount}L`; // ${oreShort}

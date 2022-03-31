@@ -1,0 +1,71 @@
+<dumap-map-settings *ngIf="showSettings"></dumap-map-settings>
+<dumap-add-scan-dialog *ngIf="this.showAddScan" [modal]="this.showAddScan" (endModal)="this.showAddScan = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
+<div class="columns" style="min-height: 100%; height: auto;">
+  <div [ngClass]="{'column': true, 'is-narrow': true, 'Nav': true, 'maximizedNav': !settingsService.getSettings().minimizedNav, 'minimizedNav': settingsService.getSettings().minimizedNav}" >
+    <!--
+    <div *ngIf="!settingsService.getSettings().minimizedNav" class="btn" style="position: absolute; left: 150px; top: 10px;" title="minimize Nav" (click)="minimizeNav()">
+      <fa-icon [icon]="faCaretLeft" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+    </div>
+    -->
+   
+    <div style="position: absolute; top: 10px; left: 10px; background-color: transparent;">
+      <!--<ng-container *ngIf="!settingsService.getSettings().minimizedNav">-->
+        <label class="label" style="color: white">Planet</label>
+        <div class="select is-small">
+          <select #planetIdInput style="width: 130px" (change)="changePlanet($event);">
+            <option *ngFor="let planet of this.planets" [value]="planet.id">{{planet.name}}</option>
+          </select>
+        </div><br>
+        <label class="label" style="color: white">Tile Id</label>
+        <input #tileIdInput style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
+      <!--</ng-container>-->
+      <!--
+      <div *ngIf="settingsService.getSettings().minimizedNav" class="btn" style=" margin-top: 10px" title="maximize Nav" (click)="maximizeNav()">
+        <fa-icon [icon]="faCaretRight" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      </div>
+      -->
+
+      <div class="btn" style=" margin-top: 10px" title="Add scan" (click)="showAddScanDialog()">
+        <fa-icon [icon]="faPlus" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      </div>
+
+      <div class="btn" style=" margin-top: 10px" title="Map">
+        <a [routerLink]="[ getPlanetById(celestialId).name, tileId]" style="color: white">
+          <fa-icon [icon]="faMap" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+        </a>
+      </div>
+
+      <div class="btn" style=" margin-top: 10px" title="Scan list">
+        <a [routerLink]="['scan']" style="color: white">
+          <fa-icon [icon]="faListAlt" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+        </a>
+      </div>
+
+      <div class="btn" style=" margin-top: 10px" title="Map settings" (click)="showSettings = !showSettings">
+        <fa-icon [icon]="faCog" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      </div>
+
+    </div>
+    
+    <div style="position: absolute; bottom: 10px; left: 10px; background-color: transparent;">
+      <!--
+      <div class="btn" style=" margin-top: 10px" title="Help">
+        <a [routerLink]="['help']" style="color: white">
+          ?
+        </a>
+      </div>
+    -->
+      <div class="btn" style="margin-bottom: 10px" title="Discord channel">
+        <a href="https://discord.gg/PQeJMUeXb2">
+          <fa-icon [icon]="faDiscord" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+        </a>
+      </div>
+      <div class="btn" style="margin-bottom: 10px" title="Logout" (click)="logout()">
+        <fa-icon [icon]="faDoorOpen" size="xs" [styles]="{'color': 'white'}"></fa-icon>
+      </div>
+    </div>
+  </div>
+  <div class="column is-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { faMap } from '@fortawesome/free-regular-svg-icons';
 import { DataTableDirective } from 'angular-datatables';
-import { DataTablesResponse } from 'src/app/model/DataTablesResponse';
-import { Scan } from 'src/app/model/Scan';
-import { SelectedTile } from 'src/app/model/SelectedTile';
-import { Settings } from 'src/app/model/Settings';
-import { EventService } from 'src/app/service/event.service';
-import { SettingsService } from 'src/app/service/settings.service';
+import { DataTablesResponse } from 'src/app/map/model/DataTablesResponse';
+import { Scan } from 'src/app/map/model/Scan';
+import { SelectedTile } from 'src/app/map/model/SelectedTile';
+import { Settings } from 'src/app/map/model/Settings';
+import { EventService } from 'src/app/map/service/event.service';
+import { SettingsService } from 'src/app/map/service/settings.service';
 
 @Component({
   selector: 'dumap-scan-list',

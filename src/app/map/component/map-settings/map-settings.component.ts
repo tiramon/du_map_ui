@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { SelectedTile } from 'src/app/model/SelectedTile';
-import { Settings } from 'src/app/model/Settings';
-import { EventService } from 'src/app/service/event.service';
-import { SettingsService } from 'src/app/service/settings.service';
+import { SelectedTile } from 'src/app/map/model/SelectedTile';
+import { Settings } from 'src/app/map/model/Settings';
+import { EventService } from 'src/app/map/service/event.service';
+import { SettingsService } from 'src/app/map/service/settings.service';
 
 @Component({
   selector: 'dumap-map-settings',

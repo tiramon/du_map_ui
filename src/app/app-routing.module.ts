@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HelpComponent } from './component/help/help.component';
-import { MapWrapperComponent } from './component/map-wrapper/map-wrapper.component';
-import { ScanListComponent } from './component/scan-list/scan-list.component';
-import { SelectedTileResolver } from './resolver/selected-tile-resolver';
+import { MapWrapperComponent } from './map/component/map-wrapper/map-wrapper.component';
+import { MapComponent } from './map/component/map/map.component';
+import { ScanListComponent } from './map/component/scan-list/scan-list.component';
+import { SelectedTileResolver } from './map/resolver/selected-tile-resolver';
 
 
 const routes: Routes = [
@@ -11,23 +11,14 @@ const routes: Routes = [
     path: '', redirectTo: '/map', pathMatch: 'full'
   },
   {
-    path: 'map/:planet/:tileId',
-    resolve: {selectedTile: SelectedTileResolver},
-    component: MapWrapperComponent
-  },
-  {
     path: 'map',
     resolve: {selectedTile: SelectedTileResolver},
-    component: MapWrapperComponent
-  },
-  {
-    path: 'scan',
-    component: ScanListComponent
-  },
-  {
-    path: 'help',
-    component: HelpComponent
+    component: MapComponent,
+    loadChildren: () => import('./map/map.module').then(m => m.MapModule)
   }
+  /*,
+  {  path: 'market'}
+  */
 ];
 
 @NgModule({
