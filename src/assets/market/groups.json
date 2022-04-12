@@ -142,15 +142,15 @@
 {"Id": "08d8a31f-5034-42d4-84e8-d23f90cc84af","Name": "Ground Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/hoverenginelargeunder.png","ParentId": "08d8a31f-5023-42b4-8e4b-4b15cbe9bf46","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-5032-4f7a-8e64-067d8330562f","Name": "Space Engines XS","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginesmall.png","ParentId": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-5031-4c63-86fe-f3515ffe836e","Name": "Space Engines XL","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","ParentId": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Hidden": false,"Sorting": 0,"Description": null},
-{"Id": "08d8a31f-5030-497a-82fa-319413cccd6f","Name": "Small Space Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginesmall.png","ParentId": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Hidden": false,"Sorting": 0,"Description": null},
-{"Id": "08d8a31f-502f-46c4-8cf7-164b3f791b1a","Name": "Medium Space Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginemedium.png","ParentId": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Hidden": false,"Sorting": 0,"Description": null},
-{"Id": "08d8a31f-502e-437d-8612-b3e034e6eb2f","Name": "Large Space Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginelarge.png","ParentId": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "08d8a31f-5030-497a-82fa-319413cccd6f","Name": "Space Engines S","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginesmall.png","ParentId": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "08d8a31f-502f-46c4-8cf7-164b3f791b1a","Name": "Space Engines M","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginemedium.png","ParentId": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "08d8a31f-502e-437d-8612-b3e034e6eb2f","Name": "Space Engines L","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginelarge.png","ParentId": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-502d-40ed-8abd-4b3ec2a867a0","Name": "Space Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginelarge.png","ParentId": "08d8a31f-5023-42b4-8e4b-4b15cbe9bf46","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-502b-4e76-8f2b-a1495d7a1aec","Name": "Rocket Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/rocket_engine_l.png","ParentId": "08d8a31f-5023-42b4-8e4b-4b15cbe9bf46","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-502a-4bce-8729-123f6a8b8398","Name": "Atmospheric Engines XS","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginexsmall.png","ParentId": "08d8a31f-5025-4a4f-851e-ea1b23d6550e","Hidden": false,"Sorting": 0,"Description": null},
-{"Id": "08d8a31f-5029-494e-8675-ef5517925c97","Name": "Small Atmospheric Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginesmall.png","ParentId": "08d8a31f-5025-4a4f-851e-ea1b23d6550e","Hidden": false,"Sorting": 0,"Description": null},
-{"Id": "08d8a31f-5028-46c8-84ef-ac054c2ddcc2","Name": "Medium Atmospheric Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginemedium.png","ParentId": "08d8a31f-5025-4a4f-851e-ea1b23d6550e","Hidden": false,"Sorting": 0,"Description": null},
-{"Id": "08d8a31f-5026-4cf8-876b-5b6d22a3e6ac","Name": "Large Atmospheric Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginelarge.png","ParentId": "08d8a31f-5025-4a4f-851e-ea1b23d6550e","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "08d8a31f-5029-494e-8675-ef5517925c97","Name": "Atmospheric Engines S","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginesmall.png","ParentId": "08d8a31f-5025-4a4f-851e-ea1b23d6550e","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "08d8a31f-5028-46c8-84ef-ac054c2ddcc2","Name": "Atmospheric Engines M","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginemedium.png","ParentId": "08d8a31f-5025-4a4f-851e-ea1b23d6550e","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "08d8a31f-5026-4cf8-876b-5b6d22a3e6ac","Name": "Atmospheric Engines L","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginelarge.png","ParentId": "08d8a31f-5025-4a4f-851e-ea1b23d6550e","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-5025-4a4f-851e-ea1b23d6550e","Name": "Atmospheric Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginelarge.png","ParentId": "08d8a31f-5023-42b4-8e4b-4b15cbe9bf46","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-5024-4776-8982-045e58aaf237","Name": "Adjustors","Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_l_icon.png","ParentId": "08d8a31f-5023-42b4-8e4b-4b15cbe9bf46","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-5023-42b4-8e4b-4b15cbe9bf46","Name": "Engines","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginelarge.png","ParentId": "08d8a31f-5005-404b-86b2-aff7e6c060ef","Hidden": false,"Sorting": 0,"Description": null},
@@ -371,5 +371,34 @@
 {"Id": "00000000-0000-0000-0001-00000000000C","Name": "Cannon Ammo","Icon": null,"ParentId": "00000000-0000-0000-0001-000000000009","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "00000000-0000-0000-0001-00000000000D","Name": "Laser Ammo","Icon": null,"ParentId": "00000000-0000-0000-0001-000000000009","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "00000000-0000-0000-0001-00000000000E","Name": "Missile Pod Ammo","Icon": null,"ParentId": "00000000-0000-0000-0001-000000000009","Hidden": false,"Sorting": 0,"Description": null},
-{"Id": "00000000-0000-0000-0001-00000000000F","Name": "Railgun Ammo","Icon": null,"ParentId": "00000000-0000-0000-0001-000000000009","Hidden": false,"Sorting": 0,"Description": null}
+{"Id": "00000000-0000-0000-0001-00000000000F","Name": "Railgun Ammo","Icon": null,"ParentId": "00000000-0000-0000-0001-000000000009","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000001","Name": "Extra Small Containers","Icon": null,"ParentId": "08d8a31f-4ff1-4b54-8484-9d05d3885b52","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000002","Name": "Small Containers","Icon": null,"ParentId": "08d8a31f-4ff1-4b54-8484-9d05d3885b52","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000003","Name": "Medium Containers","Icon": null,"ParentId": "08d8a31f-4ff1-4b54-8484-9d05d3885b52","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000004","Name": "Large Containers","Icon": null,"ParentId": "08d8a31f-4ff1-4b54-8484-9d05d3885b52","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000005","Name": "Extra Large Containers","Icon": null,"ParentId": "08d8a31f-4ff1-4b54-8484-9d05d3885b52","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000006","Name": "Expanded Extra Large Containers","Icon": null,"ParentId": "08d8a31f-4ff1-4b54-8484-9d05d3885b52","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000007","Name": "Plasma Extractors","Icon": null,"ParentId": "08d8a31f-4fcb-4174-869d-6a5974a27816","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000008","Name": "Large Hovercraft Engines","Icon": null,"ParentId": "08d8a31f-5035-45c6-8733-05c1b2079f23","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000009","Name": "Medium Hovercraft Engines","Icon": null,"ParentId": "08d8a31f-5035-45c6-8733-05c1b2079f23","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-00000000000A","Name": "Small Hovercraft Engines","Icon": null,"ParentId": "08d8a31f-5035-45c6-8733-05c1b2079f23","Hidden": false,"Sorting": 0,"Description": null},
+
+{"Id": "00000000-0000-0000-0002-00000000000B","Name": "Extra Small Vertical Boosters","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericverticalbooster.png","ParentId": "08d8a31f-5036-4914-8e4d-6fd4f5a1d624","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-00000000000C","Name": "Large Vertical Boosters","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericverticalbooster.png","ParentId": "08d8a31f-5036-4914-8e4d-6fd4f5a1d624","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-00000000000D","Name": "Small Vertical Boosters","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericverticalbooster.png","ParentId": "08d8a31f-5036-4914-8e4d-6fd4f5a1d624","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-00000000000E","Name": "Medium Vertical Boosters","Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericverticalbooster.png","ParentId": "08d8a31f-5036-4914-8e4d-6fd4f5a1d624","Hidden": false,"Sorting": 0,"Description": null},
+
+{"Id": "00000000-0000-0000-0002-00000000000F","Name": "Relic Plasmas","Icon": null,"ParentId": "08d8a31f-4f18-4d5e-8058-7b62788124ab","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000010","Name": "Base Shield Generators","Icon": null,"ParentId": "08d8a31f-4f43-4c1b-857d-a83c01d973a8","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000011","Name": "Shield Generators XS","Icon": null,"ParentId": "08d983f2-4c45-4042-837d-73282f0eaffc","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000012","Name": "Shield Generators S","Icon": null,"ParentId": "08d983f2-4c45-4042-837d-73282f0eaffc","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000013","Name": "Shield Generators M","Icon": null,"ParentId": "08d983f2-4c45-4042-837d-73282f0eaffc","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000014","Name": "Shield Generators L","Icon": null,"ParentId": "08d983f2-4c45-4042-837d-73282f0eaffc","Hidden": false,"Sorting": 0,"Description": null},
+
+{"Id": "00000000-0000-0000-0002-000000000015","Name": "Stasis Ammo","Icon": null,"ParentId": "08d8a31f-4f19-43b4-8283-170f6728bfd9","Hidden": false,"Sorting": 0,"Description": null},
+{"Id": "00000000-0000-0000-0002-000000000016","Name": "Stasis Weapon Unit","Icon": null,"ParentId": "08d8a31f-4f48-4300-8654-9df9d94ac9b7","Hidden": false,"Sorting": 0,"Description": null},
+
+{"Id": "00000000-0000-0000-0002-000000000017","Name": "Plasma Extractors","Icon": null,"ParentId": "08d8a31f-4fca-41ed-8134-ddaeff6f3cc8","Hidden": false,"Sorting": 0,"Description": null}
+
+
 ]

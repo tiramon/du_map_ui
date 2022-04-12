@@ -6,10 +6,11 @@ import { faCaretLeft, faCaretRight, faCog, faDoorOpen, faHardHat, faPlus } from 
 import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { EventService } from './map/service/event.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Settings } from './map/model/Settings';
 import { SettingsService } from './map/service/settings.service';
 import { ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
+import { Configuration, OrderService } from '@tiramon/du-market-api';
 
 @Component({
   selector: 'dumap-root',
@@ -52,6 +53,8 @@ export class AppComponent implements OnInit {
     public settingsService: SettingsService,
     private toastr: ToastrService,
     private router: Router,
+    route: ActivatedRoute,
+    private configuration: Configuration,
     @Inject('PLANETS') public planets
   ) {
     // hides the addscan and setting dialog if a user gets loged out
@@ -139,9 +142,11 @@ export class AppComponent implements OnInit {
     oauthService.tryLoginCodeFlow().then(() => {
       if (!oauthService.getIdentityClaims() && oauthService.getAccessToken()) {
         oauthService.loadUserProfile().then( o => {
+          this.configuration.accessToken = oauthService.getAccessToken();
           this.eventService.loginChange.emit(true);
         });
       } else if (oauthService.getIdentityClaims() && oauthService.getAccessToken()) {
+        this.configuration.accessToken = oauthService.getAccessToken();
         this.eventService.loginChange.emit(true);
       }
     });
@@ -181,6 +186,18 @@ export class AppComponent implements OnInit {
    */
   public isLogedin(): boolean {
     return this.oauthService.getAccessTokenExpiration() > Date.now();
+  }
+
+  public get name(): string {
+    const claims = this.oauthService.getIdentityClaims();
+    if (!claims) {
+      return null;
+    }
+    return claims['name'];
+  }
+
+  public navigate(location) {
+    this.router.navigate([location]);
   }
 
   /**

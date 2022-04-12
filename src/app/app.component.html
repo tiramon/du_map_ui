@@ -1,6 +1,54 @@
-<dumap-loading></dumap-loading>
-<dumap-login *ngIf="!isLogedin()" [modal]="!isLogedin()"></dumap-login>
-<div>
-  <a [routerLink]="['/map']">Map</a><a [routerLink]="['/market']">Market</a>
+<nav class="navbar" role="navigation" aria-label="main navigation" style="z-index: 100">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://www.dumap.de">
+      <img src="assets/DU-Companion.svg" style="width: 50px;" >
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" (click)="navigate('/map')">
+        Map
+      </a>
+
+      <a class="navbar-item" (click)="navigate('/market')">
+        Market
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        {{name}}
+      </div>
+    </div>
+<!--
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  -->
+  </div>
+</nav>
+<!--
+<div class="buttons" style="position: relative; z-index: 100;">
+  <button class="button" >Map</button>
+  <button class="button" (click)="navigate('/market')">Market</button>
 </div>
+-->
+<dumap-loading></dumap-loading>
+
 <router-outlet></router-outlet>
