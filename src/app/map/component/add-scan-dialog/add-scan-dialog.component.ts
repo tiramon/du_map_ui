@@ -2,7 +2,6 @@ import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, Simp
 import { NgForm } from '@angular/forms';
 import { faDiscord, faJava } from '@fortawesome/free-brands-svg-icons';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import { type } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import { Scan } from 'src/app/map/model/Scan';
 import { EventService } from 'src/app/map/service/event.service';

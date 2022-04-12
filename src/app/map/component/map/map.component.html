@@ -1,14 +1,17 @@
+
+<dumap-login *ngIf="!isLogedin()" [modal]="!isLogedin()"></dumap-login>
 <dumap-map-settings *ngIf="showSettings"></dumap-map-settings>
 <dumap-add-scan-dialog *ngIf="this.showAddScan" [modal]="this.showAddScan" (endModal)="this.showAddScan = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
-<div class="columns" style="min-height: 100%; height: auto;">
-  <div [ngClass]="{'column': true, 'is-narrow': true, 'Nav': true, 'maximizedNav': !settingsService.getSettings().minimizedNav, 'minimizedNav': settingsService.getSettings().minimizedNav}" >
+<div class="columns" style="height: 100%;">
+  <div class="column" >
+    <div  [ngClass]="{'is-narrow': true, 'Nav': true, 'maximizedNav': !settingsService.getSettings().minimizedNav, 'minimizedNav': settingsService.getSettings().minimizedNav}">
     <!--
     <div *ngIf="!settingsService.getSettings().minimizedNav" class="btn" style="position: absolute; left: 150px; top: 10px;" title="minimize Nav" (click)="minimizeNav()">
       <fa-icon [icon]="faCaretLeft" size="xs" [styles]="{'color': 'white'}"></fa-icon>
     </div>
     -->
    
-    <div style="position: absolute; top: 10px; left: 10px; background-color: transparent;">
+    <div style="margin-top: 10px; margin-left: 10px; background-color: transparent;">
       <!--<ng-container *ngIf="!settingsService.getSettings().minimizedNav">-->
         <label class="label" style="color: white">Planet</label>
         <div class="select is-small">
@@ -25,7 +28,7 @@
       </div>
       -->
 
-      <div class="btn" style=" margin-top: 10px" title="Add scan" (click)="showAddScanDialog()">
+      <div class="btn" style=" margin-top: 10px; text-align: center;" title="Add scan" (click)="showAddScanDialog()">
         <fa-icon [icon]="faPlus" size="xs" [styles]="{'color': 'white'}"></fa-icon>
       </div>
 
@@ -48,13 +51,6 @@
     </div>
     
     <div style="position: absolute; bottom: 10px; left: 10px; background-color: transparent;">
-      <!--
-      <div class="btn" style=" margin-top: 10px" title="Help">
-        <a [routerLink]="['help']" style="color: white">
-          ?
-        </a>
-      </div>
-    -->
       <div class="btn" style="margin-bottom: 10px" title="Discord channel">
         <a href="https://discord.gg/PQeJMUeXb2">
           <fa-icon [icon]="faDiscord" size="xs" [styles]="{'color': 'white'}"></fa-icon>
@@ -63,6 +59,7 @@
       <div class="btn" style="margin-bottom: 10px" title="Logout" (click)="logout()">
         <fa-icon [icon]="faDoorOpen" size="xs" [styles]="{'color': 'white'}"></fa-icon>
       </div>
+    </div>
     </div>
   </div>
   <div class="column is-10">

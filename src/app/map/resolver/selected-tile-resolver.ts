@@ -11,8 +11,8 @@ export class SelectedTileResolver implements Resolve<SelectedTile> {
     }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): SelectedTile | Observable<SelectedTile> | Promise<SelectedTile> {
-        const planet = route.params.planet;
-        const tileId = route.params.tileId;
+        const planet = route.params['planet'];
+        const tileId = route.params['tileId'];
         let selectedTile: SelectedTile;
         if (planet && tileId) {
             selectedTile = new SelectedTile(+tileId, this.getPlanetByName(planet).id);

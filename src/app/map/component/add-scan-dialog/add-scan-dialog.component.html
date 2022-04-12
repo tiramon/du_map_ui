@@ -26,7 +26,7 @@
                                 </select>
                             </div>
                         </div>
-                        <p *ngIf="planet.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                        <p *ngIf="planet.errors?.['required'] && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
                             This field is required
                         </p>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="control">
                             <input name="time" class="input" type="date" [ngModel] ="scan.time | date:'yyyy-MM-dd'" (ngModelChange)="scan.time = $event" placeHolder="Time" required #time="ngModel">
                         </div>
-                        <p *ngIf="time.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                        <p *ngIf="time.errors?.['required'] && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
                             This field is required
                         </p>
                     </div>
@@ -59,16 +59,16 @@
                             <!--(input)="inputValidator($event)"-->
                             <input name="tileId" class="input" type="number" placeholder="Territory Id" [(ngModel)]="scan.tileId"  required #tileId="ngModel" customMin="0" [customMax]="maxTiles-1" pattern="\d+">
                         </div>
-                        <p *ngIf="tileId.errors?.pattern && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                        <p *ngIf="tileId.errors?.['pattern'] && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
                             This tile id is invalid, invalid characters
                         </p>
-                        <p *ngIf="tileId.errors?.required && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
+                        <p *ngIf="tileId.errors?.['required'] && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
                             This field is required
                         </p>
-                        <p *ngIf="tileId.errors?.customMin && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
+                        <p *ngIf="tileId.errors?.['customMin'] && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
                             This tile id is invalid, minimum tile id is 0
                         </p>
-                        <p *ngIf="tileId.errors?.customMax && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
+                        <p *ngIf="tileId.errors?.['customMax'] && (formTouched || scanForm.touched || scanForm.dirty)"class="help is-danger">
                             This tile id is invalid, {{scan.planet}} only has {{maxTiles}} tiles
                         </p>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="control">
                             <input [name]="ore.name" class="input" type="text" placeholder="ore amount in L, empty if no ore of this type is present" [(ngModel)]="scan.ores[ore.name]" pattern="\d+" #currentOre="ngModel">
                         </div>
-                        <p *ngIf="currentOre.errors?.pattern && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
+                        <p *ngIf="currentOre.errors?.['pattern'] && (formTouched || scanForm.touched || scanForm.dirty)" class="help is-danger">
                             This ore amount is invalid
                         </p>
                     </div>
@@ -142,7 +142,7 @@ chrom ite	12.56 kL	"></textarea>
                 </div>
             </div>
         </div>
-        <div *ngIf="tab == 3" style="color: rgb(182,222,236);">
+        <div *ngIf="tab === 3" style="color: rgb(182,222,236);">
             <div class="content" style="padding: 10px">
                 The automatic companion app just needs to run in the background while you have DU running. It then automatically looks for the newest logfile and switchs to newer logfiles if they appear. All you have to do is to use your Territory Scanner as usual and the application transmits all scan data to the website as soon as you click the save button of your scanner result.<br>
                 <br>

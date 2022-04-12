@@ -12,12 +12,12 @@ import { SelectedTileResolver } from './resolver/selected-tile-resolver';
 import { MapComponent } from './component/map/map.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MapRoutingModule } from './map-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { SortByPipe } from './pipe/SortByPipe';
 import { CustomMaxDirective } from './directive/customMax.directive';
 import { CustomMinDirective } from './directive/customMin.directive';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +30,8 @@ import { CommonModule } from '@angular/common';
       MapComponent,
       SortByPipe,
       CustomMaxDirective,
-      CustomMinDirective
+      CustomMinDirective,
+      LoginComponent
     ],
     imports: [
       CommonModule,

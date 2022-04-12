@@ -78,7 +78,7 @@ export class MapComponentComponent implements OnInit {
 
     // subscription must be done after tileSelected subscription, else we miss the emit
     route.data.subscribe(data => {
-      this.eventService.tileSelected.emit(data.selectedTile);
+      this.eventService.tileSelected.emit(data['selectedTile']);
     });
 
     // loads map after user loged in else clears the map
@@ -138,7 +138,7 @@ export class MapComponentComponent implements OnInit {
   loadMap(celestialId: number, tileId: number, scale: number): Promise<Face[]> {
     if (!this.oauthService.getIdentityClaims()) {
       this.clear();
-      return;
+      return undefined;
     }
     return this.requestService.requestMap(celestialId, tileId, scale).then(
       result => {
