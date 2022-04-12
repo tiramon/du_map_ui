@@ -1,6 +1,9 @@
 <div class="columns" style="height: 100%">
-    <div class="column is-3">
-        <app-tree-view style="height: 100%" (selected)="onEntrySelected($event)" [entries]="entries" [loadChildren]="loadChildren.bind(this)"></app-tree-view>
+    <div class="column is-3 ml-1 mb-1">
+        <div class="box nav">
+            <a [routerLink]="['avg']" style="text-decoration: none; color: white">Avg Ore Prices</a>
+            <dumap-tree-view style="height: 100%" (selected)="onEntrySelected($event)" [entries]="entries" [loadChildren]="loadChildren.bind(this)"></dumap-tree-view>
+        </div>
     </div>
     <div class="column">
         <router-outlet></router-outlet>

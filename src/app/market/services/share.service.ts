@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { inputItem } from '../model/inputItem.model';
 
 @Injectable({
@@ -8,5 +8,8 @@ import { inputItem } from '../model/inputItem.model';
 export class ShareService {
 
   currentItem$: Subject<inputItem> = new Subject<inputItem>();
-  constructor() { }
+  currentItem: inputItem;
+  constructor() {
+    this.currentItem$.subscribe(item => this.currentItem = item);
+  }
 }

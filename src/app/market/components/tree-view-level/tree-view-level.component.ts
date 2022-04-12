@@ -3,23 +3,24 @@ import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { TreeViewEntryModel } from '../../model/tree-view-entry.model';
 
 @Component({
-  selector: 'app-tree-view-level',
+  selector: 'dumap-tree-view-level',
   templateUrl: './tree-view-level.component.html',
   styleUrls: ['./tree-view-level.component.scss']
 })
 export class TreeViewLevelComponent implements OnInit {
   faCaretDown = faCaretDown;
   faCaretRight = faCaretRight;
-  
+
   @Input()
   public entries: TreeViewEntryModel[] = [];
 
-  @Input()
-  public loadChildren: Function = () => null;
-
   @Output()
   public selected: EventEmitter<TreeViewEntryModel> = new EventEmitter();
-  
+
+  @Input()
+  // tslint:disable-next-line:ban-types
+  public loadChildren: Function = () => null
+
   constructor() { }
 
   ngOnInit(): void {
@@ -35,14 +36,15 @@ export class TreeViewLevelComponent implements OnInit {
 
   toggle(entry: TreeViewEntryModel) {
     if (!entry.selectable) {
-      console.log('toggle', entry);
+      //console.log('toggle', entry);
       entry.open = !entry.open;
       entry.children.forEach(child => {
-        console.log('load children for ', child);
-        if (child.children.length == 0) {
+        //console.log('load children for ', child);
+        if (child.children.length === 0) {
           child.children = this.loadChildren(child.id);
+          child.children.filter(ch => !ch.id).forEach(ch => console.error('missing id', ch.name));
         }
-        console.log(child.children);
+        //console.log(child.children);
       });
     }
   }

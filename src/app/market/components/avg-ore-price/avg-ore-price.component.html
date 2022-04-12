@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <td>Ore</td>
+        <td>Last Refresh</td>
+        <td>Avg sell price</td>
+        <td>Avg buy price</td>
+    </tr>
+    <tr *ngFor="let avgPrice of avgPrices">
+        <td><a [routerLink]="['../itemType',avgPrice.itemType]">{{idToItem(avgPrice.itemType).Name}}</a></td>
+        <td>{{avgPrice.timestamp | fuzzy}}</td>
+        <td style="text-align: right;">{{avgPrice.sellAvg | number: '1.3-3'}} ħ</td>
+        <td style="text-align: right;">{{avgPrice.buyAvg | number: '1.3-3'}} ħ</td>
+    </tr>
+</table>
