@@ -7,6 +7,7 @@ FROM node:16 as build
 WORKDIR /usr/local/app
 
 # Install the application's dependencies into the node_modules's cache directory.
+ARG NPM_TOKEN
 COPY .npmrc ./
 COPY package.json ./
 COPY package-lock.json ./
