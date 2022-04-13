@@ -1,83 +1,50 @@
-<dumap-map-settings *ngIf="showSettings"></dumap-map-settings>
+<nav class="navbar" role="navigation" aria-label="main navigation" style="z-index: 100">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://www.dumap.de">
+      <img src="assets/DU-Companion.svg" style="height: 60px;" >
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" [class.is-active]="navBarActive" (click)="navBarActive = !navBarActive">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu" [class.is-active]="navBarActive">
+    <div class="navbar-start">
+      <a class="navbar-item" (click)="navigate('/map')">
+        Map
+      </a>
+
+      <a class="navbar-item" (click)="navigate('/market')">
+        Market
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        {{name}}
+      </div>
+    </div>
+<!--
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  -->
+  </div>
+</nav>
+
 <dumap-loading></dumap-loading>
-<dumap-login *ngIf="!isLogedin()" [modal]="!isLogedin()"></dumap-login>
-<dumap-add-scan-dialog *ngIf="this.showAddScan" [modal]="this.showAddScan" (endModal)="this.showAddScan = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
-<dumap-subtract-mined-ore-dialog *ngIf="this.showSubtractMinedOre" [modal]="this.showSubtractMinedOre" (endModal)="this.showSubtractMinedOre = false" [currentPlanetId]="celestialId"></dumap-subtract-mined-ore-dialog>
-<div class="columns" style="min-height: 100%; height: auto;">
-  <div [ngClass]="{'column': true, 'is-narrow': true, 'Nav': true, 'maximizedNav': !settingsService.getSettings().minimizedNav, 'minimizedNav': settingsService.getSettings().minimizedNav}" >
-    <!--
-    <div *ngIf="!settingsService.getSettings().minimizedNav" class="btn" style="position: absolute; left: 150px; top: 10px;" title="minimize Nav" (click)="minimizeNav()">
-      <fa-icon [icon]="faCaretLeft" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-    </div>
-    -->
-   
-    <div style="position: absolute; top: 10px; left: 10px; background-color: transparent;">
-      <!--<ng-container *ngIf="!settingsService.getSettings().minimizedNav">-->
-        <label class="label" style="color: white">Planet</label>
-        <div class="select is-small">
-          <select #planetIdInput style="width: 130px" (change)="changePlanet($event);">
-            <option *ngFor="let planet of this.planets" [value]="planet.id">{{planet.name}}</option>
-          </select>
-        </div><br>
-        <label class="label" style="color: white">Tile Id</label>
-        <input #tileIdInput style="width: 130px" class="input is-small" title="Enter Tile and press Enter to load map" value="0" min="0" (input)="inputValidator($event)"  (keydown.enter)="onKeydown($event)">
-      <!--</ng-container>-->
-      <!--
-      <div *ngIf="settingsService.getSettings().minimizedNav" class="btn" style=" margin-top: 10px" title="maximize Nav" (click)="maximizeNav()">
-        <fa-icon [icon]="faCaretRight" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-      </div>
-      -->
-
-      <div class="btn" style=" margin-top: 10px" title="Add scan" (click)="showAddScanDialog()">
-        <fa-icon [icon]="faPlus" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-      </div>
-
-      <!--
-      <div class="btn" style=" margin-top: 10px" title="Subtract mined ore" (click)="showSubtractMinedOreDialog()">
-        <fa-icon [icon]="faHardHat" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-      </div>
-      -->
-
-      <div class="btn" style=" margin-top: 10px" title="Map">
-        <a [routerLink]="['map', getPlanetById(celestialId).name, tileId]" style="color: white">
-          <fa-icon [icon]="faMap" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-        </a>
-      </div>
-
-      <div class="btn" style=" margin-top: 10px" title="Scan list">
-        <a [routerLink]="['scan']" style="color: white">
-          <fa-icon [icon]="faListAlt" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-        </a>
-      </div>
-
-      <div class="btn" style=" margin-top: 10px" title="Map settings" (click)="showSettings = !showSettings">
-        <fa-icon [icon]="faCog" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-      </div>
-
-    </div>
-    
-    <div style="position: absolute; bottom: 10px; left: 10px; background-color: transparent;">
-      <!--
-      <div class="btn" style=" margin-top: 10px" title="Help">
-        <a [routerLink]="['help']" style="color: white">
-          ?
-        </a>
-      </div>
-    -->
-      <div class="btn" style="margin-bottom: 10px" title="Discord channel">
-        <a href="https://discord.gg/PQeJMUeXb2">
-          <fa-icon [icon]="faDiscord" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-        </a>
-      </div>
-      <div class="btn" style="margin-bottom: 10px" title="Logout" (click)="logout()">
-        <fa-icon [icon]="faDoorOpen" size="xs" [styles]="{'color': 'white'}"></fa-icon>
-      </div>
-    </div>
-  </div>
-  <div class="column is-10">
-    <router-outlet></router-outlet>
-  </div>
+<div class="hero is-fullheight-with-navbar">
+  <router-outlet></router-outlet>
 </div>
-
-
-

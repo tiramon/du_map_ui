@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { EventService } from 'src/app/service/event.service';
+import { EventService } from 'src/app/map/service/event.service';
 
 @Component({
   selector: 'dumap-loading',

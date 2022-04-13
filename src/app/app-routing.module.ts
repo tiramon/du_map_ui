@@ -1,33 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HelpComponent } from './component/help/help.component';
-import { MapWrapperComponent } from './component/map-wrapper/map-wrapper.component';
-import { ScanListComponent } from './component/scan-list/scan-list.component';
-import { SelectedTileResolver } from './resolver/selected-tile-resolver';
-
+import { MapComponent } from './map/component/map/map.component';
+import { SelectedTileResolver } from './map/resolver/selected-tile-resolver';
+import { MarketComponent } from './market/components/market/market.component';
 
 const routes: Routes = [
   {
     path: '', redirectTo: '/map', pathMatch: 'full'
   },
   {
-    path: 'map/:planet/:tileId',
-    resolve: {selectedTile: SelectedTileResolver},
-    component: MapWrapperComponent
-  },
-  {
     path: 'map',
-    resolve: {selectedTile: SelectedTileResolver},
-    component: MapWrapperComponent
+    resolve: {
+      selectedTile: SelectedTileResolver
+    },
+    component: MapComponent,
+    loadChildren: () => import('./map/map.module').then(m => m.MapModule)
   },
   {
-    path: 'scan',
-    component: ScanListComponent
-  },
-  {
-    path: 'help',
-    component: HelpComponent
+    path: 'market',
+    component: MarketComponent,
+    loadChildren: () => import('./market/market.module').then(m => m.MarketModule)
   }
+  
 ];
 
 @NgModule({
