@@ -1,0 +1,47 @@
+<table style="border-spacing: 0; min-width : 280px; background-color: rgb(13,24,28,0.8);">
+    <tr>
+        <td colspan="3" class="tileHeader">TILE - {{face?.tileId}}</td>
+    </tr>
+    <tr>
+        <td class="leftColumn">OWNER</td><td class="rightColumn" colspan="2">{{face?.owner}}</td>
+    </tr>
+    <tr>
+        <td class="leftColumn">Latitude</td><td class="rightColumn" colspan="2">{{face?.latitude | number:'1.4-4'}}</td>
+    </tr>
+    <tr>
+        <td class="leftColumn">Longitude</td><td class="rightColumn" colspan="2">{{face?.longitude | number:'1.4-4'}}</td>
+    </tr>
+    <tr>
+        
+        <td class="rightColumn" (click)="onPosClick()" colspan="3" style="cursor: pointer;" title="click to copy">
+            ::pos&#123;0,{{face?.duEntityId}},{{face?.latitude | number:'1.4-4'}},{{face?.longitude | number:'1.4-4'}},0.0&#125;
+            <fa-icon [icon]="faCopy" [styles]="{'color': 'white'}"></fa-icon>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <ng-container *ngIf="scan">
+        <tr>
+            <td colspan="3" class="tileHeader" style="text-align: center;">Scan <fa-icon [icon]="faCopy" [styles]="{'color': 'white'}" (click)="onScanClick()" title="click to copy export to discord"></fa-icon></td>
+        </tr>
+        <tr>
+            <td class="leftColumn">Scaned by</td><td class="rightColumn" colspan="2">{{scan?.owner}}</td>
+        </tr>
+        <tr>
+            <td class="leftColumn">Time</td><td class="rightColumn" colspan="2">{{scan?.time | date:'MMM dd, y HH:mm'}}</td>
+        </tr>
+
+        <tr *ngIf="scan">
+            <td class="rightColumn">&sum;</td><td class="rightColumn" style="text-align: right;">{{sumOre(scan) | number:'1.0-0':getUsersLocale('en-US')}} L/h</td>
+        </tr>
+        <tr *ngIf="scan">
+            <td class="rightColumn">Quanta</td><td class="rightColumn" style="text-align: right;">~{{sumQuanta(scan) | number:'1.0-0':getUsersLocale('en-US')}} &#295;/h<br>~{{sumQuanta(scan)*7*24 | number:'1.0-0':getUsersLocale('en-US')}} &#295;/wk</td>
+        </tr>
+        <ng-container *ngFor="let ore of oreNames">
+        <tr  *ngIf="scan?.ores[ore.name]">
+            <td class="rightColumn">{{ore.name}}</td><td class="rightColumn" style="text-align: right;">{{scan.ores[ore.name] | number:'1.0-0':getUsersLocale('en-US')}} {{postFix}}</td>
+        </tr>
+        </ng-container>
+    </ng-container>
+</table>

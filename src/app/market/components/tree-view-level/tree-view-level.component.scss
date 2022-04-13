@@ -1,0 +1,35 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul ul {
+    margin-left: 10px;
+}
+
+.clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.spacer {
+    display: inline-block;
+    width: 10px;
+}
+
+.opener {
+    @extend .spacer;
+    text-align: center;
+}
+
+.entryName {
+    margin-left: 6px;
+    background-color: rgba(36,56,63,1);
+    border-radius: 20%;
+}
+
+img {
+    height: 20px;
+}
+
+

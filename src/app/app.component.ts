@@ -1,14 +1,16 @@
 import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SelectedTile } from './model/SelectedTile';
+import { SelectedTile } from './map/model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 import { faCaretLeft, faCaretRight, faCog, faDoorOpen, faHardHat, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
-import { EventService } from './service/event.service';
-import { Router } from '@angular/router';
-import { Settings } from './model/Settings';
-import { SettingsService } from './service/settings.service';
+import { EventService } from './map/service/event.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Settings } from './map/model/Settings';
+import { SettingsService } from './map/service/settings.service';
+import { ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
+import { Configuration, OrderService } from '@tiramon/du-market-api';
 
 @Component({
   selector: 'dumap-root',
@@ -28,8 +30,9 @@ export class AppComponent implements OnInit {
 
   lastTileValue: string;
   public showAddScan = false;
-  public showSubtractMinedOre = false;
   public showSettings = false;
+
+  navBarActive = false;
 
   private settings: Settings;
 
@@ -44,11 +47,16 @@ export class AppComponent implements OnInit {
 
   private modelChanged: Subject<SelectedTile> = new Subject<SelectedTile>();
 
+  private localStorageKeyWarningRead = 'dumap_warning_read';
+
   constructor(
     private eventService: EventService,
     private oauthService: OAuthService,
     public settingsService: SettingsService,
+    private toastr: ToastrService,
     private router: Router,
+    route: ActivatedRoute,
+    private configuration: Configuration,
     @Inject('PLANETS') public planets
   ) {
     // hides the addscan and setting dialog if a user gets loged out
@@ -58,6 +66,39 @@ export class AppComponent implements OnInit {
         this.showSettings = false;
         return;
       }
+
+      const warningread = localStorage.getItem(this.localStorageKeyWarningRead);
+      const warningread2 = localStorage.getItem(this.localStorageKeyWarningRead + '2');
+
+      if (!warningread) {
+        toastr.warning(
+          'The order of the ores in the add dialog has been altered to better fit the ingame order in the scans.\n\n' +
+          'If you find ores in the wrong order, please tell me in Discord.',
+          'Changed ore order',
+          {
+            disableTimeOut: true,
+            positionClass: 'toast-center-center',
+            closeButton: true
+          }
+        );
+        localStorage.setItem(this.localStorageKeyWarningRead, 'true');
+      }
+
+      if (!warningread2) {
+        toastr.warning(
+          'The order of the ores in the add dialog has been altered again.\n' +
+          'This time cobaltite and malachite have moved.\n\n' +
+          'If you find ores in the wrong order, please tell me in Discord.',
+          'Changed ore order (Cobaltite, Malachite)',
+          {
+            disableTimeOut: true,
+            positionClass: 'toast-center-center',
+            closeButton: true
+          }
+        );
+        localStorage.setItem(this.localStorageKeyWarningRead + '2', 'true');
+      }
+
       console.log(router.navigated);
       if (router.navigated) {
         const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
@@ -103,9 +144,11 @@ export class AppComponent implements OnInit {
     oauthService.tryLoginCodeFlow().then(() => {
       if (!oauthService.getIdentityClaims() && oauthService.getAccessToken()) {
         oauthService.loadUserProfile().then( o => {
+          this.configuration.accessToken = oauthService.getAccessToken();
           this.eventService.loginChange.emit(true);
         });
       } else if (oauthService.getIdentityClaims() && oauthService.getAccessToken()) {
+        this.configuration.accessToken = oauthService.getAccessToken();
         this.eventService.loginChange.emit(true);
       }
     });
@@ -147,6 +190,19 @@ export class AppComponent implements OnInit {
     return this.oauthService.getAccessTokenExpiration() > Date.now();
   }
 
+  public get name(): string {
+    const claims = this.oauthService.getIdentityClaims();
+    console.log('claim', claims)
+    if (!claims) {
+      return null;
+    }
+    return claims['username'] +'#'+ claims['discriminator'];
+  }
+
+  public navigate(location) {
+    this.router.navigate([location]);
+  }
+
   /**
    * Validator to limit input to only digits, also no plus, minus or decimal seperator
    * @param event event that triggered this validator
@@ -185,10 +241,6 @@ export class AppComponent implements OnInit {
    */
   showAddScanDialog() {
     this.showAddScan = !this.showAddScan;
-  }
-
-  showSubtractMinedOreDialog() {
-    this.showSubtractMinedOre = !this.showSubtractMinedOre;
   }
 
   /**

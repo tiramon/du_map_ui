@@ -1,0 +1,15 @@
+<div class="box">
+    <img [src]="item.Icon ? item.Icon : 'https://cdn.hyperion-corporation.de/iconslib/invalid.png'" style="width: 40px;">{{item.Name}}<br>
+    {{item.Description}}
+
+    <highcharts-chart
+            [Highcharts]="Highcharts"
+            [constructorType]="chartConstructor"
+            [options]="currentOption"
+            [(update)]="updateFlag"
+            [oneToOne]="oneToOneFlag"
+            [runOutsideAngular]="runOutsideAngularFlag"
+            
+            style="width: 100%; height: 400px; display: block;"
+        ></highcharts-chart>
+</div>

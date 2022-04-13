@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="589.553" height="261.538" viewBox="0 0 589.553 261.538">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;fill-rule:evenodd}
+        </style>
+    </defs>
+    <g id="du-logo" transform="translate(-8.06 -10.66)">
+        <path id="Trace_11" d="M75.089 10.66H8.06L25.7 37.721h52.915c25.48 1.567 62.324 20.782 63.5 70.586-2.4 68.586-53.306 71.769-68.2 71.769H13.933v25.882H83.32s87.024-2.354 87.024-97.647c-.007-68.631-45.464-96.476-95.255-97.651" class="cls-1" data-name="Tracé 11"/>
+        <path id="Trace_12" d="M1100.78 205.954h36.456L1003.178 10.66H967.9v195.294h29.4v-56.472h52.915l-17.637-27.057H997.3V48.306z" class="cls-1" data-name="Tracé 12" transform="translate(-628.581)"/>
+        <path id="Trace_13" d="M1477.077 180.072H1441.8c-13.3 0-34.1-10.2-34.1-40V10.66h-29.4v138.822l34.1 49.413a42.162 42.162 0 0 0 23.517 7.059h58.8z" class="cls-1" data-name="Tracé 13" transform="translate(-897.101)"/>
+        <path id="Trace_14" d="M997.145 613.87v38.613s-12.481-.024-16.371 0c-3.6.021-8.186-2.829-8.186-10.53V613.87h-4.678v28.083c0 7.7 5.065 15.7 11.695 15.21h22.217V613.87z" class="cls-1" data-name="Tracé 14" transform="translate(-628.217 -384.986)"/>
+        <path id="Trace_15" d="M1111.828 613.87v36.273l-23.392-36.273h-5.846v43.294h4.677v-37.441l24.561 37.441h4.677V613.87z" class="cls-1" data-name="Tracé 15" transform="translate(-703.274 -384.986)"/>
+        <path id="Rectangle_37" fill="#fff" d="M0 0H4.677V43.29H0z" data-name="Rectangle 37" transform="translate(421.342 228.884)"/>
+        <path id="Trace_16" d="M1268.156 613.87l-25.729 37.441V613.87h-4.677v43.294h7.018l30.406-43.294z" class="cls-1" data-name="Tracé 16" transform="translate(-804.835 -384.986)"/>
+        <path id="Trace_17" d="M1383.738 618.551v-4.681h-24.558v43.294h24.557v-4.681h-19.88v-14.042h11.695v-4.68h-11.695v-15.21z" class="cls-1" data-name="Tracé 17" transform="translate(-884.274 -384.986)"/>
+        <path id="Trace_18" d="M1477.287 627.912c0-12.773-12.863-14.042-12.863-14.042h-17.544v43.294h4.677v-38.613s6.22.024 11.694 0c10.377-.184 12.367 18.334 0 18.722-3.6.111-8.186 0-8.186 0l15.2 19.891h5.849l-11.695-15.21s12.863-1.269 12.863-14.042" class="cls-1" data-name="Tracé 18" transform="translate(-941.904 -384.986)"/>
+        <path id="Trace_19" d="M1563.273 633.76c-13.754-2.385-11.5-15.21-3.509-15.21h12.866v-4.681h-14.03c-11.011-.1-15.886 18.917-.392 23.077 14.035 4.466 10.023 15.533 3.9 15.536h-14.038v4.681h16.372c10.332 0 12.572-20.574-1.168-23.4" class="cls-1" data-name="Tracé 19" transform="translate(-1008.011 -384.985)"/>
+        <path id="Trace_20" d="M1660.331 618.551v-4.681h-24.561v43.294h24.561v-4.681h-19.884v-14.042h11.695v-4.68h-11.695v-15.21z" class="cls-1" data-name="Tracé 20" transform="translate(-1065.304 -384.986)"/>
+        <path id="Ligne_5" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="6px" d="M318.615 0L0 0" data-name="Ligne 5" transform="translate(12.824 228.884)"/>
+        <path id="Trace_21" d="M628.9 10.66h-20.111v26.052h20.331v143.36h-61.156c-16.933 0-32.937-15.765-32.937-40V10.66H505.64v131.749c0 27.3 19.762 63.531 62.324 63.531h88.192V10.66z" class="cls-1" data-name="Tracé 21" transform="translate(-325.822)"/>
+    </g>
+</svg>
