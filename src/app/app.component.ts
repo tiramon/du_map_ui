@@ -32,6 +32,8 @@ export class AppComponent implements OnInit {
   public showAddScan = false;
   public showSettings = false;
 
+  navBarActive = false;
+
   private settings: Settings;
 
   @ViewChild('tileIdInput', { static: true })
@@ -190,10 +192,11 @@ export class AppComponent implements OnInit {
 
   public get name(): string {
     const claims = this.oauthService.getIdentityClaims();
+    console.log('claim', claims)
     if (!claims) {
       return null;
     }
-    return claims['name'];
+    return claims['username'] +'#'+ claims['discriminator'];
   }
 
   public navigate(location) {

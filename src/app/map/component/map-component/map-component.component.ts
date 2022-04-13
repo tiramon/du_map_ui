@@ -521,7 +521,7 @@ export class MapComponentComponent implements OnInit {
    this.CANVAS_WIDTH = Math.max(event.target.innerWidth - navWidth, 200);
    this.canvas.nativeElement.width = this.CANVAS_WIDTH;
 
-   this.CANVAS_HEIGHT = Math.max(event.target.innerHeight, 200);
+   this.CANVAS_HEIGHT = Math.max(event.target.innerHeight, 200) - (4.75 * 16);
    this.canvas.nativeElement.height = this.CANVAS_HEIGHT;
 
    this.offsetX2D = this.CANVAS_WIDTH / 2 - offset;

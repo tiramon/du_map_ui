@@ -1,17 +1,17 @@
 <nav class="navbar" role="navigation" aria-label="main navigation" style="z-index: 100">
   <div class="navbar-brand">
     <a class="navbar-item" href="https://www.dumap.de">
-      <img src="assets/DU-Companion.svg" style="width: 50px;" >
+      <img src="assets/DU-Companion.svg" style="height: 60px;" >
     </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" [class.is-active]="navBarActive" (click)="navBarActive = !navBarActive">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarBasicExample" class="navbar-menu" [class.is-active]="navBarActive">
     <div class="navbar-start">
       <a class="navbar-item" (click)="navigate('/map')">
         Map
@@ -43,12 +43,8 @@
   -->
   </div>
 </nav>
-<!--
-<div class="buttons" style="position: relative; z-index: 100;">
-  <button class="button" >Map</button>
-  <button class="button" (click)="navigate('/market')">Market</button>
-</div>
--->
-<dumap-loading></dumap-loading>
 
-<router-outlet></router-outlet>
+<dumap-loading></dumap-loading>
+<div class="hero is-fullheight-with-navbar">
+  <router-outlet></router-outlet>
+</div>

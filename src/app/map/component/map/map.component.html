@@ -2,9 +2,9 @@
 <dumap-login *ngIf="!isLogedin()" [modal]="!isLogedin()"></dumap-login>
 <dumap-map-settings *ngIf="showSettings"></dumap-map-settings>
 <dumap-add-scan-dialog *ngIf="this.showAddScan" [modal]="this.showAddScan" (endModal)="this.showAddScan = false" [currentPlanetId]="celestialId"></dumap-add-scan-dialog>
-<div class="columns" style="height: 100%;">
+<div class="columns is-gapless" style="height: calc(100vh - 3.25rem)">
   <div class="column" >
-    <div  [ngClass]="{'is-narrow': true, 'Nav': true, 'maximizedNav': !settingsService.getSettings().minimizedNav, 'minimizedNav': settingsService.getSettings().minimizedNav}">
+    <div [ngClass]="{'is-narrow': true, 'Nav': true, 'maximizedNav': !settingsService.getSettings().minimizedNav, 'minimizedNav': settingsService.getSettings().minimizedNav}">
     <!--
     <div *ngIf="!settingsService.getSettings().minimizedNav" class="btn" style="position: absolute; left: 150px; top: 10px;" title="minimize Nav" (click)="minimizeNav()">
       <fa-icon [icon]="faCaretLeft" size="xs" [styles]="{'color': 'white'}"></fa-icon>

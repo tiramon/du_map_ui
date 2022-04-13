@@ -14,6 +14,9 @@ html, body {
 /*
    src/styles.css (i.e. your global style)
 */
+html {
+  overflow-y: auto
+}
 .dataTables_empty {
     display: none;
   }
