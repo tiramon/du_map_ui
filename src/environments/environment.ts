@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiEndpoint: 'https://api.dumap.de/',
-  basePath: 'https://api.dumap.de:8151/',
+  basePath: 'http://api.dumap.de:8151',
 
   // apiEndpoint: 'http://www.dumap.de:8151/'
   // apiEndpoint: 'http://localhost:8080/'

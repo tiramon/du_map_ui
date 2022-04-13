@@ -192,7 +192,6 @@ export class AppComponent implements OnInit {
 
   public get name(): string {
     const claims = this.oauthService.getIdentityClaims();
-    console.log('claim', claims)
     if (!claims) {
       return null;
     }

@@ -7,9 +7,10 @@ FROM node:16 as build
 WORKDIR /usr/local/app
 
 # Install the application's dependencies into the node_modules's cache directory.
+COPY .npmrc ./
 COPY package.json ./
 COPY package-lock.json ./
-RUN npm install
+RUN npm ci
 
 # Add the source code to app
 COPY ./ /usr/local/app/
