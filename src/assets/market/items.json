@@ -659,7 +659,6 @@
 {"Name": "XOR Operator","Description": "An electronic Component. Link Components together to create a locical circuit","Volume": 4.5,"Tier": 2,"NqId": 3437395596,"NqSchemaId": 827922060,"Mass": 7.47,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_operator-xor_001_icon.png","GroupId": "08d8a31f-4fb5-490d-89b2-c029f378145a"},
 {"Name": "NOR Operator","Description": "An electronic Component. Link Components together to create a locical circuit","Volume": 4.5,"Tier": 2,"NqId": 1839029088,"NqSchemaId": 1591620448,"Mass": 7.47,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_operator-nor_001_icon.png","GroupId": "08d8a31f-4fb2-4e88-84fc-8691a5e45a16"},
 {"Name": "NAND Operator","Description": "An electronic Component. Link Components together to create a locical circuit","Volume": 5,"Tier": 2,"NqId": 3600874516,"NqSchemaId": 201914900,"Mass": 13.27,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_operator-nand_001_icon.png","GroupId": "08d8a31f-4fb2-41ad-8ea9-0ab4b2b7db6f"},
-{"Name": "Thoramine","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 1652978615,"NqSchemaId": null,"Mass": 21.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_thoramine-ore_001_icon.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
 {"Name": "Luminescent White Glass","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 1268122879,"NqSchemaId": 147743487,"Mass": 26,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_emissive-hc_icon.png","GroupId": "08d8a31f-5086-41b0-8388-5a5244cc6060"},
 {"Name": "Repair Unit","Description": "Repair Units use saved snapshots of Constructs to repair and reset your Constructs.","Volume": 0,"Tier": 1,"NqId": 774130122,"NqSchemaId": 749103562,"Mass": 400,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_repair-unit_001_icon.png","GroupId": "08d8a31f-4f43-4c1b-857d-a83c01d973a8"},
 {"Name": "Uncommon Power Transformer M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 202.69,"Tier": 2,"NqId": 4186206037,"NqSchemaId": 1365338026,"Mass": 1032.04,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-power-convertor_001_icon.png","GroupId": "08d8a31f-5145-473a-84eb-dab7f5a2ba36"},
@@ -1666,7 +1665,28 @@
 {"Name": "Gunner Module L","Description": "A Gunner Module is a stand-alone seat that allows you to control weapons and Radars.","Volume": 2666.6,"Tier": 2,"NqId": 3327293642,"NqSchemaId": 1169456842,"Mass": 11324.61,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_gunner-seat_001_icon.png","GroupId": "08d8a31f-4f40-496a-8321-7e5f9379bf7a"},
 {"Name": "Gunner Module S","Description": "A Gunner Module is a stand-alone seat that allows you to control weapons and Radars.","Volume": 93.8,"Tier": 2,"NqId": 1373443625,"NqSchemaId": 92608041,"Mass": 427.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_gunner-seat_001_icon.png","GroupId": "08d8a31f-4f40-496a-8321-7e5f9379bf7a"},
 {"Name": "Hovercraft seat controller","Description": null,"Volume": 61.6,"Tier": 1,"NqId": 1744160618,"NqSchemaId": 169430436,"Mass": 110.33,"Icon": "https://cdn.hyperion-corporation.de/iconslib/cockpithovercraft.png","GroupId": "08d8a31f-4f3f-45e5-862e-fd2f794fed1b"},
-{"Name": "Pure carbon","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 1,"NqId": 159858782,"NqSchemaId": 1262929839,"Mass": 2.27,"Icon": "https://cdn.hyperion-corporation.de/iconslib/carbon_ingot.png","GroupId": "08d8a31f-50d4-4a1e-85dd-a72ac7f50b5d"},
+{
+    "Name": "Pure Carbon",
+    "GroupId": "08d8a31f-50d4-4a1e-85dd-a72ac7f50b5d",
+    "Tier": 1,
+    "NqId": 159858782,
+    "Volume": 1,
+    "Mass": 2.27,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/carbon_ingot.png",
+    "Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.",
+    "recipe": {
+        "NqSchemaId": 1262929839,
+        "craftingTime": 20,
+        "ingredients": [
+            {"key": "Coal", "quantity": 65}
+        ],
+        "products": [
+            {"key": "Pure Carbon", "quantity": 45},
+            {"key": "Pure Oxygen", "quantity": 7.5},
+            {"key": "Pure Hydrogen", "quantity": 7.5}
+        ]
+    }
+},
 {"Name": "Red Gold Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 4,"NqId": 2550840787,"NqSchemaId": 684037683,"Mass": 14.13,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0"},
 {"Name": "Sc-Al Alloy Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 4,"NqId": 2929462635,"NqSchemaId": 160929131,"Mass": 2.85,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a"},
 {"Name": "Silumin Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 2565702107,"NqSchemaId": 1289193723,"Mass": 3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a"},
@@ -1675,20 +1695,120 @@
 {"Name": "Ti-Nb Supraconductor product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 5,"NqId": 1734893264,"NqSchemaId": 1183155920,"Mass": 10.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0"},
 {"Name": "Vanamer product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 5,"NqId": 255776324,"NqSchemaId": 2005886948,"Mass": 1.57,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
 {"Name": "Wood product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 770773323,"NqSchemaId": 913275211,"Mass": 0.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-wood_001_icon.png","GroupId": "08d8a31f-50c8-433c-8fc4-bd29e5fb62fd"},
-{"Name": "Pure aluminium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 1,"NqId": 2240749601,"NqSchemaId": 1199082577,"Mass": 2.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/aluminium_ingot.png","GroupId": "08d8a31f-50d4-4a1e-85dd-a72ac7f50b5d"},
+{
+    "Name": "Pure Aluminium",
+    "GroupId": "08d8a31f-50d4-4a1e-85dd-a72ac7f50b5d",
+    "Tier": 1,
+    "NqId": 2240749601,
+    "Volume": 1,
+    "Mass": 2.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/aluminium_ingot.png",
+    "Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.",
+    "recipe": {
+        "NqSchemaId": 1199082577,
+        "craftingTime": 20,
+        "ingredients": [
+            {"key": "Bauxite", "quantity": 65}
+        ],
+        "products": [
+            {"key": "Pure Aluminium", "quantity": 45},
+            {"key": "Pure Hydrogen", "quantity": 15}
+        ]
+    }
+},
 {"Name": "Pure Calcium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 2112763718,"NqSchemaId": 1358793857,"Mass": 1.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Calcium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
 {"Name": "Pure Chromium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 2147954574,"NqSchemaId": 67742786,"Mass": 7.19,"Icon": "https://cdn.hyperion-corporation.de/iconslib/chromium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
 {"Name": "Pure Cobalt","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 2031444137,"NqSchemaId": 107837465,"Mass": 8.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Cobalt_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
 {"Name": "Pure Copper","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 1466453887,"NqSchemaId": 1447143715,"Mass": 8.96,"Icon": "https://cdn.hyperion-corporation.de/iconslib/copper_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
 {"Name": "Pure Fluorine","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 3323724376,"NqSchemaId": 120974149,"Mass": 1.696,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Fluorine_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
 {"Name": "Pure Gold","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 3837955371,"NqSchemaId": 1508723351,"Mass": 19.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gold_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
-{"Name": "Pure hydrogen","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 0,"NqId": 1010524904,"NqSchemaId": 722030824,"Mass": 0.07,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_pure-gaz-hydrogen_001_icon.png","GroupId": "08d8a31f-50d1-4834-88a0-93b212775142"},
-{"Name": "Pure Iron","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 1,"NqId": 198782496,"NqSchemaId": 1833008839,"Mass": 7.85,"Icon": "https://cdn.hyperion-corporation.de/iconslib/iron_ingot.png","GroupId": "08d8a31f-50d4-4a1e-85dd-a72ac7f50b5d"},
-{"Name": "Pure lithium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 3810111622,"NqSchemaId": 214807072,"Mass": 0.53,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Lithium_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
-{"Name": "Pure manganese","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 5,"NqId": 2421303625,"NqSchemaId": 1152725195,"Mass": 7.21,"Icon": "https://cdn.hyperion-corporation.de/iconslib/manganese_ingot.png","GroupId": "08d8a31f-50d7-4fed-8282-3dbc9d7cd0c4"},
-{"Name": "Pure Silicon","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 1,"NqId": 2589986891,"NqSchemaId": 1678829760,"Mass": 2.33,"Icon": "https://cdn.hyperion-corporation.de/iconslib/silicon_ingot.png","GroupId": "08d8a31f-50d4-4a1e-85dd-a72ac7f50b5d"},
-{"Name": "Silver Pure","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 1807690770,"NqSchemaId": 1689312272,"Mass": 10.49,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Silver_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
-{"Name": "Pure Sodium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 3603734543,"NqSchemaId": 1843262763,"Mass": 0.97,"Icon": "https://cdn.hyperion-corporation.de/iconslib/sodium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
+{
+    "Name": "Pure Hydrogen",
+    "GroupId": "08d8a31f-50d1-4834-88a0-93b212775142",
+    "Tier": 0,
+    "NqId": 1010524904,
+    "Volume": 1,
+    "Mass": 0.07,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_pure-gaz-hydrogen_001_icon.png",
+    "Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.",
+    "recipe": {
+        "NqSchemaId": 722030824,
+        "craftingTime": 100,
+        "ingredients": [
+        ],
+        "products": [
+            {"key": "Pure Hydrogen", "quantity": 50}
+        ]
+    
+    }
+},
+{
+    "Name": "Pure Iron",
+    "GroupId": "08d8a31f-50d4-4a1e-85dd-a72ac7f50b5d",
+    "Tier": 1,
+    "NqId": 198782496,
+    "Volume": 1,
+    "Mass": 7.85,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/iron_ingot.png",
+    "Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.",
+    "recipe": {
+        "NqSchemaId": 1833008839,
+        "craftingTime": 20,
+        "ingredients": [
+            {"key": "Hematite", "quantity": 65}
+        ],
+        "products": [
+            {"key": "Pure Iron", "quantity": 45},
+            {"key": "Pure Oxygen", "quantity": 15}
+        ]
+    }
+},
+{"Name": "Pure Lithium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 3810111622,"NqSchemaId": 214807072,"Mass": 0.53,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Lithium_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
+{"Name": "Pure Manganese","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 5,"NqId": 2421303625,"NqSchemaId": 1152725195,"Mass": 7.21,"Icon": "https://cdn.hyperion-corporation.de/iconslib/manganese_ingot.png","GroupId": "08d8a31f-50d7-4fed-8282-3dbc9d7cd0c4"},
+{
+    "Name": "Pure Silicon",
+    "GroupId": "08d8a31f-50d4-4a1e-85dd-a72ac7f50b5d",
+    "Tier": 1,
+    "NqId": 2589986891,
+    "Volume": 1,
+    "Mass": 2.33,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/silicon_ingot.png",
+    "Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.",
+    "recipe": {
+        "NqSchemaId": 1678829760,
+        "craftingTime": 20,
+        "ingredients": [
+            {"key": "Quartz", "quantity": 65}
+        ],
+        "products": [
+            {"key": "Pure Silicon", "quantity": 45},
+            {"key": "Pure Oxygen", "quantity": 15}
+        ]
+    }
+},
+{"Name": "Pure Silver","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 1807690770,"NqSchemaId": 1689312272,"Mass": 10.49,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Silver_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
+{
+    "Name": "Pure Sodium",
+    "GroupId": "08d8a31f-50db-4276-8b03-9ab547976621",
+    "Tier": 2,
+    "NqId": 3603734543,
+    "NqSchemaId": 1843262763,
+    "Volume": 1,
+    "Mass": 0.97,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/sodium_ingot.png",
+    "Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.",
+    "recipe": {
+        "NqSchemaId": 1678829760,
+        "craftingTime": 100,
+        "ingredients": [
+            {"key": "Natron", "quantity": 65}
+        ],
+        "products": [
+            {"key": "Pure Sodium", "quantity": 45},
+            {"key": "Pure Oxygen", "quantity": 7.5},
+            {"key": "Pure Hydrogen", "quantity": 7.5}
+        ]
+    }
+},
 {"Name": "Pure Sulfur","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 3822811562,"NqSchemaId": 547899423,"Mass": 1.819,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Sulfur_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
 {"Name": "Polysulfide plastic product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 3,"NqId": 2097691217,"NqSchemaId": 9524849,"Mass": 1.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
 {"Name": "Polycarbonate plastic product","Description": "Polycarbonate plastic is an exceptionally strong and affordable thermoplastic built from silicon and pure carbon.","Volume": 1,"Tier": 1,"NqId": 2014531313,"NqSchemaId": 1645885251,"Mass": 1.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
@@ -1717,7 +1837,7 @@
 {"Name": "Maraging Steel product","Description": "Maraging Steel is a strong, heavy, and impact resistant type of steel made from nickel and iron.","Volume": 1,"Tier": 4,"NqId": 3518490274,"NqSchemaId": 820163460,"Mass": 8.23,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-heavy-metal_001_icon.png","GroupId": "08d8a31f-50cc-4ded-8dcb-a7255197db20"},
 {"Name": "Marble product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 2,"NqId": 331532952,"NqSchemaId": 214259480,"Mass": 2.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-marble_001_icon.png","GroupId": "08d8a31f-50c8-433c-8fc4-bd29e5fb62fd"},
 {"Name": "Pure Titanium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 5,"NqId": 752542080,"NqSchemaId": 706438082,"Mass": 4.51,"Icon": "https://cdn.hyperion-corporation.de/iconslib/titanium_ingot.png","GroupId": "08d8a31f-50d7-4fed-8282-3dbc9d7cd0c4"},
-{"Name": "Vanadium pure","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 5,"NqId": 2007627267,"NqSchemaId": 1975865669,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/vanadium_ingot.png","GroupId": "08d8a31f-50d7-4fed-8282-3dbc9d7cd0c4"},
+{"Name": "Pure Vanadium ","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 5,"NqId": 2007627267,"NqSchemaId": 1975865669,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/vanadium_ingot.png","GroupId": "08d8a31f-50d7-4fed-8282-3dbc9d7cd0c4"},
 {"Name": "Rocket Fuel Tank L","Description": "Rocket Fuel Tanks store rocket fuel to power rocket boosters.","Volume": 15572.8,"Tier": 3,"NqId": 4180073139,"NqSchemaId": 2046909631,"Mass": 25741.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/rocket_tank_l.png","GroupId": "08d8a31f-4fef-41c2-8fb1-52db13d935cb"},
 {"Name": "Anti-Gravity Generator S","Description": "Anti-Gravity Generators grant larger vessels the capability of negating gravity in atmosphere. Anti-Gravity Generators need to be paired with pulsors and do not function under 1000 meters.","Volume": 4279.69,"Tier": 4,"NqId": 3997343699,"NqSchemaId": 1026698119,"Mass": 27134.86,"Icon": "https://cdn.hyperion-corporation.de/iconslib/antigrav_generator_small.png","GroupId": "08d8a31f-5039-4ac2-8dd4-f772449bde46"},
 {"Name": "Anti-Gravity Pulsor","Description": "Anti-Gravity Pulsors work in tandem with the anti-gravity generator in order to suspend larger vessels in atmosphere.","Volume": 804.93,"Tier": 3,"NqId": 966816758,"NqSchemaId": 844654094,"Mass": 6209.93,"Icon": "https://cdn.hyperion-corporation.de/iconslib/antigrav_pulsor.png","GroupId": "08d8a31f-503a-4e3d-85d9-5912b60235b8"},
@@ -1747,23 +1867,117 @@
 {"Name": "Cockpit controller","Description": null,"Volume": 491.2,"Tier": 1,"NqId": 3640291983,"NqSchemaId": 100300015,"Mass": 1208.13,"Icon": "https://cdn.hyperion-corporation.de/iconslib/cockpitfighter.png","GroupId": "08d8a31f-4f3e-4c4f-8940-9931a701e615"},
 {"Name": "Anti-Gravity Generator M","Description": "Anti-Gravity Generators grant larger vessels the capability of negating gravity in atmosphere. Anti-Gravity Generators need to be paired with pulsors and do not function under 1000 meters.","Volume": 21617.09,"Tier": 4,"NqId": 233079829,"NqSchemaId": 843904620,"Mass": 137716.32,"Icon": "https://cdn.hyperion-corporation.de/iconslib/antigrav_generator_medium.png","GroupId": "08d8a31f-5039-4ac2-8dd4-f772449bde46"},
 {"Name": "Anti-Gravity Generator L","Description": "Anti-Gravity Generators grant larger vessels the capability of negating gravity in atmosphere. Anti-Gravity Generators need to be paired with pulsors and do not function under 1000 meters.","Volume": 86468.35,"Tier": 4,"NqId": 294414265,"NqSchemaId": 815285343,"Mass": 550865.28,"Icon": "https://cdn.hyperion-corporation.de/iconslib/antigrav_generator_large.png","GroupId": "08d8a31f-5039-4ac2-8dd4-f772449bde46"},
-{"Name": "Nickel pure","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 3012303017,"NqSchemaId": 1085756222,"Mass": 8.91,"Icon": "https://cdn.hyperion-corporation.de/iconslib/nickel_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
-{"Name": "Niobium pure","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 5,"NqId": 1126600143,"NqSchemaId": 1745780769,"Mass": 8.57,"Icon": "https://cdn.hyperion-corporation.de/iconslib/niobium_ingot.png","GroupId": "08d8a31f-50d7-4fed-8282-3dbc9d7cd0c4"},
-{"Name": "Pure Oxygen","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 0,"NqId": 947806142,"NqSchemaId": 608747454,"Mass": 1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_pure-gaz-oxygen_001_icon.png","GroupId": "08d8a31f-50d1-4834-88a0-93b212775142"},
+{"Name": "Pure Nickel","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 3012303017,"NqSchemaId": 1085756222,"Mass": 8.91,"Icon": "https://cdn.hyperion-corporation.de/iconslib/nickel_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
+{"Name": "Pure Niobium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 5,"NqId": 1126600143,"NqSchemaId": 1745780769,"Mass": 8.57,"Icon": "https://cdn.hyperion-corporation.de/iconslib/niobium_ingot.png","GroupId": "08d8a31f-50d7-4fed-8282-3dbc9d7cd0c4"},
+{
+    "Name": "Pure Oxygen",
+    "GroupId": "08d8a31f-50d1-4834-88a0-93b212775142",
+    "Tier": 0,
+    "NqId": 947806142,
+    "Volume": 1,
+    "Mass": 1,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_pure-gaz-oxygen_001_icon.png",
+    "Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.",
+    "recipe": {
+        "NqSchemaId": 608747454,
+        "craftingTime": 100,
+        "ingredients": [
+        ],
+        "products": [
+            {"key": "Pure Oxygen", "quantity": 50}
+        ]
+    }
+},
 {"Name": "Pure Scandium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 3211418846,"NqSchemaId": 1990855723,"Mass": 2.985,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scandium_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
-{"Name": "Aluminium Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 1,"NqId": 2417840347,"NqSchemaId": 2042921083,"Mass": 2.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t1_001_icon.png","GroupId": "08d8a31f-4f35-4e5c-84a4-fca5d5dc27d0"},
+{
+    "Name": "Aluminium Scrap",
+    "GroupId": "08d8a31f-4f35-4e5c-84a4-fca5d5dc27d0",
+    "Tier": 1,
+    "NqId": 2417840347,
+    "Volume": 1,
+    "Mass": 2.7,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t1_001_icon.png",
+    "Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.",
+    "recipe": {
+        "NqSchemaId": 2042921083,
+        "craftingTime": 3,
+        "ingredients": [
+            {"key": "Pure Aluminium", "quantity": 50}
+        ],
+        "products": [
+            {"key": "Aluminium Scrap", "quantity": 50}
+        ]
+    }
+},
+{
+    "Name": "Carbon Scrap",
+    "GroupId": "08d8a31f-4f35-4e5c-84a4-fca5d5dc27d0",
+    "Tier": 1,
+    "NqId": 3857279161,
+    "Volume": 1,
+    "Mass": 2.27,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t1_001_icon.png",
+    "Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.",
+    "recipe": {
+        "NqSchemaId": 890147001,
+        "craftingTime": 3,
+        "ingredients": [
+            {"key": "Pure Carbon", "quantity": 50}
+        ],
+        "products": [
+            {"key": "Carbon Scrap", "quantity": 50}
+        ]
+    }
+},
+{
+    "Name": "Iron Scrap",
+    "GroupId": "08d8a31f-4f35-4e5c-84a4-fca5d5dc27d0",
+    "Tier": 1,
+    "NqId": 2558961706,
+    "Volume": 1,
+    "Mass": 7.85,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t1_001_icon.png",
+    "Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.",
+    "recipe": {
+        "NqSchemaId": 966207530,
+        "craftingTime": 3,
+        "ingredients": [
+            {"key": "Pure Iron", "quantity": 50}
+        ],
+        "products": [
+            {"key": "Iron Scrap", "quantity": 50}
+        ]
+    }
+},
+{
+    "Name": "Silicon Scrap",
+    "GroupId": "08d8a31f-4f35-4e5c-84a4-fca5d5dc27d0",
+    "Tier": 1,
+    "NqId": 4063983201,
+    "Volume": 1,
+    "Mass": 2.33,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t1_001_icon.png",
+    "Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.",
+    "recipe": {
+        "NqSchemaId": 833707105,
+        "craftingTime": 3,
+        "ingredients": [
+            {"key": "Pure Silicon", "quantity": 50}
+        ],
+        "products": [
+            {"key": "Silicon Scrap", "quantity": 50}
+        ]
+    }
+},
 {"Name": "Calcium Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 2,"NqId": 1251531294,"NqSchemaId": 644881438,"Mass": 1.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t2_001_icon.png","GroupId": "08d8a31f-4f38-4b17-8db3-5c38bc239e22"},
-{"Name": "Carbon Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 1,"NqId": 3857279161,"NqSchemaId": 890147001,"Mass": 2.27,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t1_001_icon.png","GroupId": "08d8a31f-4f35-4e5c-84a4-fca5d5dc27d0"},
 {"Name": "Chromium Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 2,"NqId": 409040753,"NqSchemaId": 119221489,"Mass": 7.19,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t2_001_icon.png","GroupId": "08d8a31f-4f38-4b17-8db3-5c38bc239e22"},
 {"Name": "Cobalt Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 4,"NqId": 1370993297,"NqSchemaId": 586836625,"Mass": 8.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t4_001_icon.png","GroupId": "08d8a31f-4f37-4fa5-882d-57740730e9aa"},
 {"Name": "Copper Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 2,"NqId": 3630798120,"NqSchemaId": 702266664,"Mass": 8.96,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t2_001_icon.png","GroupId": "08d8a31f-4f38-4b17-8db3-5c38bc239e22"},
 {"Name": "Fluorine Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 4,"NqId": 3150580281,"NqSchemaId": 246016441,"Mass": 1.696,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t4_001_icon.png","GroupId": "08d8a31f-4f37-4fa5-882d-57740730e9aa"},
 {"Name": "Gold Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 4,"NqId": 1032380176,"NqSchemaId": 882728720,"Mass": 19.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t4_001_icon.png","GroupId": "08d8a31f-4f37-4fa5-882d-57740730e9aa"},
-{"Name": "Iron Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 1,"NqId": 2558961706,"NqSchemaId": 966207530,"Mass": 7.85,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t1_001_icon.png","GroupId": "08d8a31f-4f35-4e5c-84a4-fca5d5dc27d0"},
 {"Name": "Lithium Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 3,"NqId": 2115439708,"NqSchemaId": 1853125212,"Mass": 0.53,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t3_001_icon.png","GroupId": "08d8a31f-4f35-421d-8634-1cbcaaf55d86"},
 {"Name": "Nickel Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 3,"NqId": 409671366,"NqSchemaId": 1427312326,"Mass": 8.91,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t3_001_icon.png","GroupId": "08d8a31f-4f35-421d-8634-1cbcaaf55d86"},
 {"Name": "Scandium Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 4,"NqId": 270611770,"NqSchemaId": 561061818,"Mass": 2.985,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t4_001_icon.png","GroupId": "08d8a31f-4f37-4fa5-882d-57740730e9aa"},
-{"Name": "Silicon Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 1,"NqId": 4063983201,"NqSchemaId": 833707105,"Mass": 2.33,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t1_001_icon.png","GroupId": "08d8a31f-4f35-4e5c-84a4-fca5d5dc27d0"},
 {"Name": "Silver Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 3,"NqId": 3814734889,"NqSchemaId": 234390569,"Mass": 10.49,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t3_001_icon.png","GroupId": "08d8a31f-4f35-421d-8634-1cbcaaf55d86"},
 {"Name": "Sodium Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 2,"NqId": 1831205658,"NqSchemaId": 668586778,"Mass": 0.97,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t2_001_icon.png","GroupId": "08d8a31f-4f38-4b17-8db3-5c38bc239e22"},
 {"Name": "Sulfur Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 3,"NqId": 1423148560,"NqSchemaId": 28196368,"Mass": 1.819,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t3_001_icon.png","GroupId": "08d8a31f-4f35-421d-8634-1cbcaaf55d86"},
@@ -1818,9 +2032,52 @@
 {"Name": "Railgun Antimatter Ammo L","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 1250,"Tier": 2,"NqId": 4091052814,"NqSchemaId": 1616775479,"Mass": 80.35,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-antimatter_001_icon.png","GroupId": "08d8a31f-4f2c-4e82-8d47-4cf785323b71"},
 {"Name": "Railgun Electromagnetic Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 2,"NqId": 2277755297,"NqSchemaId": 1901393692,"Mass": 6.43,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f30-4b7f-8bec-9c89e3bd5fba"},
 {"Name": "Railgun Agile Electromagnetic Ammo L","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 1250,"Tier": 3,"NqId": 493646316,"NqSchemaId": 765718961,"Mass": 85.24,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f2d-46f2-862a-2d4d5e16aaae"},
-{"Name": "Nitron Fuel","Description": null,"Volume": 1,"Tier": 1,"NqId": 2579672037,"NqSchemaId": 1814211557,"Mass": 4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Nitron.png","GroupId": "08d8a31f-504d-4cdb-8a45-4bd020f993ca"},
+{
+    "Name": "Nitron Fuel",
+    "GroupId": "08d8a31f-504d-4cdb-8a45-4bd020f993ca",
+    "Tier": 1,
+    "NqId": 2579672037,
+    "Volume": 1,
+    "Mass": 4,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/Nitron.png",
+    "Description": null,
+    "recipe": {
+        "NqSchemaId": 1814211557,
+        "craftingTime": 42,
+        "ingredients": [
+            {"key": "Pure Silicon", "quantity": 20},
+            {"key": "Pure Carbon", "quantity": 20},
+            {"key": "Pure Oxygen", "quantity": 40},
+            {"key": "Pure Hydrogen", "quantity": 20}
+        ],
+        "products": [
+            {"key": "Nitron Fuel", "quantity": 100}
+        ]
+    }
+},
 {"Name": "Xeron Fuel","Description": null,"Volume": 1,"Tier": 2,"NqId": 106455050,"NqSchemaId": 400056330,"Mass": 0.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Xeron.png","GroupId": "08d8a31f-504f-410a-8e74-9c4fba1be4c4"},
-{"Name": "Kergon-X1 fuel","Description": null,"Volume": 1,"Tier": 1,"NqId": 840202980,"NqSchemaId": 1397521124,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Kergon.png","GroupId": "08d8a31f-5050-4555-8741-1bd04504b575"},
+{
+    "Name": "Kergon-X1 fuel",
+    "GroupId": "08d8a31f-5050-4555-8741-1bd04504b575",
+    "Tier": 1,
+    "NqId": 840202980,
+    "Volume": 1,
+    "Mass": 6,
+    "Icon": "https://cdn.hyperion-corporation.de/iconslib/Kergon.png",
+    "Description": null,
+    "recipe": {
+        "NqSchemaId": 1397521124,
+        "craftingTime": 84,
+        "ingredients": [
+            {"key": "Pure Sodium", "quantity": 40},
+            {"key": "Pure Oxygen", "quantity": 30},
+            {"key": "Pure Hydrogen", "quantity": 30}
+        ],
+        "products": [
+            {"key": "Kergon-X1 Fuel", "quantity": 100}
+        ]
+    }
+},
 {"Name": "Railgun Precision Electromagnetic Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 3,"NqId": 3511898141,"NqSchemaId": 1239451954,"Mass": 6.53,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f30-4b7f-8bec-9c89e3bd5fba"},
 {"Name": "Railgun Heavy Electromagnetic Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 3,"NqId": 3384068103,"NqSchemaId": 2025430297,"Mass": 6.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f30-4b7f-8bec-9c89e3bd5fba"},
 {"Name": "Railgun Defense Electromagnetic Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 3,"NqId": 2890607046,"NqSchemaId": 933424296,"Mass": 6.49,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f30-4b7f-8bec-9c89e3bd5fba"},
