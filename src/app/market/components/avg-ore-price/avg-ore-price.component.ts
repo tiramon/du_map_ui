@@ -17,7 +17,9 @@ export class AvgOrePriceComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
-      this.avgPrices = data['avgPrice'].sort((a, b) => {
+      this.avgPrices = data['avgPrice']
+      .filter( ap => ap.itemType !== 1652978615)
+      .sort((a, b) => {
         const itemA = this.idToItem(a.itemType);
         const itemB = this.idToItem(b.itemType);
         const tierDiff = itemA.Tier - itemB.Tier;
