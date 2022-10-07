@@ -357,7 +357,7 @@
 {"Id": "08d8a31f-4f19-493e-81ab-79281894af58","Name": "Cannon Ammo","Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-cannon-heavy-kinetic_001_icon.png","ParentId": "08d8a31f-4f19-43b4-8283-170f6728bfd9","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-4f19-43b4-8283-170f6728bfd9","Name": "Ammunition","Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-cannon-heavy-kinetic_001_icon.png","ParentId": "08d8a31f-4f18-4d5e-8058-7b62788124ab","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "08d8a31f-4f18-4d5e-8058-7b62788124ab","Name": "Consumables","Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-cannon-heavy-thermic_001_icon.png","ParentId": null,"Hidden": false,"Sorting": 0,"Description": null},
-{"Id": "00000000-0000-0000-0001-000000000001","Name": "Aphelia Mission Packages", "Icon": null, "ParentId": null, "Hidden": false, "Sorting": 0, "Description": null},
+{"Id": "00000000-0000-0000-0001-000000000001","Name": "Aphelia Mission Packages", "Icon": null, "ParentId": null, "Hidden": true, "Sorting": 0, "Description": null},
 {"Id": "00000000-0000-0000-0001-000000000002","Name": "Parcel containers","Icon": null,"ParentId": "08d8a31f-4fcb-4174-869d-6a5974a27816","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "00000000-0000-0000-0001-000000000003","Name": "Data Item","Icon": null,"ParentId": "1","Hidden": false,"Sorting": 0,"Description": null},
 {"Id": "00000000-0000-0000-0001-000000000004","Name": "Schematics","Icon": null,"ParentId": "00000000-0000-0000-0001-000000000003","Hidden": false,"Sorting": 0,"Description": null},
