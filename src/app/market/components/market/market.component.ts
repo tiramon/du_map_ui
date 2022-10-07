@@ -45,9 +45,9 @@ export class MarketComponent implements OnInit, AfterViewInit {
         this.treeView.openPath(path);
       }
     });
-    
+
     // console.log(this.groupedGroups, this.groupedItems);
-    const result: TreeViewEntryModel[] = this.groupedGroups['null'].map((group: inputGroup) => {
+    const result: TreeViewEntryModel[] = this.groupedGroups['null'].filter(g => !g.hidden).map((group: inputGroup) => {
       const outGroup = this.group2Entry(group);
       outGroup.children = this.loadChildren(outGroup.id);
       return outGroup;
