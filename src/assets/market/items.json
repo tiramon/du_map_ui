@@ -15,8 +15,34 @@
 {"Name": "Rare Mining Unit L","Description": null,"Volume": 4200,"Tier": 1,"NqId": 3204140767,"NqSchemaId": null,"Mass": 7800,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
 {"Name": "Advanced Mining Unit L","Description": null,"Volume": 4050,"Tier": 1,"NqId": 3204140766,"NqSchemaId": null,"Mass": 7500,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
 {"Name": "Uncommon Mining Unit L","Description": null,"Volume": 2454,"Tier": 1,"NqId": 3204140761,"NqSchemaId": null,"Mass": 5160,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
-{"Name": "Basic Mining Unit S","Description": "","Volume": 70,"Tier": 1,"NqId": 1949562989,"NqSchemaId": null,"Mass": 180,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_s_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
-{"Name": "Basic Mining Unit L","Description": null,"Volume": 2200,"Tier": 1,"NqId": 3204140760,"NqSchemaId": null,"Mass": 5130,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
+{"Name": "Basic Mining Unit S","Description": "","Volume": 70,"Tier": 1,"NqId": 1949562989,"NqSchemaId": null,"Mass": 180,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_s_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0", "recipe": {
+    "NqSchemaId": 1949562989,
+    "craftingTime": 480,
+    "ingredients": [
+        {"key": "Basic Ore Scanner S", "quantity": 1},
+        {"key": "Basic hydraulics", "quantity": 5},
+        {"key": "Basic Standard Frame S", "quantity": 1},
+        {"key": "Basic Fixation", "quantity": 6}
+    ],
+    "products": [
+        {"key": "Basic Mining Unit S", "quantity": 1}
+    ],
+    "schematic": "Tier 1 S Element Schematic Copy"
+}},
+{"Name": "Basic Mining Unit L","Description": null,"Volume": 2200,"Tier": 1,"NqId": 3204140760,"NqSchemaId": null,"Mass": 5130,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0", "recipe": {
+    "NqSchemaId": 3204140760,
+    "craftingTime": 7680,
+    "ingredients": [
+        {"key": "Basic Ore Scanner L", "quantity": 1},
+        {"key": "Basic hydraulics", "quantity": 125},
+        {"key": "Basic Standard Frame L", "quantity": 1},
+        {"key": "Basic Fixation", "quantity": 216}
+    ],
+    "products": [
+        {"key": "Basic Mining Unit L", "quantity": 1}
+    ],
+    "schematic": "Tier 1 L Element Schematic Copy"
+}},
 {"Name": "Space Fuel Tank XS","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 17.8,"Tier": 1,"NqId": 2421673145,"NqSchemaId": null,"Mass": 35.03,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltank.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb"},
 {"Name": "Advanced Shield Generator XS","Description": "Shield Generators will protect your constructs from hostile weapon damage until they are depleted. Shield generators can only be deployed on Dynamic Constructs.","Volume": 210,"Tier": 3,"NqId": 2882830295,"NqSchemaId": null,"Mass": 670,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_shield-generator_001_xs_icon.png","GroupId": "00000000-0000-0000-0002-000000000011"},
 {"Name": "Advanced Shield Generator S","Description": "Shield Generators will protect your constructs from hostile weapon damage until they are depleted. Shield generators can only be deployed on Dynamic Constructs.","Volume": 950,"Tier": 3,"NqId": 3696387320, "NqSchemaId": null,"Mass": 3300,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_shield-generator_001_s_icon.png","GroupId": "00000000-0000-0000-0002-000000000012"},
@@ -1689,9 +1715,31 @@
 },
 {"Name": "Red Gold Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 4,"NqId": 2550840787,"NqSchemaId": 684037683,"Mass": 14.13,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0"},
 {"Name": "Sc-Al Alloy Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 4,"NqId": 2929462635,"NqSchemaId": 160929131,"Mass": 2.85,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a"},
-{"Name": "Silumin Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 2565702107,"NqSchemaId": 1289193723,"Mass": 3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a"},
+{"Name": "Silumin Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 2565702107,"NqSchemaId": 1289193723,"Mass": 3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a","recipe": {
+    "NqSchemaId": 2565702107,
+    "craftingTime": 150,
+    "ingredients": [
+        {"key": "Pure Aluminium", "quantity": 100},
+        {"key": "Pure Silicon", "quantity": 50}
+    ],
+    "products": [
+        {"key": "Silumin Product", "quantity": 75}
+    ],
+    "schematic": "Tier 1 Product Material Schematic Copy"
+}},
 {"Name": "Stainless Steel product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 2,"NqId": 2984358477,"NqSchemaId": 1716547361,"Mass": 7.75,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-heavy-metal_001_icon.png","GroupId": "08d8a31f-50cc-4ded-8dcb-a7255197db20"},
-{"Name": "Steel product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 511774178,"NqSchemaId": 2116244450,"Mass": 8.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-heavy-metal_001_icon.png","GroupId": "08d8a31f-50cc-4ded-8dcb-a7255197db20"},
+{"Name": "Steel product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 511774178,"NqSchemaId": 2116244450,"Mass": 8.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-heavy-metal_001_icon.png","GroupId": "08d8a31f-50cc-4ded-8dcb-a7255197db20", "recipe": {
+    "NqSchemaId": 511774178,
+    "craftingTime": 150,
+    "ingredients": [
+        {"key": "Pure Iron", "quantity": 100},
+        {"key": "Pure Carbon", "quantity": 50}
+    ],
+    "products": [
+        {"key": "Steel product", "quantity": 75}
+    ],
+    "schematic": "Tier 1 Product Material Schematic Copy"
+}},
 {"Name": "Ti-Nb Supraconductor product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 5,"NqId": 1734893264,"NqSchemaId": 1183155920,"Mass": 10.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0"},
 {"Name": "Vanamer product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 5,"NqId": 255776324,"NqSchemaId": 2005886948,"Mass": 1.57,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
 {"Name": "Wood product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 770773323,"NqSchemaId": 913275211,"Mass": 0.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-wood_001_icon.png","GroupId": "08d8a31f-50c8-433c-8fc4-bd29e5fb62fd"},
@@ -1716,7 +1764,17 @@
     }
 },
 {"Name": "Pure Calcium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 2112763718,"NqSchemaId": 1358793857,"Mass": 1.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Calcium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
-{"Name": "Pure Chromium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 2147954574,"NqSchemaId": 67742786,"Mass": 7.19,"Icon": "https://cdn.hyperion-corporation.de/iconslib/chromium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
+{"Name": "Pure Chromium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 2147954574,"NqSchemaId": 67742786,"Mass": 7.19,"Icon": "https://cdn.hyperion-corporation.de/iconslib/chromium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621",
+"recipe": {
+    "craftingTime": 125,
+    "ingredients": [
+        {"key": "Chromite", "quantity": 65}
+    ],
+    "products": [
+        {"key": "Pure Chromium", "quantity": 45}
+    ]
+
+}},
 {"Name": "Pure Cobalt","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 2031444137,"NqSchemaId": 107837465,"Mass": 8.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Cobalt_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
 {"Name": "Pure Copper","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 1466453887,"NqSchemaId": 1447143715,"Mass": 8.96,"Icon": "https://cdn.hyperion-corporation.de/iconslib/copper_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
 {"Name": "Pure Fluorine","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 3323724376,"NqSchemaId": 120974149,"Mass": 1.696,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Fluorine_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
@@ -1807,18 +1865,41 @@
             {"key": "Pure Oxygen", "quantity": 7.5},
             {"key": "Pure Hydrogen", "quantity": 7.5}
         ]
-    }
+    },
+    "schematic": "Tier 2 Pure Material Schematic Copy"
 },
 {"Name": "Pure Sulfur","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 3822811562,"NqSchemaId": 547899423,"Mass": 1.819,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Sulfur_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
 {"Name": "Polysulfide plastic product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 3,"NqId": 2097691217,"NqSchemaId": 9524849,"Mass": 1.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
-{"Name": "Polycarbonate plastic product","Description": "Polycarbonate plastic is an exceptionally strong and affordable thermoplastic built from silicon and pure carbon.","Volume": 1,"Tier": 1,"NqId": 2014531313,"NqSchemaId": 1645885251,"Mass": 1.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
+{"Name": "Polycarbonate plastic product","Description": "Polycarbonate plastic is an exceptionally strong and affordable thermoplastic built from silicon and pure carbon.","Volume": 1,"Tier": 1,"NqId": 2014531313,"NqSchemaId": 1645885251,"Mass": 1.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb", "recipe": {
+    "NqSchemaId": 2014531313,
+    "craftingTime": 150,
+    "ingredients": [
+        {"key": "Pure Carbon", "quantity": 100},
+        {"key": "Pure Hydrogen", "quantity": 50}
+    ],
+    "products": [
+        {"key": "Polycarbonate plastic product", "quantity": 75}
+    ],
+    "schematic": "Tier 1 Product Material Schematic Copy"
+}},
 {"Name": "Polycalcite plastic product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 2,"NqId": 4103265826,"NqSchemaId": 1756458312,"Mass": 1.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
 {"Name": "Pyrite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 4041459743,"NqSchemaId": null,"Mass": 5.01,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SulfurOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
 {"Name": "Illmenite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 629636034,"NqSchemaId": null,"Mass": 4.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/TitaniumOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
 {"Name": "Vanadinite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 2162350405,"NqSchemaId": null,"Mass": 6.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/VanadiumOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
 {"Name": "Advanced glass product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 2,"NqId": 1942154251,"NqSchemaId": 1116568176,"Mass": 2.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-glass_001_icon.png","GroupId": "08d8a31f-50cb-451e-8b92-1451ab8f4b38"},
 {"Name": "Ag-Li Reinforced glass product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 3,"NqId": 2301749833,"NqSchemaId": 1962282521,"Mass": 2.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-glass_001_icon.png","GroupId": "08d8a31f-50cb-451e-8b92-1451ab8f4b38"},
-{"Name": "Al-Fe Alloy product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 18262914,"NqSchemaId": 553755522,"Mass": 7.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0"},
+{"Name": "Al-Fe Alloy product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 18262914,"NqSchemaId": 553755522,"Mass": 7.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0", "recipe": {
+    "NqSchemaId": 18262914,
+    "craftingTime": 150,
+    "ingredients": [
+        {"key": "Pure Aluminium", "quantity": 100},
+        {"key": "Pure Iron", "quantity": 50}
+    ],
+    "products": [
+        {"key": "Al-Fe Alloy product", "quantity": 75}
+    ],
+    "schematic": "Tier 1 Product Material Schematic Copy"
+}},
 {"Name": "Al-Li Alloy product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 3,"NqId": 2021406770,"NqSchemaId": 1618735154,"Mass": 2.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a"},
 {"Name": "Biological matter product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 2646210914,"NqSchemaId": 759450308,"Mass": 1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-biologic-matter_001_icon.png","GroupId": "08d8a31f-50c8-433c-8fc4-bd29e5fb62fd"},
 {"Name": "Brick Honeycomb","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 2679709617,"NqSchemaId": 425366961,"Mass": 1.92,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-brick_001_icon.png","GroupId": "08d8a31f-50c8-433c-8fc4-bd29e5fb62fd"},
@@ -1860,7 +1941,20 @@
 {"Name": "Container M","Description": "Containers allow you to securely store various ores and Elements on your constructs.","Volume": 1873,"Tier": 1,"NqId": 521274609,"NqSchemaId": 937197329,"Mass": 7421.35,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_container-legacy_001_icon.png","GroupId": "00000000-0000-0000-0002-000000000003"},
 {"Name": "Container S","Description": "Containers allow you to securely store various ores and Elements on your constructs.","Volume": 342,"Tier": 1,"NqId": 1594689569,"NqSchemaId": 1173587001,"Mass": 1281.31,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_container-legacy_001_icon.png","GroupId": "00000000-0000-0000-0002-000000000002"},
 {"Name": "Container XS","Description": "Containers allow you to securely store various ores and Elements on your constructs.","Volume": 64,"Tier": 1,"NqId": 1689381593,"NqSchemaId": 760622009,"Mass": 229.09,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_container-legacy_001_icon.png","GroupId": "00000000-0000-0000-0002-000000000001"},
-{"Name": "Container L","Description": "Containers allow you to securely store various ores and Elements on your constructs.","Volume": 3746,"Tier": 1,"NqId": 2125213321,"NqSchemaId": 1702024841,"Mass": 14842.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/containerxl.png","GroupId": "00000000-0000-0000-0002-000000000004"},
+{"Name": "Basic Container L","Description": "Containers allow you to securely store various ores and Elements on your constructs.","Volume": 3746,"Tier": 1,"NqId": 2125213321,"NqSchemaId": 1702024841,"Mass": 14842.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/containerxl.png","GroupId": "00000000-0000-0000-0002-000000000004",
+"recipe": {
+    
+        "craftingTime": 11520,
+        "ingredients": [
+            {"key": "Basic Component", "quantity": 432},
+            {"key": "Basic hydraulics", "quantity": 250},
+            {"key": "Basic Reinforced Frame L", "quantity": 2}
+        ],
+        "products": [
+            {"key": "Basic Container L", "quantity": 1}
+        ],
+        "schematic": "Tier 1 L Element Schematic Copy"
+}},
 {"Name": "Programming board","Description": "Programming boards can be used to house Lua functions.","Volume": 12.7,"Tier": 1,"NqId": 3415128439,"NqSchemaId": 1549896461,"Mass": 27.74,"Icon": "https://cdn.hyperion-corporation.de/iconslib/programming_board.png","GroupId": "08d8a31f-4f3c-4f9c-84bb-4c1ecc4dd78e"},
 {"Name": "Remote Controller","Description": null,"Volume": 4.5,"Tier": 3,"NqId": 1866437084,"NqSchemaId": 24594780,"Mass": 7.79,"Icon": "https://cdn.hyperion-corporation.de/iconslib/remote_control.png","GroupId": "08d8a31f-4f3f-4fd1-86bf-f54d198f8287"},
 {"Name": "Command seat controller","Description": null,"Volume": 66.6,"Tier": 1,"NqId": 3655856020,"NqSchemaId": 615006973,"Mass": 158.45,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_commander-seat_001_icon.png","GroupId": "08d8a31f-4f3e-4299-8f05-72567b0b148f"},
@@ -2052,7 +2146,8 @@
         ],
         "products": [
             {"key": "Nitron Fuel", "quantity": 100}
-        ]
+        ],
+        "schematic": "Atmospheric Fuel Schematic Copy"
     }
 },
 {"Name": "Xeron Fuel","Description": null,"Volume": 1,"Tier": 2,"NqId": 106455050,"NqSchemaId": 400056330,"Mass": 0.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Xeron.png","GroupId": "08d8a31f-504f-410a-8e74-9c4fba1be4c4"},
@@ -2075,7 +2170,8 @@
         ],
         "products": [
             {"key": "Kergon-X1 Fuel", "quantity": 100}
-        ]
+        ],
+        "schematic": "Space Fuel Schematic Copy"
     }
 },
 {"Name": "Railgun Precision Electromagnetic Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 3,"NqId": 3511898141,"NqSchemaId": 1239451954,"Mass": 6.53,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f30-4b7f-8bec-9c89e3bd5fba"},
@@ -2543,19 +2639,55 @@
 {"Name": "Basic Ionic Chamber S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 38.24,"Tier": 1,"NqId": 1390562873,"NqSchemaId": 763768710,"Mass": 391.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
 {"Name": "Basic Ionic Chamber XL","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 6000.8,"Tier": 1,"NqId": 962712579,"NqSchemaId": 648202060,"Mass": 61234.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
 {"Name": "Uncommon Pipe","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 2,"NqId": 1799107247,"NqSchemaId": 1552883209,"Mass": 2.32,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-pipe_001_icon.png","GroupId": "08d8a31f-5156-4065-8e1d-13c14baf06cd"},
-{"Name": "Basic Component","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.5,"Tier": 1,"NqId": 794666749,"NqSchemaId": 1319718943,"Mass": 2.25,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-component_001_icon.png","GroupId": "08d8a31f-514e-4a1e-8d11-a8cd886bbec5"},
+{"Name": "Basic Component","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.5,"Tier": 1,"NqId": 794666749,"NqSchemaId": 1319718943,"Mass": 2.25,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-component_001_icon.png","GroupId": "08d8a31f-514e-4a1e-8d11-a8cd886bbec5", "recipe": {
+    "NqSchemaId": 794666749,
+    "craftingTime": 120,
+    "ingredients": [
+        {"key": "Al-Fe Alloy product", "quantity": 10}
+    ],
+    "products": [
+        {"key": "Basic Component", "quantity": 10}
+    ]
+}},
 {"Name": "Uncommon Component","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.5,"Tier": 2,"NqId": 794666748,"NqSchemaId": 1319718942,"Mass": 2.34,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-component_001_icon.png","GroupId": "08d8a31f-514e-4a1e-8d11-a8cd886bbec5"},
 {"Name": "Advanced Component","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.5,"Tier": 3,"NqId": 794666751,"NqSchemaId": 1319718941,"Mass": 2.51,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-component_001_icon.png","GroupId": "08d8a31f-514e-4a1e-8d11-a8cd886bbec5"},
-{"Name": "Basic Connector","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.8,"Tier": 1,"NqId": 2872711779,"NqSchemaId": 1738589935,"Mass": 3.75,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-connector_001_icon.png","GroupId": "08d8a31f-5150-4814-89a1-12b878205d04"},
+{"Name": "Basic Connector","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.8,"Tier": 1,"NqId": 2872711779,"NqSchemaId": 1738589935,"Mass": 3.75,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-connector_001_icon.png","GroupId": "08d8a31f-5150-4814-89a1-12b878205d04", "recipe": {
+    "NqSchemaId": 3501535556,
+    "craftingTime": 180,
+    "ingredients": [
+        {"key": "Al-Fe Alloy product", "quantity": 10}
+    ],
+    "products": [
+        {"key": "Basic Connector", "quantity": 10}
+    ]
+}},
 {"Name": "Uncommon Connector","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.8,"Tier": 2,"NqId": 2872711778,"NqSchemaId": 1738589934,"Mass": 3.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-connector_001_icon.png","GroupId": "08d8a31f-5150-4814-89a1-12b878205d04"},
 {"Name": "Advanced Connector","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.8,"Tier": 3,"NqId": 2872711781,"NqSchemaId": 1738589841,"Mass": 4.18,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-connector_001_icon.png","GroupId": "08d8a31f-5150-4814-89a1-12b878205d04"},
-{"Name": "Basic Fixation","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 1,"NqId": 466630565,"NqSchemaId": 577252173,"Mass": 1.12,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-fixation_001_icon.png","GroupId": "08d8a31f-5152-45db-8c9a-415408681c9d"},
+{"Name": "Basic Fixation","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 1,"NqId": 466630565,"NqSchemaId": 577252173,"Mass": 1.12,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-fixation_001_icon.png","GroupId": "08d8a31f-5152-45db-8c9a-415408681c9d", "recipe": {
+    "NqSchemaId": 466630565,
+    "craftingTime": 7680,
+    "ingredients": [
+        {"key": "Polycarbonate plastic product", "quantity": 10}
+    ],
+    "products": [
+        {"key": "Basic Fixation", "quantity": 10}
+    ]
+}},
 {"Name": "Uncommon Fixation","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 2,"NqId": 466630564,"NqSchemaId": 577252172,"Mass": 1.16,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-fixation_001_icon.png","GroupId": "08d8a31f-5152-45db-8c9a-415408681c9d"},
 {"Name": "Advanced Fixation","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 3,"NqId": 466630567,"NqSchemaId": 577252211,"Mass": 1.21,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-fixation_001_icon.png","GroupId": "08d8a31f-5152-45db-8c9a-415408681c9d"},
 {"Name": "Basic LED","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 1,"NqId": 1234754162,"NqSchemaId": 1137501015,"Mass": 1.25,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-led_001_icon.png","GroupId": "08d8a31f-5154-4334-89e3-dd6bb40b753f"},
 {"Name": "Uncommon LED","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 2,"NqId": 1234754161,"NqSchemaId": 1137501008,"Mass": 1.27,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-led_001_icon.png","GroupId": "08d8a31f-5154-4334-89e3-dd6bb40b753f"},
 {"Name": "Advanced LED","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 3,"NqId": 1234754160,"NqSchemaId": 1137501009,"Mass": 1.32,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-led_001_icon.png","GroupId": "08d8a31f-5154-4334-89e3-dd6bb40b753f"},
-{"Name": "Basic Pipe","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 1,"NqId": 1799107246,"NqSchemaId": 1552883208,"Mass": 2.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-pipe_001_icon.png","GroupId": "08d8a31f-5156-4065-8e1d-13c14baf06cd"},
+{"Name": "Basic Pipe","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 1,"NqId": 1799107246,"NqSchemaId": 1552883208,"Mass": 2.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-pipe_001_icon.png","GroupId": "08d8a31f-5156-4065-8e1d-13c14baf06cd", "recipe": {
+    "NqSchemaId": 1799107246,
+    "craftingTime": 120,
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 10}
+    ],
+    "products": [
+        {"key": "Basic Pipe", "quantity": 10}
+    ]
+}},
 {"Name": "Advanced Pipe","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 3,"NqId": 1799107244,"NqSchemaId": 1552883210,"Mass": 2.19,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-pipe_001_icon.png","GroupId": "08d8a31f-5156-4065-8e1d-13c14baf06cd"},
 {"Name": "Basic Screw","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 1,"NqId": 3936127019,"NqSchemaId": 1417946494,"Mass": 8.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-screw_001_icon.png","GroupId": "08d8a31f-5157-4dcc-8d91-4ff49c7b7779"},
 {"Name": "Uncommon Screw","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 2,"NqId": 3936127018,"NqSchemaId": 1417946489,"Mass": 7.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-screw_001_icon.png","GroupId": "08d8a31f-5157-4dcc-8d91-4ff49c7b7779"},
@@ -2587,8 +2719,26 @@
 {"Name": "Exotic Reinforced Frame XL","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 3602,"Tier": 5,"NqId": 1179593236,"NqSchemaId": 493789454,"Mass": 22780.07,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Exotic Reinforced Frame XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 5,"NqId": 1179593235,"NqSchemaId": 493789493,"Mass": 12.71,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Basic Standard Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 1,"NqId": 1981362474,"NqSchemaId": 461590277,"Mass": 1081.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
-{"Name": "Basic Standard Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 1,"NqId": 1981362473,"NqSchemaId": 461590276,"Mass": 155.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
-{"Name": "Basic Standard Frame S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 1,"NqId": 1981362643,"NqSchemaId": 461590286,"Mass": 23.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
+{"Name": "Basic Standard Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 1,"NqId": 1981362473,"NqSchemaId": 461590276,"Mass": 155.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23", "recipe": {
+    "NqSchemaId": 1981362473,
+    "craftingTime": 360,
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 74}
+    ],
+    "products": [
+        {"key": "Basic Standard Frame M", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Standard Frame S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 1,"NqId": 1981362643,"NqSchemaId": 461590286,"Mass": 23.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23", "recipe": {
+    "NqSchemaId": 1981362643,
+    "craftingTime": 120,
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 11}
+    ],
+    "products": [
+        {"key": "Basic Standard Frame S", "quantity": 1}
+    ]
+}},
 {"Name": "Basic Standard Frame XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 1,"NqId": 873663991,"NqSchemaId": 510615335,"Mass": 4.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
 {"Name": "Uncommon Standard Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 2,"NqId": 1981362539,"NqSchemaId": 461676500,"Mass": 1033.48,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
 {"Name": "Uncommon Standard Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 2,"NqId": 1981362536,"NqSchemaId": 461676501,"Mass": 148.54,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
@@ -2613,7 +2763,16 @@
 {"Name": "Rare Casing XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 4,"NqId": 946524256,"NqSchemaId": 68471221,"Mass": 1.52,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-casing_001_icon.png","GroupId": "08d8a31f-515c-429d-878b-a37de74b02db"},
 {"Name": "Exotic Casing S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 5,"NqId": 567007899,"NqSchemaId": 669694253,"Mass": 8.29,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-casing_001_icon.png","GroupId": "08d8a31f-515c-429d-878b-a37de74b02db"},
 {"Name": "Advanced Casing S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 3,"NqId": 567007766,"NqSchemaId": 669702603,"Mass": 8.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-casing_001_icon.png","GroupId": "08d8a31f-515c-429d-878b-a37de74b02db"},
-{"Name": "Basic Reinforced Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 1,"NqId": 994058205,"NqSchemaId": 266197949,"Mass": 3316.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
+{"Name": "Basic Reinforced Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 1,"NqId": 994058205,"NqSchemaId": 266197949,"Mass": 3316.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2",
+"recipe": {
+    "craftingTime": 1080,
+    "ingredients": [
+        {"key": "Steel Product", "quantity": 515}
+    ],
+    "products": [
+        {"key": "Basic Reinforced Frame L", "quantity": 1}
+    ]
+}},
 {"Name": "Basic Reinforced Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 1,"NqId": 994058204,"NqSchemaId": 266197938,"Mass": 476.56,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Basic Reinforced Frame S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 1,"NqId": 994058182,"NqSchemaId": 266197940,"Mass": 70.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Basic Reinforced Frame XL","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 3602,"Tier": 1,"NqId": 1179610516,"NqSchemaId": 376985790,"Mass": 23196.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
@@ -2630,13 +2789,22 @@
 {"Name": "Advanced Reinforced Frame XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 3,"NqId": 1179601457,"NqSchemaId": 494352223,"Mass": 13.24,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Rare Reinforced Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 4,"NqId": 994058003,"NqSchemaId": 264397499,"Mass": 3365.99,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Basic Ore Scanner L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 471.5,"Tier": 1,"NqId": 3501535583,"NqSchemaId": 260197199,"Mass": 320.29,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ore-scanner_001_icon.png","GroupId": "08d8a31f-5143-494d-8ec6-a913f3a59562"},
-{"Name": "Basic Ore Scanner S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 15.5,"Tier": 1,"NqId": 3501535556,"NqSchemaId": 260197236,"Mass": 10.93,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ore-scanner_001_icon.png","GroupId": "08d8a31f-5143-494d-8ec6-a913f3a59562"},
 {"Name": "Uncommon Ore Scanner L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 473.9,"Tier": 2,"NqId": 3501535518,"NqSchemaId": 260209402,"Mass": 333.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ore-scanner_001_icon.png","GroupId": "08d8a31f-5143-494d-8ec6-a913f3a59562"},
 {"Name": "Uncommon Ore Scanner XL","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 2702.9,"Tier": 2,"NqId": 788805607,"NqSchemaId": 221554872,"Mass": 1867,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ore-scanner_001_icon.png","GroupId": "08d8a31f-5143-494d-8ec6-a913f3a59562"},
 {"Name": "Rare Ore Scanner L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 473.9,"Tier": 4,"NqId": 3501536145,"NqSchemaId": 260118744,"Mass": 354.74,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ore-scanner_001_icon.png","GroupId": "08d8a31f-5143-494d-8ec6-a913f3a59562"},
 {"Name": "Exotic Ore Scanner L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 473.5,"Tier": 5,"NqId": 3501535314,"NqSchemaId": 260114633,"Mass": 354.19,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ore-scanner_001_icon.png","GroupId": "08d8a31f-5143-494d-8ec6-a913f3a59562"},
 {"Name": "Advanced Ore Scanner L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 473.9,"Tier": 3,"NqId": 3501536208,"NqSchemaId": 260205291,"Mass": 344.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ore-scanner_001_icon.png","GroupId": "08d8a31f-5143-494d-8ec6-a913f3a59562"},
-{"Name": "Basic Power Transformer M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 196.4,"Tier": 1,"NqId": 4186205972,"NqSchemaId": 1365333629,"Mass": 1016.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-power-convertor_001_icon.png","GroupId": "08d8a31f-5145-473a-84eb-dab7f5a2ba36"},
+{"Name": "Basic Power Transformer M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 196.4,"Tier": 1,"NqId": 4186205972,"NqSchemaId": 1365333629,"Mass": 1016.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-power-convertor_001_icon.png","GroupId": "08d8a31f-5145-473a-84eb-dab7f5a2ba36", "recipe": {
+    "NqSchemaId": 4186205972,
+    "craftingTime": 540,
+    "ingredients": [
+        {"key": "Steel product", "quantity": 49},
+        {"key": "Basic Component", "quantity": 25}
+    ],
+    "products": [
+        {"key": "Basic Power Transformer M", "quantity": 1}
+    ]
+}   },
 {"Name": "Advanced Screen XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 12.8,"Tier": 3,"NqId": 1428608303,"NqSchemaId": 1841894563,"Mass": 10.73,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-screen_001_icon.png","GroupId": "08d8a31f-5149-41d7-8024-b1a56ed1c079"},
 {"Name": "Advanced Robotic Arm M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 257.6,"Tier": 3,"NqId": 997368670,"NqSchemaId": 1977408761,"Mass": 932.87,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-robotic-arm_001_icon.png","GroupId": "08d8a31f-5147-447d-8bc1-9f03865d3066"},
 {"Name": "Rare Robotic Arm M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 257.6,"Tier": 4,"NqId": 997370746,"NqSchemaId": 1977452842,"Mass": 954.02,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-robotic-arm_001_icon.png","GroupId": "08d8a31f-5147-447d-8bc1-9f03865d3066"},
@@ -2837,7 +3005,20 @@
 {"Name": "Advanced Chemical Container XL","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 4424.8,"Tier": 3,"NqId": 3714764686,"NqSchemaId": 714333586,"Mass": 7192.29,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-chemical-container_001_icon.png","GroupId": "08d8a31f-5127-4f25-8138-779a7f0e5c8d"},
 {"Name": "Rare Chemical Container M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 143.2,"Tier": 4,"NqId": 625115242,"NqSchemaId": 1815664198,"Mass": 246.01,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-chemical-container_001_icon.png","GroupId": "08d8a31f-5127-4f25-8138-779a7f0e5c8d"},
 {"Name": "Rare Antenna M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 251.36,"Tier": 4,"NqId": 1080827739,"NqSchemaId": 1305806605,"Mass": 2162.85,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-antenna_001_icon.png","GroupId": "08d8a31f-5126-439e-8376-687cf893a6aa"},
-{"Name": "Territory Unit","Description": "Planetary Elements are Elements which can be deployed directly on the surface of a planet and do not require a Core Unit to use.","Volume": 4118.29,"Tier": 5,"NqId": 1358842892,"NqSchemaId": 55289725,"Mass": 20050.16,"Icon": "https://cdn.hyperion-corporation.de/iconslib/territory_unit.png","GroupId": "08d8a31f-5043-4e51-846c-ba8030c227da"},
+{"Name": "Territory Unit M","Description": "Planetary Elements are Elements which can be deployed directly on the surface of a planet and do not require a Core Unit to use.","Volume": 4118.29,"Tier": 5,"NqId": 1358842892,"NqSchemaId": 55289725,"Mass": 20050.16,"Icon": "https://cdn.hyperion-corporation.de/iconslib/territory_unit.png","GroupId": "08d8a31f-5043-4e51-846c-ba8030c227da", "recipe": {
+    "NqSchemaId": 1358842892,
+    "craftingTime": 5760,
+    "ingredients": [
+        {"key": "Basic Fixation", "quantity": 72},
+        {"key": "Basic Processor", "quantity": 50},
+        {"key": "Basic Power Transformer M", "quantity": 2},
+        {"key": "Basic Standard Frame M", "quantity": 2}
+    ],
+    "products": [
+        {"key": "Territory Unit M", "quantity": 1}
+    ],
+    "schematic": "Territory Unit Schematic Copy"
+}},
 {"Name": "Rare Anti-Gravity Core","Description": "Exceptional parts are an extremely expensive and powerful Component required in the most hight-level Elements.","Volume": 22.5,"Tier": 4,"NqId": 2999509693,"NqSchemaId": 82629944,"Mass": 123.22,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_exceptional-part-antigravity-core_001_icon.png","GroupId": "08d8a31f-511d-4b6e-8d59-bd04dbbbe00c"},
 {"Name": "Exotic Anti-Gravity Core","Description": "Exceptional parts are an extremely expensive and powerful Component required in the most hight-level Elements.","Volume": 25,"Tier": 5,"NqId": 2999509692,"NqSchemaId": 82629945,"Mass": 133.06,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_exceptional-part-antigravity-core_001_icon.png","GroupId": "08d8a31f-511d-4b6e-8d59-bd04dbbbe00c"},
 {"Name": "Advanced Anti-Gravity Core","Description": "Exceptional parts are an extremely expensive and powerful Component required in the most hight-level Elements.","Volume": 20,"Tier": 3,"NqId": 2999509666,"NqSchemaId": 82629951,"Mass": 117.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_exceptional-part-antigravity-core_001_icon.png","GroupId": "08d8a31f-511d-4b6e-8d59-bd04dbbbe00c"},
@@ -2900,7 +3081,17 @@
 {"Name": "Rare Power System","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 9.2,"Tier": 4,"NqId": 527681750,"NqSchemaId": 1458022909,"Mass": 78.31,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-power-system_001_icon.png","GroupId": "08d8a31f-5102-4a00-82ae-1521925be2a3"},
 {"Name": "Rare Singularity Container","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4,"Tier": 4,"NqId": 3640212315,"NqSchemaId": 1213606733,"Mass": 46.58,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-singularity-container_001_icon.png","GroupId": "08d8a31f-5116-4472-84d8-1cf2de11b3a3"},
 {"Name": "Exotic Power System","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 9.2,"Tier": 5,"NqId": 527681751,"NqSchemaId": 1458022908,"Mass": 82.87,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-power-system_001_icon.png","GroupId": "08d8a31f-5102-4a00-82ae-1521925be2a3"},
-{"Name": "Basic Processor","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 5,"Tier": 1,"NqId": 3808417022,"NqSchemaId": 1297444766,"Mass": 14.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-processor_001_icon.png","GroupId": "08d8a31f-5111-4aca-84b0-6fa69942144b"},
+{"Name": "Basic Processor","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 5,"Tier": 1,"NqId": 3808417022,"NqSchemaId": 1297444766,"Mass": 14.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-processor_001_icon.png","GroupId": "08d8a31f-5111-4aca-84b0-6fa69942144b", "recipe": {
+    "NqSchemaId": 3808417022,
+    "craftingTime": 60,
+    "ingredients": [
+        {"key": "Al-Fe Alloy product", "quantity": 6},
+        {"key": "Basic Fixation", "quantity": 4}
+    ],
+    "products": [
+        {"key": "Basic Processor", "quantity": 1}
+    ]
+}},
 {"Name": "Uncommon Processor","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 5,"Tier": 2,"NqId": 3808417021,"NqSchemaId": 1297444767,"Mass": 15.56,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-processor_001_icon.png","GroupId": "08d8a31f-5111-4aca-84b0-6fa69942144b"},
 {"Name": "Advanced Processor","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 5,"Tier": 3,"NqId": 3808417020,"NqSchemaId": 1297444736,"Mass": 16.25,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-processor_001_icon.png","GroupId": "08d8a31f-5111-4aca-84b0-6fa69942144b"},
 {"Name": "Basic Quantum Core","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 5,"Tier": 1,"NqId": 850241766,"NqSchemaId": 1457246784,"Mass": 10.72,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-quantum-core_001_icon.png","GroupId": "08d8a31f-5114-4794-8c3c-f3756c8d4ca9"},
@@ -2928,7 +3119,17 @@
 {"Name": "Advanced Electronics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4,"Tier": 3,"NqId": 1297540452,"NqSchemaId": 1026118818,"Mass": 5.45,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-electronics_001_icon.png","GroupId": "08d8a31f-50f8-4d6f-835c-9f32f00e2ee9"},
 {"Name": "Rare Electronics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4,"Tier": 4,"NqId": 1297540451,"NqSchemaId": 1026118819,"Mass": 5.63,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-electronics_001_icon.png","GroupId": "08d8a31f-50f8-4d6f-835c-9f32f00e2ee9"},
 {"Name": "Exotic Electronics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4,"Tier": 5,"NqId": 1297540450,"NqSchemaId": 1026118820,"Mass": 5.77,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-electronics_001_icon.png","GroupId": "08d8a31f-50f8-4d6f-835c-9f32f00e2ee9"},
-{"Name": "Basic hydraulics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 1,"NqId": 1331181119,"NqSchemaId": 30135024,"Mass": 28.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-hydraulics_001_icon.png","GroupId": "08d8a31f-50fa-4803-8ecf-b8ad089f721b"},
+{"Name": "Basic hydraulics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 1,"NqId": 1331181119,"NqSchemaId": 30135024,"Mass": 28.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-hydraulics_001_icon.png","GroupId": "08d8a31f-50fa-4803-8ecf-b8ad089f721b", "recipe": {
+    "NqSchemaId": 1331181119,
+    "craftingTime": 60,
+    "ingredients": [
+        {"key": "Steel product", "quantity": 6},
+        {"key": "Basic Pipe", "quantity": 4}
+    ],
+    "products": [
+        {"key": "Basic hydraulics", "quantity": 1}
+    ]
+}},
 {"Name": "Uncommon hydraulics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 2,"NqId": 1331181118,"NqSchemaId": 30135027,"Mass": 28.35,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-hydraulics_001_icon.png","GroupId": "08d8a31f-50fa-4803-8ecf-b8ad089f721b"},
 {"Name": "Advanced hydraulics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 3,"NqId": 1331181089,"NqSchemaId": 30135026,"Mass": 29.02,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-hydraulics_001_icon.png","GroupId": "08d8a31f-50fa-4803-8ecf-b8ad089f721b"},
 {"Name": "Rare hydraulics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 4,"NqId": 1331181088,"NqSchemaId": 30134925,"Mass": 29.16,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-hydraulics_001_icon.png","GroupId": "08d8a31f-50fa-4803-8ecf-b8ad089f721b"},
@@ -3146,15 +3347,127 @@
 {"Name": "Exotic Military Space Engine S","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Small Space Engines are useful for course correction on larger ships or main thrust on small crafts like fighters. The Military variation is more powerful and resistant, but consumes more fuel.","Volume": 105.2,"Tier": 5,"NqId": 2510194718,"NqSchemaId": null,"Mass": 761.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginesmall.png","GroupId": "08d8a31f-5030-497a-82fa-319413cccd6f"},
 {"Name": "Exotic Safe Space Engine S","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Small Space Engines are useful for course correction on larger ships or main thrust on small crafts like fighters. The Safe variation is faster to warm up and more resistant, but is less powerful.","Volume": 105.2,"Tier": 5,"NqId": 2682344781,"NqSchemaId": null,"Mass": 761.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginesmall.png","GroupId": "08d8a31f-5030-497a-82fa-319413cccd6f"},
 
-{"Name": "Exotic Freight Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space craft such as capital ships or freighters. The Freight variation is lighter and consumes less fuel, but is slower to warm up.","Volume": 17150,"Tier": 5,"NqId": 2497069976,"NqSchemaId": null,"Mass": 30310,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e"},
-{"Name": "Exotic Maneuver Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space craft such as capital ships or freighters. The Maneuver variation is faster to warm up and consumes less fuel, but is less resistant.","Volume": 17150,"Tier": 5,"NqId": 1773467597,"NqSchemaId": null,"Mass": 126240,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e"},
-{"Name": "Exotic Military Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space craft such as capital ships or freighters. The Military variation is more powerful and resistant, but consumes more fuel.","Volume": 17150,"Tier": 5,"NqId": 934426303,"NqSchemaId": null,"Mass": 126240,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e"},
-{"Name": "Exotic Safe Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space craft such as capital ships or freighters. The Safe variation is faster to warm up and more resistant, but is less powerful.","Volume": 17150,"Tier": 5,"NqId": 3478227883,"NqSchemaId": null,"Mass": 126240,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e"},
+{"Name": "Exotic Freight Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space craft such as capital ships or freighters. The Freight variation is lighter and consumes less fuel, but is slower to warm up.","Volume": 17150,"Tier": 5,"NqId": 2497069976,"NqSchemaId": null,"Mass": 30310,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e",
+"recipe": {
+    "craftingTime": 2487600,
+    "ingredients": [
+        {"key": "Advanced Screw", "quantity": 1296},
+        {"key": "Exotic Burner", "quantity": 625},
+        {"key": "Exotic Ionic Chamber XS", "quantity": 1},
+        {"key": "Exotic Reinforced Frame XS", "quantity": 1},
+        {"key": "Relic Plasma Unus L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Freight Space Engine XL", "quantity": 1}
+    ],
+    "schematic": "Tier 5 XL Element Schematic Copy"
+}},
+{"Name": "Exotic Maneuver Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space craft such as capital ships or freighters. The Maneuver variation is faster to warm up and consumes less fuel, but is less resistant.","Volume": 17150,"Tier": 5,"NqId": 1773467597,"NqSchemaId": null,"Mass": 126240,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e",
+"recipe": {
+    "craftingTime": 2487600,
+    "ingredients": [
+        {"key": "Advanced Screw", "quantity": 1296},
+        {"key": "Exotic Burner", "quantity": 625},
+        {"key": "Exotic Ionic Chamber XS", "quantity": 1},
+        {"key": "Exotic Reinforced Frame XS", "quantity": 1},
+        {"key": "Relic Plasma Unus L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Maneuver Space Engine XL", "quantity": 1}
+    ],
+    "schematic": "Tier 5 XL Element Schematic Copy"
+}},
+{"Name": "Exotic Military Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space craft such as capital ships or freighters. The Military variation is more powerful and resistant, but consumes more fuel.","Volume": 17150,"Tier": 5,"NqId": 934426303,"NqSchemaId": null,"Mass": 126240,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e",
+"recipe": {
+    "craftingTime": 2487600,
+    "ingredients": [
+        {"key": "Advanced Screw", "quantity": 1296},
+        {"key": "Exotic Burner", "quantity": 625},
+        {"key": "Exotic Ionic Chamber XS", "quantity": 1},
+        {"key": "Exotic Reinforced Frame XS", "quantity": 1},
+        {"key": "Relic Plasma Unus L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Military Space Engine XL", "quantity": 1}
+    ],
+    "schematic": "Tier 5 XL Element Schematic Copy"
+}},
+{"Name": "Exotic Safe Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space craft such as capital ships or freighters. The Safe variation is faster to warm up and more resistant, but is less powerful.","Volume": 17150,"Tier": 5,"NqId": 3478227883,"NqSchemaId": null,"Mass": 126240,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e",
+"recipe": {
+    "craftingTime": 2487600,
+    "ingredients": [
+        {"key": "Advanced Screw", "quantity": 1296},
+        {"key": "Exotic Burner", "quantity": 625},
+        {"key": "Exotic Ionic Chamber XS", "quantity": 1},
+        {"key": "Exotic Reinforced Frame XS", "quantity": 1},
+        {"key": "Relic Plasma Unus L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Safe Space Engine XL", "quantity": 1}
+    ],
+    "schematic": "Tier 5 XL Element Schematic Copy"
+}},
 
-{"Name": "Exotic Freight Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles. The Freight variation is lighter and consumes less fuel, but is slower to warm up.","Volume": 20.33,"Tier": 5,"NqId": 3719125843,"NqSchemaId": null,"Mass": 35.11,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f"},
-{"Name": "Exotic Maneuver Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles. The Maneuver variation is faster to warm up and consumes less fuel, but is less resistant.","Volume": 20.33,"Tier": 5,"NqId": 2368501170,"NqSchemaId": null,"Mass": 146.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f"},
-{"Name": "Exotic Military Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles. The Military variation is more powerful and resistant, but consumes more fuel.","Volume": 20.33,"Tier": 5,"NqId": 1754053132,"NqSchemaId": null,"Mass": 146.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f"},
-{"Name": "Exotic Safe Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles. The Safe variation is faster to warm up and more resistant, but is less powerful.","Volume": 20.33,"Tier": 5,"NqId": 175947631,"NqSchemaId": null,"Mass": 146.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f"},
+{"Name": "Exotic Freight Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles. The Freight variation is lighter and consumes less fuel, but is slower to warm up.","Volume": 20.33,"Tier": 5,"NqId": 3719125843,"NqSchemaId": null,"Mass": 35.11,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f",
+"recipe": {
+    "craftingTime": 9720,
+    "ingredients": [
+        {"key": "Advanced Screw", "quantity": 1},
+        {"key": "Exotic Burner", "quantity": 1},
+        {"key": "Exotic Ionic Chamber XS", "quantity": 1},
+        {"key": "Exotic Reinforced Frame XS", "quantity": 1},
+        {"key": "Relic Plasma Unus L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Freight Space Engine XS", "quantity": 1}
+    ],
+    "schematic": "Tier 5 XS Element Schematic Copy"
+}},
+{"Name": "Exotic Maneuver Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles. The Maneuver variation is faster to warm up and consumes less fuel, but is less resistant.","Volume": 20.33,"Tier": 5,"NqId": 2368501170,"NqSchemaId": null,"Mass": 146.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f",
+"recipe": {
+    "craftingTime": 9720,
+    "ingredients": [
+        {"key": "Advanced Screw", "quantity": 1},
+        {"key": "Exotic Burner", "quantity": 1},
+        {"key": "Exotic Ionic Chamber XS", "quantity": 1},
+        {"key": "Exotic Reinforced Frame XS", "quantity": 1},
+        {"key": "Relic Plasma Unus L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Maneuver Space Engine XS", "quantity": 1}
+    ],
+    "schematic": "Tier 5 XS Element Schematic Copy"
+}},
+{"Name": "Exotic Military Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles. The Military variation is more powerful and resistant, but consumes more fuel.","Volume": 20.33,"Tier": 5,"NqId": 1754053132,"NqSchemaId": null,"Mass": 146.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f",
+"recipe": {
+    "craftingTime": 9720,
+    "ingredients": [
+        {"key": "Advanced Screw", "quantity": 1},
+        {"key": "Exotic Burner", "quantity": 1},
+        {"key": "Exotic Ionic Chamber XS", "quantity": 1},
+        {"key": "Exotic Reinforced Frame XS", "quantity": 1},
+        {"key": "Relic Plasma Unus L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Military Space Engine XS", "quantity": 1}
+    ],
+    "schematic": "Tier 5 XS Element Schematic Copy"
+}},
+{"Name": "Exotic Safe Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles. The Safe variation is faster to warm up and more resistant, but is less powerful.","Volume": 20.33,"Tier": 5,"NqId": 175947631,"NqSchemaId": null,"Mass": 146.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f",
+"recipe": {
+    "craftingTime": 9720,
+    "ingredients": [
+        {"key": "Advanced Screw", "quantity": 1},
+        {"key": "Exotic Burner", "quantity": 1},
+        {"key": "Exotic Ionic Chamber XS", "quantity": 1},
+        {"key": "Exotic Reinforced Frame XS", "quantity": 1},
+        {"key": "Relic Plasma Unus L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Safe Space Engine XS", "quantity": 1}
+    ],
+    "schematic": "Tier 5 XS Element Schematic Copy"
+}},
 {
     "Name": "Relic Plasma Decem L",
     "GroupId": "00000000-0000-0000-0002-00000000000F",
@@ -3265,7 +3578,20 @@
     "Volume": 1382.4,
     "Mass": 9220,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-combustion-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 414000,
+        "ingredients": [
+            {"key": "Advanced Pipe", "quantity": 125},
+            {"key": "Advanced Burner", "quantity": 38},
+            {"key": "Rare Burner", "quantity": 38},
+            {"key": "Mangalloy product", "quantity": 343},
+            {"key": "Exotic Burner", "quantity": 50}
+        ],
+        "products": [
+            {"key": "Exotic Combustion Chamber L", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Combustion Chamber M",
@@ -3276,7 +3602,20 @@
     "Volume": 267.2,
     "Mass": 1730,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-combustion-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 138240,
+        "ingredients": [
+            {"key": "Advanced Pipe", "quantity": 25},
+            {"key": "Advanced Burner", "quantity": 8},
+            {"key": "Rare Burner", "quantity": 8},
+            {"key": "Mangalloy product", "quantity": 49},
+            {"key": "Exotic Burner", "quantity": 10}
+        ],
+        "products": [
+            {"key": "Exotic Combustion Chamber M", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Combustion Chamber S",
@@ -3287,7 +3626,20 @@
     "Volume": 57.6,
     "Mass": 362.47,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-combustion-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 46080,
+        "ingredients": [
+            {"key": "Advanced Pipe", "quantity": 5},
+            {"key": "Advanced Burner", "quantity": 2},
+            {"key": "Rare Burner", "quantity": 2},
+            {"key": "Mangalloy product", "quantity": 7},
+            {"key": "Exotic Burner", "quantity": 2}
+        ],
+        "products": [
+            {"key": "Exotic Combustion Chamber S", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Combustion Chamber XS",
@@ -3298,7 +3650,20 @@
     "Volume": 25.6,
     "Mass": 158.36,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-combustion-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 15360,
+        "ingredients": [
+            {"key": "Advanced Pipe", "quantity": 1},
+            {"key": "Advanced Burner", "quantity": 1},
+            {"key": "Rare Burner", "quantity": 1},
+            {"key": "Mangalloy product", "quantity": 1},
+            {"key": "Exotic Burner", "quantity": 1}
+        ],
+        "products": [
+            {"key": "Exotic Combustion Chamber XS", "quantity": 1}
+        ]
+    }
 },
 
 {
@@ -3318,7 +3683,7 @@
             {"key": "Uncommon Screw", "quantity": 1},
             {"key": "Polysulfide plastic product", "quantity": 2},
             {"key": "Advanced Screw", "quantity": 2},
-            {"key": "Flourpolymer", "quantity": 2},
+            {"key": "Flourpolymer product", "quantity": 2},
             {"key": "Vanamer product", "quantity": 2}
         ],
         "products": [
@@ -3336,7 +3701,20 @@
     "NqSchemaId": null,
     "Mass": 97.86,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-gaz-cylindre_001_icon.png",
-    "GroupId": "08d8a31f-5132-41d8-87b7-bd86169677f5"
+    "GroupId": "08d8a31f-5132-41d8-87b7-bd86169677f5",
+    "recipe": {
+        "craftingTime": 46080,
+        "ingredients": [
+            {"key": "Advanced Screw", "quantity": 5},
+            {"key": "Advanced Injector", "quantity": 2},
+            {"key": "Rare Injector", "quantity": 2},
+            {"key": "Grade 5 Titanium Alloy product", "quantity": 7},
+            {"key": "Exotic Injector", "quantity": 2}
+        ],
+        "products": [
+            {"key": "Exotic Gas Cylinder S", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Gas Cylinder M",
@@ -3347,7 +3725,20 @@
     "NqSchemaId": null,
     "Mass": 479.24,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-gaz-cylindre_001_icon.png",
-    "GroupId": "08d8a31f-5132-41d8-87b7-bd86169677f5"
+    "GroupId": "08d8a31f-5132-41d8-87b7-bd86169677f5",
+    "recipe": {
+        "craftingTime": 138240,
+        "ingredients": [
+            {"key": "Advanced Screw", "quantity": 25},
+            {"key": "Advanced Injector", "quantity": 8},
+            {"key": "Rare Injector", "quantity": 8},
+            {"key": "Grade 5 Titanium Alloy product", "quantity": 49},
+            {"key": "Exotic Injector", "quantity": 10}
+        ],
+        "products": [
+            {"key": "Exotic Gas Cylinder M", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Gas Cylinder L",
@@ -3358,7 +3749,20 @@
     "Volume": 1382.4,
     "Mass": 2570,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-gaz-cylindre_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 414000,
+        "ingredients": [
+            {"key": "Advanced Screw", "quantity": 125},
+            {"key": "Advanced Injector", "quantity": 38},
+            {"key": "Rare Injector", "quantity": 38},
+            {"key": "Grade 5 Titanium Alloy product", "quantity": 343},
+            {"key": "Exotic Injector", "quantity": 50}
+        ],
+        "products": [
+            {"key": "Exotic Gas Cylinder L", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Ionic Chamber L",
@@ -3369,7 +3773,20 @@
     "Volume": 1096.29,
     "Mass": 11340,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 414000,
+        "ingredients": [
+            {"key": "Advanced Connector", "quantity": 125},
+            {"key": "Advanced Magnet", "quantity": 38},
+            {"key": "Rare Magnet", "quantity": 38},
+            {"key": "Mangalloy product", "quantity": 343},
+            {"key": "Exotic Magnet", "quantity": 50}
+        ],
+        "products": [
+            {"key": "Exotic Ionic Chamber L", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Ionic Chamber M",
@@ -3380,7 +3797,20 @@
     "Volume": 208.29,
     "Mass": 2170,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 138240,
+        "ingredients": [
+            {"key": "Advanced Connector", "quantity": 25},
+            {"key": "Advanced Magnet", "quantity": 8},
+            {"key": "Rare Magnet", "quantity": 8},
+            {"key": "Mangalloy product", "quantity": 49},
+            {"key": "Exotic Magnet", "quantity": 10}
+        ],
+        "products": [
+            {"key": "Exotic Ionic Chamber M", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Ionic Chamber S",
@@ -3391,7 +3821,20 @@
     "Volume": 44.13,
     "Mass": 462.59,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 46080,
+        "ingredients": [
+            {"key": "Advanced Connector", "quantity": 5},
+            {"key": "Advanced Magnet", "quantity": 2},
+            {"key": "Rare Magnet", "quantity": 2},
+            {"key": "Mangalloy product", "quantity": 7},
+            {"key": "Exotic Magnet", "quantity": 2}
+        ],
+        "products": [
+            {"key": "Exotic Ionic Chamber S", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Ionic Chamber XL",
@@ -3402,7 +3845,20 @@
     "Volume": 6006.69,
     "Mass": 61820,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 1245600,
+        "ingredients": [
+            {"key": "Advanced Connector", "quantity": 625},
+            {"key": "Advanced Magnet", "quantity": 188},
+            {"key": "Rare Magnet", "quantity": 188},
+            {"key": "Mangalloy product", "quantity": 2401},
+            {"key": "Exotic Magnet", "quantity": 250}
+        ],
+        "products": [
+            {"key": "Exotic Ionic Chamber XL", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Ionic Chamber XS",
@@ -3413,7 +3869,20 @@
     "Volume": 19.1,
     "Mass": 205.44,
     "Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png",
-    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume."
+    "Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.",
+    "recipe": {
+        "craftingTime": 15360,
+        "ingredients": [
+            {"key": "Advanced Connector", "quantity": 1},
+            {"key": "Advanced Magnet", "quantity": 1},
+            {"key": "Rare Magnet", "quantity": 1},
+            {"key": "Mangalloy product", "quantity": 1},
+            {"key": "Exotic Magnet", "quantity": 1}
+        ],
+        "products": [
+            {"key": "Exotic Ionic Chamber XS", "quantity": 1}
+        ]
+    }
 },
 {
     "Name": "Exotic Mobile Panel S",
@@ -3559,7 +4028,8 @@
         ],
         "products": [
             {"key": "Base Shield Generator XL", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 Element Schematic Copy"
     }
 },
 {
@@ -3589,7 +4059,8 @@
         ],
         "products": [
             {"key": "Exotic Active Shield Generator L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 L Element Schematic Copy"
     }
 },
 {
@@ -3619,7 +4090,8 @@
         ],
         "products": [
             {"key": "Exotic Capacitor Shield Generator L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 L Element Schematic Copy"
     }
 },
 {
@@ -3649,7 +4121,8 @@
         ],
         "products": [
             {"key": "Exotic Variable Shield Generator L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 L Element Schematic Copy"
     }
 },
 {
@@ -3679,7 +4152,8 @@
         ],
         "products": [
             {"key": "Rare Active Shield Generator L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 L Element Schematic Copy"
     }
 },
 {
@@ -3709,7 +4183,8 @@
         ],
         "products": [
             {"key": "Rare Capacitor Shield Generator L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 L Element Schematic Copy"
     }
 },
 {
@@ -3739,7 +4214,8 @@
         ],
         "products": [
             {"key": "Rare Variable Shield Generator L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 L Element Schematic Copy"
     }
 },
 {
@@ -3769,7 +4245,8 @@
         ],
         "products": [
             {"key": "Exotic Active Shield Generator M", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 M Element Schematic Copy"
     }
 },
 {
@@ -3799,7 +4276,8 @@
         ],
         "products": [
             {"key": "Exotic Capacitor Shield Generator M", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 M Element Schematic Copy"
     }
 },
 {
@@ -3829,7 +4307,8 @@
         ],
         "products": [
             {"key": "Exotic Variable Shield Generator M", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 M Element Schematic Copy"
     }
 },
 {
@@ -3859,7 +4338,8 @@
         ],
         "products": [
             {"key": "Rare Active Shield Generator M", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 M Element Schematic Copy"
     }
 },
 {
@@ -3889,7 +4369,8 @@
         ],
         "products": [
             {"key": "Rare Capacitor Shield Generator M", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 M Element Schematic Copy"
     }
 },
 {
@@ -3919,7 +4400,8 @@
         ],
         "products": [
             {"key": "Rare Variable Shield Generator M", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 M Element Schematic Copy"
     }
 },
 {
@@ -3949,7 +4431,8 @@
         ],
         "products": [
             {"key": "Exotic Active Shield Generator S", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 S Element Schematic Copy"
     }
 },
 {
@@ -3979,7 +4462,8 @@
         ],
         "products": [
             {"key": "Exotic Capacitor Shield Generator S", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 S Element Schematic Copy"
     }
 },
 {
@@ -4009,7 +4493,8 @@
         ],
         "products": [
             {"key": "Exotic Variable Shield Generator S", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 S Element Schematic Copy"
     }
 },
 {
@@ -4039,7 +4524,8 @@
         ],
         "products": [
             {"key": "Rare Active Shield Generator S", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 S Element Schematic Copy"
     }
 },
 {
@@ -4069,7 +4555,8 @@
         ],
         "products": [
             {"key": "Rare Capacitor Shield Generator S", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 S Element Schematic Copy"
     }
 },
 {
@@ -4099,7 +4586,8 @@
         ],
         "products": [
             {"key": "Rare Variable Shield Generator S", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 S Element Schematic Copy"
     }
 },
 {
@@ -4129,7 +4617,8 @@
         ],
         "products": [
             {"key": "Exotic Active Shield Generator XS", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 XS Element Schematic Copy"
     }
 },
 {
@@ -4159,7 +4648,8 @@
         ],
         "products": [
             {"key": "Exotic Capacitor Shield Generator XS", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 XS Element Schematic Copy"
     }
 },
 {
@@ -4189,7 +4679,8 @@
         ],
         "products": [
             {"key": "Exotic Variable Shield Generator XS", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 5 XS Element Schematic Copy"
     }
 },
 {
@@ -4219,7 +4710,8 @@
         ],
         "products": [
             {"key": "Rare Active Shield Generator XS", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 XS Element Schematic Copy"
     }
 },
 {
@@ -4249,7 +4741,8 @@
         ],
         "products": [
             {"key": "Rare Capacitor Shield Generator XS", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 XS Element Schematic Copy"
     }
 },
 {
@@ -4279,7 +4772,8 @@
         ],
         "products": [
             {"key": "Rare Variable Shield Generator XS", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 XS Element Schematic Copy"
     }
 },
 {
@@ -4309,7 +4803,8 @@
         ],
         "products": [
             {"key": "Stasis Ammo XS", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 Ammo XS Schematic Copy"
     }
 },
 {
@@ -4339,7 +4834,8 @@
         ],
         "products": [
             {"key": "Stasis Ammo S", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 Ammo S Schematic Copy"
     }
 },
 {
@@ -4369,7 +4865,8 @@
         ],
         "products": [
             {"key": "Stasis Ammo M", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 Ammo M Schematic Copy"
     }
 },
 {
@@ -4399,7 +4896,8 @@
         ],
         "products": [
             {"key": "Stasis Ammo L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 Ammo L Schematic Copy"
     }
 },
 {
@@ -4432,7 +4930,8 @@
         ],
         "products": [
             {"key": "Stasis Weapont XS", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 XS Element Schematic Copy"
     }
 },
 {
@@ -4465,7 +4964,8 @@
         ],
         "products": [
             {"key": "Stasis Weapont S", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 S Element Schematic Copy"
     }
 },
 {
@@ -4498,7 +4998,8 @@
         ],
         "products": [
             {"key": "Stasis Weapont M", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 M Element Schematic Copy"
     }
 },
 {
@@ -4531,7 +5032,8 @@
         ],
         "products": [
             {"key": "Stasis Weapon L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 L Element Schematic Copy"
     }
 },
 {
@@ -4626,7 +5128,8 @@
         ],
         "products": [
             {"key": "Relic Plasma Extractor L", "quantity": 1}
-        ]
+        ],
+        "schematic": "Tier 4 L Element Schematic Copy"
     }
 }
 ]
