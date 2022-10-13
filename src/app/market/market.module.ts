@@ -14,6 +14,8 @@ import { ShareService } from './services/share.service';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { AvgOrePriceComponent } from './components/avg-ore-price/avg-ore-price.component';
 import { FuzzyPipe } from './pipe/fuzzy.pipe';
+import { RecipeComponent } from './components/recipe/recipe.component';
+
 
 @NgModule({
     declarations: [
@@ -22,7 +24,8 @@ import { FuzzyPipe } from './pipe/fuzzy.pipe';
       TreeViewLevelComponent,
       OrderDetailComponent,
       AvgOrePriceComponent,
-      FuzzyPipe
+      FuzzyPipe,
+      RecipeComponent
     ],
     imports: [
       CommonModule,

@@ -6,7 +6,7 @@ export class FuzzyPipe implements PipeTransform {
   transform(value: number): string {
     const now = Date.now();
     let diff = now - value;
-    console.log(now, value, diff);
+    //console.log(now, value, diff);
     const ms = diff % 1000;
     diff = (diff - ms) / 1000;
     const s = diff % 60;
@@ -18,7 +18,7 @@ export class FuzzyPipe implements PipeTransform {
     const d = diff;
 
     const y = diff % 365;
-    console.log(y,d,h,m,s,ms);
+    //console.log(y,d,h,m,s,ms);
     let result = '';
     if (d < 365) {
         result = (s < 10 ? '0' : '') + s + 's';

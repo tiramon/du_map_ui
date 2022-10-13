@@ -20,7 +20,8 @@ const routes: Routes = [
       component: OrderDetailComponent,
       resolve: {
         stats: OrderStatsResolver,
-        item: ItemResolver
+        item: ItemResolver,
+        avgPrice: AvgPriceResolver
       }
     },
     {

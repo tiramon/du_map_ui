@@ -1,7 +1,37 @@
 <div class="box">
     <img [src]="item.Icon ? item.Icon : 'https://cdn.hyperion-corporation.de/iconslib/invalid.png'" style="width: 40px;">{{item.Name}}<br>
-    {{item.Description}}
-
+    <div>
+        {{item.Description}}
+    </div>
+    <br>
+    <div>
+        Skills: {{(skills?.length > 0 ? skills : 'No Skills')}}
+    </div>
+    <br>
+    <div class="columns">
+        <div class="column is-half">
+            Calculated Price Based on <a [routerLink]="['/market/avg']">Avg Ore Prices</a><br>
+            with max skills: {{(withSkills ? (withSkills | number: '1.1-1') : '-')}} ħ <br>
+            without skills: {{(withoutSkills ? (withoutSkills | number: '1.1-1') : '-')}} ħ
+        </div>
+        <div class="column is-half">
+            Volume: {{item.Volume}}<br>
+            Mass: {{item.Mass}}
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half">
+            Used to build:<br>
+            <ul>
+                <li *ngFor="let prod of produced()"><a [routerLink]="['/market/itemType',prod.NqId]">{{prod.Name}}</a><br></li>
+            </ul>
+        </div>
+        <div class="column is-half">
+            Recipe: <br>
+            <dumap-recipe [recipe]="recipe" *ngIf="recipe"></dumap-recipe>
+        </div>
+    </div>
+    
     <highcharts-chart
             [Highcharts]="Highcharts"
             [constructorType]="chartConstructor"

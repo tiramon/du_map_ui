@@ -1,0 +1,7 @@
+crafting time {{formatTime(recipe.craftingTime)}}<br>
+Ingredients: 
+<div class="content">
+    <ul>
+<li *ngFor="let ingredient of recipe.ingredients">{{ingredient.quantity}}x <a [routerLink]="['/market/itemType', itemIdByName(ingredient.key)]">{{ingredient.key}}</a></li>
+    </ul>
+</div>

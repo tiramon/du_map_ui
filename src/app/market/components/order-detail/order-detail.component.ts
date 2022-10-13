@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Order, OrderStats } from '@tiramon/du-market-api';
+import { AvgOrePrice, Order, OrderStats } from '@tiramon/du-market-api';
 import { inputItem } from '../../model/inputItem.model';
 
 import * as Highcharts from 'highcharts';
 import { ShareService } from '../../services/share.service';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HC_exporting from 'highcharts/modules/exporting';
+import { CalcService } from '../../services/calc.service';
 
 HC_exporting(Highcharts);
 HighchartsMore(Highcharts);
@@ -45,9 +46,17 @@ export class OrderDetailComponent implements OnInit {
   };
 
   orderStats: OrderStats[] = [];
-  item: inputItem = {Name: '', Description: '', Tier: 0, Mass: 0, Icon: '', GroupId: '', Volume: 0, NqId: 0, NqRecipeId: 0};
+  item: inputItem = {Name: '', Description: '', Tier: 0, Mass: 0, Icon: '', GroupId: '', Volume: 0, NqId: 0};
+  avg: Array<AvgOrePrice>;
 
-  constructor(private route: ActivatedRoute, private shareService: ShareService) { }
+  withoutSkills;
+  withSkills;
+  skills;
+  constructor(
+    private route: ActivatedRoute,
+    private shareService: ShareService,
+    private calcService: CalcService
+  ) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
@@ -56,6 +65,7 @@ export class OrderDetailComponent implements OnInit {
         timestamp: new Date().getTime()
       });
       this.item = data['item'];
+      this.avg = data['avgPrice'];
 
       const buySeries = this.currentOption.series[2] as Highcharts.SeriesBarOptions;
       const sellAvgSeries = this.currentOption.series[0] as Highcharts.SeriesBarOptions;
@@ -68,8 +78,7 @@ export class OrderDetailComponent implements OnInit {
       const currentBuyMaxData: any[] = [];
       const currentSellMinData: any[] = [];
 
-      data['stats'].forEach( stat => {
-
+      this.orderStats.forEach( stat => {
         const buyAvg = stat.buyValue / stat.buyStock;
         const sellAvg = stat.sellValue / stat.sellStock;
 
@@ -84,8 +93,26 @@ export class OrderDetailComponent implements OnInit {
       sellMinSeries.data = currentSellMinData;
       this.currentOption.title.text = 'Market values ' + this.item.Name;
       this.updateFlag = true;
+
+      this.calcService.clearValueCache(this.avg);
+      this.withoutSkills = this.calcService.calcOrePriceOneItem(this.item, undefined);
+      this.calcService.clearValueCache(this.avg);
+      this.withSkills = this.calcService.calcOrePriceOneItem(this.item, {});
+      console.log('calculated item price', this.withoutSkills);
+
+      this.skills = this.calcService.getAffectingSkill(this.item);
     });
   }
+
+  get recipe() {
+    return this.item.recipe;
+  }
+
+  produced() {
+    return this.calcService.getRecipesUsingItem(this.item.NqId);
+  }
+
+  
 
   groupBy(list: any, keyGetter: any) {
     return list.reduce((groups: any, item: any) => {
