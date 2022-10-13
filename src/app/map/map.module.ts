@@ -45,7 +45,7 @@ import { LoginComponent } from './component/login/login.component';
       {provide: 'BASEURL', useValue: environment.apiEndpoint},
       {provide: 'PLANETS', useValue: [
         {id: 31, name: 'Alioth', ores: [0, 1, 2, 3, 5, 8], gp: 93, altitude: 200},
-          {id: 17, name: 'Alioth Moon 1', ores: [ 1, 3, 7, 11], gp: 22, altitude: 0},
+          {id: 17, name: 'Alioth Moon 1', ores: [ 0, 2, 4, 9], gp: 22, altitude: 0},
           {id: 18, name: 'Alioth Moon 4', ores:  [1, 3, 7, 11], gp: 22, altitude: 0},
 //        {id: 27, name: 'Feli', ores: [0, 1, 2, 3, 6, 10, 14], gp: 30, altitude: 18300},
 //          {id: 8, name: 'Feli Moon 1', ores: [ 1, 2, 6, 17], gp: 10, altitude: 0},

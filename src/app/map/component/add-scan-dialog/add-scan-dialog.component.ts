@@ -102,6 +102,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     for (const o of this.getOres(this.scan.planet)) {
       this.currentOres.push(this.ores[o]);
     }
+    this.currentOres = [].concat(this.currentOres);
   }
 
   changePlanet(event) {
