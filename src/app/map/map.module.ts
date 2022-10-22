@@ -77,12 +77,12 @@ import { LoginComponent } from './component/login/login.component';
           {id: 10, name: 'Thades Moon 2', ores: [2, 3, 5, 9], gp: 11, altitude: 0}
       ]},
       {provide: 'ORES', useValue: [
-        {name: 'Bauxite',    tier: 1, hc: 10, quanta: 90, color: 'rgb(214, 255, 255)', order: 9},
-        {name: 'Coal',       tier: 1, hc: 10, quanta: 90, color: 'rgb(214, 255, 255)', order: 6},
-        {name: 'Hematite',   tier: 1, hc: 10, quanta: 90, color: 'rgb(0, 186, 255)', order: 7},
-        {name: 'Quartz',     tier: 1, hc: 10, quanta: 90, color: 'rgb(104, 238, 255)', order: 8},
+        {name: 'Bauxite',    tier: 1, hc: 10, quanta: 90, color: 'rgb(214, 255, 255)', order: 10},
+        {name: 'Coal',       tier: 1, hc: 10, quanta: 90, color: 'rgb(214, 255, 255)', order: 7},
+        {name: 'Hematite',   tier: 1, hc: 10, quanta: 90, color: 'rgb(0, 186, 255)', order: 8},
+        {name: 'Quartz',     tier: 1, hc: 10, quanta: 90, color: 'rgb(104, 238, 255)', order: 9},
 
-        {name: 'Chromite',   tier: 2, hc: 20, quanta: 390, color: 'rgb(0, 164, 244)', order: 10},
+        {name: 'Chromite',   tier: 2, hc: 20, quanta: 390, color: 'rgb(0, 164, 244)', order: 6},
         {name: 'Limestone',  tier: 2, hc: 20, quanta: 390, color: 'rgb(101, 232, 249)', order: 100},
         {name: 'Malachite',  tier: 2, hc: 20, quanta: 390, color: 'rgb(10, 173, 255)', order: 3},
         {name: 'Natron',     tier: 2, hc: 20, quanta: 390, color: 'rgb(191, 249, 250)', order: 102},
