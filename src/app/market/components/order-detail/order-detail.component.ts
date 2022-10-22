@@ -78,14 +78,18 @@ export class OrderDetailComponent implements OnInit {
       const currentBuyMaxData: any[] = [];
       const currentSellMinData: any[] = [];
 
+      const minTimestamp = (Date.now() - 1000 * 60 * 60 * 24 * 14);
+      console.log(minTimestamp);
       this.orderStats.forEach( stat => {
         const buyAvg = stat.buyValue / stat.buyStock;
         const sellAvg = stat.sellValue / stat.sellStock;
-
+        console.log(+stat.timestamp > minTimestamp,+stat.timestamp,minTimestamp);
+        if (+stat.timestamp > minTimestamp) {
         currentBuyData.push([+stat.timestamp, buyAvg]);
         currentSellAvgData.push([+stat.timestamp, sellAvg]);
         currentBuyMaxData.push([+stat.timestamp, stat.buyMaxPrice]);
         currentSellMinData.push([+stat.timestamp, stat.sellMinPrice]);
+        }
       });
       buySeries.data = currentBuyData;
       sellAvgSeries.data = currentSellAvgData;
