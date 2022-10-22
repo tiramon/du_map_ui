@@ -61,5 +61,10 @@
     {"name": "Tier 5 Product Material Schematic Copy", "cost": 351562, "amount": 10, "time" : 0},
     {"name": "Tier 5 Pure Honeycomb Schematic Copy", "cost": 48828, "amount": 25, "time" : 0},
     {"name": "Tier 5 Product Honeycomb Schematic Copy", "cost": 48828, "amount": 25, "time" : 0},
-    {"name": "Tier 5 Scrap Schematic Copy", "cost": 11718, "amount": 25, "time" : 0}
+    {"name": "Tier 5 Scrap Schematic Copy", "cost": 11718, "amount": 25, "time" : 0},
+
+    {"name": "Construct Support XY Schematic Copy", "cost": 3750, "amount": 25, "time": 0},
+    {"name": "Construct Support S Schematic Copy", "cost": 7500, "amount": 20, "time": 0},
+    {"name": "Construct Support M Schematic Copy", "cost": 15000, "amount": 15, "time": 0},
+    {"name": "Construct Support L Schematic Copy", "cost": 30000, "amount": 10, "time": 0}
 ]

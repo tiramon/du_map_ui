@@ -2582,11 +2582,49 @@
 {"Name": "Basic Mechanical Sensor XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 7.49,"Tier": 1,"NqId": 204444775,"NqSchemaId": 353439746,"Mass": 35.96,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mechanical-sensor_001_icon.png","GroupId": "08d8a31f-513b-460d-896b-c132d9265abd"},
 {"Name": "Advanced Mechanical Sensor XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 20.86,"Tier": 3,"NqId": 204469317,"NqSchemaId": 355397768,"Mass": 100.99,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mechanical-sensor_001_icon.png","GroupId": "08d8a31f-513b-460d-896b-c132d9265abd"},
 {"Name": "Exotic Mechanical Sensor XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 19.26,"Tier": 5,"NqId": 204462057,"NqSchemaId": 352387552,"Mass": 102.37,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mechanical-sensor_001_icon.png","GroupId": "08d8a31f-513b-460d-896b-c132d9265abd"},
-{"Name": "Basic Mobile Panel L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 1374.4,"Tier": 1,"NqId": 494825062,"NqSchemaId": 2096261825,"Mass": 2827,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9"},
-{"Name": "Basic Mobile Panel M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 259.2,"Tier": 1,"NqId": 494825061,"NqSchemaId": 2096261830,"Mass": 536,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9"},
-{"Name": "Basic Mobile Panel S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 49.6,"Tier": 1,"NqId": 494825071,"NqSchemaId": 2096261880,"Mass": 103,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9"},
+{"Name": "Basic Mobile Panel L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 1374.4,"Tier": 1,"NqId": 494825062,"NqSchemaId": 2096261825,"Mass": 2827,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 343},
+        {"key": "Basic Screw", "quantity": 125}
+    ],
+    "products": [
+        {"key": "Basic Mobile Panel L", "quantity": 1}
+    ]
+}
+},
+{"Name": "Basic Mobile Panel M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 259.2,"Tier": 1,"NqId": 494825061,"NqSchemaId": 2096261830,"Mass": 536,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 49},
+        {"key": "Basic Screw", "quantity": 25}
+    ],
+    "products": [
+        {"key": "Basic Mobile Panel M", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Mobile Panel S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 49.6,"Tier": 1,"NqId": 494825071,"NqSchemaId": 2096261880,"Mass": 103,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 7},
+        {"key": "Basic Screw", "quantity": 5}
+    ],
+    "products": [
+        {"key": "Basic Mobile Panel S", "quantity": 1}
+    ]
+}
+},
 {"Name": "Basic Mobile Panel XL","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 7420.8,"Tier": 1,"NqId": 407690291,"NqSchemaId": 117227225,"Mass": 15164,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9"},
-{"Name": "Basic Mobile Panel XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 9.6,"Tier": 1,"NqId": 407690298,"NqSchemaId": 117227222,"Mass": 20,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9"},
+{"Name": "Basic Mobile Panel XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 9.6,"Tier": 1,"NqId": 407690298,"NqSchemaId": 117227222,"Mass": 20,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 1},
+        {"key": "Basic Screw", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Basic Mobile Panel XS", "quantity": 1}
+    ]
+}},
 {"Name": "Uncommon Mobile Panel L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 1383.2,"Tier": 2,"NqId": 494821797,"NqSchemaId": 2096240860,"Mass": 2778.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-mobile-panel_001_icon.png","GroupId": "08d8a31f-513d-4188-8ceb-7c22d3da86d9"},
 {"Name": "Rare Laser Chamber S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 58.4,"Tier": 4,"NqId": 2825506178,"NqSchemaId": 1825436306,"Mass": 90.49,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-laser-chamber_001_icon.png","GroupId": "08d8a31f-5136-45d8-8be5-d7705e642c54"},
 {"Name": "Rare Laser Chamber L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 1383.2,"Tier": 4,"NqId": 2825506203,"NqSchemaId": 1825436309,"Mass": 2493.61,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-laser-chamber_001_icon.png","GroupId": "08d8a31f-5136-45d8-8be5-d7705e642c54"},
@@ -2689,7 +2727,15 @@
     ]
 }},
 {"Name": "Advanced Pipe","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 3,"NqId": 1799107244,"NqSchemaId": 1552883210,"Mass": 2.19,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-pipe_001_icon.png","GroupId": "08d8a31f-5156-4065-8e1d-13c14baf06cd"},
-{"Name": "Basic Screw","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 1,"NqId": 3936127019,"NqSchemaId": 1417946494,"Mass": 8.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-screw_001_icon.png","GroupId": "08d8a31f-5157-4dcc-8d91-4ff49c7b7779"},
+{"Name": "Basic Screw","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 1,"NqId": 3936127019,"NqSchemaId": 1417946494,"Mass": 8.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-screw_001_icon.png","GroupId": "08d8a31f-5157-4dcc-8d91-4ff49c7b7779",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 10}
+    ],
+    "products": [
+        {"key": "Basic Screw", "quantity": 10}
+    ]
+}},
 {"Name": "Uncommon Screw","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 2,"NqId": 3936127018,"NqSchemaId": 1417946489,"Mass": 7.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-screw_001_icon.png","GroupId": "08d8a31f-5157-4dcc-8d91-4ff49c7b7779"},
 {"Name": "Advanced Screw","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 3,"NqId": 3936127017,"NqSchemaId": 1417946488,"Mass": 8.14,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-screw_001_icon.png","GroupId": "08d8a31f-5157-4dcc-8d91-4ff49c7b7779"},
 {"Name": "Basic Casing S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 1,"NqId": 567008148,"NqSchemaId": 669710505,"Mass": 7.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-casing_001_icon.png","GroupId": "08d8a31f-515c-429d-878b-a37de74b02db"},
@@ -2765,9 +2811,9 @@
 {"Name": "Advanced Casing S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 3,"NqId": 567007766,"NqSchemaId": 669702603,"Mass": 8.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-casing_001_icon.png","GroupId": "08d8a31f-515c-429d-878b-a37de74b02db"},
 {"Name": "Basic Reinforced Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 1,"NqId": 994058205,"NqSchemaId": 266197949,"Mass": 3316.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2",
 "recipe": {
-    "craftingTime": 1080,
+    "craftingTime": 1080,   
     "ingredients": [
-        {"key": "Steel Product", "quantity": 515}
+        {"key": "Steel product", "quantity": 515}
     ],
     "products": [
         {"key": "Basic Reinforced Frame L", "quantity": 1}
@@ -2943,11 +2989,72 @@
 {"Name": "Compact Aileron S","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 116.6,"Tier": 1,"NqId": 1923840124,"NqSchemaId": 1762504943,"Mass": 319.15,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_lift-wing_002_icon.png","GroupId": "08d8a31f-5008-4460-8040-9e588bafddc8"},
 {"Name": "Compact Aileron XS","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 22.6,"Tier": 1,"NqId": 2334843027,"NqSchemaId": 756132753,"Mass": 61.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_lift-wing_002_s_icon.png","GroupId": "08d8a31f-5008-4460-8040-9e588bafddc8"},
 {"Name": "Aileron XS","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 45.2,"Tier": 1,"NqId": 2292270972,"NqSchemaId": 1254660860,"Mass": 122.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_lift-wing_001_s_icon.png","GroupId": "08d8a31f-5008-4460-8040-9e588bafddc8"},
-{"Name": "Stabilizer L","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 3355.4,"Tier": 1,"NqId": 1090402453,"NqSchemaId": 260838861,"Mass": 11501.15,"Icon": "https://cdn.hyperion-corporation.de/iconslib/stabilizer_l.png","GroupId": "08d8a31f-5009-4577-8699-fd711293c92f"},
-{"Name": "Stabilizer M","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 3474622996,"NqSchemaId": 1609056078,"Mass": 2026.11,"Icon": "https://cdn.hyperion-corporation.de/iconslib/stabilizer_m.png","GroupId": "08d8a31f-5009-4577-8699-fd711293c92f"},
-{"Name": "Stabilizer S","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 116.6,"Tier": 1,"NqId": 1234961120,"NqSchemaId": 368643400,"Mass": 366.89,"Icon": "https://cdn.hyperion-corporation.de/iconslib/stabilizer_s.png","GroupId": "08d8a31f-5009-4577-8699-fd711293c92f"},
-{"Name": "Stabilizer XS","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 22.6,"Tier": 1,"NqId": 1455311973,"NqSchemaId": 155801090,"Mass": 69.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_stabilizer_001_xs_icon.png","GroupId": "08d8a31f-5009-4577-8699-fd711293c92f"},
-{"Name": "Wing M","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 404188468,"NqSchemaId": 1123820852,"Mass": 1704.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/wing_02.png","GroupId": "08d8a31f-500a-4787-8b0b-d888db56f8b4"},
+{"Name": "Stabilizer L","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 3355.4,"Tier": 1,"NqId": 1090402453,"NqSchemaId": 260838861,"Mass": 11501.15,"Icon": "https://cdn.hyperion-corporation.de/iconslib/stabilizer_l.png","GroupId": "08d8a31f-5009-4577-8699-fd711293c92f",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 216},
+        {"key": "Basic hydraulics", "quantity": 125},
+        {"key": "Basic Mobile Panel L", "quantity": 1},
+        {"key": "Basic Reinforced Frame L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Stabilizer L", "quantity": 1}
+    ],
+    "schematic": "Construct Support L Schematic Copy"
+}},
+{"Name": "Stabilizer M","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 3474622996,"NqSchemaId": 1609056078,"Mass": 2026.11,"Icon": "https://cdn.hyperion-corporation.de/iconslib/stabilizer_m.png","GroupId": "08d8a31f-5009-4577-8699-fd711293c92f",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 36},
+        {"key": "Basic hydraulics", "quantity": 25},
+        {"key": "Basic Mobile Panel M", "quantity": 1},
+        {"key": "Basic Reinforced Frame M", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Stabilizer M", "quantity": 1}
+    ],
+    "schematic": "Construct Support M Schematic Copy"
+}},
+{"Name": "Stabilizer S","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 116.6,"Tier": 1,"NqId": 1234961120,"NqSchemaId": 368643400,"Mass": 366.89,"Icon": "https://cdn.hyperion-corporation.de/iconslib/stabilizer_s.png","GroupId": "08d8a31f-5009-4577-8699-fd711293c92f",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 6},
+        {"key": "Basic hydraulics", "quantity": 5},
+        {"key": "Basic Mobile Panel S", "quantity": 1},
+        {"key": "Basic Reinforced Frame S", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Stabilizer S", "quantity": 1}
+    ],
+    "schematic": "Construct Support S Schematic Copy"
+}},
+{"Name": "Stabilizer XS","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 22.6,"Tier": 1,"NqId": 1455311973,"NqSchemaId": 155801090,"Mass": 69.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_stabilizer_001_xs_icon.png","GroupId": "08d8a31f-5009-4577-8699-fd711293c92f",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 1},
+        {"key": "Basic hydraulics", "quantity": 1},
+        {"key": "Basic Mobile Panel XS", "quantity": 1},
+        {"key": "Basic Reinforced Frame XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Stabilizer XS", "quantity": 1}
+    ],
+    "schematic": "Construct Support XS Schematic Copy"
+}},
+{"Name": "Wing M","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 404188468,"NqSchemaId": 1123820852,"Mass": 1704.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/wing_02.png","GroupId": "08d8a31f-500a-4787-8b0b-d888db56f8b4",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 36},
+        {"key": "Basic hydraulics", "quantity": 25},
+        {"key": "Basic Mobile Panel M", "quantity": 1},
+        {"key": "Basic Standard Frame M", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Wing M", "quantity": 1}
+    ],
+    "schematic": "Construct Support M Schematic Copy"
+
+}},
 {"Name": "Wing variant M","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 4179758576,"NqSchemaId": 1756752144,"Mass": 1704.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/wing_01.png","GroupId": "08d8a31f-500a-4787-8b0b-d888db56f8b4"},
 {"Name": "Landing Gear S","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 67,"Tier": 2,"NqId": 1884031929,"NqSchemaId": 224722815,"Mass": 258.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_s_icon.png","GroupId": "08d8a31f-5041-475a-8070-219949aeae13"},
 {"Name": "Expanded gate S","Description": null,"Volume": 16755.49,"Tier": 2,"NqId": 581667413,"NqSchemaId": 1815973316,"Mass": 122752.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gate_01_s.png","GroupId": "08d8a31f-4faa-406f-8235-572bc4f85703"},
