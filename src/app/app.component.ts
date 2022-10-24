@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
         this.showSettings = false;
         return;
       }
-
+/*
       const warningread = localStorage.getItem(this.localStorageKeyWarningRead);
       const warningread2 = localStorage.getItem(this.localStorageKeyWarningRead + '2');
 
@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
         );
         localStorage.setItem(this.localStorageKeyWarningRead + '2', 'true');
       }
-
+*/
       console.log(router.navigated);
       if (router.navigated) {
         const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
