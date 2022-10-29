@@ -49,6 +49,7 @@ export class OrderDetailComponent implements OnInit {
   item: inputItem = {Name: '', Description: '', Tier: 0, Mass: 0, Icon: '', GroupId: '', Volume: 0, NqId: 0};
   avg: Array<AvgOrePrice>;
 
+  withSkillsAndNanocrafter;
   withoutSkills;
   withSkills;
   skills;
@@ -99,9 +100,11 @@ export class OrderDetailComponent implements OnInit {
       this.updateFlag = true;
 
       this.calcService.clearValueCache(this.avg);
-      this.withoutSkills = this.calcService.calcOrePriceOneItem(this.item, undefined);
+      this.withSkillsAndNanocrafter = this.calcService.calcOrePriceOneItem(this.item, {}, true);
       this.calcService.clearValueCache(this.avg);
-      this.withSkills = this.calcService.calcOrePriceOneItem(this.item, {});
+      this.withoutSkills = this.calcService.calcOrePriceOneItem(this.item, undefined, false);
+      this.calcService.clearValueCache(this.avg);
+      this.withSkills = this.calcService.calcOrePriceOneItem(this.item, {}, false);
       console.log('calculated item price', this.withoutSkills);
 
       this.skills = this.calcService.getAffectingSkill(this.item);
@@ -115,8 +118,6 @@ export class OrderDetailComponent implements OnInit {
   produced() {
     return this.calcService.getRecipesUsingItem(this.item.NqId);
   }
-
-  
 
   groupBy(list: any, keyGetter: any) {
     return list.reduce((groups: any, item: any) => {

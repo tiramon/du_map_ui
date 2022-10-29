@@ -11,6 +11,7 @@
     <div class="columns">
         <div class="column is-half">
             Calculated Price Based on <a [routerLink]="['/market/avg']">Avg Ore Prices</a><br>
+            with max skills and Nanocrafter: {{(withSkillsAndNanocrafter ? (withSkillsAndNanocrafter | number: '1.1-1') : '-')}} ħ <br>
             with max skills: {{(withSkills ? (withSkills | number: '1.1-1') : '-')}} ħ <br>
             without skills: {{(withoutSkills ? (withoutSkills | number: '1.1-1') : '-')}} ħ
         </div>

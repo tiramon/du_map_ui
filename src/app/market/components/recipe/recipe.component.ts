@@ -18,7 +18,10 @@ export class RecipeComponent implements OnInit {
   }
 
   itemIdByName(name: string): number {
-    return this.itemService.itemByName(name).NqId;
+    if (!name) {
+      return null;
+    }
+    return this.itemService.itemByName(name)?.NqId;
   }
 
   formatTime(seconds: number) {

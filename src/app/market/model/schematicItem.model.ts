@@ -3,4 +3,5 @@ export interface SchematicItem {
     cost: number;
     amount: number;
     time: number;
+    nanocrafter?: boolean;
 }

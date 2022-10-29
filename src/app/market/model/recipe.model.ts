@@ -5,4 +5,5 @@ export interface Recipe {
     craftingTime: number;
     ingredients: Ingredient[];
     products: Ingredient[];
+    schematic?: string;
 }
