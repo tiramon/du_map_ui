@@ -15,7 +15,8 @@
 {"Name": "Rare Mining Unit L","Description": null,"Volume": 4200,"Tier": 1,"NqId": 3204140767,"NqSchemaId": null,"Mass": 7800,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
 {"Name": "Advanced Mining Unit L","Description": null,"Volume": 4050,"Tier": 1,"NqId": 3204140766,"NqSchemaId": null,"Mass": 7500,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
 {"Name": "Uncommon Mining Unit L","Description": null,"Volume": 2454,"Tier": 1,"NqId": 3204140761,"NqSchemaId": null,"Mass": 5160,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
-{"Name": "Basic Mining Unit S","Description": "","Volume": 70,"Tier": 1,"NqId": 1949562989,"NqSchemaId": null,"Mass": 180,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_s_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0", "recipe": {
+{"Name": "Basic Mining Unit S","Description": "","Volume": 70,"Tier": 1,"NqId": 1949562989,"NqSchemaId": null,"Mass": 180,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_s_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0", 
+"recipe": {
     "NqSchemaId": 1949562989,
     "craftingTime": 480,
     "ingredients": [
@@ -27,9 +28,11 @@
     "products": [
         {"key": "Basic Mining Unit S", "quantity": 1}
     ],
-    "schematic": "Tier 1 S Element Schematic Copy"
+    "schematic": "Tier 1 S Element Schematic Copy",
+    "nanocraftable": true
 }},
-{"Name": "Basic Mining Unit L","Description": null,"Volume": 2200,"Tier": 1,"NqId": 3204140760,"NqSchemaId": null,"Mass": 5130,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0", "recipe": {
+{"Name": "Basic Mining Unit L","Description": null,"Volume": 2200,"Tier": 1,"NqId": 3204140760,"NqSchemaId": null,"Mass": 5130,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0", 
+"recipe": {
     "NqSchemaId": 3204140760,
     "craftingTime": 7680,
     "ingredients": [
@@ -1710,12 +1713,14 @@
             {"key": "Pure Carbon", "quantity": 45},
             {"key": "Pure Oxygen", "quantity": 7.5},
             {"key": "Pure Hydrogen", "quantity": 7.5}
-        ]
+        ],
+        "nanocraftable": true
     }
 },
 {"Name": "Red Gold Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 4,"NqId": 2550840787,"NqSchemaId": 684037683,"Mass": 14.13,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0"},
 {"Name": "Sc-Al Alloy Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 4,"NqId": 2929462635,"NqSchemaId": 160929131,"Mass": 2.85,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a"},
-{"Name": "Silumin Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 2565702107,"NqSchemaId": 1289193723,"Mass": 3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a","recipe": {
+{"Name": "Silumin Product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 2565702107,"NqSchemaId": 1289193723,"Mass": 3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a",
+"recipe": {
     "NqSchemaId": 2565702107,
     "craftingTime": 150,
     "ingredients": [
@@ -1725,10 +1730,12 @@
     "products": [
         {"key": "Silumin Product", "quantity": 75}
     ],
-    "schematic": "Tier 1 Product Material Schematic Copy"
+    "schematic": "Tier 1 Product Material Schematic Copy",
+    "nanocraftable": true
 }},
 {"Name": "Stainless Steel product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 2,"NqId": 2984358477,"NqSchemaId": 1716547361,"Mass": 7.75,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-heavy-metal_001_icon.png","GroupId": "08d8a31f-50cc-4ded-8dcb-a7255197db20"},
-{"Name": "Steel product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 511774178,"NqSchemaId": 2116244450,"Mass": 8.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-heavy-metal_001_icon.png","GroupId": "08d8a31f-50cc-4ded-8dcb-a7255197db20", "recipe": {
+{"Name": "Steel product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 511774178,"NqSchemaId": 2116244450,"Mass": 8.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-heavy-metal_001_icon.png","GroupId": "08d8a31f-50cc-4ded-8dcb-a7255197db20",
+"recipe": {
     "NqSchemaId": 511774178,
     "craftingTime": 150,
     "ingredients": [
@@ -1738,7 +1745,8 @@
     "products": [
         {"key": "Steel product", "quantity": 75}
     ],
-    "schematic": "Tier 1 Product Material Schematic Copy"
+    "schematic": "Tier 1 Product Material Schematic Copy",
+    "nanocraftable": true
 }},
 {"Name": "Ti-Nb Supraconductor product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 5,"NqId": 1734893264,"NqSchemaId": 1183155920,"Mass": 10.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0"},
 {"Name": "Vanamer product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 5,"NqId": 255776324,"NqSchemaId": 2005886948,"Mass": 1.57,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
@@ -1760,10 +1768,24 @@
         "products": [
             {"key": "Pure Aluminium", "quantity": 45},
             {"key": "Pure Hydrogen", "quantity": 15}
-        ]
+        ],
+        "nanocraftable": true
     }
 },
-{"Name": "Pure Calcium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 2112763718,"NqSchemaId": 1358793857,"Mass": 1.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Calcium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
+{"Name": "Pure Calcium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 2112763718,"NqSchemaId": 1358793857,"Mass": 1.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Calcium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621",
+"recipe": {
+    "craftingTime": 125,
+    "ingredients": [
+        {"key": "Limestone", "quantity": 65}
+    ],
+    "products": [
+        {"key": "Pure Calcium", "quantity": 45},
+        {"key": "Pure Carbon", "quantity": 7.5},
+        {"key": "Pure Oxygen", "quantity": 7.5}
+    ],
+    "schematic": "Tier 2 Pure Material Schematic Copy"
+
+}},
 {"Name": "Pure Chromium","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 2147954574,"NqSchemaId": 67742786,"Mass": 7.19,"Icon": "https://cdn.hyperion-corporation.de/iconslib/chromium_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621",
 "recipe": {
     "craftingTime": 125,
@@ -1771,12 +1793,28 @@
         {"key": "Chromite", "quantity": 65}
     ],
     "products": [
-        {"key": "Pure Chromium", "quantity": 45}
-    ]
+        {"key": "Pure Chromium", "quantity": 45},
+        {"key": "Pure Iron", "quantity": 7.5},
+        {"key": "Pure Oxygen", "quantity": 7.5}
+    ],
+    "schematic": "Tier 2 Pure Material Schematic Copy"
+
+}},
+{"Name": "Pure Copper","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 1466453887,"NqSchemaId": 1447143715,"Mass": 8.96,"Icon": "https://cdn.hyperion-corporation.de/iconslib/copper_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621",
+"recipe": {
+    "craftingTime": 125,
+    "ingredients": [
+        {"key": "Malachite", "quantity": 65}
+    ],
+    "products": [
+        {"key": "Pure Copper", "quantity": 45},
+        {"key": "Pure Carbon", "quantity": 7.5},
+        {"key": "Pure Hydrogen", "quantity": 7.5}
+    ],
+    "schematic": "Tier 2 Pure Material Schematic Copy"
 
 }},
 {"Name": "Pure Cobalt","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 2031444137,"NqSchemaId": 107837465,"Mass": 8.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Cobalt_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
-{"Name": "Pure Copper","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 2,"NqId": 1466453887,"NqSchemaId": 1447143715,"Mass": 8.96,"Icon": "https://cdn.hyperion-corporation.de/iconslib/copper_ingot.png","GroupId": "08d8a31f-50db-4276-8b03-9ab547976621"},
 {"Name": "Pure Fluorine","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 3323724376,"NqSchemaId": 120974149,"Mass": 1.696,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Fluorine_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
 {"Name": "Pure Gold","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 4,"NqId": 3837955371,"NqSchemaId": 1508723351,"Mass": 19.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gold_ingot.png","GroupId": "08d8a31f-50d9-49df-811c-51fe3018ee4c"},
 {
@@ -1796,7 +1834,6 @@
         "products": [
             {"key": "Pure Hydrogen", "quantity": 50}
         ]
-    
     }
 },
 {
@@ -1840,7 +1877,8 @@
         "products": [
             {"key": "Pure Silicon", "quantity": 45},
             {"key": "Pure Oxygen", "quantity": 15}
-        ]
+        ],
+        "nanocraftable": true
     }
 },
 {"Name": "Pure Silver","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 1807690770,"NqSchemaId": 1689312272,"Mass": 10.49,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Silver_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
@@ -1864,9 +1902,9 @@
             {"key": "Pure Sodium", "quantity": 45},
             {"key": "Pure Oxygen", "quantity": 7.5},
             {"key": "Pure Hydrogen", "quantity": 7.5}
-        ]
-    },
-    "schematic": "Tier 2 Pure Material Schematic Copy"
+        ],
+        "schematic": "Tier 2 Pure Material Schematic Copy"
+    }
 },
 {"Name": "Pure Sulfur","Description": "Pure materials are refined versions of raw ores. These are used in the crafting process or for creating Honeycomb Materials.","Volume": 1,"Tier": 3,"NqId": 3822811562,"NqSchemaId": 547899423,"Mass": 1.819,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Sulfur_ingot.png","GroupId": "08d8a31f-50d3-41e5-87da-e64c4a37e842"},
 {"Name": "Polysulfide plastic product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 3,"NqId": 2097691217,"NqSchemaId": 9524849,"Mass": 1.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
@@ -1880,7 +1918,8 @@
     "products": [
         {"key": "Polycarbonate plastic product", "quantity": 75}
     ],
-    "schematic": "Tier 1 Product Material Schematic Copy"
+    "schematic": "Tier 1 Product Material Schematic Copy",
+    "nanocraftable": true
 }},
 {"Name": "Polycalcite plastic product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 2,"NqId": 4103265826,"NqSchemaId": 1756458312,"Mass": 1.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
 {"Name": "Pyrite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 4041459743,"NqSchemaId": null,"Mass": 5.01,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SulfurOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
@@ -1898,7 +1937,8 @@
     "products": [
         {"key": "Al-Fe Alloy product", "quantity": 75}
     ],
-    "schematic": "Tier 1 Product Material Schematic Copy"
+    "schematic": "Tier 1 Product Material Schematic Copy",
+    "nanocraftable": true
 }},
 {"Name": "Al-Li Alloy product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 3,"NqId": 2021406770,"NqSchemaId": 1618735154,"Mass": 2.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-light-metal_001_icon.png","GroupId": "08d8a31f-50ce-45fd-88b9-0da7fa7c4e5a"},
 {"Name": "Biological matter product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 2646210914,"NqSchemaId": 759450308,"Mass": 1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-biologic-matter_001_icon.png","GroupId": "08d8a31f-50c8-433c-8fc4-bd29e5fb62fd"},
@@ -2000,7 +2040,8 @@
         ],
         "products": [
             {"key": "Aluminium Scrap", "quantity": 50}
-        ]
+        ],
+        "nanocraftable": true
     }
 },
 {
@@ -2020,7 +2061,8 @@
         ],
         "products": [
             {"key": "Carbon Scrap", "quantity": 50}
-        ]
+        ],
+        "nanocraftable": true
     }
 },
 {
@@ -2040,7 +2082,8 @@
         ],
         "products": [
             {"key": "Iron Scrap", "quantity": 50}
-        ]
+        ],
+        "nanocraftable": true
     }
 },
 {
@@ -2060,7 +2103,8 @@
         ],
         "products": [
             {"key": "Silicon Scrap", "quantity": 50}
-        ]
+        ],
+        "nanocraftable": true
     }
 },
 {"Name": "Calcium Scrap","Description": "Scraps are an assorted group of parts and items used to repair and restore Elements to full functionality.","Volume": 1,"Tier": 2,"NqId": 1251531294,"NqSchemaId": 644881438,"Mass": 1.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/scrap-t2_001_icon.png","GroupId": "08d8a31f-4f38-4b17-8db3-5c38bc239e22"},
@@ -2147,7 +2191,8 @@
         "products": [
             {"key": "Nitron Fuel", "quantity": 100}
         ],
-        "schematic": "Atmospheric Fuel Schematic Copy"
+        "schematic": "Atmospheric Fuel Schematic Copy",
+        "nanocraftable": true
     }
 },
 {"Name": "Xeron Fuel","Description": null,"Volume": 1,"Tier": 2,"NqId": 106455050,"NqSchemaId": 400056330,"Mass": 0.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Xeron.png","GroupId": "08d8a31f-504f-410a-8e74-9c4fba1be4c4"},
@@ -2169,11 +2214,50 @@
             {"key": "Pure Hydrogen", "quantity": 30}
         ],
         "products": [
-            {"key": "Kergon-X1 Fuel", "quantity": 100}
+            {"key": "Kergon-X1 fuel", "quantity": 100}
         ],
         "schematic": "Space Fuel Schematic Copy"
     }
 },
+{"Name": "Kergon-X2 fuel","Description": null,"Volume": 1,"Tier": 1,"NqId": 840202981,"NqSchemaId": 1397521125,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Kergon.png","GroupId": "08d8a31f-5050-4555-8741-1bd04504b575",
+"recipe": {
+    "craftingTime": 84,
+    "ingredients": [
+        {"key": "Pure Calcium", "quantity": 40},
+        {"key": "Pure Oxygen", "quantity": 25},
+        {"key": "Pure Hydrogen", "quantity": 35}
+    ],
+    "products": [
+        {"key": "Kergon-X2 fuel", "quantity": 100}
+    ],
+    "schematic": "Space Fuel Schematic Copy"
+}},
+{"Name": "Kergon-X3 fuel","Description": null,"Volume": 1,"Tier": 1,"NqId": 840202986,"NqSchemaId": 1397521130,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Kergon.png","GroupId": "08d8a31f-5050-4555-8741-1bd04504b575",
+"recipe": {
+    "craftingTime": 84,
+    "ingredients": [
+        {"key": "Pure Chromium", "quantity": 40},
+        {"key": "Pure Oxygen", "quantity": 35},
+        {"key": "Pure Hydrogen", "quantity": 25}
+    ],
+    "products": [
+        {"key": "Kergon-X3 fuel", "quantity": 100}
+    ],
+    "schematic": "Space Fuel Schematic Copy"
+}},
+{"Name": "Kergon-X4 fuel","Description": null,"Volume": 1,"Tier": 1,"NqId": 840202987,"NqSchemaId": 1397521131,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Kergon.png","GroupId": "08d8a31f-5050-4555-8741-1bd04504b575",
+"recipe": {
+    "craftingTime": 84,
+    "ingredients": [
+        {"key": "Pure Copper", "quantity": 40},
+        {"key": "Pure Oxygen", "quantity": 30},
+        {"key": "Pure Hydrogen", "quantity": 30}
+    ],
+    "products": [
+        {"key": "Kergon-X4 fuel", "quantity": 100}
+    ],
+    "schematic": "Space Fuel Schematic Copy"
+}},
 {"Name": "Railgun Precision Electromagnetic Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 3,"NqId": 3511898141,"NqSchemaId": 1239451954,"Mass": 6.53,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f30-4b7f-8bec-9c89e3bd5fba"},
 {"Name": "Railgun Heavy Electromagnetic Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 3,"NqId": 3384068103,"NqSchemaId": 2025430297,"Mass": 6.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f30-4b7f-8bec-9c89e3bd5fba"},
 {"Name": "Railgun Defense Electromagnetic Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 3,"NqId": 2890607046,"NqSchemaId": 933424296,"Mass": 6.49,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f30-4b7f-8bec-9c89e3bd5fba"},
@@ -2288,9 +2372,6 @@
 {"Name": "Laser Defense Electromagnetic Ammo M","Description": "This Ammo is appropriate for Laser type weapon systems.","Volume": 50,"Tier": 3,"NqId": 483699778,"NqSchemaId": 1195223763,"Mass": 7.12,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-laser-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f21-4dc8-81a0-b119544085c0"},
 {"Name": "Laser Heavy Electromagnetic Ammo M","Description": "This Ammo is appropriate for Laser type weapon systems.","Volume": 50,"Tier": 3,"NqId": 220854647,"NqSchemaId": 284063445,"Mass": 7.67,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-laser-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f21-4dc8-81a0-b119544085c0"},
 {"Name": "Laser Precision Electromagnetic Ammo M","Description": "This Ammo is appropriate for Laser type weapon systems.","Volume": 50,"Tier": 3,"NqId": 1610308198,"NqSchemaId": 1560320163,"Mass": 7.22,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-laser-electromagnetic_001_icon.png","GroupId": "08d8a31f-4f21-4dc8-81a0-b119544085c0"},
-{"Name": "Kergon-X2 fuel","Description": null,"Volume": 1,"Tier": 1,"NqId": 840202981,"NqSchemaId": 1397521125,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Kergon.png","GroupId": "08d8a31f-5050-4555-8741-1bd04504b575"},
-{"Name": "Kergon-X3 fuel","Description": null,"Volume": 1,"Tier": 1,"NqId": 840202986,"NqSchemaId": 1397521130,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Kergon.png","GroupId": "08d8a31f-5050-4555-8741-1bd04504b575"},
-{"Name": "Kergon-X4 fuel","Description": null,"Volume": 1,"Tier": 1,"NqId": 840202987,"NqSchemaId": 1397521131,"Mass": 6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Kergon.png","GroupId": "08d8a31f-5050-4555-8741-1bd04504b575"},
 {"Name": "Stained gray pattern concrete","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 2,"NqId": 38264863,"NqSchemaId": 1721513624,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ConcreteTileHCGrayL.png","GroupId": "08d8a31f-5083-478e-88ef-c4aa4228c187"},
 {"Name": "Waxed black concrete","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 2,"NqId": 38264863,"NqSchemaId": 1721513624,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ConcreteBrightHCBlack.png","GroupId": "08d8a31f-5083-478e-88ef-c4aa4228c187"},
 {"Name": "Waxed gray concrete","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 2,"NqId": 38264863,"NqSchemaId": 1721513624,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ConcreteBrightHCGray.png","GroupId": "08d8a31f-5083-478e-88ef-c4aa4228c187"},
@@ -2669,15 +2750,61 @@
 {"Name": "Uncommon Ionic Chamber S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 44.77,"Tier": 2,"NqId": 1390563327,"NqSchemaId": 763789013,"Mass": 452.35,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
 {"Name": "Uncommon Ionic Chamber M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 208.93,"Tier": 2,"NqId": 1390563321,"NqSchemaId": 763789007,"Mass": 2104.15,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
 {"Name": "Uncommon Ionic Chamber L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 1096.93,"Tier": 2,"NqId": 1390563302,"NqSchemaId": 763789004,"Mass": 11014.15,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
-{"Name": "Basic Ionic Chamber XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 7.33,"Tier": 1,"NqId": 962712586,"NqSchemaId": 648202053,"Mass": 75.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
 {"Name": "Basic Gas Cylinder S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 49.6,"Tier": 1,"NqId": 2119086146,"NqSchemaId": 1194767553,"Mass": 81.38,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-gaz-cylindre_001_icon.png","GroupId": "08d8a31f-5132-41d8-87b7-bd86169677f5"},
 {"Name": "Basic Gas Cylinder XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 9.6,"Tier": 1,"NqId": 792299450,"NqSchemaId": 981789849,"Mass": 15.68,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-gaz-cylindre_001_icon.png","GroupId": "08d8a31f-5132-41d8-87b7-bd86169677f5"},
-{"Name": "Basic Ionic Chamber L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 1090.4,"Tier": 1,"NqId": 1390562878,"NqSchemaId": 763768767,"Mass": 11142.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
-{"Name": "Basic Ionic Chamber M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 202.4,"Tier": 1,"NqId": 1390562879,"NqSchemaId": 763768764,"Mass": 2070.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
-{"Name": "Basic Ionic Chamber S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 38.24,"Tier": 1,"NqId": 1390562873,"NqSchemaId": 763768710,"Mass": 391.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
-{"Name": "Basic Ionic Chamber XL","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 6000.8,"Tier": 1,"NqId": 962712579,"NqSchemaId": 648202060,"Mass": 61234.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094"},
+{"Name": "Basic Ionic Chamber XL","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 6000.8,"Tier": 1,"NqId": 962712579,"NqSchemaId": 648202060,"Mass": 61234.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 2401},
+        {"key": "Basic Connector", "quantity": 625}
+    ],
+    "products": [
+        {"key": "Basic Ionic Chamber XL", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Ionic Chamber L","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 1090.4,"Tier": 1,"NqId": 1390562878,"NqSchemaId": 763768767,"Mass": 11142.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 343},
+        {"key": "Basic Connector", "quantity": 125}
+    ],
+    "products": [
+        {"key": "Basic Ionic Chamber L", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Ionic Chamber M","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 202.4,"Tier": 1,"NqId": 1390562879,"NqSchemaId": 763768764,"Mass": 2070.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 49},
+        {"key": "Basic Connector", "quantity": 25}
+    ],
+    "products": [
+        {"key": "Basic Ionic Chamber M", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Ionic Chamber S","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 38.24,"Tier": 1,"NqId": 1390562873,"NqSchemaId": 763768710,"Mass": 391.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 7},
+        {"key": "Basic Connector", "quantity": 5}
+    ],
+    "products": [
+        {"key": "Basic Ionic Chamber S", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Ionic Chamber XS","Description": "Functional parts are a relatively basic and low level Component that will define an Element's use. They come in different sizes based on your Element's volume.","Volume": 7.33,"Tier": 1,"NqId": 962712586,"NqSchemaId": 648202053,"Mass": 75.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_functional-part-ionic-chamber_001_icon.png","GroupId": "08d8a31f-5134-4c0b-8562-2fe00ade0094",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 1},
+        {"key": "Basic Connector", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Basic Ionic Chamber XS", "quantity": 1}
+    ]
+}},
 {"Name": "Uncommon Pipe","Description": "Intermediary parts are a low level combinatory Element.","Volume": 1,"Tier": 2,"NqId": 1799107247,"NqSchemaId": 1552883209,"Mass": 2.32,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-pipe_001_icon.png","GroupId": "08d8a31f-5156-4065-8e1d-13c14baf06cd"},
-{"Name": "Basic Component","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.5,"Tier": 1,"NqId": 794666749,"NqSchemaId": 1319718943,"Mass": 2.25,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-component_001_icon.png","GroupId": "08d8a31f-514e-4a1e-8d11-a8cd886bbec5", "recipe": {
+{"Name": "Basic Component","Description": "Intermediary parts are a low level combinatory Element.","Volume": 0.5,"Tier": 1,"NqId": 794666749,"NqSchemaId": 1319718943,"Mass": 2.25,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_intermediary-part-component_001_icon.png","GroupId": "08d8a31f-514e-4a1e-8d11-a8cd886bbec5",
+"recipe": {
     "NqSchemaId": 794666749,
     "craftingTime": 120,
     "ingredients": [
@@ -2764,8 +2891,17 @@
 {"Name": "Exotic Reinforced Frame S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 5,"NqId": 994057929,"NqSchemaId": 264377041,"Mass": 69.62,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Exotic Reinforced Frame XL","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 3602,"Tier": 5,"NqId": 1179593236,"NqSchemaId": 493789454,"Mass": 22780.07,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Exotic Reinforced Frame XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 5,"NqId": 1179593235,"NqSchemaId": 493789493,"Mass": 12.71,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
-{"Name": "Basic Standard Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 1,"NqId": 1981362474,"NqSchemaId": 461590277,"Mass": 1081.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
-{"Name": "Basic Standard Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 1,"NqId": 1981362473,"NqSchemaId": 461590276,"Mass": 155.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23", "recipe": {
+{"Name": "Basic Standard Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 1,"NqId": 1981362474,"NqSchemaId": 461590277,"Mass": 1081.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 515}
+    ],
+    "products": [
+        {"key": "Basic Standard Frame L", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Standard Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 1,"NqId": 1981362473,"NqSchemaId": 461590276,"Mass": 155.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23",
+"recipe": {
     "NqSchemaId": 1981362473,
     "craftingTime": 360,
     "ingredients": [
@@ -2785,7 +2921,15 @@
         {"key": "Basic Standard Frame S", "quantity": 1}
     ]
 }},
-{"Name": "Basic Standard Frame XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 1,"NqId": 873663991,"NqSchemaId": 510615335,"Mass": 4.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
+{"Name": "Basic Standard Frame XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 1,"NqId": 873663991,"NqSchemaId": 510615335,"Mass": 4.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin Product", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Basic Standard Frame XS", "quantity": 2}
+    ]
+}},
 {"Name": "Uncommon Standard Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 2,"NqId": 1981362539,"NqSchemaId": 461676500,"Mass": 1033.48,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
 {"Name": "Uncommon Standard Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 2,"NqId": 1981362536,"NqSchemaId": 461676501,"Mass": 148.54,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
 {"Name": "Uncommon Standard Frame S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 2,"NqId": 1981362450,"NqSchemaId": 461676511,"Mass": 22.12,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-standart-frame_001_icon.png","GroupId": "08d8a31f-515f-4d26-8af3-519519a84f23"},
@@ -2819,10 +2963,42 @@
         {"key": "Basic Reinforced Frame L", "quantity": 1}
     ]
 }},
-{"Name": "Basic Reinforced Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 1,"NqId": 994058204,"NqSchemaId": 266197938,"Mass": 476.56,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
-{"Name": "Basic Reinforced Frame S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 1,"NqId": 994058182,"NqSchemaId": 266197940,"Mass": 70.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
-{"Name": "Basic Reinforced Frame XL","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 3602,"Tier": 1,"NqId": 1179610516,"NqSchemaId": 376985790,"Mass": 23196.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
-{"Name": "Basic Reinforced Frame XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 1,"NqId": 1179610525,"NqSchemaId": 376985783,"Mass": 12.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
+{"Name": "Basic Reinforced Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 1,"NqId": 994058204,"NqSchemaId": 266197938,"Mass": 476.56,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 74}
+    ],
+    "products": [
+        {"key": "Basic Reinforced Frame M", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Reinforced Frame S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 1,"NqId": 994058182,"NqSchemaId": 266197940,"Mass": 70.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 11}
+    ],
+    "products": [
+        {"key": "Basic Reinforced Frame S", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Reinforced Frame XL","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 3602,"Tier": 1,"NqId": 1179610516,"NqSchemaId": 376985790,"Mass": 23196.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 3602}
+    ],
+    "products": [
+        {"key": "Basic Reinforced Frame XL", "quantity": 1}
+    ]
+}},
+{"Name": "Basic Reinforced Frame XS","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 2,"Tier": 1,"NqId": 1179610525,"NqSchemaId": 376985783,"Mass": 12.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2",
+"recipe": {
+    "ingredients": [
+        {"key": "Steel product", "quantity": 2}
+    ],
+    "products": [
+        {"key": "Basic Reinforced Frame XS", "quantity": 1}
+    ]
+}},
 {"Name": "Uncommon Reinforced Frame L","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 515,"Tier": 2,"NqId": 994058140,"NqSchemaId": 266176780,"Mass": 3234.28,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Uncommon Reinforced Frame M","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 74,"Tier": 2,"NqId": 994058141,"NqSchemaId": 266176771,"Mass": 464.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
 {"Name": "Uncommon Reinforced Frame S","Description": "Structural Parts are a low level Component representing the frame of an Element. They come in different sizes based on your Element's volume.","Volume": 11,"Tier": 2,"NqId": 994058119,"NqSchemaId": 266176773,"Mass": 69.16,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_structural-part-reinforced-frame_001_icon.png","GroupId": "08d8a31f-515d-4ff2-810e-b6bac25bb3c2"},
@@ -2956,33 +3132,149 @@
 {"Name": "Rocket Engine L","Description": "Rocket Engines are capable of producing huge thrust for a short amount of time. They consume rocket fuel and demand proper placement for optimal usage.","Volume": 628,"Tier": 4,"NqId": 359938916,"NqSchemaId": 769815200,"Mass": 3392.98,"Icon": "https://cdn.hyperion-corporation.de/iconslib/rocket_engine_l.png","GroupId": "08d8a31f-502b-4e76-8f2b-a1495d7a1aec"},
 {"Name": "Rocket Engine M","Description": "Rocket Engines are capable of producing huge thrust for a short amount of time. They consume rocket fuel and demand proper placement for optimal usage.","Volume": 125.4,"Tier": 3,"NqId": 3623903713,"NqSchemaId": 1036257592,"Mass": 680.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/rocket_engine_m.png","GroupId": "08d8a31f-502b-4e76-8f2b-a1495d7a1aec"},
 {"Name": "Rocket Engine S","Description": "Rocket Engines are capable of producing huge thrust for a short amount of time. They consume rocket fuel and demand proper placement for optimal usage.","Volume": 40.2,"Tier": 3,"NqId": 2112772336,"NqSchemaId": 1359689038,"Mass": 223.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/rocket_engine_s.png","GroupId": "08d8a31f-502b-4e76-8f2b-a1495d7a1aec"},
-{"Name": "Retro-rocket Brake S","Description": "Retro-rocket engines create thrust opposing the motion of a construct in space, acting as a brake. They do not consume fuel but demand proper placement on the construct for optimal usage.","Volume": 20.33,"Tier": 1,"NqId": 3039211660,"NqSchemaId": 173201548,"Mass": 137.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/retroengine.png","GroupId": "08d8a31f-5021-45bd-846d-5c7b7ffd67d9"},
-{"Name": "Retro-rocket Brake L","Description": "Retro-rocket engines create thrust opposing the motion of a construct in space, acting as a brake. They do not consume fuel but demand proper placement on the construct for optimal usage.","Volume": 562.4,"Tier": 1,"NqId": 1452351552,"NqSchemaId": 476284886,"Mass": 3770.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/retroengine_l.png","GroupId": "08d8a31f-5021-45bd-846d-5c7b7ffd67d9"},
-{"Name": "Retro-rocket Brake M","Description": "Retro-rocket engines create thrust opposing the motion of a construct in space, acting as a brake. They do not consume fuel but demand proper placement on the construct for optimal usage.","Volume": 105.24,"Tier": 1,"NqId": 3243532126,"NqSchemaId": 156933918,"Mass": 714,"Icon": "https://cdn.hyperion-corporation.de/iconslib/retroengine_m.png","GroupId": "08d8a31f-5021-45bd-846d-5c7b7ffd67d9"},
-{"Name": "Basic Space Engine M","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Medium Space Engines are used for larger space vessels such as transports or cruisers.","Volume": 562.4,"Tier": 1,"NqId": 85796763,"NqSchemaId": 1862323890,"Mass": 4092.06,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginemedium.png","GroupId": "08d8a31f-502f-46c4-8cf7-164b3f791b1a"},
+{"Name": "Retro-rocket Brake L","Description": "Retro-rocket engines create thrust opposing the motion of a construct in space, acting as a brake. They do not consume fuel but demand proper placement on the construct for optimal usage.","Volume": 562.4,"Tier": 1,"NqId": 1452351552,"NqSchemaId": 476284886,"Mass": 3770.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/retroengine_l.png","GroupId": "08d8a31f-5021-45bd-846d-5c7b7ffd67d9",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 36},
+        {"key": "Basic Burner", "quantity": 25},
+        {"key": "Basic Ionic Chamber M", "quantity": 1},
+        {"key": "Basic Standard Frame M", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Retro-rocket Brake L", "quantity": 1}
+    ],
+    "schematic": "Construct Support L Schematic Copy"
+}},
+{"Name": "Retro-rocket Brake M","Description": "Retro-rocket engines create thrust opposing the motion of a construct in space, acting as a brake. They do not consume fuel but demand proper placement on the construct for optimal usage.","Volume": 105.24,"Tier": 1,"NqId": 3243532126,"NqSchemaId": 156933918,"Mass": 714,"Icon": "https://cdn.hyperion-corporation.de/iconslib/retroengine_m.png","GroupId": "08d8a31f-5021-45bd-846d-5c7b7ffd67d9",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 6},
+        {"key": "Basic Burner", "quantity": 5},
+        {"key": "Basic Ionic Chamber S", "quantity": 1},
+        {"key": "Basic Standard Frame S", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Retro-rocket Brake M", "quantity": 1}
+    ],
+    "schematic": "Construct Support M Schematic Copy"
+}},
+{"Name": "Retro-rocket Brake S","Description": "Retro-rocket engines create thrust opposing the motion of a construct in space, acting as a brake. They do not consume fuel but demand proper placement on the construct for optimal usage.","Volume": 20.33,"Tier": 1,"NqId": 3039211660,"NqSchemaId": 173201548,"Mass": 137.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/retroengine.png","GroupId": "08d8a31f-5021-45bd-846d-5c7b7ffd67d9",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 1},
+        {"key": "Basic Burner", "quantity": 1},
+        {"key": "Basic Ionic Chamber XS", "quantity": 1},
+        {"key": "Basic Standard Frame XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Retro-rocket Brake S", "quantity": 1}
+    ],
+    "schematic": "Construct Support S Schematic Copy"
+}},
 {"Name": "Basic Atmospheric Engine L","Description": "Atmospheric Engines are used to give thrust to constructs in a planets atmosphere. They consume atmospheric fuel and demand proper placement for optimal usage. Large Atmospheric Engines are made for constucts of significant size and mass, such as cargo ships or battleships.","Volume": 3355.4,"Tier": 1,"NqId": 2375915630,"NqSchemaId": 475632708,"Mass": 17000,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginelarge.png","GroupId": "08d8a31f-5026-4cf8-876b-5b6d22a3e6ac"},
-{"Name": "Basic Space Engine S","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Small Space Engines are useful for course correction on larger ships or main thrust on small crafts like fighters.","Volume": 105.24,"Tier": 1,"NqId": 1326357437,"NqSchemaId": 620123095,"Mass": 761.74,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginesmall.png","GroupId": "08d8a31f-5030-497a-82fa-319413cccd6f"},
-{"Name": "Basic Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space crafts such as capital combat ships or freighters.","Volume": 17148.8,"Tier": 1,"NqId": 2200254788,"NqSchemaId": 1230590693,"Mass": 126238.98,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e"},
+{"Name": "Basic Atmospheric Engine M","Description": "Atmospheric Engines are used to give thrust to constructs in a planets atmosphere. They consume atmospheric fuel and demand proper placement for optimal usage. Medium Atmospheric Engines are made for constucts of medium to large size and mass, such as transport ships or cuisers.","Volume": 619.2,"Tier": 1,"NqId": 4072611011,"NqSchemaId": 1469974644,"Mass": 3000,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginemedium.png","GroupId": "08d8a31f-5028-46c8-84ef-ac054c2ddcc2"},
 {"Name": "Basic Space Engine XS","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XS are useful for course correction on all ships or main thrust on very small crafts like single man shuttles.","Volume": 20.33,"Tier": 1,"NqId": 2243775376,"NqSchemaId": 1347302260,"Mass": 146.23,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexsmall.png","GroupId": "08d8a31f-5032-4f7a-8e64-067d8330562f"},
+{"Name": "Basic Space Engine S","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Small Space Engines are useful for course correction on larger ships or main thrust on small crafts like fighters.","Volume": 105.24,"Tier": 1,"NqId": 1326357437,"NqSchemaId": 620123095,"Mass": 761.74,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginesmall.png","GroupId": "08d8a31f-5030-497a-82fa-319413cccd6f"},
+{"Name": "Basic Space Engine M","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Medium Space Engines are used for larger space vessels such as transports or cruisers.","Volume": 562.4,"Tier": 1,"NqId": 85796763,"NqSchemaId": 1862323890,"Mass": 4092.06,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginemedium.png","GroupId": "08d8a31f-502f-46c4-8cf7-164b3f791b1a"},
+{"Name": "Basic Space Engine XL","Description": "Space Engines are used to give thrust to constructs in space. They consume space fuel and demand proper placement for optimal usage. Space Engines XL are used for massive space crafts such as capital combat ships or freighters.","Volume": 17148.8,"Tier": 1,"NqId": 2200254788,"NqSchemaId": 1230590693,"Mass": 126238.98,"Icon": "https://cdn.hyperion-corporation.de/iconslib/spaceenginexlarge.png","GroupId": "08d8a31f-5031-4c63-86fe-f3515ffe836e"},
 {"Name": "Vertical Booster L","Description": "Vertical Boosters provide powerful vertical thrust up to a limited distance. They consume space fuel and demand proper placement for optimal usage.","Volume": 562.4,"Tier": 1,"NqId": 2216363013,"NqSchemaId": 519895957,"Mass": 2820,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericverticalbooster.png","GroupId": "00000000-0000-0000-0002-00000000000C"},
 {"Name": "Vertical Booster M","Description": "Vertical Boosters provide powerful vertical thrust up to a limited distance. They consume space fuel and demand proper placement for optimal usage.","Volume": 105.24,"Tier": 1,"NqId": 913372512,"NqSchemaId": 873525935,"Mass": 530.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericverticalbooster.png","GroupId": "00000000-0000-0000-0002-00000000000E"},
 {"Name": "Vertical Booster S","Description": "Vertical Boosters provide powerful vertical thrust up to a limited distance. They consume space fuel and demand proper placement for optimal usage.","Volume": 20.33,"Tier": 1,"NqId": 3556600005,"NqSchemaId": 22193376,"Mass": 102,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericverticalbooster.png","GroupId": "00000000-0000-0000-0002-00000000000D"},
 {"Name": "Vertical Booster XS","Description": "Vertical Boosters provide powerful vertical thrust up to a limited distance. They consume space fuel and demand proper placement for optimal usage.","Volume": 11,"Tier": 1,"NqId": 3775402879,"NqSchemaId": 346496113,"Mass": 22.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericverticalbooster.png","GroupId": "00000000-0000-0000-0002-00000000000B"},
-{"Name": "Basic Atmospheric Engine M","Description": "Atmospheric Engines are used to give thrust to constructs in a planets atmosphere. They consume atmospheric fuel and demand proper placement for optimal usage. Medium Atmospheric Engines are made for constucts of medium to large size and mass, such as transport ships or cuisers.","Volume": 619.2,"Tier": 1,"NqId": 4072611011,"NqSchemaId": 1469974644,"Mass": 3000,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginemedium.png","GroupId": "08d8a31f-5028-46c8-84ef-ac054c2ddcc2"},
-{"Name": "Wing XS","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 22.6,"Tier": 1,"NqId": 1727614690,"NqSchemaId": 422654402,"Mass": 61.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/wing_04.png","GroupId": "08d8a31f-500a-4787-8b0b-d888db56f8b4"},
-{"Name": "Atmospheric Airbrake L","Description": "Atmospheric Airbrakes create thrust opposing the motion of a construct in the atmosphere.","Volume": 619.2,"Tier": 1,"NqId": 104971834,"NqSchemaId": 1117541306,"Mass": 1501.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/airbrakelarge.png","GroupId": "08d8a31f-501f-4537-8ac9-2f32d12c80e7"},
 {"Name": "OR operator","Description": "An electronic Component. Link Components together to create a locical circuit","Volume": 4.5,"Tier": 2,"NqId": 1707712023,"NqSchemaId": 1349418519,"Mass": 7.47,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_operator-or_001_icon.png","GroupId": "08d8a31f-4fb4-4b4e-87aa-1d74dd8396bd"},
 {"Name": "Receiver XS","Description": "An electronic Component. Link Components together to create a locical circuit","Volume": 5,"Tier": 1,"NqId": 3732634076,"NqSchemaId": 1331526108,"Mass": 13.27,"Icon": "https://cdn.hyperion-corporation.de/iconslib/receiver_xsmall.png","GroupId": "08d8a31f-4fb7-448f-81fb-4240fd238541"},
 {"Name": "Receiver M","Description": "An electronic Component. Link Components together to create a locical circuit","Volume": 2533.56,"Tier": 2,"NqId": 736740615,"NqSchemaId": 1393357095,"Mass": 12664.06,"Icon": "https://cdn.hyperion-corporation.de/iconslib/receiver_medium.png","GroupId": "08d8a31f-4fb7-448f-81fb-4240fd238541"},
 {"Name": "Receiver S","Description": "An electronic Component. Link Components together to create a locical circuit","Volume": 91.56,"Tier": 2,"NqId": 2082095499,"NqSchemaId": 1606594315,"Mass": 475.87,"Icon": "https://cdn.hyperion-corporation.de/iconslib/receiver_small.png","GroupId": "08d8a31f-4fb7-448f-81fb-4240fd238541"},
 {"Name": "Relay","Description": "An electronic Component. Link Components together to create a locical circuit","Volume": 6.5,"Tier": 1,"NqId": 1694177571,"NqSchemaId": 1836783907,"Mass": 8.87,"Icon": "https://cdn.hyperion-corporation.de/iconslib/relay.png","GroupId": "08d8a31f-4fb8-426c-848c-005032b3cf89"},
-{"Name": "Adjustor L","Description": "Adjusters are required for ship rotation. They do not consume fuel, but demand proper placement on the construct for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 2818864930,"NqSchemaId": 581659554,"Mass": 1177.17,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_l_icon.png","GroupId": "08d8a31f-5024-4776-8982-045e58aaf237"},
-{"Name": "Adjustor M","Description": "Adjusters are required for ship rotation. They do not consume fuel, but demand proper placement on the construct for optimal usage.","Volume": 116.6,"Tier": 1,"NqId": 3790013467,"NqSchemaId": 1221723451,"Mass": 220.38,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_m_icon.png","GroupId": "08d8a31f-5024-4776-8982-045e58aaf237"},
-{"Name": "Adjustor S","Description": "Adjusters are required for ship rotation. They do not consume fuel, but demand proper placement on the construct for optimal usage.","Volume": 22.6,"Tier": 1,"NqId": 47474508,"NqSchemaId": 1972188620,"Mass": 42.58,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_s_icon.png","GroupId": "08d8a31f-5024-4776-8982-045e58aaf237"},
-{"Name": "Adjustor XS","Description": "Adjusters are required for ship rotation. They do not consume fuel, but demand proper placement on the construct for optimal usage.","Volume": 11,"Tier": 1,"NqId": 2648523849,"NqSchemaId": 977384435,"Mass": 22.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_xs_icon.png","GroupId": "08d8a31f-5024-4776-8982-045e58aaf237"},
-{"Name": "Atmospheric Airbrake M","Description": "Atmospheric Airbrakes create thrust opposing the motion of a construct in the atmosphere.","Volume": 116.6,"Tier": 1,"NqId": 2198271703,"NqSchemaId": 1347234423,"Mass": 285.25,"Icon": "https://cdn.hyperion-corporation.de/iconslib/airbrakemedium.png","GroupId": "08d8a31f-501f-4537-8ac9-2f32d12c80e7"},
-{"Name": "Wing S","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 116.6,"Tier": 1,"NqId": 2532454166,"NqSchemaId": 1495731990,"Mass": 319.15,"Icon": "https://cdn.hyperion-corporation.de/iconslib/wing_03.png","GroupId": "08d8a31f-500a-4787-8b0b-d888db56f8b4"},
-{"Name": "Atmospheric Airbrake S","Description": "Atmospheric Airbrakes create thrust opposing the motion of a construct in the atmosphere.","Volume": 22.6,"Tier": 1,"NqId": 65048663,"NqSchemaId": 1145749935,"Mass": 55.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericflap.png","GroupId": "08d8a31f-501f-4537-8ac9-2f32d12c80e7"},
+{"Name": "Adjustor L","Description": "Adjusters are required for ship rotation. They do not consume fuel, but demand proper placement on the construct for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 2818864930,"NqSchemaId": 581659554,"Mass": 1177.17,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_l_icon.png","GroupId": "08d8a31f-5024-4776-8982-045e58aaf237",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 36},
+        {"key": "Basic Injector", "quantity": 25},
+        {"key": "Basic Gas Cylinder M", "quantity": 1},
+        {"key": "Basic Standard Frame M", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Adjustor L", "quantity": 1}
+    ],
+    "schematic": "Construct Support L Schematic Copy"
+}},
+{"Name": "Adjustor M","Description": "Adjusters are required for ship rotation. They do not consume fuel, but demand proper placement on the construct for optimal usage.","Volume": 116.6,"Tier": 1,"NqId": 3790013467,"NqSchemaId": 1221723451,"Mass": 220.38,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_m_icon.png","GroupId": "08d8a31f-5024-4776-8982-045e58aaf237",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 6},
+        {"key": "Basic Injector", "quantity": 5},
+        {"key": "Basic Gas Cylinder S", "quantity": 1},
+        {"key": "Basic Standard Frame S", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Adjustor M", "quantity": 1}
+    ],
+    "schematic": "Construct Support M Schematic Copy"
+}},
+{"Name": "Adjustor S","Description": "Adjusters are required for ship rotation. They do not consume fuel, but demand proper placement on the construct for optimal usage.","Volume": 22.6,"Tier": 1,"NqId": 47474508,"NqSchemaId": 1972188620,"Mass": 42.58,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_s_icon.png","GroupId": "08d8a31f-5024-4776-8982-045e58aaf237",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 1},
+        {"key": "Basic Injector", "quantity": 1},
+        {"key": "Basic Gas Cylinder XS", "quantity": 1},
+        {"key": "Basic Standard Frame XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Adjustor S", "quantity": 1}
+    ],
+    "schematic": "Construct Support S Schematic Copy"
+}},
+{"Name": "Adjustor XS","Description": "Adjusters are required for ship rotation. They do not consume fuel, but demand proper placement on the construct for optimal usage.","Volume": 11,"Tier": 1,"NqId": 2648523849,"NqSchemaId": 977384435,"Mass": 22.7,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_adjuster_xs_icon.png","GroupId": "08d8a31f-5024-4776-8982-045e58aaf237",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 1},
+        {"key": "Basic Injector", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Adjustor XS", "quantity": 1}
+    ],
+    "schematic": "Construct Support XS Schematic Copy"
+}},
+{"Name": "Atmospheric Airbrake L","Description": "Atmospheric Airbrakes create thrust opposing the motion of a construct in the atmosphere.","Volume": 619.2,"Tier": 1,"NqId": 104971834,"NqSchemaId": 1117541306,"Mass": 1501.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/airbrakelarge.png","GroupId": "08d8a31f-501f-4537-8ac9-2f32d12c80e7",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 36},
+        {"key": "Basic hydraulics", "quantity": 25},
+        {"key": "Basic Mobile Panel M", "quantity": 1},
+        {"key": "Basic Standard Frame M", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Atmospheric Airbrake L", "quantity": 1}
+    ],
+    "schematic": "Construct Support L Schematic Copy"
+}},
+{"Name": "Atmospheric Airbrake M","Description": "Atmospheric Airbrakes create thrust opposing the motion of a construct in the atmosphere.","Volume": 116.6,"Tier": 1,"NqId": 2198271703,"NqSchemaId": 1347234423,"Mass": 285.25,"Icon": "https://cdn.hyperion-corporation.de/iconslib/airbrakemedium.png","GroupId": "08d8a31f-501f-4537-8ac9-2f32d12c80e7",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 6},
+        {"key": "Basic hydraulics", "quantity": 5},
+        {"key": "Basic Mobile Panel S", "quantity": 1},
+        {"key": "Basic Standard Frame S", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Atmospheric Airbrake M", "quantity": 1}
+    ],
+    "schematic": "Construct Support M Schematic Copy"
+}},
+{"Name": "Atmospheric Airbrake S","Description": "Atmospheric Airbrakes create thrust opposing the motion of a construct in the atmosphere.","Volume": 22.6,"Tier": 1,"NqId": 65048663,"NqSchemaId": 1145749935,"Mass": 55.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericflap.png","GroupId": "08d8a31f-501f-4537-8ac9-2f32d12c80e7",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 1},
+        {"key": "Basic hydraulics", "quantity": 1},
+        {"key": "Basic Mobile Panel XS", "quantity": 1},
+        {"key": "Basic Standard Frame XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Atmospheric Airbrake S", "quantity": 1}
+    ],
+    "schematic": "Construct Support S Schematic Copy"
+}},
 {"Name": "Aileron M","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 1238.4,"Tier": 1,"NqId": 1856288931,"NqSchemaId": 780670243,"Mass": 3409.9,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_lift-wing_001_l_icon.png","GroupId": "08d8a31f-5008-4460-8040-9e588bafddc8"},
 {"Name": "Aileron S","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 233.2,"Tier": 1,"NqId": 2737703104,"NqSchemaId": 146848992,"Mass": 638.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_lift-wing_001_icon.png","GroupId": "08d8a31f-5008-4460-8040-9e588bafddc8"},
 {"Name": "Compact Aileron M","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 4017253256,"NqSchemaId": 907496164,"Mass": 1704.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_lift-wing_002_l_icon.png","GroupId": "08d8a31f-5008-4460-8040-9e588bafddc8"},
@@ -3055,8 +3347,33 @@
     "schematic": "Construct Support M Schematic Copy"
 
 }},
+{"Name": "Wing S","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 116.6,"Tier": 1,"NqId": 2532454166,"NqSchemaId": 1495731990,"Mass": 319.15,"Icon": "https://cdn.hyperion-corporation.de/iconslib/wing_03.png","GroupId": "08d8a31f-500a-4787-8b0b-d888db56f8b4",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 6},
+        {"key": "Basic hydraulics", "quantity": 5},
+        {"key": "Basic Mobile Panel S", "quantity": 1},
+        {"key": "Basic Standard Frame S", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Wing S", "quantity": 1}
+    ],
+    "schematic": "Construct Support S Schematic Copy"
+}},
+{"Name": "Wing XS","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 22.6,"Tier": 1,"NqId": 1727614690,"NqSchemaId": 422654402,"Mass": 61.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/wing_04.png","GroupId": "08d8a31f-500a-4787-8b0b-d888db56f8b4",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 1},
+        {"key": "Basic hydraulics", "quantity": 1},
+        {"key": "Basic Mobile Panel XS", "quantity": 1},
+        {"key": "Basic Standard Frame XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Wing XS", "quantity": 1}
+    ],
+    "schematic": "Construct Support XS Schematic Copy"
+}},
 {"Name": "Wing variant M","Description": "Airfoils provide atmospheric lift to constructs in proportion with its velocity. They do not consume fuel but demand proper placement for optimal usage.","Volume": 619.2,"Tier": 1,"NqId": 4179758576,"NqSchemaId": 1756752144,"Mass": 1704.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/wing_01.png","GroupId": "08d8a31f-500a-4787-8b0b-d888db56f8b4"},
-{"Name": "Landing Gear S","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 67,"Tier": 2,"NqId": 1884031929,"NqSchemaId": 224722815,"Mass": 258.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_s_icon.png","GroupId": "08d8a31f-5041-475a-8070-219949aeae13"},
 {"Name": "Expanded gate S","Description": null,"Volume": 16755.49,"Tier": 2,"NqId": 581667413,"NqSchemaId": 1815973316,"Mass": 122752.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gate_01_s.png","GroupId": "08d8a31f-4faa-406f-8235-572bc4f85703"},
 {"Name": "Gate XL","Description": null,"Volume": 16755.49,"Tier": 2,"NqId": 1256519882,"NqSchemaId": 1755885930,"Mass": 122752.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gate_01_xl.png","GroupId": "08d8a31f-4faa-406f-8235-572bc4f85703"},
 {"Name": "Gate XS","Description": null,"Volume": 16755.49,"Tier": 2,"NqId": 1097676949,"NqSchemaId": 1043964370,"Mass": 122752.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gate_01_xs.png","GroupId": "08d8a31f-4faa-406f-8235-572bc4f85703"},
@@ -3066,9 +3383,57 @@
 {"Name": "Force Field S","Description": null,"Volume": 34.7,"Tier": 3,"NqId": 3685998465,"NqSchemaId": 1674294273,"Mass": 110.62,"Icon": "https://cdn.hyperion-corporation.de/iconslib/planeforcefield2x1.png","GroupId": "08d8a31f-4fc5-43b4-8bec-802a1a5e26a1"},
 {"Name": "Force Field M","Description": null,"Volume": 34.7,"Tier": 3,"NqId": 3686006062,"NqSchemaId": 1674286766,"Mass": 110.62,"Icon": "https://cdn.hyperion-corporation.de/iconslib/planeforcefield4x1.png","GroupId": "08d8a31f-4fc5-43b4-8bec-802a1a5e26a1"},
 {"Name": "Force Field L","Description": null,"Volume": 34.7,"Tier": 3,"NqId": 3685982092,"NqSchemaId": 1674311180,"Mass": 110.62,"Icon": "https://cdn.hyperion-corporation.de/iconslib/planeforcefield6x1.png","GroupId": "08d8a31f-4fc5-43b4-8bec-802a1a5e26a1"},
-{"Name": "Landing Gear L","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 1981,"Tier": 2,"NqId": 2667697870,"NqSchemaId": 2042441808,"Mass": 8500.63,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_l_icon.PNG","GroupId": "08d8a31f-5041-475a-8070-219949aeae13"},
-{"Name": "Landing Gear M","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 360,"Tier": 2,"NqId": 1899560165,"NqSchemaId": 239089346,"Mass": 1460.65,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_icon.png","GroupId": "08d8a31f-5041-475a-8070-219949aeae13"},
-{"Name": "Landing Gear XS","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 13,"Tier": 1,"NqId": 4078067869,"NqSchemaId": 1213445187,"Mass": 49.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_xs_icon.png","GroupId": "08d8a31f-5041-475a-8070-219949aeae13"},
+{"Name": "Landing Gear L","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 1981,"Tier": 2,"NqId": 2667697870,"NqSchemaId": 2042441808,"Mass": 8500.63,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_l_icon.PNG","GroupId": "08d8a31f-5041-475a-8070-219949aeae13",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 108},
+        {"key": "Uncommon Screw", "quantity": 108},
+        {"key": "Uncommon hydraulics", "quantity": 125},
+        {"key": "Uncommon ReinforcedFrame L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Landing Gear L", "quantity": 1}
+    ],
+    "schematic": "Tier 2 L Element Schematic Copy"
+}},
+{"Name": "Landing Gear M","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 360,"Tier": 2,"NqId": 1899560165,"NqSchemaId": 239089346,"Mass": 1460.65,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_icon.png","GroupId": "08d8a31f-5041-475a-8070-219949aeae13",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 18},
+        {"key": "Uncommon Screw", "quantity": 18},
+        {"key": "Uncommon hydraulics", "quantity": 25},
+        {"key": "Uncommon ReinforcedFrame M", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Landing Gear M", "quantity": 1}
+    ],
+    "schematic": "Tier 2 M Element Schematic Copy"
+}},
+{"Name": "Landing Gear S","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 67,"Tier": 2,"NqId": 1884031929,"NqSchemaId": 224722815,"Mass": 258.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_s_icon.png","GroupId": "08d8a31f-5041-475a-8070-219949aeae13",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 3},
+        {"key": "Uncommon Screw", "quantity": 3},
+        {"key": "Uncommon hydraulics", "quantity": 5},
+        {"key": "Uncommon ReinforcedFrame S", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Landing Gear S", "quantity": 1}
+    ],
+    "schematic": "Tier 2 S Element Schematic Copy"
+}},
+{"Name": "Landing Gear XS","Description": "Landing Gears can be used on the under-side of vessels for better and more elegant landing.","Volume": 13,"Tier": 1,"NqId": 4078067869,"NqSchemaId": 1213445187,"Mass": 49.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_landing-gear_001_xs_icon.png","GroupId": "08d8a31f-5041-475a-8070-219949aeae13",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 1},
+        {"key": "Basic hydraulics", "quantity": 1},
+        {"key": "Basic ReinforcedFrame XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Landing Gear XS", "quantity": 1}
+    ],
+    "schematic": "Tier 1 XS Element Schematic Copy"
+}},
 {"Name": "Gate M","Description": null,"Volume": 16755.49,"Tier": 2,"NqId": 2858887382,"NqSchemaId": 1350592195,"Mass": 122752.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gate_01_m.png","GroupId": "08d8a31f-4faa-406f-8235-572bc4f85703"},
 {"Name": "Expanded gate L","Description": null,"Volume": 16755.49,"Tier": 2,"NqId": 1289884535,"NqSchemaId": 1829978694,"Mass": 122752.84,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gate_01_l.png","GroupId": "08d8a31f-4faa-406f-8235-572bc4f85703"},
 {"Name": "Interior door","Description": null,"Volume": 546.4,"Tier": 1,"NqId": 3709017308,"NqSchemaId": 1176770283,"Mass": 4197.11,"Icon": "https://cdn.hyperion-corporation.de/iconslib/door_interior_01.png","GroupId": "08d8a31f-4faa-406f-8235-572bc4f85703"},
@@ -3088,8 +3453,34 @@
 {"Name": "basic Refiner M","Description": "Industry Units are used to craft advanced and powerful items. They can only be used on Static Constructs.","Volume": 479.2,"Tier": 1,"NqId": 3701755071,"NqSchemaId": 1464958039,"Mass": 2302.34,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_materialrefinery-industry_001_icon.png","GroupId": "08d8a31f-4ff4-4f95-8c28-dcc391a5635c"},
 {"Name": "basic Smelter M","Description": "Industry Units are used to craft advanced and powerful items. They can only be used on Static Constructs.","Volume": 499.2,"Tier": 1,"NqId": 2556123438,"NqSchemaId": 960095718,"Mass": 2057.34,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_materialrefinery-industry_002_icon.png","GroupId": "08d8a31f-4ff4-4f95-8c28-dcc391a5635c"},
 {"Name": "Transfer Unit","Description": "Industry Units are used to craft advanced and powerful items. They can only be used on Static Constructs.","Volume": 3305.4,"Tier": null,"NqId": 4139262245,"NqSchemaId": 721775397,"Mass": 10147.65,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_core-round-side-industry_001_icon.png","GroupId": "08d8a31f-4ff2-4c9f-883c-0a8b2b6033e7"},
-{"Name": "Gyroscope","Description": "Transportation Elements are Elements such as Engines, Adjustors and Wings.","Volume": 17.65,"Tier": 1,"NqId": 2585415184,"NqSchemaId": 1864027664,"Mass": 104.41,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gyroscope.png","GroupId": "08d8a31f-5040-4413-8dbd-c171a7e84129"},
-{"Name": "Telemeter","Description": "Electronic Elements are Elements such as buttons, Force Fields and Databanks.","Volume": 31.4,"Tier": 2,"NqId": 1722901246,"NqSchemaId": 819585790,"Mass": 40.79,"Icon": "https://cdn.hyperion-corporation.de/iconslib/telemeter.png","GroupId": "08d8a31f-4fbd-4ac0-8098-857498063b9e"},
+{"Name": "Gyroscope XS","Description": "Transportation Elements are Elements such as Engines, Adjustors and Wings.","Volume": 17.65,"Tier": 1,"NqId": 2585415184,"NqSchemaId": 1864027664,"Mass": 104.41,"Icon": "https://cdn.hyperion-corporation.de/iconslib/gyroscope.png","GroupId": "08d8a31f-5040-4413-8dbd-c171a7e84129",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Connector", "quantity": 1},
+        {"key": "Basic Magnet", "quantity": 1},
+        {"key": "Basic Mechanical Sensor XS", "quantity": 1},
+        {"key": "Basic Casing XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Gyroscope XS", "quantity": 1}
+    ],
+    "schematic": "Tier 1 XS Element Schematic Copy",
+    "nanocraftable": true
+}},
+{"Name": "Telemeter XS","Description": "Electronic Elements are Elements such as buttons, Force Fields and Databanks.","Volume": 31.4,"Tier": 2,"NqId": 1722901246,"NqSchemaId": 819585790,"Mass": 40.79,"Icon": "https://cdn.hyperion-corporation.de/iconslib/telemeter.png","GroupId": "08d8a31f-4fbd-4ac0-8098-857498063b9e",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Component", "quantity": 1},
+        {"key": "Uncommon Component", "quantity": 1},
+        {"key": "Uncommon Optics", "quantity": 1},
+        {"key": "Uncommon Laser Chamber XS", "quantity": 1},
+        {"key": "Uncommon Casing XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Telemeter XS", "quantity": 1}
+    ],
+    "schematic": "Tier 2 XS Element Schematic Copy"
+}},
 {"Name": "Territory Scanner","Description": null,"Volume": 12702.9,"Tier": 2,"NqId": 3858829819,"NqSchemaId": 1142459409,"Mass": 66461.96,"Icon": "https://cdn.hyperion-corporation.de/iconslib/territoryscanner.png","GroupId": "08d8a31f-4f43-4139-8031-268d364123c8"},
 {"Name": "Elevator XS","Description": null,"Volume": 57.56,"Tier": 1,"NqId": 3663249627,"NqSchemaId": 877151035,"Mass": 207.86,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_elevator-ring_001_icon.png","GroupId": "08d8a31f-4fc2-472f-862a-6feb32975f73"},
 {"Name": "Sliding Door M","Description": null,"Volume": 151.8,"Tier": 1,"NqId": 741980535,"NqSchemaId": 952044375,"Mass": 1006.01,"Icon": "https://cdn.hyperion-corporation.de/iconslib/bigslidingdoor.png","GroupId": "08d8a31f-4faa-406f-8235-572bc4f85703"},
@@ -3216,11 +3607,67 @@
 {"Name": "Basic Antimatter Capsule","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4.6,"Tier": 1,"NqId": 3661595538,"NqSchemaId": 1849145538,"Mass": 24,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-anti-matter-capsule_001_icon.png","GroupId": "08d8a31f-50f4-4652-84b5-e015a2be2176"},
 {"Name": "Uncommon Antimatter Capsule","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4.6,"Tier": 2,"NqId": 3661595539,"NqSchemaId": 1849145537,"Mass": 24.32,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-anti-matter-capsule_001_icon.png","GroupId": "08d8a31f-50f4-4652-84b5-e015a2be2176"},
 {"Name": "Advanced Antimatter Capsule","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4.6,"Tier": 3,"NqId": 3661595540,"NqSchemaId": 1849145536,"Mass": 24.88,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-anti-matter-capsule_001_icon.png","GroupId": "08d8a31f-50f4-4652-84b5-e015a2be2176"},
-{"Name": "Basic Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 1,"NqId": 2660328728,"NqSchemaId": 1272865110,"Mass": 50.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c"},
-{"Name": "Uncommon Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 2,"NqId": 2660328729,"NqSchemaId": 1272865111,"Mass": 49.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c"},
-{"Name": "Advanced Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 3,"NqId": 2660328734,"NqSchemaId": 1272865108,"Mass": 48.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c"},
-{"Name": "Rare Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 4,"NqId": 2660328735,"NqSchemaId": 1272865109,"Mass": 48.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c"},
-{"Name": "Exotic Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 5,"NqId": 2660328732,"NqSchemaId": 1272865130,"Mass": 51.79,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c"},
+{"Name": "Basic Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 1,"NqId": 2660328728,"NqSchemaId": 1272865110,"Mass": 50.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin product", "quantity": 6},
+        {"key": "Basic Screw", "quantity": 4}
+    ],
+    "products": [
+        {"key": "Basic Burner", "quantity": 1}
+    ]
+}},
+{"Name": "Uncommon Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 2,"NqId": 2660328729,"NqSchemaId": 1272865111,"Mass": 49.4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin product", "quantity": 2},
+        {"key": "Basic Screw", "quantity": 4},
+        {"key": "Duralumin product", "quantity": 4}
+    ],
+    "products": [
+        {"key": "Uncommon Burner", "quantity": 1}
+    ]
+}},
+{"Name": "Advanced Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 3,"NqId": 2660328734,"NqSchemaId": 1272865108,"Mass": 48.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c",
+"recipe": {
+    "ingredients": [
+        {"key": "Silumin product", "quantity": 2},
+        {"key": "Basic Screw", "quantity": 2},
+        {"key": "Duralumin product", "quantity": 2},
+        {"key": "Uncommon Screw", "quantity": 2},
+        {"key": "Al-Li Alloy product", "quantity": 2}
+    ],
+    "products": [
+        {"key": "Advanced Burner", "quantity": 1}
+    ]
+}},
+{"Name": "Rare Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 4,"NqId": 2660328735,"NqSchemaId": 1272865109,"Mass": 48.05,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Screw", "quantity": 1},
+        {"key": "Duralumin product", "quantity": 2},
+        {"key": "Uncommon Screw", "quantity": 3},
+        {"key": "Al-Li Alloy product", "quantity": 2},
+        {"key": "Sc-Al Alloy product", "quantity": 2}
+    ],
+    "products": [
+        {"key": "Rare Burner", "quantity": 1}
+    ]
+}},
+{"Name": "Exotic Burner","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 10,"Tier": 5,"NqId": 2660328732,"NqSchemaId": 1272865130,"Mass": 51.79,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-burner_001_icon.png","GroupId": "08d8a31f-50f7-42af-8cbd-a4edf5ff865c",
+"recipe": {
+    "ingredients": [        
+        {"key": "Basic Screw", "quantity": 1},
+        {"key": "Uncommon Screw", "quantity": 1},
+        {"key": "Al-Li Alloy product", "quantity": 2},
+        {"key": "Advanced Screw", "quantity": 2},
+        {"key": "Sc-Al Alloy product", "quantity": 2},
+        {"key": "Grade 5 Titanium product", "quantity": 2}
+    ],
+    "products": [
+        {"key": "Exotic Burner", "quantity": 1}
+    ]
+}},
 {"Name": "Basic Electronics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4,"Tier": 1,"NqId": 1297540454,"NqSchemaId": 1026118816,"Mass": 5.22,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-electronics_001_icon.png","GroupId": "08d8a31f-50f8-4d6f-835c-9f32f00e2ee9"},
 {"Name": "Uncommon Electronics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4,"Tier": 2,"NqId": 1297540453,"NqSchemaId": 1026118817,"Mass": 5.34,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-electronics_001_icon.png","GroupId": "08d8a31f-50f8-4d6f-835c-9f32f00e2ee9"},
 {"Name": "Advanced Electronics","Description": "Complex parts are advanced Components providing high-tech functionality.","Volume": 4,"Tier": 3,"NqId": 1297540452,"NqSchemaId": 1026118818,"Mass": 5.45,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_complex-part-electronics_001_icon.png","GroupId": "08d8a31f-50f8-4d6f-835c-9f32f00e2ee9"},

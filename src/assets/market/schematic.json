@@ -66,5 +66,10 @@
     {"name": "Construct Support XY Schematic Copy", "cost": 3750, "amount": 25, "time": 0},
     {"name": "Construct Support S Schematic Copy", "cost": 7500, "amount": 20, "time": 0},
     {"name": "Construct Support M Schematic Copy", "cost": 15000, "amount": 15, "time": 0},
-    {"name": "Construct Support L Schematic Copy", "cost": 30000, "amount": 10, "time": 0}
+    {"name": "Construct Support L Schematic Copy", "cost": 30000, "amount": 10, "time": 0},
+    
+    {"name": "Atmospheric Fuel Schematic Copy", "cost": 3000, "amount": 50, "time": 0},
+    {"name": "Space Fuel Schematic Copy", "cost": 7500, "amount": 50, "time": 0},
+    {"name": "Rocket Fuel Schematic Copy", "cost": 18750, "amount": 50, "time": 0}
+
 ]
