@@ -1,5 +1,26 @@
 [
-{"Name": "Canopy Metal flat S","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 24,"Tier": 2,"NqId": 2266058296,"NqSchemaId": null,"Mass": 136.61,"Icon": "https://cdn.hyperion-corporation.de/iconslib/canopyflat-metal_medium.png","GroupId": "08d8a31f-4fa1-430f-8ebe-83061310cfc1"},
+    {"Name": "Cobaltite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 4,"NqId": 3546085401,"NqSchemaId": null,"Mass": 6.33,"Icon": "https://cdn.hyperion-corporation.de/iconslib/CobaltOre.png","GroupId": "08d8a31f-50c1-4ec5-8739-9b7ac95ed2d9"},
+    {"Name": "Columbite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 789110817,"NqSchemaId": null,"Mass": 5.38,"Icon": "https://cdn.hyperion-corporation.de/iconslib/NiobiumOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
+    {"Name": "Limestone","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 2,"NqId": 3086347393,"NqSchemaId": null,"Mass": 2.711,"Icon": "https://cdn.hyperion-corporation.de/iconslib/CalciumOre.png","GroupId": "08d8a31f-50c0-46f5-845a-43ec26f5978d"},
+    {"Name": "Coal","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 1,"NqId": 299255727,"NqSchemaId": null,"Mass": 1.346,"Icon": "https://cdn.hyperion-corporation.de/iconslib/CarbonOre.png","GroupId": "08d8a31f-50be-4dfa-8466-916146e77841"},
+    {"Name": "Chromite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 2,"NqId": 2029139010,"NqSchemaId": null,"Mass": 4.54,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ChromiumOre.png","GroupId": "08d8a31f-50c0-46f5-845a-43ec26f5978d"},
+    {"Name": "Malachite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 2,"NqId": 2289641763,"NqSchemaId": null,"Mass": 4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/CopperOre.png","GroupId": "08d8a31f-50c0-46f5-845a-43ec26f5978d"},
+    {"Name": "Cryolite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 4,"NqId": 1467310917,"NqSchemaId": null,"Mass": 2.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/FluorineOre.png","GroupId": "08d8a31f-50c1-4ec5-8739-9b7ac95ed2d9"},
+    {"Name": "Gold nuggets","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 4,"NqId": 1866812055,"NqSchemaId": null,"Mass": 19.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/GoldOre.png","GroupId": "08d8a31f-50c1-4ec5-8739-9b7ac95ed2d9"},
+    {"Name": "Hematite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 1,"NqId": 4234772167,"NqSchemaId": null,"Mass": 5.04,"Icon": "https://cdn.hyperion-corporation.de/iconslib/IronOre.png","GroupId": "08d8a31f-50be-4dfa-8466-916146e77841"},
+    {"Name": "Petalite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 3837858336,"NqSchemaId": null,"Mass": 2.412,"Icon": "https://cdn.hyperion-corporation.de/iconslib/LithiumOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
+    {"Name": "Rhodonite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 3934774987,"NqSchemaId": null,"Mass": 3.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ManganeseOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
+    {"Name": "Garnierite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 1065079614,"NqSchemaId": null,"Mass": 2.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/NickelOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
+    {"Name": "Kolbeckite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 4,"NqId": 271971371,"NqSchemaId": null,"Mass": 2.37,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ScandiumOre.png","GroupId": "08d8a31f-50c1-4ec5-8739-9b7ac95ed2d9"},
+    {"Name": "Quartz","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 1,"NqId": 3724036288,"NqSchemaId": null,"Mass": 2.65,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SiliconOre.png","GroupId": "08d8a31f-50be-4dfa-8466-916146e77841"},
+    {"Name": "Acanthite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 1050500112,"NqSchemaId": null,"Mass": 7.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SilverOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
+    {"Name": "Natron","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 2,"NqId": 343766315,"NqSchemaId": null,"Mass": 1.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SodiumOre.png","GroupId": "08d8a31f-50c0-46f5-845a-43ec26f5978d"},
+    {"Name": "Pyrite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 4041459743,"NqSchemaId": null,"Mass": 5.01,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SulfurOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
+    {"Name": "Illmenite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 629636034,"NqSchemaId": null,"Mass": 4.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/TitaniumOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
+    {"Name": "Vanadinite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 2162350405,"NqSchemaId": null,"Mass": 6.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/VanadiumOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
+    {"Name": "Bauxite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 1,"NqId": 262147665,"NqSchemaId": null,"Mass": 1.281,"Icon": "https://cdn.hyperion-corporation.de/iconslib/aluminium_ore.png","GroupId": "08d8a31f-50be-4dfa-8466-916146e77841"},
+        
+    {"Name": "Canopy Metal flat S","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 24,"Tier": 2,"NqId": 2266058296,"NqSchemaId": null,"Mass": 136.61,"Icon": "https://cdn.hyperion-corporation.de/iconslib/canopyflat-metal_medium.png","GroupId": "08d8a31f-4fa1-430f-8ebe-83061310cfc1"},
 {"Name": "Canopy Metal flat M","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 159,"Tier": 1,"NqId": 3729727572,"NqSchemaId": null,"Mass": 889.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/canopyflat-metal_medium.png","GroupId": "08d8a31f-4fa1-430f-8ebe-83061310cfc1"},
 {"Name": "Canopy Metal flat L","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 1074,"Tier": 1,"NqId": 2635025376,"NqSchemaId": null,"Mass": 5920,"Icon": "https://cdn.hyperion-corporation.de/iconslib/canopyflat-metal_medium.png","GroupId": "08d8a31f-4fa1-430f-8ebe-83061310cfc1"},
 {"Name": "Canopy Metal corner S","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 24,"Tier": 2,"NqId": 767916091,"NqSchemaId": null,"Mass": 136.61,"Icon": "https://cdn.hyperion-corporation.de/iconslib/canopycorner-metal_medium.png","GroupId": "08d8a31f-4fa1-430f-8ebe-83061310cfc1"},
@@ -11,10 +32,63 @@
 {"Name": "Canopy Metal triangle S","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 24,"Tier": 2,"NqId": 1339058404,"NqSchemaId": null,"Mass": 136.61,"Icon": "https://cdn.hyperion-corporation.de/iconslib/canopy-triangle-metal_medium.png","GroupId": "08d8a31f-4fa1-430f-8ebe-83061310cfc1"},
 {"Name": "Canopy Metal triangle M","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 159,"Tier": 2,"NqId": 265675573,"NqSchemaId": null,"Mass": 889.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/canopy-triangle-metal_medium.png","GroupId": "08d8a31f-4fa1-430f-8ebe-83061310cfc1"},
 {"Name": "Canopy Metal triangle L","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 1074,"Tier": 2,"NqId": 3943842048,"NqSchemaId": null,"Mass": 5920,"Icon": "https://cdn.hyperion-corporation.de/iconslib/canopy-triangle-metal_medium.png","GroupId": "08d8a31f-4fa1-430f-8ebe-83061310cfc1"},
-{"Name": "Exotic Mining Unit L","Description": null,"Volume": 4400,"Tier": 1,"NqId": 3204140764,"NqSchemaId": null,"Mass": 8500,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
-{"Name": "Rare Mining Unit L","Description": null,"Volume": 4200,"Tier": 1,"NqId": 3204140767,"NqSchemaId": null,"Mass": 7800,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
-{"Name": "Advanced Mining Unit L","Description": null,"Volume": 4050,"Tier": 1,"NqId": 3204140766,"NqSchemaId": null,"Mass": 7500,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
-{"Name": "Uncommon Mining Unit L","Description": null,"Volume": 2454,"Tier": 1,"NqId": 3204140761,"NqSchemaId": null,"Mass": 5160,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0"},
+{"Name": "Exotic Mining Unit L","Description": null,"Volume": 4400,"Tier": 1,"NqId": 3204140764,"NqSchemaId": null,"Mass": 8500,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0",
+"recipe": {
+    "ingredients": [
+        {"key": "Advanced Fixation", "quantity": 216},
+        {"key": "Exotic hydraulics", "quantity": 125},
+        {"key": "Exotic Ore Scanner L", "quantity": 1},
+        {"key": "Exotic Quantum Alignment Unit", "quantity": 64},
+        {"key": "Exotic Standard Frame L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Exotic Mining Unit L", "quantity": 1}
+    ],
+    "schematic": "Tier 5 L Element Schematic Copy"
+}},
+{"Name": "Rare Mining Unit L","Description": null,"Volume": 4200,"Tier": 1,"NqId": 3204140767,"NqSchemaId": null,"Mass": 7800,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0",
+"recipe": {
+    "ingredients": [
+        {"key": "Uncommon Fixation", "quantity": 108},
+        {"key": "Advanced Fixation", "quantity": 108},
+        {"key": "Rare hydraulics", "quantity": 125},
+        {"key": "Rare Ore Scanner L", "quantity": 1},
+        {"key": "Rare Quantum Alignment Unit", "quantity": 64},
+        {"key": "Rare Standard Frame L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Rare Mining Unit L", "quantity": 1}
+    ],
+    "schematic": "Tier 4 L Element Schematic Copy"
+}},
+{"Name": "Advanced Mining Unit L","Description": null,"Volume": 4050,"Tier": 1,"NqId": 3204140766,"NqSchemaId": null,"Mass": 7500,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0",
+"recipe": {
+    "ingredients": [
+        {"key": "Uncommon Fixation", "quantity": 216},
+        {"key": "Advanced hydraulics", "quantity": 125},
+        {"key": "Advanced Ore Scanner L", "quantity": 1},
+        {"key": "Advanced Quantum Alignment Unit", "quantity": 64},
+        {"key": "Advanced Standard Frame L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Advanced Mining Unit L", "quantity": 1}
+    ],
+    "schematic": "Tier 3 L Element Schematic Copy"
+}},
+{"Name": "Uncommon Mining Unit L","Description": null,"Volume": 2454,"Tier": 1,"NqId": 3204140761,"NqSchemaId": null,"Mass": 5160,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_l_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Fixation", "quantity": 108},
+        {"key": "Uncommon Fixation", "quantity": 108},
+        {"key": "Uncommon hydraulics", "quantity": 125},
+        {"key": "Uncommon Ore Scanner L", "quantity": 1},
+        {"key": "Uncommon Standard Frame L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Uncommon Mining Unit L", "quantity": 1}
+    ],    
+    "schematic": "Tier 2 L Element Schematic Copy"
+}},
 {"Name": "Basic Mining Unit S","Description": "","Volume": 70,"Tier": 1,"NqId": 1949562989,"NqSchemaId": null,"Mass": 180,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_mining-unit_001_s_icon.png","GroupId": "08d99c57-7d0c-4e3b-8bf8-ed32a12f6af0", 
 "recipe": {
     "NqSchemaId": 1949562989,
@@ -46,7 +120,6 @@
     ],
     "schematic": "Tier 1 L Element Schematic Copy"
 }},
-{"Name": "Space Fuel Tank XS","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 17.8,"Tier": 1,"NqId": 2421673145,"NqSchemaId": null,"Mass": 35.03,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltank.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb"},
 {"Name": "Advanced Shield Generator XS","Description": "Shield Generators will protect your constructs from hostile weapon damage until they are depleted. Shield generators can only be deployed on Dynamic Constructs.","Volume": 210,"Tier": 3,"NqId": 2882830295,"NqSchemaId": null,"Mass": 670,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_shield-generator_001_xs_icon.png","GroupId": "00000000-0000-0000-0002-000000000011"},
 {"Name": "Advanced Shield Generator S","Description": "Shield Generators will protect your constructs from hostile weapon damage until they are depleted. Shield generators can only be deployed on Dynamic Constructs.","Volume": 950,"Tier": 3,"NqId": 3696387320, "NqSchemaId": null,"Mass": 3300,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_shield-generator_001_s_icon.png","GroupId": "00000000-0000-0000-0002-000000000012"},
 {"Name": "Advanced Shield Generator M","Description": "Shield Generators will protect your constructs from hostile weapon damage until they are depleted. Shield generators can only be deployed on Dynamic Constructs.","Volume": 4500,"Tier": 3,"NqId": 254923774,"NqSchemaId": null,"Mass": 17000,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_shield-generator_001_m_icon.png","GroupId": "00000000-0000-0000-0002-000000000013"},
@@ -448,21 +521,6 @@
 {"Name": "Uncommon Military Atmospheric Engine L","Description": "Atmospheric Engines are used to give thrust to constructs in a planets atmosphere. They consume atmospheric fuel and demand proper placement for optimal usage. Large Atmospheric Engines are made for constucts of significant size and mass, such as cargo ships or battleships.","Volume": 3355.4,"Tier": 2,"NqId": 2714399324,"NqSchemaId": 1871056262,"Mass": 17000,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginelarge.png","GroupId": "08d8a31f-5026-4cf8-876b-5b6d22a3e6ac"},
 {"Name": "Uncommon Maneuver Atmospheric Engine L","Description": "Atmospheric Engines are used to give thrust to constructs in a planets atmosphere. They consume atmospheric fuel and demand proper placement for optimal usage. Large Atmospheric Engines are made for constucts of significant size and mass, such as cargo ships or battleships.","Volume": 3355.4,"Tier": 2,"NqId": 3475626911,"NqSchemaId": 139883932,"Mass": 17000,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginelarge.png","GroupId": "08d8a31f-5026-4cf8-876b-5b6d22a3e6ac"},
 {"Name": "Uncommon Military Atmospheric Engine M","Description": "Atmospheric Engines are used to give thrust to constructs in a planets atmosphere. They consume atmospheric fuel and demand proper placement for optimal usage. Medium Atmospheric Engines are made for constucts of medium to large size and mass, such as transport ships or cuisers.","Volume": 619.2,"Tier": 2,"NqId": 3295665550,"NqSchemaId": 552799947,"Mass": 3000,"Icon": "https://cdn.hyperion-corporation.de/iconslib/atmosphericenginemedium.png","GroupId": "08d8a31f-5028-46c8-84ef-ac054c2ddcc2"},
-{"Name": "Cobaltite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 4,"NqId": 3546085401,"NqSchemaId": null,"Mass": 6.33,"Icon": "https://cdn.hyperion-corporation.de/iconslib/CobaltOre.png","GroupId": "08d8a31f-50c1-4ec5-8739-9b7ac95ed2d9"},
-{"Name": "Columbite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 789110817,"NqSchemaId": null,"Mass": 5.38,"Icon": "https://cdn.hyperion-corporation.de/iconslib/NiobiumOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
-{"Name": "Limestone","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 2,"NqId": 3086347393,"NqSchemaId": null,"Mass": 2.711,"Icon": "https://cdn.hyperion-corporation.de/iconslib/CalciumOre.png","GroupId": "08d8a31f-50c0-46f5-845a-43ec26f5978d"},
-{"Name": "Coal","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 1,"NqId": 299255727,"NqSchemaId": null,"Mass": 1.346,"Icon": "https://cdn.hyperion-corporation.de/iconslib/CarbonOre.png","GroupId": "08d8a31f-50be-4dfa-8466-916146e77841"},
-{"Name": "Chromite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 2,"NqId": 2029139010,"NqSchemaId": null,"Mass": 4.54,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ChromiumOre.png","GroupId": "08d8a31f-50c0-46f5-845a-43ec26f5978d"},
-{"Name": "Malachite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 2,"NqId": 2289641763,"NqSchemaId": null,"Mass": 4,"Icon": "https://cdn.hyperion-corporation.de/iconslib/CopperOre.png","GroupId": "08d8a31f-50c0-46f5-845a-43ec26f5978d"},
-{"Name": "Cryolite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 4,"NqId": 1467310917,"NqSchemaId": null,"Mass": 2.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/FluorineOre.png","GroupId": "08d8a31f-50c1-4ec5-8739-9b7ac95ed2d9"},
-{"Name": "Gold nuggets","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 4,"NqId": 1866812055,"NqSchemaId": null,"Mass": 19.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/GoldOre.png","GroupId": "08d8a31f-50c1-4ec5-8739-9b7ac95ed2d9"},
-{"Name": "Hematite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 1,"NqId": 4234772167,"NqSchemaId": null,"Mass": 5.04,"Icon": "https://cdn.hyperion-corporation.de/iconslib/IronOre.png","GroupId": "08d8a31f-50be-4dfa-8466-916146e77841"},
-{"Name": "Petalite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 3837858336,"NqSchemaId": null,"Mass": 2.412,"Icon": "https://cdn.hyperion-corporation.de/iconslib/LithiumOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
-{"Name": "Rhodonite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 3934774987,"NqSchemaId": null,"Mass": 3.76,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ManganeseOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
-{"Name": "Garnierite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 1065079614,"NqSchemaId": null,"Mass": 2.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/NickelOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
-{"Name": "Kolbeckite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 4,"NqId": 271971371,"NqSchemaId": null,"Mass": 2.37,"Icon": "https://cdn.hyperion-corporation.de/iconslib/ScandiumOre.png","GroupId": "08d8a31f-50c1-4ec5-8739-9b7ac95ed2d9"},
-{"Name": "Quartz","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 1,"NqId": 3724036288,"NqSchemaId": null,"Mass": 2.65,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SiliconOre.png","GroupId": "08d8a31f-50be-4dfa-8466-916146e77841"},
-{"Name": "Acanthite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 1050500112,"NqSchemaId": null,"Mass": 7.2,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SilverOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
 {"Name": "Corner Cable Model A","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 4,"Tier": 1,"NqId": 1700326384,"NqSchemaId": 100703856,"Mass": 14.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/cable_01_corner_01.png","GroupId": "08d8a31f-4f9e-41e8-8021-cc8bae235892"},
 {"Name": "Barrier corner","Description": "Barriers","Volume": 4,"Tier": 1,"NqId": 1377211067,"NqSchemaId": 340031035,"Mass": 14.65,"Icon": "https://cdn.hyperion-corporation.de/iconslib/barrier_corner.png","GroupId": "08d8a31f-4f9b-4f69-81fd-3d955a2c702a"},
 {"Name": "Sink unit","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 4,"Tier": 1,"NqId": 400937499,"NqSchemaId": 882138164,"Mass": 6.72,"Icon": "https://cdn.hyperion-corporation.de/iconslib/washbasin_s01.png","GroupId": "08d8a31f-4f9c-4b18-88ab-5a018cf18af9"},
@@ -491,7 +549,6 @@
 {"Name": "Wooden armchair","Description": "A Chair is a seat that a player can sit in. This is not a Control Unit.","Volume": 2,"Tier": 1,"NqId": 3736537839,"NqSchemaId": 2005259744,"Mass": 1.72,"Icon": "https://cdn.hyperion-corporation.de/iconslib/club_s01.png","GroupId": "08d8a31f-4fc9-4282-81f3-ce98674eaf49"},
 {"Name": "Barrier M","Description": "Barriers","Volume": 4,"Tier": 1,"NqId": 3261824887,"NqSchemaId": 1012072311,"Mass": 20.3,"Icon": "https://cdn.hyperion-corporation.de/iconslib/barrier_2x.png","GroupId": "08d8a31f-4f9b-4f69-81fd-3d955a2c702a"},
 {"Name": "Antenna S","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 24,"Tier": 1,"NqId": 1951235468,"NqSchemaId": 1395780492,"Mass": 130.06,"Icon": "https://cdn.hyperion-corporation.de/iconslib/antennasmall.png","GroupId": "08d8a31f-4f9a-4880-858a-ee06a30f596f"},
-{"Name": "Natron","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 2,"NqId": 343766315,"NqSchemaId": null,"Mass": 1.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SodiumOre.png","GroupId": "08d8a31f-50c0-46f5-845a-43ec26f5978d"},
 {"Name": "Glass Panel S","Description": "Decorative Elements have no other purpose than making your construct look cool. They are not interactive nor do they add any functionality. However decorative Elements do add mass to your constructs and can be damaged.","Volume": 4,"Tier": 1,"NqId": 561162197,"NqSchemaId": 441567189,"Mass": 5.02,"Icon": "https://cdn.hyperion-corporation.de/iconslib/glass1x1.png","GroupId": "08d8a31f-4fa4-48cb-8e8f-7a543b512cfd"},
 {"Name": "Gunner Module M","Description": "A Gunner Module is a stand-alone seat that allows you to control weapons and Radars.","Volume": 486.4,"Tier": 2,"NqId": 564736657,"NqSchemaId": 481252113,"Mass": 2174.12,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_gunner-seat_001_icon.png","GroupId": "08d8a31f-4f40-496a-8321-7e5f9379bf7a"},
 {"Name": "Emergency controller","Description": "The emergency controller will activate when no direct controller is operating the ship. Its default behavior is to safely land your ship if it is able. The emergency controller can be further modified through Lua.","Volume": 4.8,"Tier": 3,"NqId": 286542481,"NqSchemaId": 95046289,"Mass": 9.35,"Icon": "https://cdn.hyperion-corporation.de/iconslib/emergencyunit.png","GroupId": "08d8a31f-4f3c-45df-8c39-b77d52e50bbf"},
@@ -814,9 +871,6 @@
     "nanocraftable": true
 }},
 {"Name": "Polycalcite plastic product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 2,"NqId": 4103265826,"NqSchemaId": 1756458312,"Mass": 1.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-polymer_001_icon.png","GroupId": "08d8a31f-50cf-4f4a-8753-1a02f4b4c1fb"},
-{"Name": "Pyrite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 3,"NqId": 4041459743,"NqSchemaId": null,"Mass": 5.01,"Icon": "https://cdn.hyperion-corporation.de/iconslib/SulfurOre.png","GroupId": "08d8a31f-50bd-45c4-8ea5-3601d1f3d821"},
-{"Name": "Illmenite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 629636034,"NqSchemaId": null,"Mass": 4.55,"Icon": "https://cdn.hyperion-corporation.de/iconslib/TitaniumOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
-{"Name": "Vanadinite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 5,"NqId": 2162350405,"NqSchemaId": null,"Mass": 6.95,"Icon": "https://cdn.hyperion-corporation.de/iconslib/VanadiumOre.png","GroupId": "08d8a31f-50c3-4814-875e-27353e233d6c"},
 {"Name": "Advanced glass product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 2,"NqId": 1942154251,"NqSchemaId": 1116568176,"Mass": 2.6,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-glass_001_icon.png","GroupId": "08d8a31f-50cb-451e-8b92-1451ab8f4b38"},
 {"Name": "Ag-Li Reinforced glass product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 3,"NqId": 2301749833,"NqSchemaId": 1962282521,"Mass": 2.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-glass_001_icon.png","GroupId": "08d8a31f-50cb-451e-8b92-1451ab8f4b38"},
 {"Name": "Al-Fe Alloy product","Description": "A product is a material obtained from mixing several pure materials. It includes metallic Alloys, polymers, composite materials, and chemical compounds. It is used for assembling parts or for creating advanced honeycombed materials.","Volume": 1,"Tier": 1,"NqId": 18262914,"NqSchemaId": 553755522,"Mass": 7.5,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_product-conductor-metal_001_icon.png","GroupId": "08d8a31f-50c9-4c0d-8195-ca76d714eca0", "recipe": {
@@ -866,9 +920,60 @@
 {"Name": "Rocket Fuel Tank S","Description": "Rocket Fuel Tanks store rocket fuel to power rocket boosters.","Volume": 503.2,"Tier": 3,"NqId": 3126840739,"NqSchemaId": 636058384,"Mass": 886.72,"Icon": "https://cdn.hyperion-corporation.de/iconslib/rocket_tank_s.png","GroupId": "08d8a31f-4fef-41c2-8fb1-52db13d935cb"},
 {"Name": "Rocket Fuel Tank M","Description": "Rocket Fuel Tanks store rocket fuel to power rocket boosters.","Volume": 2759.4,"Tier": 3,"NqId": 2477859329,"NqSchemaId": 1580550826,"Mass": 4724.43,"Icon": "https://cdn.hyperion-corporation.de/iconslib/rocket_tank_m.png","GroupId": "08d8a31f-4fef-41c2-8fb1-52db13d935cb"},
 {"Name": "Rocket Fuel Tank XS","Description": "Rocket Fuel Tanks store rocket fuel to power rocket boosters.","Volume": 96.6,"Tier": 3,"NqId": 1663412227,"NqSchemaId": 349296477,"Mass": 173.42,"Icon": "https://cdn.hyperion-corporation.de/iconslib/rocket_tank_xs.png","GroupId": "08d8a31f-4fef-41c2-8fb1-52db13d935cb"},
-{"Name": "Space Fuel Tank L","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 2755.4,"Tier": 2,"NqId": 2212207656,"NqSchemaId": 463323479,"Mass": 5481.27,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltanklarge.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb"},
-{"Name": "Space Fuel Tank S","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 92.6,"Tier": 2,"NqId": 1790622152,"NqSchemaId": 1712649089,"Mass": 182.67,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltank.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb"},
-{"Name": "Space Fuel Tank M","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 499.2,"Tier": 2,"NqId": 773467906,"NqSchemaId": 1145478538,"Mass": 988.67,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltankmedium.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb"},
+{"Name": "Space Fuel Tank L","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 2755.4,"Tier": 2,"NqId": 2212207656,"NqSchemaId": 463323479,"Mass": 5481.27,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltanklarge.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 216},
+        {"key": "Basic Injector", "quantity": 125},
+        {"key": "Basic Chemical Container L", "quantity": 1},
+        {"key": "Basic Standard Frame L", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Space Fuel Tank L", "quantity": 1}
+    ],
+    "schematic": "Tier 2 L Element Schematic Copy"
+}},
+{"Name": "Space Fuel Tank S","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 92.6,"Tier": 2,"NqId": 1790622152,"NqSchemaId": 1712649089,"Mass": 182.67,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltank.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 6},
+        {"key": "Basic Injector", "quantity": 5},
+        {"key": "Basic Chemical Container S", "quantity": 1},
+        {"key": "Basic Standard Frame S", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Space Fuel Tank S", "quantity": 1}
+    ],
+    "schematic": "Tier 2 S Element Schematic Copy",
+    "nanocraftable": true
+}},
+{"Name": "Space Fuel Tank M","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 499.2,"Tier": 2,"NqId": 773467906,"NqSchemaId": 1145478538,"Mass": 988.67,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltankmedium.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 36},
+        {"key": "Basic Injector", "quantity": 25},
+        {"key": "Basic Chemical Container M", "quantity": 1},
+        {"key": "Basic Standard Frame M", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Space Fuel Tank M", "quantity": 1}
+    ],
+    "schematic": "Tier 2 M Element Schematic Copy"
+}},
+{"Name": "Space Fuel Tank XS","Description": "Space Fuel Tanks store space fuel to power Space Engines and Vertical Boosters.","Volume": 17.8,"Tier": 1,"NqId": 2421673145,"NqSchemaId": null,"Mass": 35.03,"Icon": "https://cdn.hyperion-corporation.de/iconslib/radialspacefueltank.png","GroupId": "08d8a31f-4ff0-4a28-8ff1-f443dae09ebb",
+"recipe": {
+    "ingredients": [
+        {"key": "Basic Pipe", "quantity": 1},
+        {"key": "Basic Injector", "quantity": 1},
+        {"key": "Basic Chemical Container XS", "quantity": 1},
+        {"key": "Basic Standard Frame XS", "quantity": 1}
+    ],
+    "products": [
+        {"key": "Space Fuel Tank XS", "quantity": 1}
+    ],
+    "schematic": "Tier 1 XS Element Schematic Copy",
+    "nanocraftable": true
+}},
 {"Name": "Container Hub","Description": "A Container Hub allows you to link several containers together and access them as if they were only one.","Volume": 44.3,"Tier": 1,"NqId": 373359444,"NqSchemaId": 1899626836,"Mass": 55.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/container_hub.png","GroupId": "08d8a31f-4ff1-4b54-8484-9d05d3885b52"},
 {"Name": "Container M","Description": "Containers allow you to securely store various ores and Elements on your constructs.","Volume": 1873,"Tier": 1,"NqId": 521274609,"NqSchemaId": 937197329,"Mass": 7421.35,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_container-legacy_001_icon.png","GroupId": "00000000-0000-0000-0002-000000000003"},
 {"Name": "Container S","Description": "Containers allow you to securely store various ores and Elements on your constructs.","Volume": 342,"Tier": 1,"NqId": 1594689569,"NqSchemaId": 1173587001,"Mass": 1281.31,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_container-legacy_001_icon.png","GroupId": "00000000-0000-0000-0002-000000000002"},
@@ -1085,7 +1190,19 @@
         "nanocraftable": true
     }
 },
-{"Name": "Xeron Fuel","Description": null,"Volume": 1,"Tier": 2,"NqId": 106455050,"NqSchemaId": 400056330,"Mass": 0.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Xeron.png","GroupId": "08d8a31f-504f-410a-8e74-9c4fba1be4c4"},
+{"Name": "Xeron Fuel","Description": null,"Volume": 1,"Tier": 2,"NqId": 106455050,"NqSchemaId": 400056330,"Mass": 0.8,"Icon": "https://cdn.hyperion-corporation.de/iconslib/Xeron.png","GroupId": "08d8a31f-504f-410a-8e74-9c4fba1be4c4",
+"recipe": {
+    "ingredients": [
+        {"key": "Pure Chromium", "quantity": 10},
+        {"key": "Pure Sodium", "quantity": 10},
+        {"key": "Pure Oxygen", "quantity": 19},
+        {"key": "Pure Hydrogen", "quantity": 58}
+    ],
+    "products": [
+        {"key": "Xeron Fuel", "quantity": 100}
+    ],
+    "schematic": "Rocket Fuels Schematic Copy"
+}},
 {
     "Name": "Kergon-X1 fuel",
     "GroupId": "08d8a31f-5050-4555-8741-1bd04504b575",
@@ -1172,6 +1289,7 @@
 {"Name": "Railgun Precision Antimatter Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 3,"NqId": 2423442023,"NqSchemaId": 2071130173,"Mass": 4.97,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-antimatter_001_icon.png","GroupId": "08d8a31f-4f30-4276-82c9-92a652ed6184"},
 {"Name": "Railgun Antimatter Ammo S","Description": "This Ammo is appropriate for Railgun type weapon systems.","Volume": 50,"Tier": 2,"NqId": 2665059784,"NqSchemaId": 953777388,"Mass": 4.92,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-railgun-antimatter_001_icon.png","GroupId": "08d8a31f-4f30-4276-82c9-92a652ed6184"},
 {"Name": "Missile Kinetic Ammo XS","Description": "This Ammo is appropriate for Missile Pod type weapon systems.","Volume": 5,"Tier": 2,"NqId": 2392386214,"NqSchemaId": 13304404,"Mass": 1.29,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-missile-kinetic_001_icon.png","GroupId": "08d8a31f-4f25-4d03-8637-0c857d3fef1b"},
+
 {"Name": "Glossy black plastic","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 1269767483,"NqSchemaId": 927965841,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/PlasticBrightHCBlack.png","GroupId": "08d8a31f-508e-41db-8c89-308e391f5508"},
 {"Name": "Cannon Agile Kinetic Ammo S","Description": "This Ammo is appropriate for Cannon type weapon systems.","Volume": 5,"Tier": 3,"NqId": 2048035010,"NqSchemaId": 1170232047,"Mass": 4.1,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-cannon-heavy-kinetic_001_icon.png","GroupId": "08d8a31f-4f1d-4611-8fbf-6c08e13dd82c"},
 {"Name": "Cannon Defense Kinetic Ammo L","Description": "This Ammo is appropriate for Cannon type weapon systems.","Volume": 125,"Tier": 3,"NqId": 1368644517,"NqSchemaId": 1485644604,"Mass": 75.42,"Icon": "https://cdn.hyperion-corporation.de/iconslib/env_ammo-cannon-heavy-kinetic_001_icon.png","GroupId": "08d8a31f-4f1b-4768-8ea5-8e68d4953365"},
@@ -5513,7 +5631,6 @@
 {"Name": "Polished brown wood 2","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 2497146600,"NqSchemaId": 1278712500,"Mass": 27.192,"Icon": "https://cdn.hyperion-corporation.de/iconslib/WoodBrightHCBrown02.png","GroupId": "08d8a31f-5095-419f-8069-8bc35396fd52"},
 {"Name": "Polished dark brown wood 2","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 2497146600,"NqSchemaId": 1278712500,"Mass": 27.192,"Icon": "https://cdn.hyperion-corporation.de/iconslib/WoodBrightHCBrown02D.png","GroupId": "08d8a31f-5095-419f-8069-8bc35396fd52"},
 {"Name": "Polished light brown wood 2","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 2497146600,"NqSchemaId": 1278712500,"Mass": 27.192,"Icon": "https://cdn.hyperion-corporation.de/iconslib/WoodBrightHCBrown02L.png","GroupId": "08d8a31f-5095-419f-8069-8bc35396fd52"},
-{"Name": "Bauxite","Description": "Ore is material at its most basic form. It is what is mined out of the ground and is the basis of the crafting chain.","Volume": 1,"Tier": 1,"NqId": 262147665,"NqSchemaId": null,"Mass": 1.281,"Icon": "https://cdn.hyperion-corporation.de/iconslib/aluminium_ore.png","GroupId": "08d8a31f-50be-4dfa-8466-916146e77841"},
 {"Name": "Stained brown pattern wood 2","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 2497146600,"NqSchemaId": 1278712500,"Mass": 27.192,"Icon": "https://cdn.hyperion-corporation.de/iconslib/WoodTileHCBrown02L.png","GroupId": "08d8a31f-5095-419f-8069-8bc35396fd52"},
 {"Name": "Brown pattern wood 3","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 2497146600,"NqSchemaId": 1278712500,"Mass": 27.192,"Icon": "https://cdn.hyperion-corporation.de/iconslib/WoodTileHCBrown03.png","GroupId": "08d8a31f-5095-419f-8069-8bc35396fd52"},
 {"Name": "Aged brown pattern wood 3","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 2497146600,"NqSchemaId": 1278712500,"Mass": 27.192,"Icon": "https://cdn.hyperion-corporation.de/iconslib/WoodTileHCBrown03D.png","GroupId": "08d8a31f-5095-419f-8069-8bc35396fd52"},
@@ -5685,6 +5802,6 @@
 {"Name": "Aged green pattern plastic (cold)","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 1269767483,"NqSchemaId": 927965841,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/PlasticTileHCGreenColdD.png","GroupId": "08d8a31f-508e-41db-8c89-308e391f5508"},
 {"Name": "Stained green pattern plastic (cold)","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 1269767483,"NqSchemaId": 927965841,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/PlasticTileHCGreenColdL.png","GroupId": "08d8a31f-508e-41db-8c89-308e391f5508"},
 {"Name": "Glossy dark blue plastic (cold)","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 1269767483,"NqSchemaId": 927965841,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/PlasticBrightHCBlueColdD.png","GroupId": "08d8a31f-508e-41db-8c89-308e391f5508"},
-{"Name": "Glossy blue plastic","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 1269767483,"NqSchemaId": 927965841,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/PlasticBrightHCBlue.png","GroupId": "08d8a31f-508e-41db-8c89-308e391f5508"},
+{"Name": "Glossy blue plastic","Description": "Honeycomb materials are a material type used for construction. They are a lightweight and hollow form of their original material that retain their strength and other properties.","Volume": 10,"Tier": 1,"NqId": 1269767483,"NqSchemaId": 927965841,"Mass": 27.569999999999997,"Icon": "https://cdn.hyperion-corporation.de/iconslib/PlasticBrightHCBlue.png","GroupId": "08d8a31f-508e-41db-8c89-308e391f5508"}
 
 ]

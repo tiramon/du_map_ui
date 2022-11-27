@@ -70,6 +70,6 @@
     
     {"name": "Atmospheric Fuel Schematic Copy", "cost": 3000, "amount": 50, "time": 0},
     {"name": "Space Fuel Schematic Copy", "cost": 7500, "amount": 50, "time": 0},
-    {"name": "Rocket Fuel Schematic Copy", "cost": 18750, "amount": 50, "time": 0}
+    {"name": "Rocket Fuels Schematic Copy", "cost": 18750, "amount": 50, "time": 0}
 
 ]
