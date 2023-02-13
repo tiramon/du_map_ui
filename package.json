@@ -1,6 +1,6 @@
 {
   "name": "du-map-ui",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201",
