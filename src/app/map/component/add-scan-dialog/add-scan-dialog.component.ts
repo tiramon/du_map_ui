@@ -39,7 +39,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
 
   jsonResult: string;
 
-  tab = 1;
+  tab = 4;
   error = [];
 
   scan: Scan;
@@ -349,6 +349,12 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   }
 
   parseJsonResponse(text: string, scan: Scan): Scan {
+    if (!this.jsonResult) {
+      this.error.push(
+        "empty JSON, don't mistake the placeholder of tile 27212 as a pasted JSON"
+      );
+      return undefined;
+    }
     let parsed: {
       planetId: number;
       tileId: number;
