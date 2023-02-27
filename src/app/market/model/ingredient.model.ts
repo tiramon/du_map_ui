@@ -1,4 +1,3 @@
 export interface Ingredient {
-    key: string;
-    quantity: number;
+  [key: string]: number;
 }

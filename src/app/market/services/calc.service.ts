@@ -8,23 +8,32 @@ import skillJson from '../../../assets/market/skills.json';
 import { SchematicItem } from '../model/schematicItem.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CalcService {
-  valueCacheWithoutSkillsAndNanocrafter: {[key: number]: number} = {};
-  valueCacheWithSkillsAndNanocrafter: {[key: number]: number} = {};
-  valueCacheWithoutSkills: {[key: number]: number} = {};
-  valueCacheWithSkills: {[key: number]: number} = {};
+  valueCacheWithoutSkillsAndNanocrafter: { [key: number]: number } = {};
+  valueCacheWithSkillsAndNanocrafter: { [key: number]: number } = {};
+  valueCacheWithoutSkills: { [key: number]: number } = {};
+  valueCacheWithSkills: { [key: number]: number } = {};
 
-  constructor() {
-  }
+  constructor() {}
 
   clearValueCache(orePrices: Array<AvgOrePrice>) {
     this.valueCacheWithoutSkills = {};
-    orePrices.forEach(avg => this.valueCacheWithoutSkillsAndNanocrafter[avg.itemType] = avg.sellAvg);
-    orePrices.forEach(avg => this.valueCacheWithSkillsAndNanocrafter[avg.itemType] = avg.sellAvg);
-    orePrices.forEach(avg => this.valueCacheWithoutSkills[avg.itemType] = avg.sellAvg);
-    orePrices.forEach(avg => this.valueCacheWithSkills[avg.itemType] = avg.sellAvg);
+    orePrices.forEach(
+      avg =>
+        (this.valueCacheWithoutSkillsAndNanocrafter[avg.itemType] = avg.sellAvg)
+    );
+    orePrices.forEach(
+      avg =>
+        (this.valueCacheWithSkillsAndNanocrafter[avg.itemType] = avg.sellAvg)
+    );
+    orePrices.forEach(
+      avg => (this.valueCacheWithoutSkills[avg.itemType] = avg.sellAvg)
+    );
+    orePrices.forEach(
+      avg => (this.valueCacheWithSkills[avg.itemType] = avg.sellAvg)
+    );
 
     // Pure Hydrogen
     this.valueCacheWithoutSkillsAndNanocrafter['1010524904'] = 0;
@@ -38,33 +47,49 @@ export class CalcService {
     this.valueCacheWithSkills['947806142'] = 0;
 
     // Relic Plasma Unus L
-    //this.valueCacheWithoutSkills['947806142'] = 0;
-    //this.valueCacheWithSkills['947806142'] = 0;
+    // this.valueCacheWithoutSkills['947806142'] = 0;
+    // this.valueCacheWithSkills['947806142'] = 0;
 
-    console.log('reseted item values', JSON.stringify(this.valueCacheWithoutSkills));
+    console.log(
+      'reseted item values',
+      JSON.stringify(this.valueCacheWithoutSkills)
+    );
   }
 
   itemByName(name: string): inputItem {
-    return (itemJson as inputItem[]).filter((item: inputItem) => item.Name === name)[0];
+    return (itemJson as inputItem[]).filter(
+      (item: inputItem) => item.Name === name
+    )[0];
   }
 
   itemByNqId(itemType: number): inputItem {
-    return (itemJson as inputItem[]).filter((item: inputItem) => item.NqId === itemType)[0];
+    return (itemJson as inputItem[]).filter(
+      (item: inputItem) => item.NqId === itemType
+    )[0];
   }
 
   getRecipesUsingItem(itemType: number): inputItem[] {
     const item = this.itemByNqId(itemType);
-    return (itemJson as inputItem[]).filter(i => i.recipe).filter(i => i.recipe.ingredients.filter(p => p.key === item.Name).length > 0);
+    return (itemJson as inputItem[])
+      .filter(i => i.recipe)
+      .filter(
+        i =>
+          Object.keys(i.recipe.ingredients).filter(p => p === item.Name)
+            .length > 0
+      );
   }
 
-
-  calcOrePriceOneItem(item: inputItem, charSkills: {}, skipNanocrafterSchematics: boolean ): number {
+  calcOrePriceOneItem(
+    item: inputItem,
+    charSkills: {},
+    skipNanocrafterSchematics: boolean
+  ): number {
     if (!item) {
       console.error('got undefined item');
       return 0;
     }
 
-    const skillValue = (charSkills ? 5 : 0);
+    const skillValue = charSkills ? 5 : 0;
 
     let cache;
     if (charSkills) {
@@ -83,15 +108,33 @@ export class CalcService {
 
     if (item.recipe?.ingredients && !cache[item.NqId]) {
       let itemCost = 0;
-      const skills = skillJson.filter(skill => skill.ApplicableRecipes.includes(item.Name));
+      const skills = skillJson.filter(skill =>
+        skill.ApplicableRecipes.includes(item.Name)
+      );
 
-      for (const ingredient of item.recipe.ingredients) {
-        const ingredientItem = this.itemByName(ingredient.key);
-        const price = this.calcOrePriceOneItem(ingredientItem, charSkills, skipNanocrafterSchematics);
-        let inputQuantity = ingredient.quantity;
+      for (const ingredient of Object.keys(item.recipe.ingredients)) {
+        const ingredientItem = this.itemByName(ingredient);
+        if (!ingredientItem) {
+          console.error('got undefined item for key ', ingredient);
+        }
+        const price = this.calcOrePriceOneItem(
+          ingredientItem,
+          charSkills,
+          skipNanocrafterSchematics
+        );
 
-        const skillAddition = skills.filter(skill => skill.InputTalent).filter(skill => skill.Addition > 0).map( skill => skill.Addition * skillValue).reduce((prev, current) => prev + current, 0);
-        const skillMultiplier = skills.filter(skill => skill.InputTalent).filter(skill => skill.Addition < 1).map( skill => skill.Multiplier * skillValue).reduce((prev, current) => prev + current, 0);
+        let inputQuantity = item.recipe.ingredients[ingredient];
+
+        const skillAddition = skills
+          .filter(skill => skill.InputTalent)
+          .filter(skill => skill.Addition > 0)
+          .map(skill => skill.Addition * skillValue)
+          .reduce((prev, current) => prev + current, 0);
+        const skillMultiplier = skills
+          .filter(skill => skill.InputTalent)
+          .filter(skill => skill.Addition < 1)
+          .map(skill => skill.Multiplier * skillValue)
+          .reduce((prev, current) => prev + current, 0);
         if (skillAddition) {
           inputQuantity += skillAddition;
         } else {
@@ -99,15 +142,31 @@ export class CalcService {
         }
         // modify inputQuantity by Skill
         itemCost += price * inputQuantity;
-        console.log('ingredient ', ingredient.key, ingredient.quantity, inputQuantity, (price ?? 0) * inputQuantity);
+        console.log(
+          'ingredient ',
+          ingredient,
+          item.recipe.ingredients[ingredient],
+          inputQuantity,
+          (price ?? 0) * inputQuantity
+        );
       }
 
-      const product = item.recipe.products.filter(productItem => productItem.key === item.Name)[0];
-      let outputQuantity = product.quantity;
+      const product = Object.keys(item.recipe.products).filter(
+        productItem => productItem === item.Name
+      )[0];
+      let outputQuantity = item.recipe.products[product];
       // tslint:disable-next-line:max-line-length
-      const skillOutputAddition = skills.filter(skill => !skill.InputTalent).filter(skill => skill.Addition > 0).map( skill => skill.Addition * skillValue).reduce((prev, current) => prev + current, 0);
+      const skillOutputAddition = skills
+        .filter(skill => !skill.InputTalent)
+        .filter(skill => skill.Addition > 0)
+        .map(skill => skill.Addition * skillValue)
+        .reduce((prev, current) => prev + current, 0);
       // tslint:disable-next-line:max-line-length
-      const skillOutputMultiplier = skills.filter(skill => !skill.InputTalent).filter(skill => skill.Addition < 1).map( skill => skill.Multiplier * skillValue).reduce((prev, current) => prev + current, 0);
+      const skillOutputMultiplier = skills
+        .filter(skill => !skill.InputTalent)
+        .filter(skill => skill.Addition < 1)
+        .map(skill => skill.Multiplier * skillValue)
+        .reduce((prev, current) => prev + current, 0);
       if (skillOutputAddition) {
         outputQuantity += skillOutputAddition;
       } else {
@@ -115,12 +174,14 @@ export class CalcService {
       }
       // modify outputQuantity by Skill
       const pricePerItem = itemCost / outputQuantity;
-      let schematicPricePerItem = this.getSchematicCostPerItem(item) / outputQuantity;
+      let schematicPricePerItem =
+        this.getSchematicCostPerItem(item) / outputQuantity;
       if (skipNanocrafterSchematics && this.isNanocraftable(item.Name)) {
         schematicPricePerItem = 0;
       }
       cache[item.NqId] = pricePerItem + schematicPricePerItem;
-
+    } else if (!item.recipe?.ingredients && !cache[item.NqId]) {
+      console.error('no price or recipe for item', item.Name);
     }
     console.log(item.Name, cache[item.NqId]);
     return cache[item.NqId];
@@ -136,10 +197,11 @@ export class CalcService {
 
   getSchematicCostPerItem(item: inputItem): number {
     const schematic = this.getSchematicByName(item.recipe.schematic);
-    console.log('schematic', item.Name, schematic);
     if (!schematic) {
+      console.log('no schematic needed for', item.Name);
       return 0;
     }
+    console.log('schematic', item.Name, schematic);
     return schematic.cost / schematic.amount;
   }
   getSchematicByName(name: string): SchematicItem {
@@ -160,7 +222,9 @@ export class CalcService {
         }
       });
     }
-    const currentSkills = skillJson.filter(skill => skill.ApplicableRecipes.includes(item.Name)).map(skill => skill.Name);
+    const currentSkills = skillJson
+      .filter(skill => skill.ApplicableRecipes.includes(item.Name))
+      .map(skill => skill.Name);
     skills.push(...currentSkills);
     return [...new Set(skills)];
   }
