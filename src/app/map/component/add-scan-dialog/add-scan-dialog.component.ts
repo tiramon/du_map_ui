@@ -26,6 +26,9 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
   faJava = faJava;
   faDiscord = faDiscord;
 
+  toggleSaveOnPasteActive = false;
+  atleastSavedOnce = false;
+
   @Input()
   modal: boolean;
 
@@ -159,7 +162,9 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
     this.requestService.saveScan(this.scan).then(
       response => {
         if (response) {
-          this.toastr.success('Your scan was successfully saved.');
+          this.toastr.success(
+            "Your scan for '" + this.scan.tileId + "' was successfully saved."
+          );
           this.eventService.scanAdded.emit(this.scan);
         }
         if (close && response) {
@@ -188,7 +193,9 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
       this.requestService.saveScan(this.scan).then(
         response => {
           if (response) {
-            this.toastr.success('Your scan was successfully saved.');
+            this.toastr.success(
+              "Your scan for '" + this.scan.tileId + "' was successfully saved."
+            );
             this.eventService.scanAdded.emit(this.scan);
           }
           if (close && response) {
@@ -196,6 +203,7 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
           } else {
             this.clearScan();
             this.jsonResult = undefined;
+            this.atleastSavedOnce = true;
           }
           this.eventService.loading.emit(false);
         },
@@ -234,6 +242,22 @@ export class AddScanDialogComponent implements OnInit, OnChanges {
       this.toastr.success('Your scan was successfully parsed.');
     }
     this.formTouched = true;
+  }
+
+  jsonPlaceHolder() {
+    if (!this.toggleSaveOnPasteActive && !this.atleastSavedOnce) {
+      return '{"planetId":"2","tileId":27212,"territoryPool":[{"itemId":"299255727","maxMiningRate":72},{"itemId":"4234772167","maxMiningRate":45},{"itemId":"3724036288","maxMiningRate":228},{"itemId":"262147665","maxMiningRate":76}]}';
+    }
+    return '';
+  }
+  toggleSaveOnPaste() {
+    this.toggleSaveOnPasteActive = !this.toggleSaveOnPasteActive;
+  }
+
+  jsonPasteHandler(event) {
+    if (this.toggleSaveOnPasteActive) {
+      this.parseAndSaveScan(false);
+    }
   }
 
   /**

@@ -312,24 +312,32 @@ chrom ite	12.56 kL	"></textarea>
             style="width: 100%"
             [(ngModel)]="jsonResult"
             rows="10"
-            placeholder='{"planetId":"2","tileId":27212,"territoryPool":[{"itemId":"299255727","maxMiningRate":72},{"itemId":"4234772167","maxMiningRate":45},{"itemId":"3724036288","maxMiningRate":228},{"itemId":"262147665","maxMiningRate":76}]}'></textarea>
+            (ngModelChange)="jsonPasteHandler($event)"
+            [placeholder]="jsonPlaceHolder()"></textarea>
         </div>
       </div>
       <div class="notification is-danger" *ngIf="error.length > 0">
         <div *ngFor="let e of error">{{ e }}</div>
       </div>
+      <div class="has-text-centered">
+        <input
+          type="checkbox"
+          class="checkbox"
+          (change)="toggleSaveOnPaste()" />
+        save on paste
+      </div>
       <div class="field is-grouped is-grouped-centered">
-        <div class="control">
+        <div class="control" *ngIf="!toggleSaveOnPasteActive">
           <button class="button is-link" (click)="parseAndSaveScan(false)">
             Save & New
           </button>
         </div>
-        <div class="control">
+        <div class="control" *ngIf="!toggleSaveOnPasteActive">
           <button class="button is-link" (click)="parseAndSaveScan(true)">
             Save & Close
           </button>
         </div>
-        <div class="control">
+        <div class="control" *ngIf="!toggleSaveOnPasteActive">
           <button class="button is-link" (click)="fillJsonForm()">Parse</button>
         </div>
         <div class="control">
