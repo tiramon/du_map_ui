@@ -25,20 +25,28 @@ export class RequestService {
    * @param celestialId internal id of the selected planet
    * @param tileId  id of the selected tile
    */
-  public requestMap(celestialId: number, tileId: number, scale: number): Promise<Face[]> {
+  public requestMap(
+    celestialId: number,
+    tileId: number,
+    scale: number
+  ): Promise<Face[]> {
     const url = `${this.defaultURL}faces?tileId=${tileId}&celestialId=${celestialId}&scale=${scale}`;
     this.eventService.loading.next(true);
     return this.http.get(url, this.getRequestConfigObject())
       .pipe(
         map(response => response as Face[]),
-        catchError( error => {
+        catchError(error => {
           if (error.status === 404) {
             this.eventService.loading.next(false);
-            const planetName = this.planetNames.find(p => p.id == celestialId).name;
+            const planetName = this.planetNames.find(
+              p => p.id == celestialId
+            ).name;
             this.toastr.error(`Tile ${tileId} does not exist on ${planetName}`);
           } else if (error.status === 500) {
             this.eventService.loading.next(false);
-            this.toastr.error('Serverside error, plz report to discord channel');
+            this.toastr.error(
+              'Serverside error, plz report to discord channel'
+            );
           } else {
             this.eventService.loading.next(false);
             this.toastr.error('Unexpcted error, plz report to discord channel');
@@ -52,7 +60,12 @@ export class RequestService {
   private dummyData(): Face[] {
     const f1 = new Face();
     f1.center = [0, 0];
-    f1.vertices = [[100, 100], [100, -100], [-100, -100], [-100, 100]];
+    f1.vertices = [
+      [100, 100],
+      [100, -100],
+      [-100, -100],
+      [-100, 100],
+    ];
     f1.scan = new Scan();
     f1.scan.time = new Date();
     f1.scan.planet = 'Alioth';
@@ -61,7 +74,10 @@ export class RequestService {
   }
 
   private getRequestConfigObject(type?: string): object {
-    return {headers: new HttpHeaders().set('Content-Type', 'application/json'), responseType: type ? type : 'json'};
+    return {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      responseType: type ? type : 'json',
+    };
   }
 
   /**
@@ -79,7 +95,9 @@ export class RequestService {
             if (error.status === 0) {
               this.toastr.error('Backend not reachable');
             } else if (error.status === 500) {
-              this.toastr.error('Serverside error, plz report to discord channel');
+            this.toastr.error(
+              'Serverside error, plz report to discord channel'
+            );
             } else if (error.status !== 400) {
               this.toastr.error('Unexpcted error, plz report to discord channel');
             }

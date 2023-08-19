@@ -1,8 +1,21 @@
-import { Component, Inject, ViewChild, OnInit, ElementRef } from '@angular/core';
+import {
+  Component,
+  Inject,
+  ViewChild,
+  OnInit,
+  ElementRef,
+} from '@angular/core';
 import { Subject } from 'rxjs';
 import { SelectedTile } from './map/model/SelectedTile';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import { faCaretLeft, faCaretRight, faCog, faDoorOpen, faHardHat, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCaretLeft,
+  faCaretRight,
+  faCog,
+  faDoorOpen,
+  faHardHat,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { faListAlt, faMap } from '@fortawesome/free-regular-svg-icons';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { EventService } from './map/service/event.service';
@@ -15,7 +28,7 @@ import { Configuration, OrderService } from '@tiramon/du-market-api';
 @Component({
   selector: 'dumap-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   faDiscord = faDiscord;
@@ -66,7 +79,7 @@ export class AppComponent implements OnInit {
         this.showSettings = false;
         return;
       }
-/*
+      /*
       const warningread = localStorage.getItem(this.localStorageKeyWarningRead);
       const warningread2 = localStorage.getItem(this.localStorageKeyWarningRead + '2');
 
@@ -99,10 +112,10 @@ export class AppComponent implements OnInit {
         localStorage.setItem(this.localStorageKeyWarningRead + '2', 'true');
       }
 */
-      console.log(router.navigated);
       if (router.navigated) {
-        const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
-        console.log(lastTile);
+        const lastTile: SelectedTile = JSON.parse(
+          localStorage.getItem('lastSelectedTile')
+        );
         if (lastTile) {
           this.modelChanged.next(lastTile);
         }
@@ -143,11 +156,14 @@ export class AppComponent implements OnInit {
     oauthService.setupAutomaticSilentRefresh();
     oauthService.tryLoginCodeFlow().then(() => {
       if (!oauthService.getIdentityClaims() && oauthService.getAccessToken()) {
-        oauthService.loadUserProfile().then( o => {
+        oauthService.loadUserProfile().then(o => {
           this.configuration.accessToken = oauthService.getAccessToken();
           this.eventService.loginChange.emit(true);
         });
-      } else if (oauthService.getIdentityClaims() && oauthService.getAccessToken()) {
+      } else if (
+        oauthService.getIdentityClaims() &&
+        oauthService.getAccessToken()
+      ) {
         this.configuration.accessToken = oauthService.getAccessToken();
         this.eventService.loginChange.emit(true);
       }
@@ -158,29 +174,38 @@ export class AppComponent implements OnInit {
     this.handleOauth2(this.oauthService);
 
     // when another tile was selected tell it to the world
-    this.modelChanged.subscribe(
-      (selectedTile: SelectedTile) => {
-        const planetName = this.getPlanetById(selectedTile.celestialId).name;
-        this.router.navigate([`/map/${planetName}/${selectedTile.tileId}`]);
-      });
+    this.modelChanged.subscribe((selectedTile: SelectedTile) => {
+      const planetName = this.getPlanetById(selectedTile.celestialId).name;
+      this.router.navigate([`/map/${planetName}/${selectedTile.tileId}`]);
+    });
 
     // somehow handle a change of planet and tile from another location, but make sure it's not our own event reacting to
-    this.eventService.tileSelected.subscribe( selectedTile => {
-      if (selectedTile && (selectedTile.tileId !== this.tileId || selectedTile.celestialId !== this.celestialId)) {
+    this.eventService.tileSelected.subscribe(selectedTile => {
+      if (
+        selectedTile &&
+        (selectedTile.tileId !== this.tileId ||
+          selectedTile.celestialId !== this.celestialId)
+      ) {
         this.celestialId = selectedTile.celestialId;
         this.tileId = selectedTile.tileId;
-        this.tileIdInput.nativeElement.value = '' + this.tileId;
-        this.planetIdInput.nativeElement.selectedIndex = this.planets.map(p => p.id).indexOf(this.celestialId);
+        if (this.tileIdInput) {
+          this.tileIdInput.nativeElement.value = '' + this.tileId;
+        }
+        if (this.planetIdInput) {
+          this.planetIdInput.nativeElement.selectedIndex = this.planets
+            .map(p => p.id)
+            .indexOf(this.celestialId);
+        }
       }
     });
   }
 
-  public getPlanetById(celestialId: number): {id: number, name: string} {
-    return this.planets.find((p: {id: number}) => p.id === celestialId);
+  public getPlanetById(celestialId: number): { id: number; name: string } {
+    return this.planets.find((p: { id: number }) => p.id === celestialId);
   }
 
-  public getPlanetByName(celestialName: string): {id: number, name: string} {
-    return this.planets.find((p: {name: string}) => p.name === celestialName);
+  public getPlanetByName(celestialName: string): { id: number; name: string } {
+    return this.planets.find((p: { name: string }) => p.name === celestialName);
   }
 
   /**
@@ -195,7 +220,7 @@ export class AppComponent implements OnInit {
     if (!claims) {
       return null;
     }
-    return claims['username'] +'#'+ claims['discriminator'];
+    return claims['username'] + '#' + claims['discriminator'];
   }
 
   public navigate(location) {

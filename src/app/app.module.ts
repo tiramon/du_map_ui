@@ -16,7 +16,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MapModule } from './map/map.module';
 import { MarketModule } from './market/market.module';
 import { environment } from 'src/environments/environment';
-import { ApiModule, Configuration } from '@tiramon/du-market-api';
+import {
+  ApiModule as MarketApiModule,
+  Configuration as MarketConfiguration,
+} from '@tiramon/du-market-api';
+import {
+  ApiModule as MapApiModule,
+  Configuration as MapConfiguration,
+} from '@tiramon/du-map-api';
 import { AuthGuard } from './core/guard/auth.guard';
 
 import localeDe from '@angular/common/locales/de';
@@ -34,8 +41,13 @@ registerLocaleData(localeDe);
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     MapModule,
-    ApiModule.forRoot(() => new Configuration({basePath: environment.basePath})),
-    MarketModule
+    MarketApiModule.forRoot(
+      () => new MarketConfiguration({ basePath: environment.basePath })
+    ),
+    MapApiModule.forRoot(
+      () => new MapConfiguration({ basePath: environment.basePath })
+    ),
+    MarketModule,
   ],
   providers: [
     AuthGuard,

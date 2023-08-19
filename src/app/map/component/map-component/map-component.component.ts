@@ -1,4 +1,12 @@
-import { Component, ElementRef,  HostListener, Inject, OnInit, ViewChild, LOCALE_ID } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  OnInit,
+  ViewChild,
+  LOCALE_ID,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Subject } from 'rxjs';
@@ -13,10 +21,9 @@ import { SettingsService } from 'src/app/map/service/settings.service';
 @Component({
   selector: 'dumap-map-component',
   templateUrl: './map-component.component.html',
-  styleUrls: ['./map-component.component.scss']
+  styleUrls: ['./map-component.component.scss'],
 })
 export class MapComponentComponent implements OnInit {
-
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
 
@@ -25,7 +32,7 @@ export class MapComponentComponent implements OnInit {
   selectedTile = null;
   perspectiveScale = 1000;
 
-  public CANVAS_WIDTH  = 900;
+  public CANVAS_WIDTH = 900;
   public CANVAS_HEIGHT = 800;
   public offsetX2D = this.CANVAS_WIDTH / 2;
   public offsetY2D = this.CANVAS_HEIGHT / 2;
@@ -71,8 +78,11 @@ export class MapComponentComponent implements OnInit {
       this.selectedTile = selectedTile;
       localStorage.setItem('lastSelectedTile', JSON.stringify(selectedTile));
       if (oauthService.hasValidAccessToken()) {
-        this.loadMap(selectedTile.celestialId, selectedTile.tileId, this.perspectiveScale)
-          .then( faces =>  this.eventService.faceSelected.emit(faces[0]));
+        this.loadMap(
+          selectedTile.celestialId,
+          selectedTile.tileId,
+          this.perspectiveScale
+        ).then(faces => this.eventService.faceSelected.emit(faces[0]));
       }
     });
 
@@ -85,7 +95,11 @@ export class MapComponentComponent implements OnInit {
     this.eventService.loginChange.subscribe((logedIn: boolean) => {
       if (logedIn) {
         if (this.selectedTile) {
-          this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId, this.perspectiveScale);
+          this.loadMap(
+            this.selectedTile.celestialId,
+            this.selectedTile.tileId,
+            this.perspectiveScale
+          );
         }
       } else {
         this.clear();
@@ -95,18 +109,16 @@ export class MapComponentComponent implements OnInit {
     this.settings = settingsService.getSettings();
     let minimized = this.settings.minimizedNav;
     // redraws the map when settings are changed
-    settingsService.settingsChanged.subscribe(
-      (settings: Settings) => {
+    settingsService.settingsChanged.subscribe((settings: Settings) => {
         if (settings.minimizedNav !== minimized) {
           minimized = settings.minimizedNav;
           window.dispatchEvent(new Event('resize'));
         }
         this.drawMap();
-      }
-    );
+    });
 
     // if a scan was added, add it to the tile without reload and repaint the map
-    this.eventService.scanAdded.subscribe( (scan: Scan) => {
+    this.eventService.scanAdded.subscribe((scan: Scan) => {
       const planet = this.planetNames.find(p => p.name === scan.planet);
       console.log('scan added at ', planet, this.selectedTile.celestialId);
       if (+planet.id === +this.selectedTile.celestialId) {
@@ -121,7 +133,6 @@ export class MapComponentComponent implements OnInit {
 
     this.imagesLoadedSubject = new Subject<any>();
   }
-
 
   ngOnInit() {
     this.ctx = this.canvas.nativeElement.getContext('2d');
@@ -140,15 +151,15 @@ export class MapComponentComponent implements OnInit {
       this.clear();
       return undefined;
     }
-    return this.requestService.requestMap(celestialId, tileId, scale).then(
-      result => {
+    return this.requestService
+      .requestMap(celestialId, tileId, scale)
+      .then(result => {
         this.eventService.loading.emit(false);
         this.face = result;
         this.drawMap();
         // this.markCenter();
         return this.face;
-      }
-    );
+      });
   }
 
   /**
@@ -198,7 +209,10 @@ export class MapComponentComponent implements OnInit {
       const img = new Image();
       img.width = 30;
       img.height = 30;
-      img.onload = () => { console.log('image loaded'); this.setImageLoaded(oreName); };
+      img.onload = () => {
+        console.log('image loaded');
+        this.setImageLoaded(oreName);
+      };
       img.src = `/assets/${oreName}.png`;
       this.oreIcons[oreName] = img;
     }
@@ -227,11 +241,17 @@ export class MapComponentComponent implements OnInit {
     let x;
     let y;
     let z;
-    if (center[0] < -(this.CANVAS_WIDTH / 2) - this.canvasTolerance || center [0] > this.CANVAS_WIDTH / 2 + this.canvasTolerance) {
+    if (
+      center[0] < -(this.CANVAS_WIDTH / 2) - this.canvasTolerance ||
+      center[0] > this.CANVAS_WIDTH / 2 + this.canvasTolerance
+    ) {
     //  console.log('skip width', face);
       return;
     }
-    if (center[1] < -(this.CANVAS_HEIGHT / 2) - this.canvasTolerance || center [1] > this.CANVAS_HEIGHT / 2 + this.canvasTolerance) {
+    if (
+      center[1] < -(this.CANVAS_HEIGHT / 2) - this.canvasTolerance ||
+      center[1] > this.CANVAS_HEIGHT / 2 + this.canvasTolerance
+    ) {
     //  console.log('skip height', face);
       return;
     }
@@ -252,7 +272,7 @@ export class MapComponentComponent implements OnInit {
     }
     const centerToTop = minY - center[1];
     const yModifier = Math.abs(centerToTop) < 45 ? 0 : 15;
-    if ( face.scan) {
+    if (face.scan) {
       [x, y] = center;
       let yOreOffset = 0;
       let xOreOffset = 0;
@@ -266,9 +286,16 @@ export class MapComponentComponent implements OnInit {
                 xOreOffset = 0;
               }
               console.log('draw image', this.getAllIconsLoaded());
-              this.ctx.drawImage(this.getOreIcon(ore.pictureName ? ore.pictureName : ore.name),
-                0, 0, 82, 82,
-                x + this.offsetX2D - 40 + xOreOffset, y + this.offsetY2D  - yModifier + yOreOffset, 22, 22
+              this.ctx.drawImage(
+                this.getOreIcon(ore.pictureName ? ore.pictureName : ore.name),
+                0,
+                0,
+                82,
+                82,
+                x + this.offsetX2D - 40 + xOreOffset,
+                y + this.offsetY2D - yModifier + yOreOffset,
+                22,
+                22
               );
               xOreOffset += 18;
               lastOre = ore;
@@ -296,7 +323,7 @@ export class MapComponentComponent implements OnInit {
                 this.ctx.fillText(
                   text + ` ${oreShort}`,
                   x + this.offsetX2D + 5 - metrics.width + xOreOffset,
-                  y + this.offsetY2D  - yModifier + fontSize * 1.2 + yOreOffset
+                  y + this.offsetY2D - yModifier + fontSize * 1.2 + yOreOffset
                 );
                 yOreOffset += fontSize;
               }
@@ -318,7 +345,9 @@ export class MapComponentComponent implements OnInit {
       this.ctx.fillText(
         text,
         x + this.offsetX2D - metrics.width / 2,
-        y -  (face.scan && this.settings.showResourceAmount ? yModifier : 0) + this.offsetY2D
+        y -
+          (face.scan && this.settings.showResourceAmount ? yModifier : 0) +
+          this.offsetY2D
       );
     }
   }
@@ -330,11 +359,17 @@ export class MapComponentComponent implements OnInit {
     let x;
     let y;
     let z;
-    if (center[0] < -(this.CANVAS_WIDTH / 2) - this.canvasTolerance || center [0] > this.CANVAS_WIDTH / 2 + this.canvasTolerance) {
+    if (
+      center[0] < -(this.CANVAS_WIDTH / 2) - this.canvasTolerance ||
+      center[0] > this.CANVAS_WIDTH / 2 + this.canvasTolerance
+    ) {
     //  console.log('skip width', face);
       return;
     }
-    if (center[1] < -(this.CANVAS_HEIGHT / 2) - this.canvasTolerance || center [1] > this.CANVAS_HEIGHT / 2 + this.canvasTolerance) {
+    if (
+      center[1] < -(this.CANVAS_HEIGHT / 2) - this.canvasTolerance ||
+      center[1] > this.CANVAS_HEIGHT / 2 + this.canvasTolerance
+    ) {
     //  console.log('skip height', face);
       return;
     }
@@ -371,7 +406,7 @@ export class MapComponentComponent implements OnInit {
     }
     this.ctx.fill();
 
-    if (face.scan &&  Object.keys(face.scan.ores).length === 0) {
+    if (face.scan && Object.keys(face.scan.ores).length === 0) {
       this.ctx.fillStyle = `rgba(0, 0, 0, 0.5)`;
       this.ctx.fill();
     } else if (face.scan) {
@@ -389,8 +424,15 @@ export class MapComponentComponent implements OnInit {
     }
     event.preventDefault();
     // relative mouse coords
-    const mouseX = event.clientX - this.offsetX2D - this.canvas.nativeElement.getBoundingClientRect().left;
-    const mouseY = event.clientY - this.offsetY2D - this.scrollOffset - this.canvas.nativeElement.getBoundingClientRect().top;
+    const mouseX =
+      event.clientX -
+      this.offsetX2D -
+      this.canvas.nativeElement.getBoundingClientRect().left;
+    const mouseY =
+      event.clientY -
+      this.offsetY2D -
+      this.scrollOffset -
+      this.canvas.nativeElement.getBoundingClientRect().top;
     // console.log(mouseX, mouseY);
     for (const f of this.face) {
       if (this.isInside(f.vertices, [mouseX, mouseY])) {
@@ -405,27 +447,47 @@ export class MapComponentComponent implements OnInit {
     if (!this.face) { return; }
     event.preventDefault();
     // relative mouse coords
-    const mouseX = event.clientX - this.offsetX2D - this.canvas.nativeElement.getBoundingClientRect().left;
-    const mouseY = event.clientY - this.offsetY2D - this.scrollOffset - this.canvas.nativeElement.getBoundingClientRect().top;
+    const mouseX =
+      event.clientX -
+      this.offsetX2D -
+      this.canvas.nativeElement.getBoundingClientRect().left;
+    const mouseY =
+      event.clientY -
+      this.offsetY2D -
+      this.scrollOffset -
+      this.canvas.nativeElement.getBoundingClientRect().top;
     // console.log(mouseX, mouseY);
     for (const f of this.face) {
       if (this.isInside(f.vertices, [mouseX, mouseY])) {
         // console.log('clicked in tile ' + f.tileId);
-        this.router.navigate(['map', this.getPlanetById(this.selectedTile.celestialId).name, f.tileId]);
+        this.router.navigate([
+          'map',
+          this.getPlanetById(this.selectedTile.celestialId).name,
+          f.tileId,
+        ]);
         break;
       }
     }
   }
-  public getPlanetById(celestialId: number): {id: number, name: string} {
-    return this.planetNames.find((p: {id: number}) => p.id === celestialId);
+  public getPlanetById(celestialId: number): { id: number; name: string } {
+    return this.planetNames.find((p: { id: number }) => p.id === celestialId);
   }
 
   public onCanvasRightClick(event: MouseEvent) {
-    if (!this.face) { return; }
+    if (!this.face) {
+      return;
+    }
     event.preventDefault();
     // relative mouse coords
-    const mouseX = event.clientX - this.offsetX2D - this.canvas.nativeElement.getBoundingClientRect().left;
-    const mouseY = event.clientY - this.offsetY2D - this.scrollOffset - this.canvas.nativeElement.getBoundingClientRect().top;
+    const mouseX =
+      event.clientX -
+      this.offsetX2D -
+      this.canvas.nativeElement.getBoundingClientRect().left;
+    const mouseY =
+      event.clientY -
+      this.offsetY2D -
+      this.scrollOffset -
+      this.canvas.nativeElement.getBoundingClientRect().top;
     // console.log(mouseX, mouseY);
     for (const f of this.face) {
       if (this.isInside(f.vertices, [mouseX, mouseY])) {
@@ -450,7 +512,7 @@ export class MapComponentComponent implements OnInit {
       }
       i = next;
     } while (i !== 0);
-    return (count % 2 === 1);
+    return count % 2 === 1;
   }
 
   doIntersect(p1, q1, p2, q2) {
@@ -482,13 +544,15 @@ export class MapComponentComponent implements OnInit {
     if (val === 0) {
       return 0;
     }
-    return (val > 0) ? 1 : 2;
+    return val > 0 ? 1 : 2;
   }
   onSegment(p: number[], q: number[], r: number[]) {
-    if (q[0] <= Math.max(p[0], r[0]) &&
+    if (
+      q[0] <= Math.max(p[0], r[0]) &&
         q[0] >= Math.min(p[0], r[0]) &&
         q[1] <= Math.max(p[1], r[1]) &&
-        q[1] >= Math.min(p[1], r[1])) {
+      q[1] >= Math.min(p[1], r[1])
+    ) {
       return true;
     }
     return false;
@@ -498,17 +562,30 @@ export class MapComponentComponent implements OnInit {
     event.preventDefault();
 
     const oldScale = this.perspectiveScale;
-    this.perspectiveScale = Math.round(this.perspectiveScale * (10 + (event.deltaY > 0 ? -1 : 1)) / 10);
+    this.perspectiveScale = Math.round(
+      (this.perspectiveScale * (10 + (event.deltaY > 0 ? -1 : 1))) / 10
+    );
     this.validateScale();
     if (oldScale !== this.perspectiveScale) {
-      localStorage.setItem('dumap_perspectiveScale', '' + this.perspectiveScale);
-      this.loadMap(this.selectedTile.celestialId, this.selectedTile.tileId, this.perspectiveScale);
+      localStorage.setItem(
+        'dumap_perspectiveScale',
+        '' + this.perspectiveScale
+      );
+      this.loadMap(
+        this.selectedTile.celestialId,
+        this.selectedTile.tileId,
+        this.perspectiveScale
+      );
     }
   }
 
   validateScale() {
-    if (this.perspectiveScale < 300) { this.perspectiveScale = 300; }
-    if (this.perspectiveScale > 2000) { this.perspectiveScale = 2000; }
+    if (this.perspectiveScale < 300) {
+      this.perspectiveScale = 300;
+    }
+    if (this.perspectiveScale > 2000) {
+      this.perspectiveScale = 2000;
+    }
   }
 
  @HostListener('window:resize', ['$event'])
@@ -521,7 +598,7 @@ export class MapComponentComponent implements OnInit {
    this.CANVAS_WIDTH = Math.max(event.target.innerWidth - navWidth, 200);
    this.canvas.nativeElement.width = this.CANVAS_WIDTH;
 
-   this.CANVAS_HEIGHT = Math.max(event.target.innerHeight, 200) - (4.75 * 16);
+    this.CANVAS_HEIGHT = Math.max(event.target.innerHeight, 200) - 4.75 * 16;
    this.canvas.nativeElement.height = this.CANVAS_HEIGHT;
 
    this.offsetX2D = this.CANVAS_WIDTH / 2 - offset;

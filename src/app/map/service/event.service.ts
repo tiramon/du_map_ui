@@ -33,7 +33,9 @@ export class EventService {
   private lastSelectedTile: SelectedTile;
 
   constructor() {
-    this.tileSelected.subscribe((selectedTile: SelectedTile) => this.lastSelectedTile = selectedTile);
+    this.tileSelected.subscribe(
+      (selectedTile: SelectedTile) => (this.lastSelectedTile = selectedTile)
+    );
   }
 
   public getLastSelectedTile() {
