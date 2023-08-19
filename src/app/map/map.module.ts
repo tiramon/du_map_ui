@@ -18,7 +18,10 @@ import { CustomMinDirective } from './directive/customMin.directive';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './component/login/login.component';
+import { ORE_ACANTHITE_INDEX, ORE_BAUXITE_INDEX, ORE_CHROMITE_INDEX, ORE_COAL_INDEX, ORE_COBALTITE_INDEX, ORE_COLUMBITE_INDEX, ORE_CRYOLITE_INDEX, ORE_GARNIERITE_INDEX, ORE_GOLDNUGGETS_INDEX, ORE_HEMATITE_INDEX, ORE_ILLMENITE_INDEX, ORE_KOLBECKITE_INDEX, ORE_LIMESTONE_INDEX, ORE_MALACHITE_INDEX, ORE_NATRON_INDEX, ORE_PETALITE_INDEX, ORE_PYRITE_INDEX, ORE_QUARTZ_INDEX, ORE_RHODONITE_INDEX, ORE_VANADINITE_INDEX } from '../core/constants';
 
+
+// tslint:disable:max-line-length
 @NgModule({
     declarations: [
       MapComponentComponent,
@@ -44,37 +47,37 @@ import { LoginComponent } from './component/login/login.component';
       SelectedTileResolver,
       {provide: 'BASEURL', useValue: environment.apiEndpoint},
       {provide: 'PLANETS', useValue: [
-        {id: 31, name: 'Alioth', ores: [0, 1, 2, 3, 5, 8], gp: 93, altitude: 200, planetId: 2},
-          {id: 17, name: 'Alioth Moon 1', ores: [1, 3, 7, 11], gp: 22, altitude: 0, planetId: 21},
-          {id: 18, name: 'Alioth Moon 4', ores:  [0, 2, 4, 9], gp: 22, altitude: 0, planetId: 22},
+        {id: 31, name: 'Alioth', ores: [ORE_BAUXITE_INDEX, ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_LIMESTONE_INDEX, ORE_ACANTHITE_INDEX], gp: 93, altitude: 200, planetId: 2},
+          {id: 17, name: 'Alioth Moon 1', ores: [ORE_COAL_INDEX, ORE_QUARTZ_INDEX, ORE_NATRON_INDEX, ORE_PYRITE_INDEX], gp: 22, altitude: 0, planetId: 21},
+          {id: 18, name: 'Alioth Moon 4', ores:  [ORE_BAUXITE_INDEX, ORE_HEMATITE_INDEX, ORE_CHROMITE_INDEX, ORE_GARNIERITE_INDEX], gp: 22, altitude: 0, planetId: 22},
 //        {id: 27, name: 'Feli', ores: [0, 1, 2, 3, 6, 10, 14], gp: 30, altitude: 18300},
 //          {id: 8, name: 'Feli Moon 1', ores: [ 1, 2, 6, 17], gp: 10, altitude: 0},
-        {id: 32, name: 'Haven', ores: [0, 1, 2, 3], gp: 61, altitude: 80, planetId: 27},
+        {id: 32, name: 'Haven', ores: [ORE_BAUXITE_INDEX, ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX], gp: 61, altitude: 80, planetId: 27},
 //        {id: 20, name: 'Ion', ores: [1, 5, 8, 13, 18], gp: 33, altitude: 500},
 //          {id: 6, name: 'Ion Moon 1', ores: [0, 7, 9, 16], gp: 8, altitude: 0},
 //          {id: 14, name: 'Ion Moon 2', ores: [0, 4, 6, 18], gp: 11, altitude: 0},
-        {id: 29, name: 'Jago', ores: [0, 3, 8, 12, 17], gp: 45, altitude: 0, planetId: 9},
+        {id: 29, name: 'Jago', ores: [ORE_BAUXITE_INDEX, ORE_QUARTZ_INDEX, ORE_ACANTHITE_INDEX, ORE_COBALTITE_INDEX, ORE_ILLMENITE_INDEX], gp: 45, altitude: 0, planetId: 9},
 //        {id: 26, name: 'Lacobus', ores: [2, 7, 11, 14, 17], gp: 41, altitude: 800},
 //          {id: 16, name: 'Lacobus Moon 1', ores: [2, 8, 20], gp: 13, altitude: 0},
 //          {id: 9, name: 'Lacobus Moon 2', ores: [3, 5, 10, 17], gp: 10, altitude: 0},
 //          {id: 13, name: 'Lacobus Moon 3', ores: [1, 11, 18], gp: 11, altitude: 0},
-        {id: 19, name: 'Madis', ores: [0, 1, 2, 3, 4, 11], gp: 32, altitude: 750, planetId: 1},
-          {id: 1, name: 'Madis Moon 1', ores: [1, 2, 7, 8], gp: 7, altitude: 0, planetId: 10},
-          {id: 2, name: 'Madis Moon 2', ores: [2, 3, 6, 10], gp: 8, altitude: 0, planetId: 11},
-          {id: 11, name: 'Madis Moon 3', ores:  [0, 3, 4, 9], gp: 11, altitude: 0, planetId: 12},
-        {id: 30, name: 'Sanctuary', ores: [0, 1, 2, 3], gp: 61, altitude: 80, planetId: 26},
-//        {id: 23, name: 'Sicari', ores: [0, 1, 2, 3, 4, 11, 15], gp: 37, altitude: 130},
-//        {id: 24, name: 'Sinnen', ores: [0, 1, 2, 3, 5, 8, 13], gp: 40, altitude: 317},
-//          {id: 15, name: 'Sinnen Moon 1', ores: [0, 3, 4, 16], gp: 12, altitude: 0},
+        {id: 19, name: 'Madis', ores: [ORE_BAUXITE_INDEX, ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_CHROMITE_INDEX, ORE_PYRITE_INDEX], gp: 32, altitude: 750, planetId: 1},
+          {id: 1, name: 'Madis Moon 1', ores: [ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_NATRON_INDEX, ORE_ACANTHITE_INDEX], gp: 7, altitude: 0, planetId: 10},
+          {id: 2, name: 'Madis Moon 2', ores: [ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_MALACHITE_INDEX, ORE_PETALITE_INDEX], gp: 8, altitude: 0, planetId: 11},
+          {id: 11, name: 'Madis Moon 3', ores:  [ORE_BAUXITE_INDEX, ORE_QUARTZ_INDEX, ORE_CHROMITE_INDEX, ORE_GARNIERITE_INDEX], gp: 11, altitude: 0, planetId: 12},
+        {id: 30, name: 'Sanctuary', ores: [ORE_BAUXITE_INDEX, ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX], gp: 61, altitude: 80, planetId: 26},
+        {id: 23, name: 'Sicari', ores: [ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_PYRITE_INDEX, ORE_GOLDNUGGETS_INDEX, ORE_VANADINITE_INDEX], gp: 37, altitude: 130},
+        {id: 24, name: 'Sinnen', ores: [ORE_BAUXITE_INDEX, ORE_COAL_INDEX, ORE_CHROMITE_INDEX, ORE_CRYOLITE_INDEX, ORE_COLUMBITE_INDEX], gp: 40, altitude: 317},
+          {id: 15, name: 'Sinnen Moon 1', ores: [ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_NATRON_INDEX, ORE_KOLBECKITE_INDEX, ORE_PETALITE_INDEX], gp: 12, altitude: 0},
 //        {id: 22, name: 'Symeon', ores: [0, 4, 9, 12, 20], gp: 36, altitude: 39},
-        {id: 25, name: 'Talemai', ores: [0, 1, 2, 3, 5, 7, 10], gp: 42, altitude: 580, planetId: 4},
-          {id: 12, name: 'Talemai Moon 1', ores: [ 1, 2, 3, 5, 20], gp: 11, altitude: 0, planetId: 42},
-          {id: 3, name: 'Talemai Moon 2', ores: [0, 1, 3, 4, 16], gp: 8, altitude: 0, planetId: 40},
-          {id: 4, name: 'Talemai Moon 3', ores: [0, 1, 2, 7, 18], gp: 8, altitude: 0, planetId: 41},
-        {id: 28, name: 'Teoma', ores: [1, 2, 7, 10, 13 ], gp: 45, altitude: 700, planetId: 8},
-        {id: 21, name: 'Thades', ores: [0, 1, 2, 3, 6, 9], gp: 36, altitude: 13640, planetId: 3},
-          {id: 7, name: 'Thades Moon 1', ores: [0, 1, 6, 11], gp: 10, altitude: 0, planetId: 30},
-          {id: 10, name: 'Thades Moon 2', ores: [2, 3, 5, 9], gp: 11, altitude: 0, planetId: 31}
+        {id: 25, name: 'Talemai', ores: [ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_NATRON_INDEX, ORE_GARNIERITE_INDEX, ORE_KOLBECKITE_INDEX], gp: 42, altitude: 580, planetId: 4},
+          {id: 12, name: 'Talemai Moon 1', ores: [ORE_BAUXITE_INDEX, ORE_COAL_INDEX, ORE_QUARTZ_INDEX, ORE_CHROMITE_INDEX, ORE_GARNIERITE_INDEX, ORE_COBALTITE_INDEX], gp: 11, altitude: 0, planetId: 42},
+          {id: 3, name: 'Talemai Moon 2', ores: [ORE_BAUXITE_INDEX, ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_LIMESTONE_INDEX, ORE_PYRITE_INDEX, ORE_CRYOLITE_INDEX], gp: 8, altitude: 0, planetId: 40},
+          {id: 4, name: 'Talemai Moon 3', ores: [ORE_BAUXITE_INDEX, ORE_HEMATITE_INDEX, ORE_MALACHITE_INDEX, ORE_ACANTHITE_INDEX, ORE_GOLDNUGGETS_INDEX], gp: 8, altitude: 0, planetId: 41},
+        {id: 28, name: 'Teoma', ores: [ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_NATRON_INDEX, ORE_PETALITE_INDEX, ORE_CRYOLITE_INDEX], gp: 45, altitude: 700, planetId: 8},
+        {id: 21, name: 'Thades', ores: [ORE_BAUXITE_INDEX, ORE_COAL_INDEX, ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_MALACHITE_INDEX, ORE_GARNIERITE_INDEX], gp: 36, altitude: 13640, planetId: 3},
+          {id: 7, name: 'Thades Moon 1', ores: [ORE_BAUXITE_INDEX, ORE_COAL_INDEX, ORE_MALACHITE_INDEX, ORE_PYRITE_INDEX], gp: 10, altitude: 0, planetId: 30},
+          {id: 10, name: 'Thades Moon 2', ores: [ORE_HEMATITE_INDEX, ORE_QUARTZ_INDEX, ORE_LIMESTONE_INDEX, ORE_GARNIERITE_INDEX], gp: 11, altitude: 0, planetId: 31}
       ]},
       {provide: 'ORES', useValue: [
         {name: 'Bauxite',    tier: 1, hc: 10, quanta: 90,   color: 'rgb(214, 255, 255)',  order: 10,  itemId: 262147665},

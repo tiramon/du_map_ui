@@ -3,7 +3,7 @@ import { registerLocaleData } from '@angular/common';
 
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,10 +23,7 @@ import localeDe from '@angular/common/locales/de';
 registerLocaleData(localeDe);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoadingComponent
-  ],
+  declarations: [AppComponent, LoadingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,9 +42,9 @@ registerLocaleData(localeDe);
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BasicAuthInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
