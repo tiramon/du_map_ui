@@ -23,16 +23,16 @@ export class DetailWindowComponent implements OnInit {
 
   constructor(
     private eventService: EventService,
-    @Inject('ORES') public oreNames: {name, tier, color, hc, quanta}[]
-  ) { }
+    @Inject('ORES') public oreNames: { name; tier; color; hc; quanta }[],
+  ) {}
 
   ngOnInit() {
     // changes the shown face and scan that was selected by a click on the map
-    this.eventService.faceSelected.subscribe( f => {
+    this.eventService.faceSelected.subscribe(f => {
       this.face = f;
       this.scan = this.face.scan;
       if (this.scan) {
-        this.postFix = (this.scan.time < this.demeter) ? 'L' : 'L/h';
+        this.postFix = this.scan.time < this.demeter ? 'L' : 'L/h';
       }
     });
 
@@ -54,7 +54,15 @@ export class DetailWindowComponent implements OnInit {
 
   posLink() {
     // tslint:disable-next-line:max-line-length
-    return `::pos{0,${this.face.duEntityId},${(Math.round(this.face.latitude * 10000) / 10000).toFixed(4)},${(Math.round(this.face.longitude * 10000) / 10000).toFixed(4)},0.0}`;
+    if (this.face) {
+      return `::pos{0,${this.face.duEntityId},${(
+        Math.round(this.face.latitude * 10000) / 10000
+      ).toFixed(4)},${(Math.round(this.face.longitude * 10000) / 10000).toFixed(
+        4
+      )},0.0}`;
+    } else {
+      return `no valid tile selected`;
+    }
   }
 
   /**
@@ -76,7 +84,10 @@ export class DetailWindowComponent implements OnInit {
   }
 
   getUsersLocale(defaultValue: string): string {
-    if (typeof window === 'undefined' || typeof window.navigator === 'undefined') {
+    if (
+      typeof window === 'undefined' ||
+      typeof window.navigator === 'undefined'
+    ) {
       return defaultValue;
     }
     const wn = window.navigator as any;
@@ -88,7 +99,7 @@ export class DetailWindowComponent implements OnInit {
     return lang;
   }
 
-  sumOre(scan: Scan): number  {
+  sumOre(scan: Scan): number {
     return Scan.sumOre(scan);
   }
 
@@ -114,11 +125,17 @@ export class DetailWindowComponent implements OnInit {
 
   onScanClick() {
     // tslint:disable-next-line:max-line-length
-    let out = `Planet: ${this.scan.planet}\nTile: ${this.scan.tileId}\nScaned by: ${this.scan.owner}\n${this.posLink()}\n${new DatePipe(this.getUsersLocale('en-US')).transform(this.scan.time, 'MMM dd, y HH:mm')}\n`;
+    let out = `Planet: ${this.scan.planet}\nTile: ${
+      this.scan.tileId
+    }\nScaned by: ${this.scan.owner}\n${this.posLink()}\n${new DatePipe(
+      this.getUsersLocale('en-US')
+    ).transform(this.scan.time, 'MMM dd, y HH:mm')}\n`;
     for (const ore of this.oreNames) {
       if (this.scan.ores[ore.name]) {
         out += `\n${ore.name}:${'            '.slice(ore.name.length)} `;
-        out += `${'         '.slice(this.scan.ores[ore.name].toLocaleString().length)}${this.scan.ores[ore.name].toLocaleString()}`;
+        out += `${'         '.slice(
+          this.scan.ores[ore.name].toLocaleString().length
+        )}${this.scan.ores[ore.name].toLocaleString()}`;
       }
     }
     this.copyToClipboard('```' + out + '```');
