@@ -54,6 +54,8 @@ export class MapComponent implements OnInit {
     private router: Router,
     @Inject('PLANETS') public planets
   ) {
+    // this.handleWarningDialogs();
+
     // hides the addscan and setting dialog if a user gets loged out
     this.eventService.loginChange.subscribe((logedIn: boolean) => {
       if (!logedIn) {
@@ -62,25 +64,39 @@ export class MapComponent implements OnInit {
         return;
       }
 
+      if (router.navigated) {
+        const lastTile: SelectedTile = JSON.parse(
+          localStorage.getItem('lastSelectedTile')
+        );
+        if (lastTile) {
+          this.modelChanged.next(lastTile);
+        }
+      }
+    });
+  }
+
+  private handleWarningDialogs() {
       const warningread = localStorage.getItem(this.localStorageKeyWarningRead);
-      const warningread2 = localStorage.getItem(this.localStorageKeyWarningRead + '2');
+    const warningread2 = localStorage.getItem(
+      this.localStorageKeyWarningRead + '2'
+    );
 
       if (!warningread) {
-        toastr.warning(
+      this.toastr.warning(
           'The order of the ores in the add dialog has been altered to better fit the ingame order in the scans.\n\n' +
           'If you find ores in the wrong order, please tell me in Discord.',
           'Changed ore order',
           {
             disableTimeOut: true,
             positionClass: 'toast-center-center',
-            closeButton: true
+          closeButton: true,
           }
         );
         localStorage.setItem(this.localStorageKeyWarningRead, 'true');
       }
 
       if (!warningread2) {
-        toastr.warning(
+      this.toastr.warning(
           'The order of the ores in the add dialog has been altered again.\n' +
           'This time cobaltite and malachite have moved.\n\n' +
           'If you find ores in the wrong order, please tell me in Discord.',
@@ -88,21 +104,11 @@ export class MapComponent implements OnInit {
           {
             disableTimeOut: true,
             positionClass: 'toast-center-center',
-            closeButton: true
+          closeButton: true,
           }
         );
         localStorage.setItem(this.localStorageKeyWarningRead + '2', 'true');
       }
-
-      console.log(router.navigated);
-      if (router.navigated) {
-        const lastTile: SelectedTile = JSON.parse(localStorage.getItem('lastSelectedTile'));
-        console.log(lastTile);
-        if (lastTile) {
-          this.modelChanged.next(lastTile);
-        }
-      }
-    });
   }
 
   /**
